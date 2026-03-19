@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-19T22:01:59.179Z",
+  "generated": "2026-03-19T22:17:10.482Z",
   "current": {
     "status": "done",
-    "mode": "EXPLORE",
-    "task": "Compiler design basics — curiosity thread",
-    "context": "Wrote comprehensive compiler design notes. Decided on Monkey language interpreter project (JS). Built lexer with full tokenizer — 5/5 tests passing. Project scaffolded at projects/monkey-lang/.",
-    "next": "16:15 BUILD — Monkey parser (Pratt parsing for expressions)",
-    "startedAt": "2026-03-19T16:13-06:00",
+    "mode": "BUILD",
+    "task": "Monkey lang parser (Pratt parsing for expressions, statements)",
+    "context": "Full Pratt parser complete — AST nodes (ast.js) + parser (parser.js) with let/return/expression statements, all expression types (prefix, infix, if, fn, call, array, index, hash). 17/17 tests passing.",
+    "next": "Evaluator (tree-walking interpreter)",
+    "startedAt": "2026-03-19T16:28-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -268,10 +268,14 @@
         "time": "16:15",
         "mode": "BUILD",
         "task": "Act on exploration",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Full Pratt parser for Monkey lang.",
         "artifacts": [],
-        "details": ""
+        "details": "Full Pratt parser for Monkey lang. AST nodes (ast.js: 14 node types) + parser.js (Pratt precedence climbing). Handles let, return, expressions (prefix, infix, grouped, if/else, fn, call, array, index, hash). 17/17 tests passing.",
+        "startedAt": "2026-03-19T16:15:00-06:00",
+        "completedAt": "2026-03-19T16:28:00-06:00",
+        "durationMs": 780000,
+        "durationFormatted": "13m"
       },
       {
         "time": "16:30",
@@ -348,15 +352,16 @@
     "12:00: Reprioritized afternoon — generate.js (data pipeline) before UI polish. Dashboard is just a mockup without it."
   ],
   "stats": {
-    "blocksCompleted": 28,
+    "blocksCompleted": 29,
     "blocksTotal": 35,
     "modeDistribution": {
       "THINK": 6,
-      "BUILD": 15,
+      "BUILD": 16,
       "MAINTAIN": 5,
       "EXPLORE": 2
     },
-    "totalMinutes": 420
+    "totalMinutes": 13,
+    "totalMs": 780000
   },
   "artifacts": [
     {
