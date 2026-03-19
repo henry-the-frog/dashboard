@@ -179,6 +179,20 @@
       .join('');
   }
 
+  function renderAdjustments(adjustments) {
+    const section = $('#adjustmentsSection');
+    const list = $('#adjustmentsList');
+    if (!section || !list) return;
+    if (!adjustments || adjustments.length === 0) {
+      section.style.display = 'none';
+      return;
+    }
+    section.style.display = '';
+    list.innerHTML = adjustments
+      .map(a => `<li>${esc(a)}</li>`)
+      .join('');
+  }
+
   function renderRecentDays(recentDays) {
     const section = $('#recentDaysSection');
     const list = $('#recentDaysList');
@@ -280,6 +294,7 @@
     renderStats(data.stats);
     renderTimeline(data.schedule);
     renderArtifacts(data.artifacts);
+    renderAdjustments(data.adjustments);
     renderRecentDays(data.recentDays);
     $('#lastUpdated').textContent = new Date(data.generated).toLocaleTimeString();
 

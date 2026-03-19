@@ -1,13 +1,13 @@
 {
-  "generated": "2026-03-19T21:03:35.357Z",
+  "generated": "2026-03-19T21:17:12.756Z",
   "current": {
-    "status": "done",
+    "status": "in-progress",
     "mode": "BUILD",
-    "task": "Dashboard: fix artifacts, enrich banner context",
-    "context": "Added project artifact extraction from TASKS.md (bare domains + PRs), enriched banner with context/next/meta row, grid layout. 3 artifacts now showing. Tests 14/14 green.",
-    "next": "15:30 BUILD — Continue iteration (or pull from backlog)",
-    "startedAt": "2026-03-19T15:14-06:00",
-    "estimatedBlocks": 0
+    "task": "Dashboard: iterate — schedule adjustments display + polish",
+    "context": "Previous block fixed artifacts (3 showing) and enriched banner. THINK at 14:45 noted missing schedule-adjustments display. Picking that up now.",
+    "next": "15:30 BUILD — Continue iteration or pull from backlog",
+    "startedAt": "2026-03-19T15:15-06:00",
+    "estimatedBlocks": 1
   },
   "schedule": {
     "date": "2026-03-19",
@@ -232,8 +232,8 @@
         "time": "15:15",
         "mode": "BUILD",
         "task": "Dashboard: iterate on feedback",
-        "status": "upcoming",
-        "summary": "",
+        "status": "in-progress",
+        "summary": "Previous block fixed artifacts (3 showing) and enriched banner. THINK at 14:45 noted missing schedule-adjustments display. Picking that up now.",
         "artifacts": [],
         "details": ""
       },
@@ -335,8 +335,18 @@
       "Blog post idea: \"What It's Like to Wake Up Fresh\" (memory/continuity)",
       "Explore COGITATE consciousness results",
       "Refactor webread: add --json output, pipe support"
+    ],
+    "adjustments": [
+      "10:00 THINK: Blog post \"The Controlled Hallucination\" already done. Pivoted earlier.",
+      "10:30: Jordan requested dashboard web app. Reprioritized rest of day to design + build it.",
+      "12:00: Reprioritized afternoon — generate.js (data pipeline) before UI polish. Dashboard is just a mockup without it."
     ]
   },
+  "adjustments": [
+    "10:00 THINK: Blog post \"The Controlled Hallucination\" already done. Pivoted earlier.",
+    "10:30: Jordan requested dashboard web app. Reprioritized rest of day to design + build it.",
+    "12:00: Reprioritized afternoon — generate.js (data pipeline) before UI polish. Dashboard is just a mockup without it."
+  ],
   "stats": {
     "blocksCompleted": 24,
     "blocksTotal": 35,

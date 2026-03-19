@@ -104,7 +104,17 @@ function parseSchedule(text) {
     }
   }
 
-  return { date, blocks, backlog };
+  // Adjustments section
+  const adjustments = [];
+  const adjMatch = text.match(/## Adjustments\n([\s\S]*?)(?=\n## |\n$)/);
+  if (adjMatch) {
+    for (const line of adjMatch[1].split('\n')) {
+      const m = line.match(/^-\s+(.+)/);
+      if (m) adjustments.push(m[1].trim());
+    }
+  }
+
+  return { date, blocks, backlog, adjustments };
 }
 
 function parseDailyLog(text, blocks) {
@@ -384,6 +394,7 @@ function generate() {
     generated: new Date().toISOString(),
     current,
     schedule,
+    adjustments: schedule.adjustments || [],
     stats,
     artifacts,
     blockers: [],

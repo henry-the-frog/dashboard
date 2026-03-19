@@ -347,6 +347,26 @@ test('full generation against real workspace', () => {
   }
 });
 
+test('parses schedule adjustments', () => {
+  setup();
+  fs.writeFileSync(path.join(TEMP_WS, 'SCHEDULE.md'), `# Schedule — 2026-03-19
+
+## Backlog
+
+## Timeline
+- 09:00 🧠 THINK — Morning standup
+
+## Adjustments
+- 10:00: Pivoted to dashboard work
+- 12:00: Reprioritized afternoon for data pipeline
+`);
+  const data = runGenerate(TEMP_WS);
+  assert.strictEqual(data.adjustments.length, 2);
+  assert(data.adjustments[0].includes('Pivoted to dashboard'));
+  assert(data.adjustments[1].includes('data pipeline'));
+  teardown();
+});
+
 // Cleanup any leftover temp dirs
 try { fs.rmSync(TEMP_WS, { recursive: true, force: true }); } catch {}
 try { fs.rmSync(path.join(__dirname, 'temp-output.json'), { force: true }); } catch {}
