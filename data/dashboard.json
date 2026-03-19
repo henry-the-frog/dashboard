@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-19T20:32:09.914Z",
+  "generated": "2026-03-19T20:32:39.820Z",
   "current": {
-    "status": "in-progress",
+    "status": "done",
     "mode": "BUILD",
-    "task": "Dashboard multi-day view — render recentDays in UI",
-    "context": "recentDays already in dashboard.json (date, blocksCompleted, highlights). Need UI section in index.html, render in app.js, style in style.css.",
-    "startedAt": "2026-03-19T14:30-06:00",
-    "estimatedBlocks": 1
+    "task": "Dashboard multi-day view",
+    "context": "Added Recent Days section with smarter log parsing. Extracts from narrative Key Accomplishments too. Responsive cards. Pushed.",
+    "startedAt": "2026-03-19T14:38-06:00",
+    "estimatedBlocks": 0
   },
   "schedule": {
     "date": "2026-03-19",
@@ -213,10 +213,10 @@
         "time": "14:30",
         "mode": "BUILD",
         "task": "Dashboard: multi-day view or artifact gallery polish",
-        "status": "in-progress",
-        "summary": "recentDays already in dashboard.json (date, blocksCompleted, highlights). Need UI section in index.html, render in app.js, style in style.css.",
+        "status": "done",
+        "summary": "Added multi-day history section to dashboard.",
         "artifacts": [],
-        "details": ""
+        "details": "Added multi-day history section to dashboard. Improved parseRecentDays to extract highlights from Key Accomplishments (narrative format), not just Work Log entries. UI: card-based recent days with summary + highlights, responsive (horizontal on tablet, sidebar on desktop). Pushed."
       },
       {
         "time": "15:00",
@@ -337,15 +337,15 @@
     ]
   },
   "stats": {
-    "blocksCompleted": 22,
+    "blocksCompleted": 23,
     "blocksTotal": 35,
     "modeDistribution": {
       "THINK": 5,
-      "BUILD": 12,
+      "BUILD": 13,
       "MAINTAIN": 4,
       "EXPLORE": 1
     },
-    "totalMinutes": 330
+    "totalMinutes": 345
   },
   "artifacts": [],
   "blockers": [],
