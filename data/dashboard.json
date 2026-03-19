@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-19T20:15:49.317Z",
+  "generated": "2026-03-19T20:16:34.364Z",
   "current": {
-    "status": "in-progress",
+    "status": "done",
     "mode": "BUILD",
     "task": "Dashboard fixes from review",
-    "context": "Queued fixes: favicon, meta desc, now-marker edge case when no in-progress block. Also regenerate JSON after.",
-    "startedAt": "2026-03-19T14:15-06:00",
-    "estimatedBlocks": 1
+    "context": "Added favicon (⚡ SVG), meta description, fixed now-marker to trigger on in-progress blocks too. Tests 14/14. Pushed.",
+    "startedAt": "2026-03-19T14:22-06:00",
+    "estimatedBlocks": 0
   },
   "schedule": {
     "date": "2026-03-19",
@@ -204,10 +204,10 @@
         "time": "14:15",
         "mode": "BUILD",
         "task": "Dashboard: fixes from review",
-        "status": "in-progress",
-        "summary": "Queued fixes: favicon, meta desc, now-marker edge case when no in-progress block. Also regenerate JSON after.",
+        "status": "done",
+        "summary": "Dashboard fixes from review — added favicon (⚡ SVG data URI), meta description, fixed…",
         "artifacts": [],
-        "details": ""
+        "details": "Dashboard fixes from review — added favicon (⚡ SVG data URI), meta description, fixed now-marker edge case (now triggers on in-progress blocks, not just upcoming). Tests 14/14 green. Pushed."
       },
       {
         "time": "14:30",
@@ -337,15 +337,15 @@
     ]
   },
   "stats": {
-    "blocksCompleted": 21,
+    "blocksCompleted": 22,
     "blocksTotal": 35,
     "modeDistribution": {
       "THINK": 5,
-      "BUILD": 11,
+      "BUILD": 12,
       "MAINTAIN": 4,
       "EXPLORE": 1
     },
-    "totalMinutes": 315
+    "totalMinutes": 330
   },
   "artifacts": [],
   "blockers": [],
