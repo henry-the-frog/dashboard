@@ -36,6 +36,7 @@ function parseCurrent(text) {
     mode: get('mode') || 'THINK',
     task: get('task') || '',
     context: get('context') || '',
+    next: get('next') || '',
     startedAt: get('updated') || new Date().toISOString(),
     estimatedBlocks: parseInt(get('est'), 10) || 0,
   };
@@ -175,6 +176,69 @@ function extractArtifacts(blocks) {
   return artifacts;
 }
 
+// Extract project artifacts from TASKS.md (repos, blog, PRs)
+function parseProjectArtifacts(tasksText) {
+  if (!tasksText) return [];
+  const artifacts = [];
+  const seen = new Set();
+
+  // Match URLs in tasks (including bare domain references like **github.com/foo/bar**)
+  const urlPattern = /https?:\/\/[^\s)>\]]+/g;
+  const bareDomainPattern = /\*\*([a-z0-9-]+\.github\.io(?:\/[^\s*]+)?|github\.com\/[^\s*]+)\*\*/g;
+  const lines = tasksText.split('\n');
+  for (const line of lines) {
+    // Full URLs
+    const urls = line.match(urlPattern) || [];
+    // Bare domain refs in bold
+    let m;
+    while ((m = bareDomainPattern.exec(line)) !== null) {
+      urls.push('https://' + m[1]);
+    }
+    bareDomainPattern.lastIndex = 0;
+
+    for (const url of urls) {
+      if (seen.has(url)) continue;
+      seen.add(url);
+
+      let type = 'link';
+      let title = '';
+      if (url.includes('/pull/')) {
+        type = 'pr';
+        title = 'PR #' + (url.match(/\/pull\/(\d+)/)?.[1] || '');
+      } else if (url.includes('github.io')) {
+        type = 'site';
+        const parts = url.replace(/https?:\/\//, '').split('/');
+        title = parts[0].replace('.github.io', '') + (parts[1] ? '/' + parts[1] : '');
+      } else if (url.includes('github.com')) {
+        type = 'repo';
+        const m = url.match(/github\.com\/([^/]+\/[^/\s]+)/);
+        title = m ? m[1] : url.split('/').pop();
+      }
+      if (!title) title = url.split('/').slice(-2).join('/').replace(/-/g, ' ');
+
+      const desc = line.replace(/^[\s\-\[\]x*]+/, '').replace(urlPattern, '').replace(bareDomainPattern, '').replace(/[→*]+/g, '').replace(/\s+/g, ' ').trim();
+
+      artifacts.push({ type, title, url, description: desc.substring(0, 100) });
+    }
+  }
+
+  // Match PR references like PR #50001 without URLs
+  for (const line of lines) {
+    const prRefs = line.match(/PR\s+#(\d+)/g);
+    if (!prRefs) continue;
+    for (const ref of prRefs) {
+      const num = ref.match(/#(\d+)/)[1];
+      const url = `https://github.com/danny-avila/LibreChat/pull/${num}`;
+      if (seen.has(url)) continue;
+      seen.add(url);
+      const desc = line.replace(/^[\s\-\[\]x*]+/, '').replace(/[*]/g, '').trim();
+      artifacts.push({ type: 'pr', title: `PR #${num}`, url, description: desc.substring(0, 100) });
+    }
+  }
+
+  return artifacts;
+}
+
 function computeStats(blocks) {
   const completed = blocks.filter(b => b.status === 'done').length;
   const dist = {};
@@ -302,7 +366,18 @@ function generate() {
   markCurrentBlock(schedule.blocks, current);
 
   const stats = computeStats(schedule.blocks);
-  const artifacts = extractArtifacts(schedule.blocks);
+  const blockArtifacts = extractArtifacts(schedule.blocks);
+  const tasksText = readFile('TASKS.md');
+  const projectArtifacts = parseProjectArtifacts(tasksText);
+  // Merge: project artifacts first, then block artifacts (dedup by URL)
+  const seenUrls = new Set();
+  const artifacts = [];
+  for (const a of [...projectArtifacts, ...blockArtifacts]) {
+    if (!seenUrls.has(a.url)) {
+      seenUrls.add(a.url);
+      artifacts.push(a);
+    }
+  }
   const recentDays = parseRecentDays();
 
   const dashboard = {

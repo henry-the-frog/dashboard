@@ -71,6 +71,17 @@
       banner.style.borderBottomColor = `var(--mode-${current.mode.toLowerCase()}, var(--border))`;
     }
     $('#currentTask').textContent = current.task;
+
+    // Context line
+    const ctxEl = $('#currentContext');
+    if (ctxEl) ctxEl.textContent = current.context || '';
+
+    // Next task
+    const nextEl = $('#currentNext');
+    if (nextEl) {
+      nextEl.textContent = current.next ? `Next → ${current.next}` : '';
+    }
+
     const ind = $('#statusIndicator');
     ind.textContent = current.status;
     ind.className = 'status-indicator';
@@ -157,10 +168,11 @@
       return;
     }
     section.style.display = '';
+    const typeIcons = { pr: '🔀', repo: '📦', site: '🌐', link: '🔗' };
     grid.innerHTML = artifacts
       .map((a) => `
         <a class="artifact-card" href="${esc(a.url)}" target="_blank">
-          <div class="artifact-type">${esc(a.type)}</div>
+          <div class="artifact-type">${typeIcons[a.type] || '📎'} ${esc(a.type)}</div>
           <div class="artifact-title">${esc(a.title)}</div>
           ${a.description ? `<div class="artifact-desc">${esc(a.description)}</div>` : ''}
         </a>`)
