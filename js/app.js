@@ -114,9 +114,9 @@
 
     timeline.innerHTML = schedule.blocks
       .map((block, i) => {
-        // Insert "now" marker before the first upcoming block after current time
+        // Insert "now" marker before the first block that's after current time and not done
         let nowMarker = '';
-        if (!nowInserted && block.status === 'upcoming' && block.time > nowStr) {
+        if (!nowInserted && block.time >= nowStr && (block.status === 'upcoming' || block.status === 'in-progress')) {
           nowInserted = true;
           nowMarker = `<div class="now-marker"><span class="now-label">now</span><div class="now-line"></div></div>`;
         }
