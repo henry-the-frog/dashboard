@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-19T21:45:18.268Z",
+  "generated": "2026-03-19T22:01:59.179Z",
   "current": {
-    "status": "in-progress",
-    "mode": "MAINTAIN",
-    "task": "Commit, push all repos",
-    "context": "Previous BUILD block added live elapsed timer + time-remaining stat. Now committing everything and pushing.",
-    "next": "16:00 EXPLORE — Compiler design basics",
-    "startedAt": "2026-03-19T15:45-06:00",
+    "status": "done",
+    "mode": "EXPLORE",
+    "task": "Compiler design basics — curiosity thread",
+    "context": "Wrote comprehensive compiler design notes. Decided on Monkey language interpreter project (JS). Built lexer with full tokenizer — 5/5 tests passing. Project scaffolded at projects/monkey-lang/.",
+    "next": "16:15 BUILD — Monkey parser (Pratt parsing for expressions)",
+    "startedAt": "2026-03-19T16:13-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -250,19 +250,19 @@
         "time": "15:45",
         "mode": "MAINTAIN",
         "task": "Commit, push all repos",
-        "status": "in-progress",
-        "summary": "Previous BUILD block added live elapsed timer + time-remaining stat. Now committing everything and pushing.",
+        "status": "done",
+        "summary": "Committed all repos. Dashboard pushed (26/35 blocks done).",
         "artifacts": [],
-        "details": ""
+        "details": "Committed all repos. Dashboard pushed (26/35 blocks done). Workspace committed locally."
       },
       {
         "time": "16:00",
         "mode": "EXPLORE",
         "task": "Compiler design basics (curiosity thread)",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Compiler design deep dive.",
         "artifacts": [],
-        "details": ""
+        "details": "Compiler design deep dive. Wrote comprehensive notes (memory/compiler-design-notes.md) covering full pipeline (lexing→parsing→semantic→IR→optimization→codegen). Decided on Monkey language interpreter in JS as multi-day project. Built complete lexer (projects/monkey-lang/src/lexer.js) — tokenizes operators, keywords, strings, idents, ints. 5/5 tests passing."
       },
       {
         "time": "16:15",
@@ -348,15 +348,15 @@
     "12:00: Reprioritized afternoon — generate.js (data pipeline) before UI polish. Dashboard is just a mockup without it."
   ],
   "stats": {
-    "blocksCompleted": 26,
+    "blocksCompleted": 28,
     "blocksTotal": 35,
     "modeDistribution": {
       "THINK": 6,
       "BUILD": 15,
-      "MAINTAIN": 4,
-      "EXPLORE": 1
+      "MAINTAIN": 5,
+      "EXPLORE": 2
     },
-    "totalMinutes": 390
+    "totalMinutes": 420
   },
   "artifacts": [
     {
