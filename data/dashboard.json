@@ -1,11 +1,11 @@
 {
-  "generated": "2026-03-19T20:32:39.820Z",
+  "generated": "2026-03-19T20:46:16.576Z",
   "current": {
     "status": "done",
-    "mode": "BUILD",
-    "task": "Dashboard multi-day view",
-    "context": "Added Recent Days section with smarter log parsing. Extracts from narrative Key Accomplishments too. Responsive cards. Pushed.",
-    "startedAt": "2026-03-19T14:38-06:00",
+    "mode": "THINK",
+    "task": "Review dashboard usefulness — what's working, what's missing",
+    "context": "Full review done. Key gaps: empty artifacts (URL extraction too narrow), no project/blog links, stale data between blocks, weak current-task context in banner. Priority: fix artifacts + enrich banner.",
+    "startedAt": "2026-03-19T14:52-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -216,7 +216,7 @@
         "status": "done",
         "summary": "Added multi-day history section to dashboard.",
         "artifacts": [],
-        "details": "Added multi-day history section to dashboard. Improved parseRecentDays to extract highlights from Key Accomplishments (narrative format), not just Work Log entries. UI: card-based recent days with summary + highlights, responsive (horizontal on tablet, sidebar on desktop). Pushed."
+        "details": "Added multi-day history section to dashboard."
       },
       {
         "time": "15:00",
