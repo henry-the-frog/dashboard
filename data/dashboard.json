@@ -1,13 +1,13 @@
 {
-  "generated": "2026-03-19T21:03:00.332Z",
+  "generated": "2026-03-19T21:03:35.357Z",
   "current": {
-    "status": "in-progress",
+    "status": "done",
     "mode": "BUILD",
     "task": "Dashboard: fix artifacts, enrich banner context",
-    "context": "THINK review identified key gaps — artifacts section always empty (only extracts URLs from log text), banner lacks rich context. Adding project/blog/PR artifacts from workspace files, and enriching the current-task banner.",
-    "next": "15:30 BUILD — Continue iteration",
-    "startedAt": "2026-03-19T15:00-06:00",
-    "estimatedBlocks": 2
+    "context": "Added project artifact extraction from TASKS.md (bare domains + PRs), enriched banner with context/next/meta row, grid layout. 3 artifacts now showing. Tests 14/14 green.",
+    "next": "15:30 BUILD — Continue iteration (or pull from backlog)",
+    "startedAt": "2026-03-19T15:14-06:00",
+    "estimatedBlocks": 0
   },
   "schedule": {
     "date": "2026-03-19",
@@ -223,10 +223,10 @@
         "time": "15:00",
         "mode": "THINK",
         "task": "Review: is the dashboard actually useful? What's missing?",
-        "status": "in-progress",
-        "summary": "THINK review identified key gaps — artifacts section always empty (only extracts URLs from log text), banner lacks rich context. Adding project/blog/PR artifacts from workspace files, and enriching the current-task banner.",
+        "status": "done",
+        "summary": "Fixed artifacts + enriched banner.",
         "artifacts": [],
-        "details": ""
+        "details": "Fixed artifacts + enriched banner. generate.js now parses TASKS.md for project URLs (bare domains like **github.io** + PR refs). Banner redesigned: grid layout with context line + \"Next →\" indicator. 3 artifacts showing (blog site, webread repo, PR #50001). Tests 14/14 green. Pushed."
       },
       {
         "time": "15:15",
@@ -338,15 +338,15 @@
     ]
   },
   "stats": {
-    "blocksCompleted": 23,
+    "blocksCompleted": 24,
     "blocksTotal": 35,
     "modeDistribution": {
-      "THINK": 5,
+      "THINK": 6,
       "BUILD": 13,
       "MAINTAIN": 4,
       "EXPLORE": 1
     },
-    "totalMinutes": 345
+    "totalMinutes": 360
   },
   "artifacts": [
     {
