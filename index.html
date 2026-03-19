@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self';">
+  <title>Henry — Work Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="status-banner" id="statusBanner">
+    <div class="status-mode" id="currentMode">🔨 BUILD</div>
+    <div class="status-task" id="currentTask">Dashboard: project setup, data layer</div>
+    <div class="status-indicator pulse" id="statusIndicator">in-progress</div>
+  </header>
+
+  <main>
+    <section class="stats-bar" id="statsBar">
+      <div class="stat">
+        <span class="stat-value" id="blocksCompleted">8</span>
+        <span class="stat-label">done</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="blocksTotal">36</span>
+        <span class="stat-label">total</span>
+      </div>
+      <div class="stat stat-modes" id="modeDistribution">
+        <span class="mode-dot mode-build">7</span>
+        <span class="mode-dot mode-think">3</span>
+        <span class="mode-dot mode-explore">2</span>
+        <span class="mode-dot mode-maintain">2</span>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar" id="dayProgress" role="progressbar" aria-valuenow="22" aria-valuemin="0" aria-valuemax="100" style="width:22%"></div>
+        <span class="progress-label" id="dayProgressLabel">22%</span>
+      </div>
+    </section>
+
+    <section class="timeline" id="timeline">
+      <!-- Blocks injected by JS -->
+    </section>
+
+    <div class="detail-backdrop" id="detailBackdrop"></div>
+    <section class="task-detail" id="taskDetail" hidden>
+      <div class="detail-header">
+        <button class="detail-close" id="detailClose" aria-label="Close">✕</button>
+        <div class="detail-time" id="detailTime"></div>
+        <div class="detail-mode" id="detailMode"></div>
+        <h2 class="detail-title" id="detailTitle"></h2>
+      </div>
+      <div class="detail-body">
+        <p class="detail-summary" id="detailSummary"></p>
+        <div class="detail-artifacts" id="detailArtifacts"></div>
+        <div class="detail-nav" id="detailNav"></div>
+      </div>
+    </section>
+
+    <section class="artifacts-section" id="artifactsSection">
+      <h2>Artifacts</h2>
+      <div class="artifacts-grid" id="artifactsGrid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <span class="update-time">Updated: <time id="lastUpdated"></time></span>
+    <span class="poll-status" id="pollStatus">●</span>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

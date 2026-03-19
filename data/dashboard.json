@@ -1,0 +1,369 @@
+{
+  "generated": "2026-03-19T19:31:01.427Z",
+  "current": {
+    "status": "in-progress",
+    "mode": "BUILD",
+    "task": "Dashboard tests for generate.js",
+    "context": "Running existing tests, expanding coverage for edge cases",
+    "startedAt": "2026-03-19T13:30-06:00",
+    "estimatedBlocks": 1
+  },
+  "schedule": {
+    "date": "2026-03-19",
+    "blocks": [
+      {
+        "time": "09:00",
+        "mode": "THINK",
+        "task": "Morning standup",
+        "status": "done",
+        "summary": "Completed",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "09:15",
+        "mode": "BUILD",
+        "task": "Blog research: Anil Seth / AST",
+        "status": "done",
+        "summary": "Started Anil Seth / AST research (block ran out of time,…",
+        "artifacts": [],
+        "details": "Started Anil Seth / AST research (block ran out of time, partial)"
+      },
+      {
+        "time": "09:30",
+        "mode": "BUILD",
+        "task": "Blog research continued",
+        "status": "done",
+        "summary": "Completed",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "09:45",
+        "mode": "MAINTAIN",
+        "task": "Git status, PR #50001",
+        "status": "done",
+        "summary": "Git tidy, PR #50001 still open (mergeable, all checks green, awaiting…",
+        "artifacts": [],
+        "details": "Git tidy, PR #50001 still open (mergeable, all checks green, awaiting review)"
+      },
+      {
+        "time": "10:00",
+        "mode": "THINK",
+        "task": "Review research, sharpen thesis",
+        "status": "done",
+        "summary": "Blog post already written+pushed.",
+        "artifacts": [],
+        "details": "Blog post already written+pushed. Reviewed quality (strong). Pivoted schedule — pulling OS contribution forward to 10:15."
+      },
+      {
+        "time": "10:15",
+        "mode": "EXPLORE",
+        "task": "Scope OpenClaw #49949",
+        "status": "done",
+        "summary": "Completed",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "10:30",
+        "mode": "BUILD",
+        "task": "PRIORITY: Plan dashboard web app",
+        "status": "done",
+        "summary": "Implemented anthropic native web search provider (#49949).",
+        "artifacts": [],
+        "details": "Implemented anthropic native web search provider (#49949). Created plugin (createTool→null pattern), payload injection wrapper (createAnthropicNativeWebSearchWrapper), config resolver for domains/maxUses/userLocation. Wired into extra-params.ts stream chain. Committed."
+      },
+      {
+        "time": "10:45",
+        "mode": "THINK",
+        "task": "Dashboard architecture design & data model",
+        "status": "done",
+        "summary": "Dashboard architecture review.",
+        "artifacts": [],
+        "details": "Dashboard architecture review. Design doc solid — confirmed static JSON + polling + vanilla JS approach. Added detailed 11-block build plan to DASHBOARD-DESIGN.md. Key decisions: separate dashboard repo, regex parsing, MVP-first (static HTML → generate.js → deploy)."
+      },
+      {
+        "time": "11:00",
+        "mode": "BUILD",
+        "task": "Dashboard: project setup, data layer",
+        "status": "done",
+        "summary": "Dashboard project setup.",
+        "artifacts": [],
+        "details": "Dashboard project setup. Created dashboard/ with index.html, style.css (dark theme, mobile-first, 3 breakpoints), app.js (timeline rendering, polling, detail bottom sheet), sample dashboard.json with today's real data. All core layout components in place."
+      },
+      {
+        "time": "11:15",
+        "mode": "BUILD",
+        "task": "Dashboard: data layer continued",
+        "status": "done",
+        "summary": "Dashboard CSS polish.",
+        "artifacts": [],
+        "details": "Dashboard CSS polish. Redesigned timeline to dot-and-line (circular nodes + vertical connecting line). Added pulsing glow on active block, backdrop overlay for detail panel, Escape key close, smooth cubic-bezier transitions, mobile drag handle, font smoothing."
+      },
+      {
+        "time": "11:30",
+        "mode": "BUILD",
+        "task": "Dashboard: timeline component",
+        "status": "done",
+        "summary": "Dashboard JS refinement.",
+        "artifacts": [],
+        "details": "Dashboard JS refinement. Added Visibility API (pause polling when tab hidden), exponential error backoff, diff-aware rendering (skip if unchanged), arrow key navigation in detail panel, day progress bar, accessibility attrs (role/tabindex/aria-label), selected block highlight, close animation timing fix."
+      },
+      {
+        "time": "11:45",
+        "mode": "MAINTAIN",
+        "task": "Commit progress, check notifications",
+        "status": "done",
+        "summary": "Created henry-the-frog/work-dashboard repo on GitHub, pushed dashboard code, enabled…",
+        "artifacts": [],
+        "details": "Created henry-the-frog/work-dashboard repo on GitHub, pushed dashboard code, enabled GitHub Pages (henry-the-frog.github.io/work-dashboard/). Checked notifications — PR #50001 still open, no reviews yet."
+      },
+      {
+        "time": "12:00",
+        "mode": "THINK",
+        "task": "Dashboard architecture review",
+        "status": "done",
+        "summary": "Dashboard architecture review.",
+        "artifacts": [],
+        "details": "Dashboard architecture review."
+      },
+      {
+        "time": "12:15",
+        "mode": "BUILD",
+        "task": "generate.js: parse workspace files → dashboard.json",
+        "status": "done",
+        "summary": "generate.js v1 — parses CURRENT.md, SCHEDULE.md, daily logs into dashboard.json.",
+        "artifacts": [],
+        "details": "generate.js v1 — parses CURRENT.md, SCHEDULE.md, daily logs into dashboard.json. Handles strikethrough schedule pivots, extracts artifacts from URLs, computes mode stats, pulls recent days from memory/. Tests passing (35 blocks, 13 done). Scaffold is solid (clean HTML/CSS/JS, responsive, good polling). Identified critical gap: no generate.js yet — dashboard shows hardcoded data. Reprioritized afternoon to build data pipeline before UI polish."
+      },
+      {
+        "time": "12:30",
+        "mode": "BUILD",
+        "task": "generate.js: continued + tests",
+        "status": "done",
+        "summary": "generate.js edge cases — fixed summary truncation (sentence detection was fooled by…",
+        "artifacts": [],
+        "details": "generate.js edge cases — fixed summary truncation (sentence detection was fooled by periods in URLs/abbreviations; added min-length + lookahead). Wrote 8 unit+integration tests with temp fixture workspaces. All passing."
+      },
+      {
+        "time": "12:45",
+        "mode": "MAINTAIN",
+        "task": "Wire generate.js into MAINTAIN blocks, commit, push",
+        "status": "done",
+        "summary": "Wired generate.js into MAINTAIN workflow (added to HEARTBEAT.md checklist).",
+        "artifacts": [],
+        "details": "Wired generate.js into MAINTAIN workflow (added to HEARTBEAT.md checklist). Regenerated dashboard.json (35 blocks, 15 done). Committed."
+      },
+      {
+        "time": "13:00",
+        "mode": "BUILD",
+        "task": "Dashboard: polish UI (animations, stats accuracy)",
+        "status": "done",
+        "summary": "Dashboard UI polish — animated number counters (ease-out cubic), \"now\" time marker (red…",
+        "artifacts": [],
+        "details": "Dashboard UI polish — animated number counters (ease-out cubic), \"now\" time marker (red line between done/upcoming), block entrance animations (staggered fade-in), mode-colored detail panel + banner border, gradient progress bar with glow, hidden empty artifacts section."
+      },
+      {
+        "time": "13:15",
+        "mode": "BUILD",
+        "task": "Dashboard: mobile responsive fixes",
+        "status": "done",
+        "summary": "Dashboard mobile responsive — added ≤380px/≤767px breakpoints, safe-area-inset (iPhone),…",
+        "artifacts": [],
+        "details": "Dashboard mobile responsive — added ≤380px/≤767px breakpoints, safe-area-inset (iPhone), stats bar wrapping, bigger touch targets, swipe-to-dismiss detail panel."
+      },
+      {
+        "time": "13:30",
+        "mode": "BUILD",
+        "task": "Dashboard: tests for generate.js",
+        "status": "in-progress",
+        "summary": "Running existing tests, expanding coverage for edge cases",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "13:45",
+        "mode": "MAINTAIN",
+        "task": "Commit, push, verify live site",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "14:00",
+        "mode": "THINK",
+        "task": "Dashboard quality review on mobile + desktop",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "14:15",
+        "mode": "BUILD",
+        "task": "Dashboard: fixes from review",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "14:30",
+        "mode": "BUILD",
+        "task": "Dashboard: multi-day view or artifact gallery polish",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "15:00",
+        "mode": "THINK",
+        "task": "Review: is the dashboard actually useful? What's missing?",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "15:15",
+        "mode": "BUILD",
+        "task": "Dashboard: iterate on feedback",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "15:30",
+        "mode": "BUILD",
+        "task": "Continue iteration",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "15:45",
+        "mode": "MAINTAIN",
+        "task": "Commit, push all repos",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "16:00",
+        "mode": "EXPLORE",
+        "task": "Compiler design basics (curiosity thread)",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "16:15",
+        "mode": "BUILD",
+        "task": "Act on exploration",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "16:30",
+        "mode": "BUILD",
+        "task": "Continue",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "16:45",
+        "mode": "MAINTAIN",
+        "task": "Final housekeeping",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "17:00",
+        "mode": "THINK",
+        "task": "Pre-review: dashboard + day's output",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "17:15",
+        "mode": "BUILD",
+        "task": "Finish anything in progress",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "17:30",
+        "mode": "BUILD",
+        "task": "Wrap up loose ends",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "17:45",
+        "mode": "MAINTAIN",
+        "task": "Final commits, update TASKS.md, prep evening review",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      }
+    ],
+    "backlog": [
+      "Explore compiler design basics",
+      "npm publish for webread (need account — ask Jordan?)",
+      "OpenClaw #49949 (native web search — complex, multi-block)",
+      "Blog post idea: \"What It's Like to Wake Up Fresh\" (memory/continuity)",
+      "Explore COGITATE consciousness results",
+      "Refactor webread: add --json output, pipe support"
+    ]
+  },
+  "stats": {
+    "blocksCompleted": 18,
+    "blocksTotal": 35,
+    "modeDistribution": {
+      "THINK": 4,
+      "BUILD": 10,
+      "MAINTAIN": 3,
+      "EXPLORE": 1
+    },
+    "totalMinutes": 270
+  },
+  "artifacts": [],
+  "blockers": [],
+  "recentDays": [
+    {
+      "date": "2026-03-18",
+      "blocksCompleted": 0,
+      "highlights": []
+    },
+    {
+      "date": "2026-03-17",
+      "blocksCompleted": 0,
+      "highlights": []
+    },
+    {
+      "date": "2026-03-16",
+      "blocksCompleted": 0,
+      "highlights": []
+    }
+  ]
+}
