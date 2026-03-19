@@ -249,17 +249,63 @@ function parseProjectArtifacts(tasksText) {
   return artifacts;
 }
 
+function parseBlockTimes(workspace) {
+  const timesFile = path.resolve(workspace, 'block-times.jsonl');
+  const times = {};
+  try {
+    const lines = fs.readFileSync(timesFile, 'utf8').split('\n').filter(Boolean);
+    for (const line of lines) {
+      try {
+        const entry = JSON.parse(line);
+        if (entry.slot && entry.date === today()) {
+          times[entry.slot] = {
+            startedAt: entry.startedAt,
+            completedAt: entry.completedAt,
+            durationMs: entry.durationMs,
+          };
+        }
+      } catch { /* skip bad lines */ }
+    }
+  } catch { /* file doesn't exist yet */ }
+  return times;
+}
+
+function applyBlockTimes(blocks, workspace) {
+  const times = parseBlockTimes(workspace);
+  for (const block of blocks) {
+    const timing = times[block.time];
+    if (timing) {
+      block.startedAt = timing.startedAt;
+      block.completedAt = timing.completedAt;
+      block.durationMs = timing.durationMs;
+      block.durationFormatted = formatDuration(timing.durationMs);
+    }
+  }
+}
+
+function formatDuration(ms) {
+  if (!ms || ms <= 0) return '';
+  const secs = Math.round(ms / 1000);
+  if (secs < 60) return `${secs}s`;
+  const mins = Math.floor(secs / 60);
+  const remSecs = secs % 60;
+  return remSecs > 0 ? `${mins}m ${remSecs}s` : `${mins}m`;
+}
+
 function computeStats(blocks) {
   const completed = blocks.filter(b => b.status === 'done').length;
   const dist = {};
+  let totalMs = 0;
   for (const b of blocks.filter(b => b.status === 'done')) {
     dist[b.mode] = (dist[b.mode] || 0) + 1;
+    if (b.durationMs) totalMs += b.durationMs;
   }
   return {
     blocksCompleted: completed,
     blocksTotal: blocks.length,
     modeDistribution: dist,
-    totalMinutes: completed * 15,
+    totalMinutes: totalMs > 0 ? Math.round(totalMs / 60000) : completed * 5, // estimate 5min if no timing data
+    totalMs,
   };
 }
 
@@ -371,6 +417,9 @@ function generate() {
 
   // Enrich blocks from daily log
   parseDailyLog(dailyLogText, schedule.blocks);
+
+  // Apply real timing data
+  applyBlockTimes(schedule.blocks, WORKSPACE);
 
   // Mark current block
   markCurrentBlock(schedule.blocks, current);

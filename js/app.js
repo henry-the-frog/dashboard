@@ -272,6 +272,24 @@
     $('#detailTitle').textContent = block.task;
     $('#detailSummary').textContent = block.details || block.summary || 'No details yet.';
 
+    // Duration
+    const durationEl = $('#detailDuration');
+    if (durationEl) {
+      if (block.durationFormatted) {
+        durationEl.textContent = `⏱ ${block.durationFormatted}`;
+        durationEl.style.display = '';
+      } else if (block.status === 'in-progress' && block.startedAt) {
+        const elapsed = Math.round((Date.now() - new Date(block.startedAt).getTime()) / 1000);
+        const mins = Math.floor(elapsed / 60);
+        const secs = elapsed % 60;
+        durationEl.textContent = `⏱ ${mins}m ${secs}s (running)`;
+        durationEl.style.display = '';
+      } else {
+        durationEl.textContent = '';
+        durationEl.style.display = 'none';
+      }
+    }
+
     // Navigation hint
     const nav = $('#detailNav');
     if (nav) {
