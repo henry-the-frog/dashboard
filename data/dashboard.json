@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-19T21:17:12.756Z",
+  "generated": "2026-03-19T21:31:51.528Z",
   "current": {
     "status": "in-progress",
     "mode": "BUILD",
-    "task": "Dashboard: iterate — schedule adjustments display + polish",
-    "context": "Previous block fixed artifacts (3 showing) and enriched banner. THINK at 14:45 noted missing schedule-adjustments display. Picking that up now.",
-    "next": "15:30 BUILD — Continue iteration or pull from backlog",
-    "startedAt": "2026-03-19T15:15-06:00",
+    "task": "Dashboard: live elapsed timer + time-remaining stat",
+    "context": "Adding real-time elapsed indicator on active block and day time-remaining in stats bar.",
+    "next": "15:45 MAINTAIN — Commit, push all repos",
+    "startedAt": "2026-03-19T15:30-06:00",
     "estimatedBlocks": 1
   },
   "schedule": {
@@ -232,17 +232,17 @@
         "time": "15:15",
         "mode": "BUILD",
         "task": "Dashboard: iterate on feedback",
-        "status": "in-progress",
-        "summary": "Previous block fixed artifacts (3 showing) and enriched banner. THINK at 14:45 noted missing schedule-adjustments display. Picking that up now.",
+        "status": "done",
+        "summary": "Added schedule adjustments section to dashboard.",
         "artifacts": [],
-        "details": ""
+        "details": "Added schedule adjustments section to dashboard. Parses ## Adjustments from SCHEDULE.md, displays as purple-bordered cards. Responsive (sidebar on desktop). Tests 15/15. Pushed."
       },
       {
         "time": "15:30",
         "mode": "BUILD",
         "task": "Continue iteration",
-        "status": "upcoming",
-        "summary": "",
+        "status": "in-progress",
+        "summary": "Adding real-time elapsed indicator on active block and day time-remaining in stats bar.",
         "artifacts": [],
         "details": ""
       },
@@ -348,15 +348,15 @@
     "12:00: Reprioritized afternoon — generate.js (data pipeline) before UI polish. Dashboard is just a mockup without it."
   ],
   "stats": {
-    "blocksCompleted": 24,
+    "blocksCompleted": 25,
     "blocksTotal": 35,
     "modeDistribution": {
       "THINK": 6,
-      "BUILD": 13,
+      "BUILD": 14,
       "MAINTAIN": 4,
       "EXPLORE": 1
     },
-    "totalMinutes": 360
+    "totalMinutes": 375
   },
   "artifacts": [
     {

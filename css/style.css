@@ -150,6 +150,7 @@ body {
 .stat-value {
   font-size: 1.5rem;
   font-weight: 700;
+  font-variant-numeric: tabular-nums;
 }
 
 .stat-label {
@@ -568,6 +569,20 @@ body {
 .detail-mode.mode-think { color: var(--mode-think); }
 .detail-mode.mode-explore { color: var(--mode-explore); }
 .detail-mode.mode-maintain { color: var(--mode-maintain); }
+
+/* === Block Elapsed Timer === */
+.block-elapsed {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--status-active);
+  background: rgba(210, 153, 34, 0.1);
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  margin-left: var(--space-sm);
+  font-variant-numeric: tabular-nums;
+  vertical-align: middle;
+}
 
 /* === Footer === */
 footer {

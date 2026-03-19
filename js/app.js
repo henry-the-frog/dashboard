@@ -27,6 +27,7 @@
   let pollTimer = null;
   let errorCount = 0;
   let selectedBlockIndex = -1;
+  let tickTimer = null;
 
   // --- DOM refs ---
   const $ = (sel) => document.querySelector(sel);
@@ -110,6 +111,27 @@
       progressEl.setAttribute('aria-valuenow', pct);
       const label = $('#dayProgressLabel');
       if (label) label.textContent = pct + '%';
+    }
+
+    // Time remaining in day
+    const timeRemEl = $('#timeRemaining');
+    if (timeRemEl) {
+      updateTimeRemaining(stats, timeRemEl);
+    }
+  }
+
+  function updateTimeRemaining(stats, el) {
+    if (!stats || !currentData?.schedule?.blocks) {
+      if (el) el.textContent = '';
+      return;
+    }
+    const blocks = currentData.schedule.blocks;
+    const remaining = blocks.filter(b => b.status === 'upcoming' || b.status === 'in-progress').length;
+    const hrs = Math.floor((remaining * 15) / 60);
+    const mins = (remaining * 15) % 60;
+    const label = hrs > 0 ? `${hrs}h ${mins}m` : `${mins}m`;
+    if (el) {
+      el.textContent = label;
     }
   }
 
@@ -453,4 +475,50 @@
 
   // --- Init ---
   startPolling();
+  startTick();
+
+  // --- Live Tick (update elapsed time every second) ---
+  function startTick() {
+    if (tickTimer) clearInterval(tickTimer);
+    tickTimer = setInterval(tick, 1000);
+  }
+
+  function tick() {
+    if (!currentData) return;
+    // Update elapsed badge on in-progress block
+    const blocks = currentData?.schedule?.blocks;
+    if (!blocks) return;
+    const activeIdx = blocks.findIndex(b => b.status === 'in-progress');
+    if (activeIdx < 0) return;
+    const block = blocks[activeIdx];
+    const blockEl = timeline.querySelector(`.block[data-index="${activeIdx}"]`);
+    if (!blockEl) return;
+
+    // Calculate elapsed from block time (today's date + block.time)
+    const now = new Date();
+    const [h, m] = block.time.split(':').map(Number);
+    const blockStart = new Date(now);
+    blockStart.setHours(h, m, 0, 0);
+    const elapsed = Math.max(0, Math.floor((now - blockStart) / 1000));
+    const elMin = Math.floor(elapsed / 60);
+    const elSec = elapsed % 60;
+    const elStr = `${elMin}:${String(elSec).padStart(2, '0')}`;
+
+    // Find or create elapsed badge
+    let badge = blockEl.querySelector('.block-elapsed');
+    if (!badge) {
+      badge = document.createElement('span');
+      badge.className = 'block-elapsed';
+      const content = blockEl.querySelector('.block-content');
+      if (content) {
+        const titleEl = content.querySelector('.block-title');
+        if (titleEl) titleEl.appendChild(badge);
+      }
+    }
+    badge.textContent = elStr;
+
+    // Also update time remaining stat
+    const timeRemEl = $('#timeRemaining');
+    if (timeRemEl) updateTimeRemaining(currentData.stats, timeRemEl);
+  }
 })();
