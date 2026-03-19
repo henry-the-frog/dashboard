@@ -167,6 +167,45 @@
       .join('');
   }
 
+  function renderRecentDays(recentDays) {
+    const section = $('#recentDaysSection');
+    const list = $('#recentDaysList');
+    if (!section || !list) return;
+    if (!recentDays || recentDays.length === 0) {
+      section.style.display = 'none';
+      return;
+    }
+    section.style.display = '';
+
+    const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+    list.innerHTML = recentDays
+      .map((day) => {
+        const d = new Date(day.date + 'T12:00:00');
+        const dayName = dayNames[d.getDay()];
+        const monthDay = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        const highlights = (day.highlights || [])
+          .slice(0, 3)
+          .map(h => `<li>${esc(h)}</li>`)
+          .join('');
+        const summaryHTML = day.summary
+          ? `<div class="recent-day-summary">${esc(day.summary)}</div>`
+          : '';
+
+        return `
+          <div class="recent-day-card">
+            <div class="recent-day-header">
+              <span class="recent-day-name">${dayName}</span>
+              <span class="recent-day-date">${monthDay}</span>
+              ${day.blocksCompleted > 0 ? `<span class="recent-day-blocks">${day.blocksCompleted} items</span>` : ''}
+            </div>
+            ${summaryHTML}
+            ${highlights ? `<ul class="recent-day-highlights">${highlights}</ul>` : '<div class="recent-day-empty">No data</div>'}
+          </div>`;
+      })
+      .join('');
+  }
+
   function openDetail(index) {
     const blocks = currentData?.schedule?.blocks;
     if (!blocks || index < 0 || index >= blocks.length) return;
@@ -229,6 +268,7 @@
     renderStats(data.stats);
     renderTimeline(data.schedule);
     renderArtifacts(data.artifacts);
+    renderRecentDays(data.recentDays);
     $('#lastUpdated').textContent = new Date(data.generated).toLocaleTimeString();
 
     // Re-open detail if one was selected

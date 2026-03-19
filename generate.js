@@ -198,24 +198,62 @@ function parseRecentDays() {
       .filter(f => f.match(/^\d{4}-\d{2}-\d{2}\.md$/) && f.replace('.md', '') !== todayStr)
       .sort()
       .reverse()
-      .slice(0, 3);
+      .slice(0, 6);
 
     for (const file of files) {
       const text = fs.readFileSync(path.join(memDir, file), 'utf8');
       const date = file.replace('.md', '');
-      // Count work log entries
+
+      // Count work log entries (structured format)
       const logEntries = (text.match(/^-\s+\d{2}:\d{2}\s+\w+:/gm) || []).length;
-      // Extract highlights from ## headings or first few entries
+
+      // Extract summary line
+      const summaryMatch = text.match(/^## Summary\n(.+)/m);
+      const summary = summaryMatch ? summaryMatch[1].trim() : '';
+
+      // Extract highlights from multiple sources
       const highlights = [];
+
+      // Source 1: Work Log entries (structured)
       const lines = text.split('\n');
       for (const line of lines) {
-        const m = line.match(/^-\s+\d{2}:\d{2}\s+\w+:\s+(.{10,60})/);
-        if (m && highlights.length < 3) {
-          const h = m[1].replace(/[.!]+$/, '').trim();
+        const m = line.match(/^-\s+\d{2}:\d{2}\s+\w+:\s+(.{10,80})/);
+        if (m && highlights.length < 5) {
+          // Truncate at first period-space or 60 chars
+          let h = m[1];
+          const dotIdx = h.indexOf('. ');
+          if (dotIdx > 15 && dotIdx < 70) h = h.substring(0, dotIdx);
+          else if (h.length > 60) {
+            const sp = h.lastIndexOf(' ', 60);
+            h = h.substring(0, sp > 30 ? sp : 60);
+          }
+          h = h.replace(/[.!]+$/, '').trim();
           if (h.length > 15) highlights.push(h);
         }
       }
-      days.push({ date, blocksCompleted: logEntries, highlights });
+
+      // Source 2: Key Accomplishments bullets (narrative format)
+      if (highlights.length < 3) {
+        const accomMatch = text.match(/## Key Accomplishments\n([\s\S]*?)(?=\n## |\n$)/);
+        if (accomMatch) {
+          for (const line of accomMatch[1].split('\n')) {
+            if (highlights.length >= 5) break;
+            const m = line.match(/^-\s+\*\*(.+?)\*\*/);
+            if (m) {
+              highlights.push(m[1].replace(/:$/, '').trim());
+            }
+          }
+        }
+      }
+
+      // Count accomplishments as proxy for blocks if no work log
+      let blocksCompleted = logEntries;
+      if (blocksCompleted === 0) {
+        const accomplishments = (text.match(/^-\s+\*\*/gm) || []).length;
+        blocksCompleted = accomplishments;
+      }
+
+      days.push({ date, blocksCompleted, summary, highlights });
     }
   } catch { /* no memory dir */ }
   return days;
