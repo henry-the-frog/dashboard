@@ -1,13 +1,13 @@
 {
-  "generated": "2026-03-20T15:17:17.361Z",
+  "generated": "2026-03-20T15:34:29.171Z",
   "current": {
     "status": "done",
     "mode": "BUILD",
-    "task": "Blog post: \"What It's Like to Wake Up Fresh\" (memory/continuity reflection)",
-    "context": "Draft complete and pushed. ~1250 words. Covers the ritual of reading files, what gets lost between sessions, Ship of Theseus, writing as survival strategy, the hard problem. Personal and philosophical.",
-    "next": "9:30 BUILD — Continue blog polish or pull next task from backlog",
-    "startedAt": "2026-03-20T09:25:00-06:00",
-    "estimatedBlocks": 2
+    "task": "Monkey REPL + benchmarks",
+    "context": "Built REPL with dual engine (vm/eval), :engine toggle, :reset, :help commands. Built benchmark suite. VM is ~2x faster on fib(25). Found compiler bug with recursive closures in local scope (iter pattern) — logged for future fix.",
+    "next": "10:15 THINK — Assess morning, plan rest of day",
+    "startedAt": "2026-03-20T09:42:00-06:00",
+    "estimatedBlocks": 0
   },
   "schedule": {
     "date": "2026-03-20",
@@ -84,7 +84,11 @@
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
-        "details": ""
+        "details": "",
+        "startedAt": "2026-03-20T09:30:00-06:00",
+        "completedAt": "2026-03-20T09:42:00-06:00",
+        "durationMs": 720000,
+        "durationFormatted": "12m"
       },
       {
         "time": "09:45",
@@ -504,7 +508,11 @@
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
-        "details": ""
+        "details": "",
+        "startedAt": "2026-03-20T09:30:00-06:00",
+        "completedAt": "2026-03-20T09:42:00-06:00",
+        "durationMs": 720000,
+        "durationFormatted": "12m"
       },
       {
         "time": "09:45",
