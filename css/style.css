@@ -723,6 +723,92 @@ footer {
   .artifacts-grid { grid-template-columns: 1fr; }
 }
 
+/* === Next Up === */
+.next-up {
+  padding: var(--space-md);
+  padding-bottom: 0;
+}
+
+.next-up h2 {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-sm);
+}
+
+.next-up-list {
+  display: flex;
+  gap: var(--space-sm);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: var(--space-xs);
+}
+
+.next-up-list::-webkit-scrollbar { display: none; }
+
+.next-up-card {
+  flex: 0 0 auto;
+  min-width: 160px;
+  max-width: 220px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-sm) var(--space-md);
+  transition: border-color 0.15s;
+}
+
+.next-up-card:first-child {
+  border-left: 3px solid var(--accent);
+}
+
+.next-up-card .next-up-time {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.next-up-card .next-up-mode {
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.next-up-card .next-up-task {
+  font-size: 0.8rem;
+  color: var(--text);
+  margin-top: var(--space-xs);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.next-up-card .next-up-mode.mode-build { color: var(--mode-build); }
+.next-up-card .next-up-mode.mode-think { color: var(--mode-think); }
+.next-up-card .next-up-mode.mode-explore { color: var(--mode-explore); }
+.next-up-card .next-up-mode.mode-maintain { color: var(--mode-maintain); }
+
+/* === Adherence Stat === */
+.stat-value.adherence-high { color: var(--status-done); }
+.stat-value.adherence-mid { color: var(--mode-build); }
+.stat-value.adherence-low { color: #f85149; }
+
+@media (min-width: 768px) {
+  .next-up {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .next-up {
+    grid-column: 1 / -1;
+    max-width: none;
+  }
+}
+
 /* === Adjustments === */
 .adjustments-section {
   padding: var(--space-lg) var(--space-md);

@@ -201,6 +201,53 @@
       .join('');
   }
 
+  function renderNextUp(schedule) {
+    const section = $('#nextUp');
+    const list = $('#nextUpList');
+    if (!section || !list || !schedule?.blocks) return;
+
+    const nowStr = getCurrentTimeStr();
+    const upcoming = schedule.blocks.filter(b =>
+      (b.status === 'upcoming' || b.status === 'in-progress') && b.time >= nowStr
+    ).slice(0, 4);
+
+    if (upcoming.length === 0) {
+      section.style.display = 'none';
+      return;
+    }
+    section.style.display = '';
+
+    list.innerHTML = upcoming.map((block, i) => {
+      const modeClass = `mode-${block.mode.toLowerCase()}`;
+      const label = i === 0 ? 'Now' : block.time;
+      return `
+        <div class="next-up-card">
+          <div class="next-up-time">${esc(label)}</div>
+          <div class="next-up-mode ${modeClass}">${MODE_ICONS[block.mode] || ''} ${esc(block.mode)}</div>
+          <div class="next-up-task">${esc(block.task)}</div>
+        </div>`;
+    }).join('');
+  }
+
+  function renderAdherence(schedule) {
+    const stat = $('#adherenceStat');
+    const val = $('#adherenceValue');
+    if (!stat || !val || !schedule?.blocks) return;
+
+    const done = schedule.blocks.filter(b => b.status === 'done');
+    if (done.length < 3) {
+      stat.style.display = 'none';
+      return;
+    }
+    stat.style.display = '';
+
+    // Adherence = % of done blocks (simple metric: they completed)
+    const total = schedule.blocks.length;
+    const pct = Math.round((done.length / total) * 100);
+    val.textContent = pct + '%';
+    val.className = 'stat-value ' + (pct >= 70 ? 'adherence-high' : pct >= 40 ? 'adherence-mid' : 'adherence-low');
+  }
+
   function renderAdjustments(adjustments) {
     const section = $('#adjustmentsSection');
     const list = $('#adjustmentsList');
@@ -332,6 +379,8 @@
   function renderAll(data) {
     renderBanner(data.current);
     renderStats(data.stats);
+    renderNextUp(data.schedule);
+    renderAdherence(data.schedule);
     renderTimeline(data.schedule);
     renderArtifacts(data.artifacts);
     renderAdjustments(data.adjustments);
