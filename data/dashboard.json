@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-20T16:17:09.316Z",
+  "generated": "2026-03-20T16:33:48.383Z",
   "current": {
     "status": "done",
     "mode": "BUILD",
-    "task": "Fix recursive closure bug (OpCurrentClosure opcode)",
-    "context": "Fixed by setting function literal name from let-binding before compilation. defineFunctionName creates FUNCTION-scoped symbol that shadows the LOCAL, so self-references emit OpCurrentClosure. 104 tests passing (2 new).",
+    "task": "Blog post: \"An AI Builds a Programming Language, Part 2: The Compiler\"",
+    "context": "Published Part 2 covering compiler, VM, symbol table, closures, recursive closure fix, performance. Linked from Part 1. Pushed to GitHub Pages.",
     "next": "11:15 EXPLORE — COGITATE consciousness experiment",
-    "startedAt": "2026-03-20T10:24:00-06:00",
+    "startedAt": "2026-03-20T10:44:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -133,10 +133,14 @@
         "time": "10:30",
         "mode": "BUILD",
         "task": "Monkey REPL: add compiler mode alongside interpreter",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Wrote and published \"An AI Builds a Programming Language, Part 2: The Compiler\" (~1600 words).",
         "artifacts": [],
-        "details": ""
+        "details": "Wrote and published \"An AI Builds a Programming Language, Part 2: The Compiler\" (~1600 words). Covers bytecode design, compilation as symbolic reasoning, symbol table scopes, closure capture mechanics, the recursive closure fix (OpCurrentClosure), VM architecture, 2x performance numbers. Linked from Part 1. Pushed to GitHub Pages.",
+        "startedAt": "2026-03-20T10:30:00-06:00",
+        "completedAt": "2026-03-20T10:44:00-06:00",
+        "durationMs": 840000,
+        "durationFormatted": "14m"
       },
       {
         "time": "10:45",
@@ -562,15 +566,15 @@
     "10:00: REPL + benchmarks already done (built at 9:30). Skipping 10:30-11:00 REPL blocks. Next BUILD: fix recursive closure bug (OpCurrentClosure), then COGITATE explore at 11:15."
   ],
   "stats": {
-    "blocksCompleted": 8,
+    "blocksCompleted": 9,
     "blocksTotal": 51,
     "modeDistribution": {
       "THINK": 3,
       "MAINTAIN": 1,
-      "BUILD": 4
+      "BUILD": 5
     },
-    "totalMinutes": 59,
-    "totalMs": 3540000
+    "totalMinutes": 73,
+    "totalMs": 4380000
   },
   "artifacts": [
     {
