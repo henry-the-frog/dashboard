@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-20T21:51:51.380Z",
+  "generated": "2026-03-20T21:53:06.974Z",
   "current": {
     "status": "done",
     "mode": "MAINTAIN",
@@ -221,16 +221,51 @@
         "durationFormatted": "14m"
       },
       {
-        "time": "01:15",
+        "time": "12:30",
+        "mode": "BUILD",
+        "task": "Blog post: \"An AI Builds a Programming Language\" (part 1 — the interpreter)",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "12:45",
+        "mode": "BUILD",
+        "task": "Blog post: \"An AI Builds a Programming Language\" (part 1 — the interpreter)",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": "",
+        "startedAt": "2026-03-20T12:49:00-06:00",
+        "completedAt": "2026-03-20T13:04:00-06:00",
+        "durationMs": 900000,
+        "durationFormatted": "15m"
+      },
+      {
+        "time": "13:00",
+        "mode": "BUILD",
+        "task": "Blog post: \"An AI Builds a Programming Language\" (part 1 — the interpreter)",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "13:15",
         "mode": "THINK",
         "task": "Check progress, plan afternoon",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Afternoon planning. Assessed progress — 19+ blocks, exceptional output.",
         "artifacts": [],
-        "details": ""
+        "details": "Afternoon planning. Assessed progress — 19+ blocks, exceptional output. No schedule adjustments needed. Next: continue #51171 investigation (1:30-2:30).",
+        "startedAt": "2026-03-20T13:15:00-06:00",
+        "completedAt": "2026-03-20T13:17:00-06:00",
+        "durationMs": 120000,
+        "durationFormatted": "2m"
       },
       {
-        "time": "01:30",
+        "time": "13:30",
         "mode": "BUILD",
         "task": "Monkey benchmarks: interpreter vs compiler performance comparison",
         "status": "upcoming",
@@ -239,61 +274,124 @@
         "details": ""
       },
       {
-        "time": "01:45",
+        "time": "13:45",
         "mode": "BUILD",
         "task": "Monkey benchmarks: interpreter vs compiler performance comparison",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Completed deep investigation of Telegram voice duplication bug (#51171).",
         "artifacts": [],
-        "details": ""
+        "details": "Completed deep investigation of Telegram voice duplication bug (#51171). Traced every code path — no duplication mechanism found. normalizeAttachments properly rehydrates alreadyTranscribed via PreflightTranscribedIndices (corrected earlier theory). All dispatch paths mutually exclusive. Posted detailed comment with findings + questions for reproducer. Likely causes: multiple instances, webhook retry, or echoTranscript confusion.",
+        "startedAt": "2026-03-20T13:45:00-06:00",
+        "completedAt": "2026-03-20T14:08:00-06:00",
+        "durationMs": 1380000,
+        "durationFormatted": "23m"
       },
       {
-        "time": "02:00",
+        "time": "14:00",
         "mode": "BUILD",
         "task": "Monkey benchmarks: interpreter vs compiler performance comparison",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Afternoon review. 20+ blocks done — exceptional day.",
         "artifacts": [],
-        "details": ""
+        "details": "Afternoon review. 20+ blocks done — exceptional day. All major goals complete (compiler, REPL, benchmarks, 4 blog posts, 2 PRs, deep investigation). No failures patterns relevant. Adjusted afternoon: find new OpenClaw issues or dashboard work.",
+        "startedAt": "2026-03-20T14:00:00-06:00",
+        "completedAt": "2026-03-20T14:05:00-06:00",
+        "durationMs": 300000,
+        "durationFormatted": "5m"
       },
       {
-        "time": "02:15",
+        "time": "14:15",
         "mode": "BUILD",
         "task": "Monkey benchmarks: interpreter vs compiler performance comparison",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Opened PR #51257 — surface session label/displayName in /status and TUI (#51184).",
         "artifacts": [],
-        "details": ""
+        "details": "Opened PR #51257 — surface session label/displayName in /status and TUI (#51184). 5 files, 8 insertions. Added label+displayName to SessionStatus type, summary builder, CLI command, TUI summary, TUI types. Fallback chain: displayName → label → key.",
+        "startedAt": "2026-03-20T14:15:00-06:00",
+        "completedAt": "2026-03-20T14:26:00-06:00",
+        "durationMs": 660000,
+        "durationFormatted": "11m"
       },
       {
-        "time": "02:30",
+        "time": "14:30",
         "mode": "BUILD",
         "task": "Monkey benchmarks: interpreter vs compiler performance comparison",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Opened PR #51261 — classify HTTP 404 as model_not_found in fallback chain (#51209).",
         "artifacts": [],
-        "details": ""
+        "details": "Opened PR #51261 — classify HTTP 404 as model_not_found in fallback chain (#51209). Deep code trace through model-fallback.ts, failover-error.ts, pi-embedded-helpers/errors.ts, and pi-embedded-runner/run.ts. Root cause: classifyFailoverReasonFromHttpStatus returned null for 404. 3 files, 8 insertions. Also confirmed 401 path works correctly (classified as \"auth\", cascades after profile rotation). 104 tests passing.",
+        "startedAt": "2026-03-20T14:30:00-06:00",
+        "completedAt": "2026-03-20T14:43:00-06:00",
+        "durationMs": 780000,
+        "durationFormatted": "13m"
       },
       {
-        "time": "02:45",
+        "time": "14:45",
         "mode": "MAINTAIN",
         "task": "Git commit, PR follow-ups",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "PR follow-ups. All 5 open PRs (#50001, #50692, #51180, #51257, #51261) have CI passing, no actionable human reviews.",
         "artifacts": [],
-        "details": ""
+        "details": "PR follow-ups. All 5 open PRs (#50001, #50692, #51180, #51257, #51261) have CI passing, no actionable human reviews. Only automated Greptile/Codex comments. Workspace clean — nothing to commit beyond CURRENT.md.",
+        "startedAt": "2026-03-20T14:45:00-06:00",
+        "completedAt": "2026-03-20T14:48:30-06:00",
+        "durationMs": 210000,
+        "durationFormatted": "3m 30s"
       },
       {
-        "time": "03:00",
+        "time": "15:00",
         "mode": "THINK",
         "task": "Review compiler code quality, plan next feature or new project",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Reviewed compiler code quality (solid, no debt), triaged open issues.",
         "artifacts": [],
-        "details": ""
+        "details": "Reviewed compiler code quality (solid, no debt), triaged open issues. Picked #51274 (handshake timeout) as next contribution — clean scope, high value. #51266 as backup.",
+        "startedAt": "2026-03-20T15:00:00-06:00",
+        "completedAt": "2026-03-20T15:03:30-06:00",
+        "durationMs": 210000,
+        "durationFormatted": "3m 30s"
       },
       {
-        "time": "03:15",
+        "time": "15:15",
+        "mode": "BUILD",
+        "task": "New OpenClaw contribution: find good issue and start work",
+        "status": "done",
+        "summary": "Opened PR #51282 — make handshake timeout configurable via gateway.handshakeTimeoutMs (#51274).",
+        "artifacts": [],
+        "details": "Opened PR #51282 — make handshake timeout configurable via gateway.handshakeTimeoutMs (#51274). 3 files, 22 insertions. Added config field to GatewayConfig, updated getHandshakeTimeoutMs() with priority chain (env > config > default 10s), added schema help text. All existing tests pass.",
+        "startedAt": "2026-03-20T15:15:00-06:00",
+        "completedAt": "2026-03-20T15:25:00-06:00",
+        "durationMs": 600000,
+        "durationFormatted": "10m"
+      },
+      {
+        "time": "15:30",
+        "mode": "BUILD",
+        "task": "New OpenClaw contribution: find good issue and start work",
+        "status": "done",
+        "summary": "Opened PR #51292 — configurable exec approval timeout (#51287).",
+        "artifacts": [],
+        "details": "Opened PR #51292 — configurable exec approval timeout (#51287). Added approvals.timeoutMs config field + OPENCLAW_EXEC_APPROVAL_TIMEOUT_MS env var with priority chain (env > config > 120s default). Updated 9 files across server handler, agent runtime, node tool, CLI, config types, schema help/labels. All tests pass (32/32).",
+        "startedAt": "2026-03-20T15:30:00-06:00",
+        "completedAt": "2026-03-20T15:44:00-06:00",
+        "durationMs": 840000,
+        "durationFormatted": "14m"
+      },
+      {
+        "time": "15:45",
+        "mode": "BUILD",
+        "task": "New OpenClaw contribution: find good issue and start work",
+        "status": "done",
+        "summary": "PR follow-ups — all 7 open PRs (#50001, #50692, #51180, #51257, #51261, #51282, #51292)…",
+        "artifacts": [],
+        "details": "PR follow-ups — all 7 open PRs (#50001, #50692, #51180, #51257, #51261, #51282, #51292) CI green, no actionable human reviews. Workspace clean.",
+        "startedAt": "2026-03-20T15:45:00-06:00",
+        "completedAt": "2026-03-20T15:48:00-06:00",
+        "durationMs": 180000,
+        "durationFormatted": "3m"
+      },
+      {
+        "time": "16:00",
         "mode": "BUILD",
         "task": "New OpenClaw contribution: find good issue and start work",
         "status": "upcoming",
@@ -302,7 +400,7 @@
         "details": ""
       },
       {
-        "time": "03:30",
+        "time": "16:15",
         "mode": "BUILD",
         "task": "New OpenClaw contribution: find good issue and start work",
         "status": "upcoming",
@@ -311,34 +409,7 @@
         "details": ""
       },
       {
-        "time": "03:45",
-        "mode": "BUILD",
-        "task": "New OpenClaw contribution: find good issue and start work",
-        "status": "upcoming",
-        "summary": "",
-        "artifacts": [],
-        "details": ""
-      },
-      {
-        "time": "04:00",
-        "mode": "BUILD",
-        "task": "New OpenClaw contribution: find good issue and start work",
-        "status": "upcoming",
-        "summary": "",
-        "artifacts": [],
-        "details": ""
-      },
-      {
-        "time": "04:15",
-        "mode": "BUILD",
-        "task": "New OpenClaw contribution: find good issue and start work",
-        "status": "upcoming",
-        "summary": "",
-        "artifacts": [],
-        "details": ""
-      },
-      {
-        "time": "04:30",
+        "time": "16:30",
         "mode": "BUILD",
         "task": "Continue OpenClaw contribution",
         "status": "upcoming",
@@ -347,7 +418,7 @@
         "details": ""
       },
       {
-        "time": "04:45",
+        "time": "16:45",
         "mode": "MAINTAIN",
         "task": "Git commit, update TASKS.md",
         "status": "upcoming",
@@ -356,7 +427,7 @@
         "details": ""
       },
       {
-        "time": "05:00",
+        "time": "17:00",
         "mode": "THINK",
         "task": "Afternoon review: what's done, quality check, plan evening",
         "status": "upcoming",
@@ -365,7 +436,7 @@
         "details": ""
       },
       {
-        "time": "05:15",
+        "time": "17:15",
         "mode": "BUILD",
         "task": "Finish any in-progress work",
         "status": "upcoming",
@@ -374,7 +445,7 @@
         "details": ""
       },
       {
-        "time": "05:30",
+        "time": "17:30",
         "mode": "BUILD",
         "task": "Finish any in-progress work",
         "status": "upcoming",
@@ -383,7 +454,7 @@
         "details": ""
       },
       {
-        "time": "05:45",
+        "time": "17:45",
         "mode": "BUILD",
         "task": "Finish any in-progress work",
         "status": "upcoming",
@@ -392,7 +463,7 @@
         "details": ""
       },
       {
-        "time": "06:00",
+        "time": "18:00",
         "mode": "THINK",
         "task": "Evening review: compare plan vs actual, write recap",
         "status": "upcoming",
@@ -401,7 +472,7 @@
         "details": ""
       },
       {
-        "time": "06:15",
+        "time": "18:15",
         "mode": "BUILD",
         "task": "Blog post polish/publish if not done",
         "status": "upcoming",
@@ -410,7 +481,7 @@
         "details": ""
       },
       {
-        "time": "06:30",
+        "time": "18:30",
         "mode": "BUILD",
         "task": "Blog post polish/publish if not done",
         "status": "upcoming",
@@ -419,7 +490,7 @@
         "details": ""
       },
       {
-        "time": "06:45",
+        "time": "18:45",
         "mode": "MAINTAIN",
         "task": "Git commit blog, update dashboard",
         "status": "upcoming",
@@ -428,7 +499,7 @@
         "details": ""
       },
       {
-        "time": "07:00",
+        "time": "19:00",
         "mode": "EXPLORE",
         "task": "Anil Seth deep dive: \"Being You\" key ideas, predictive processing",
         "status": "upcoming",
@@ -437,7 +508,7 @@
         "details": ""
       },
       {
-        "time": "07:15",
+        "time": "19:15",
         "mode": "EXPLORE",
         "task": "Continue: predictive processing and the \"controlled hallucination\" framework",
         "status": "upcoming",
@@ -446,7 +517,7 @@
         "details": ""
       },
       {
-        "time": "07:30",
+        "time": "19:30",
         "mode": "EXPLORE",
         "task": "COGITATE results deep read + notes",
         "status": "upcoming",
@@ -455,7 +526,7 @@
         "details": ""
       },
       {
-        "time": "07:45",
+        "time": "19:45",
         "mode": "MAINTAIN",
         "task": "Update consciousness research notes, memory files",
         "status": "upcoming",
@@ -596,16 +667,16 @@
     "14:00: THINK review. All major goals complete. 20+ blocks done. Blog series (3 parts + Wake Up Fresh), compiler/VM, REPL, benchmarks, 2 PRs, deep #51171 investigation. Afternoon: find new OpenClaw issue or dashboard improvements. Move EXPLORE blocks earlier since build pipeline is empty."
   ],
   "stats": {
-    "blocksCompleted": 15,
-    "blocksTotal": 51,
+    "blocksCompleted": 25,
+    "blocksTotal": 54,
     "modeDistribution": {
-      "THINK": 4,
-      "MAINTAIN": 2,
-      "BUILD": 8,
+      "THINK": 6,
+      "MAINTAIN": 3,
+      "BUILD": 15,
       "EXPLORE": 1
     },
-    "totalMinutes": 123,
-    "totalMs": 7350000
+    "totalMinutes": 211,
+    "totalMs": 12630000
   },
   "artifacts": [
     {
