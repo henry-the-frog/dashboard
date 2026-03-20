@@ -140,8 +140,9 @@ function parseDailyLog(text, blocks) {
 
   // Extract work log entries: "- HH:MM MODE: description"
   const logEntries = [];
-  // Match various log section headers
-  const logMatch = text.match(/## (?:Work )?Log\n([\s\S]*?)(?=\n## |\n$)/);
+  // Match various log section headers — grab everything after ## Log until end of file
+  // (other ## headers within the log are block-style entries, not section breaks)
+  const logMatch = text.match(/## (?:Work )?Log\n([\s\S]*?)$/);
   if (logMatch) {
     for (const line of logMatch[1].split('\n')) {
       // Match "HH:MM MODE:" or "HH:MM — MODE:" or "HH:MM —" formats
@@ -153,7 +154,7 @@ function parseDailyLog(text, blocks) {
     }
   }
 
-  // Also scan for block-style entries outside Work Log section: "## HH:MM MODE — description"
+  // Also scan full text for block-style entries: "## HH:MM MODE — description"
   const blockHeaders = text.matchAll(/^## (\d{1,2}:\d{2})\s+(\w+)\s+[-—]\s+(.+)/gm);
   for (const bm of blockHeaders) {
     const time = bm[1].length === 4 ? '0' + bm[1] : bm[1];
