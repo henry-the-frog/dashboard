@@ -140,12 +140,29 @@ function parseDailyLog(text, blocks) {
 
   // Extract work log entries: "- HH:MM MODE: description"
   const logEntries = [];
-  const logMatch = text.match(/## Work Log\n([\s\S]*?)(?=\n## |\n$)/);
+  // Match various log section headers
+  const logMatch = text.match(/## (?:Work )?Log\n([\s\S]*?)(?=\n## |\n$)/);
   if (logMatch) {
     for (const line of logMatch[1].split('\n')) {
-      const m = line.match(/^-\s+(\d{2}:\d{2})\s+(\w+):\s+(.+)/);
-      if (m) logEntries.push({ time: m[1], mode: m[2], text: m[3] });
+      // Match "HH:MM MODE:" or "HH:MM — MODE:" or "HH:MM —" formats
+      const m = line.match(/^-\s+(\d{1,2}:\d{2})\s+(?:[-—]\s+)?(\w+)?[:\s]+[-—]?\s*(.+)/);
+      if (m) {
+        const time = m[1].length === 4 ? '0' + m[1] : m[1];
+        logEntries.push({ time, mode: m[2] || '', text: m[3] });
+      }
     }
+  }
+
+  // Also scan for block-style entries outside Work Log section: "## HH:MM MODE — description"
+  const blockHeaders = text.matchAll(/^## (\d{1,2}:\d{2})\s+(\w+)\s+[-—]\s+(.+)/gm);
+  for (const bm of blockHeaders) {
+    const time = bm[1].length === 4 ? '0' + bm[1] : bm[1];
+    // Grab text until next ## header
+    const startIdx = bm.index + bm[0].length;
+    const nextHeader = text.indexOf('\n## ', startIdx);
+    const body = text.substring(startIdx, nextHeader > 0 ? nextHeader : text.length).trim();
+    const summary = bm[3];
+    logEntries.push({ time, mode: bm[2], text: summary + (body ? ' ' + body.split('\n')[0] : '') });
   }
 
   // Match log entries to blocks by time
