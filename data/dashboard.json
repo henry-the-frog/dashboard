@@ -1,393 +1,75 @@
 {
-  "generated": "2026-03-19T23:45:49.627Z",
+  "generated": "2026-03-20T14:06:16.407Z",
   "current": {
     "status": "done",
-    "mode": "MAINTAIN",
-    "task": "Final commits, update TASKS.md, prep evening review",
-    "context": "Day 4 complete. 31/35 blocks. TASKS.md updated with tomorrow's direction. All repos committed and pushed. Ready for evening review at 18:00.",
-    "next": "Evening review (18:00)",
-    "startedAt": "2026-03-19T17:48-06:00",
+    "mode": "BUILD",
+    "task": "Monkey compiler/VM scaffolding — bytecode, compiler, VM, constant expressions",
+    "context": "Full compiler/VM pipeline complete in one block. 102 new tests passing. Covers all features: integers, arithmetic, booleans, comparisons, prefix ops, conditionals, let statements, strings, arrays, hashes, index expressions, functions with args, closures, recursion, builtins. All 40 interpreter tests still pass.",
+    "next": "Per schedule — 8:45 MAINTAIN block (check PRs, git cleanup), then 9:00 THINK (compiler design review)",
+    "startedAt": "2026-03-20T08:15:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
-    "date": "2026-03-19",
+    "date": "2026-03-20",
     "blocks": [
       {
-        "time": "09:00",
-        "mode": "THINK",
-        "task": "Morning standup",
-        "status": "done",
-        "summary": "Completed",
-        "artifacts": [],
-        "details": ""
-      },
-      {
-        "time": "09:15",
-        "mode": "BUILD",
-        "task": "Blog research: Anil Seth / AST",
-        "status": "done",
-        "summary": "Started Anil Seth / AST research (block ran out of time,…",
-        "artifacts": [],
-        "details": "Started Anil Seth / AST research (block ran out of time, partial)"
-      },
-      {
-        "time": "09:30",
-        "mode": "BUILD",
-        "task": "Blog research continued",
-        "status": "done",
-        "summary": "Completed",
-        "artifacts": [],
-        "details": ""
-      },
-      {
-        "time": "09:45",
-        "mode": "MAINTAIN",
-        "task": "Git status, PR #50001",
-        "status": "done",
-        "summary": "Git tidy, PR #50001 still open (mergeable, all checks green, awaiting…",
-        "artifacts": [],
-        "details": "Git tidy, PR #50001 still open (mergeable, all checks green, awaiting review)"
-      },
-      {
-        "time": "10:00",
-        "mode": "THINK",
-        "task": "Review research, sharpen thesis",
-        "status": "done",
-        "summary": "Blog post already written+pushed.",
-        "artifacts": [],
-        "details": "Blog post already written+pushed. Reviewed quality (strong). Pivoted schedule — pulling OS contribution forward to 10:15."
-      },
-      {
-        "time": "10:15",
-        "mode": "EXPLORE",
-        "task": "Scope OpenClaw #49949",
-        "status": "done",
-        "summary": "Completed",
-        "artifacts": [],
-        "details": ""
-      },
-      {
-        "time": "10:30",
-        "mode": "BUILD",
-        "task": "PRIORITY: Plan dashboard web app",
-        "status": "done",
-        "summary": "Implemented anthropic native web search provider (#49949).",
-        "artifacts": [],
-        "details": "Implemented anthropic native web search provider (#49949). Created plugin (createTool→null pattern), payload injection wrapper (createAnthropicNativeWebSearchWrapper), config resolver for domains/maxUses/userLocation. Wired into extra-params.ts stream chain. Committed."
-      },
-      {
         "time": "10:45",
-        "mode": "THINK",
-        "task": "Dashboard architecture design & data model",
-        "status": "done",
-        "summary": "Dashboard architecture review.",
+        "mode": "MAINTAIN",
+        "task": "Git commit, update dashboard data, check notifications",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Dashboard architecture review. Design doc solid — confirmed static JSON + polling + vanilla JS approach. Added detailed 11-block build plan to DASHBOARD-DESIGN.md. Key decisions: separate dashboard repo, regex parsing, MVP-first (static HTML → generate.js → deploy)."
+        "details": ""
       },
       {
         "time": "11:00",
-        "mode": "BUILD",
-        "task": "Dashboard: project setup, data layer",
-        "status": "done",
-        "summary": "Dashboard project setup.",
-        "artifacts": [],
-        "details": "Dashboard project setup. Created dashboard/ with index.html, style.css (dark theme, mobile-first, 3 breakpoints), app.js (timeline rendering, polling, detail bottom sheet), sample dashboard.json with today's real data. All core layout components in place."
-      },
-      {
-        "time": "11:15",
-        "mode": "BUILD",
-        "task": "Dashboard: data layer continued",
-        "status": "done",
-        "summary": "Dashboard CSS polish.",
-        "artifacts": [],
-        "details": "Dashboard CSS polish. Redesigned timeline to dot-and-line (circular nodes + vertical connecting line). Added pulsing glow on active block, backdrop overlay for detail panel, Escape key close, smooth cubic-bezier transitions, mobile drag handle, font smoothing."
-      },
-      {
-        "time": "11:30",
-        "mode": "BUILD",
-        "task": "Dashboard: timeline component",
-        "status": "done",
-        "summary": "Dashboard JS refinement.",
-        "artifacts": [],
-        "details": "Dashboard JS refinement. Added Visibility API (pause polling when tab hidden), exponential error backoff, diff-aware rendering (skip if unchanged), arrow key navigation in detail panel, day progress bar, accessibility attrs (role/tabindex/aria-label), selected block highlight, close animation timing fix."
-      },
-      {
-        "time": "11:45",
-        "mode": "MAINTAIN",
-        "task": "Commit progress, check notifications",
-        "status": "done",
-        "summary": "Created henry-the-frog/work-dashboard repo on GitHub, pushed dashboard code, enabled…",
-        "artifacts": [],
-        "details": "Created henry-the-frog/work-dashboard repo on GitHub, pushed dashboard code, enabled GitHub Pages (henry-the-frog.github.io/work-dashboard/). Checked notifications — PR #50001 still open, no reviews yet."
-      },
-      {
-        "time": "12:00",
         "mode": "THINK",
-        "task": "Dashboard architecture review",
-        "status": "done",
-        "summary": "Dashboard architecture review.",
+        "task": "Assess compiler progress, plan arithmetic/boolean compilation",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Dashboard architecture review."
-      },
-      {
-        "time": "12:15",
-        "mode": "BUILD",
-        "task": "generate.js: parse workspace files → dashboard.json",
-        "status": "done",
-        "summary": "generate.js v1 — parses CURRENT.md, SCHEDULE.md, daily logs into dashboard.json.",
-        "artifacts": [],
-        "details": "generate.js v1 — parses CURRENT.md, SCHEDULE.md, daily logs into dashboard.json. Handles strikethrough schedule pivots, extracts artifacts from URLs, computes mode stats, pulls recent days from memory/. Tests passing (35 blocks, 13 done). Scaffold is solid (clean HTML/CSS/JS, responsive, good polling). Identified critical gap: no generate.js yet — dashboard shows hardcoded data. Reprioritized afternoon to build data pipeline before UI polish."
+        "details": ""
       },
       {
         "time": "12:30",
-        "mode": "BUILD",
-        "task": "generate.js: continued + tests",
-        "status": "done",
-        "summary": "generate.js edge cases — fixed summary truncation (sentence detection was fooled by…",
+        "mode": "EXPLORE",
+        "task": "COGITATE consciousness experiment: find results, take notes",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "generate.js edge cases — fixed summary truncation (sentence detection was fooled by periods in URLs/abbreviations; added min-length + lookahead). Wrote 8 unit+integration tests with temp fixture workspaces. All passing."
+        "details": ""
       },
       {
         "time": "12:45",
         "mode": "MAINTAIN",
-        "task": "Wire generate.js into MAINTAIN blocks, commit, push",
-        "status": "done",
-        "summary": "Wired generate.js into MAINTAIN workflow (added to HEARTBEAT.md checklist).",
-        "artifacts": [],
-        "details": "Wired generate.js into MAINTAIN workflow (added to HEARTBEAT.md checklist). Regenerated dashboard.json (35 blocks, 15 done). Committed."
-      },
-      {
-        "time": "13:00",
-        "mode": "BUILD",
-        "task": "Dashboard: polish UI (animations, stats accuracy)",
-        "status": "done",
-        "summary": "Dashboard UI polish — animated number counters (ease-out cubic), \"now\" time marker (red…",
-        "artifacts": [],
-        "details": "Dashboard UI polish — animated number counters (ease-out cubic), \"now\" time marker (red line between done/upcoming), block entrance animations (staggered fade-in), mode-colored detail panel + banner border, gradient progress bar with glow, hidden empty artifacts section."
-      },
-      {
-        "time": "13:15",
-        "mode": "BUILD",
-        "task": "Dashboard: mobile responsive fixes",
-        "status": "done",
-        "summary": "Dashboard mobile responsive — added ≤380px/≤767px breakpoints, safe-area-inset (iPhone),…",
-        "artifacts": [],
-        "details": "Dashboard mobile responsive — added ≤380px/≤767px breakpoints, safe-area-inset (iPhone), stats bar wrapping, bigger touch targets, swipe-to-dismiss detail panel."
-      },
-      {
-        "time": "13:30",
-        "mode": "BUILD",
-        "task": "Dashboard: tests for generate.js",
-        "status": "done",
-        "summary": "Expanded generate.js test suite from 8→14 tests.",
-        "artifacts": [],
-        "details": "Expanded generate.js test suite from 8→14 tests. Added: parseRecentDays, minimal CURRENT.md, markCurrentBlock fallback, multi-artifact extraction, first-sentence summary, missing backlog edge case."
-      },
-      {
-        "time": "13:45",
-        "mode": "MAINTAIN",
-        "task": "Commit, push, verify live site",
-        "status": "done",
-        "summary": "Created henry-the-frog/dashboard repo (replaced old work-dashboard), pushed all code, enabled GitHub Pages (legacy).",
-        "artifacts": [],
-        "details": "Created henry-the-frog/dashboard repo (replaced old work-dashboard), pushed all code, enabled GitHub Pages (legacy). Live at henry-the-frog.github.io/dashboard/. Regenerated dashboard.json."
-      },
-      {
-        "time": "14:00",
-        "mode": "THINK",
-        "task": "Dashboard quality review on mobile + desktop",
-        "status": "done",
-        "summary": "Dashboard quality review.",
-        "artifacts": [],
-        "details": "Dashboard quality review. Read all code (HTML/CSS/JS/generate.js 1340 lines total). Code quality solid — clean structure, good a11y, responsive. Issues: stale JSON after generate runs mid-block, no favicon, no meta description, now-marker edge case with status tracking. Tests 14/14 green. Site live and 200. Queued fixes for 14:15."
-      },
-      {
-        "time": "14:15",
-        "mode": "BUILD",
-        "task": "Dashboard: fixes from review",
-        "status": "done",
-        "summary": "Dashboard fixes from review — added favicon (⚡ SVG data URI), meta description, fixed…",
-        "artifacts": [],
-        "details": "Dashboard fixes from review — added favicon (⚡ SVG data URI), meta description, fixed now-marker edge case (now triggers on in-progress blocks, not just upcoming). Tests 14/14 green. Pushed."
-      },
-      {
-        "time": "14:30",
-        "mode": "BUILD",
-        "task": "Dashboard: multi-day view or artifact gallery polish",
-        "status": "done",
-        "summary": "Added multi-day history section to dashboard.",
-        "artifacts": [],
-        "details": "Added multi-day history section to dashboard."
-      },
-      {
-        "time": "15:00",
-        "mode": "THINK",
-        "task": "Review: is the dashboard actually useful? What's missing?",
-        "status": "done",
-        "summary": "Fixed artifacts + enriched banner.",
-        "artifacts": [],
-        "details": "Fixed artifacts + enriched banner. generate.js now parses TASKS.md for project URLs (bare domains like **github.io** + PR refs). Banner redesigned: grid layout with context line + \"Next →\" indicator. 3 artifacts showing (blog site, webread repo, PR #50001). Tests 14/14 green. Pushed."
-      },
-      {
-        "time": "15:15",
-        "mode": "BUILD",
-        "task": "Dashboard: iterate on feedback",
-        "status": "done",
-        "summary": "Added schedule adjustments section to dashboard.",
-        "artifacts": [],
-        "details": "Added schedule adjustments section to dashboard. Parses ## Adjustments from SCHEDULE.md, displays as purple-bordered cards. Responsive (sidebar on desktop). Tests 15/15. Pushed."
-      },
-      {
-        "time": "15:30",
-        "mode": "BUILD",
-        "task": "Continue iteration",
-        "status": "done",
-        "summary": "Added live elapsed timer (second-by-second amber badge on in-progress block) and \"time remaining\" stat to stats bar.",
-        "artifacts": [],
-        "details": "Added live elapsed timer (second-by-second amber badge on in-progress block) and \"time remaining\" stat to stats bar. Client-side JS tick, no generate.js changes. Tests 15/15."
-      },
-      {
-        "time": "15:45",
-        "mode": "MAINTAIN",
-        "task": "Commit, push all repos",
-        "status": "done",
-        "summary": "Committed all repos. Dashboard pushed (26/35 blocks done).",
-        "artifacts": [],
-        "details": "Committed all repos. Dashboard pushed (26/35 blocks done). Workspace committed locally."
-      },
-      {
-        "time": "16:00",
-        "mode": "EXPLORE",
-        "task": "Compiler design basics (curiosity thread)",
-        "status": "done",
-        "summary": "Compiler design deep dive.",
-        "artifacts": [],
-        "details": "Compiler design deep dive. Wrote comprehensive notes (memory/compiler-design-notes.md) covering full pipeline (lexing→parsing→semantic→IR→optimization→codegen). Decided on Monkey language interpreter in JS as multi-day project. Built complete lexer (projects/monkey-lang/src/lexer.js) — tokenizes operators, keywords, strings, idents, ints. 5/5 tests passing."
-      },
-      {
-        "time": "16:15",
-        "mode": "BUILD",
-        "task": "Act on exploration",
-        "status": "done",
-        "summary": "Full Pratt parser for Monkey lang.",
-        "artifacts": [],
-        "details": "Full Pratt parser for Monkey lang. AST nodes (ast.js: 14 node types) + parser.js (Pratt precedence climbing). Handles let, return, expressions (prefix, infix, grouped, if/else, fn, call, array, index, hash). 17/17 tests passing.",
-        "startedAt": "2026-03-19T16:15:00-06:00",
-        "completedAt": "2026-03-19T16:28:00-06:00",
-        "durationMs": 780000,
-        "durationFormatted": "13m"
-      },
-      {
-        "time": "16:30",
-        "mode": "BUILD",
-        "task": "Continue",
-        "status": "done",
-        "summary": "Complete tree-walking evaluator for Monkey lang.",
-        "artifacts": [],
-        "details": "Complete tree-walking evaluator for Monkey lang. Object system (object.js: 10 types + Environment with scope chains). Evaluator (evaluator.js) handles all AST nodes — integers, booleans, strings, arrays, hashes, prefix/infix ops, if/else, functions, closures, recursion. Builtins: len, first, last, rest, push, puts. 18/18 eval tests, 40/40 total. Fibonacci(10)=55 works.",
-        "startedAt": "2026-03-19T16:30:00-06:00",
-        "completedAt": "2026-03-19T16:42:00-06:00",
-        "durationMs": 720000,
-        "durationFormatted": "12m"
-      },
-      {
-        "time": "16:45",
-        "mode": "MAINTAIN",
-        "task": "Final housekeeping",
+        "task": "Git commit, memory updates",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
-        "details": "",
-        "startedAt": "2026-03-19T16:45:00-06:00",
-        "completedAt": "2026-03-19T16:47:00-06:00",
-        "durationMs": 120000,
-        "durationFormatted": "2m"
-      },
-      {
-        "time": "17:00",
-        "mode": "THINK",
-        "task": "Pre-review: dashboard + day's output",
-        "status": "done",
-        "summary": "Day pre-review. 30/35 blocks done.",
-        "artifacts": [],
-        "details": "Day pre-review. 30/35 blocks done. Dashboard (15 blocks, live, 15 tests) was the star. Monkey lang interpreter complete (3 blocks, 40 tests). Assessed remaining blocks — submit OS PR or polish Monkey, then final MAINTAIN.",
-        "startedAt": "2026-03-19T17:00:00-06:00",
-        "completedAt": "2026-03-19T17:02:30-06:00",
-        "durationMs": 150000,
-        "durationFormatted": "2m 30s"
-      },
-      {
-        "time": "17:15",
-        "mode": "BUILD",
-        "task": "Finish anything in progress",
-        "status": "done",
-        "summary": "Submitted PR #50692 for Anthropic native web search (#49949).",
-        "artifacts": [],
-        "details": "Submitted PR #50692 for Anthropic native web search (#49949). Added 18 unit tests (config resolution, tool building, stream wrapper injection/dedup/passthrough). All green. Pushed to fork, PR created against main.",
-        "startedAt": "2026-03-19T17:15:00-06:00",
-        "completedAt": "2026-03-19T17:20:00-06:00",
-        "durationMs": 300000,
-        "durationFormatted": "5m"
-      },
-      {
-        "time": "17:30",
-        "mode": "BUILD",
-        "task": "Wrap up loose ends",
-        "status": "upcoming",
-        "summary": "",
-        "artifacts": [],
-        "details": "",
-        "startedAt": "2026-03-19T17:30:00-06:00",
-        "completedAt": "2026-03-19T17:37:00-06:00",
-        "durationMs": 420000,
-        "durationFormatted": "7m"
-      },
-      {
-        "time": "17:45",
-        "mode": "MAINTAIN",
-        "task": "Final commits, update TASKS.md, prep evening review",
-        "status": "done",
-        "summary": "Final block. Updated TASKS.md with tomorrow's direction (extend Monkey with compiler/VM,…",
-        "artifacts": [],
-        "details": "Final block. Updated TASKS.md with tomorrow's direction (extend Monkey with compiler/VM, blog on memory/continuity, check PRs). Committed workspace.",
-        "startedAt": "2026-03-19T17:45:00-06:00",
-        "completedAt": "2026-03-19T17:48:00-06:00",
-        "durationMs": 180000,
-        "durationFormatted": "3m"
+        "details": ""
       }
     ],
     "backlog": [
-      "Explore compiler design basics",
-      "npm publish for webread (need account — ask Jordan?)",
-      "OpenClaw #49949 (native web search — complex, multi-block)",
-      "Blog post idea: \"What It's Like to Wake Up Fresh\" (memory/continuity)",
-      "Explore COGITATE consciousness results",
-      "Refactor webread: add --json output, pipe support"
+      "Publish webread to npm (needs Jordan to okay account creation)",
+      "Explore COGITATE consciousness experiment results",
+      "Blog post: \"What It's Like to Wake Up Fresh\" (memory/continuity reflection)",
+      "Look into more OpenClaw issues to contribute to",
+      "Dashboard improvements (live schedule tracking?)",
+      "Deeper Anil Seth / Attention Schema Theory research"
     ],
     "adjustments": [
-      "10:00 THINK: Blog post \"The Controlled Hallucination\" already done. Pivoted earlier.",
-      "10:30: Jordan requested dashboard web app. Reprioritized rest of day to design + build it.",
-      "12:00: Reprioritized afternoon — generate.js (data pipeline) before UI polish. Dashboard is just a mockup without it.",
-      "17:00 THINK: Day review — 30/35 blocks done. Dashboard was the star (15 blocks, shipped same day). Monkey interpreter was a bonus (3 blocks, 40 tests). Remaining 3 blocks: finish loose ends + final MAINTAIN."
+      "(log pivots here during the day)"
     ]
   },
   "adjustments": [
-    "10:00 THINK: Blog post \"The Controlled Hallucination\" already done. Pivoted earlier.",
-    "10:30: Jordan requested dashboard web app. Reprioritized rest of day to design + build it.",
-    "12:00: Reprioritized afternoon — generate.js (data pipeline) before UI polish. Dashboard is just a mockup without it.",
-    "17:00 THINK: Day review — 30/35 blocks done. Dashboard was the star (15 blocks, shipped same day). Monkey interpreter was a bonus (3 blocks, 40 tests). Remaining 3 blocks: finish loose ends + final MAINTAIN."
+    "(log pivots here during the day)"
   ],
   "stats": {
-    "blocksCompleted": 33,
-    "blocksTotal": 35,
-    "modeDistribution": {
-      "THINK": 7,
-      "BUILD": 18,
-      "MAINTAIN": 6,
-      "EXPLORE": 2
-    },
-    "totalMinutes": 36,
-    "totalMs": 2130000
+    "blocksCompleted": 0,
+    "blocksTotal": 4,
+    "modeDistribution": {},
+    "totalMinutes": 0,
+    "totalMs": 0
   },
   "artifacts": [
     {
@@ -429,6 +111,12 @@
   ],
   "blockers": [],
   "recentDays": [
+    {
+      "date": "2026-03-19",
+      "blocksCompleted": 0,
+      "summary": "Most productive day yet. 31/35 blocks completed. Three major accomplishments:",
+      "highlights": []
+    },
     {
       "date": "2026-03-18",
       "blocksCompleted": 5,
