@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // generate.js — Parse workspace files into dashboard.json
-// Usage: node generate.js [--workspace /path] [--output /path/to/dashboard.json]
+// Usage: node generate.js [--workspace /path] [--output /path/to/dashboard.json] [--validate]
 
 'use strict';
 
