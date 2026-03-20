@@ -498,6 +498,22 @@ function generate() {
   if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
 
   fs.writeFileSync(OUTPUT, JSON.stringify(dashboard, null, 2));
+  
+  // Auto-validate: warn about format issues during normal generation
+  const warnings = [];
+  if (schedule.blocks.length < 10) {
+    warnings.push(`Only ${schedule.blocks.length} blocks parsed from SCHEDULE.md (expected 50+). Check time format (use 24h).`);
+  }
+  const logEntryCount = schedule.blocks.filter(b => b.status === 'done').length;
+  const logLines = dailyLogText ? (dailyLogText.match(/^-\s+\d{1,2}:\d{2}/gm) || []).length : 0;
+  if (logLines > 0 && logEntryCount < logLines * 0.5) {
+    warnings.push(`Only ${logEntryCount}/${logLines} log entries matched to schedule blocks. Check time format consistency.`);
+  }
+  if (warnings.length) {
+    console.log(`⚠️  ${warnings.length} warning(s):`);
+    warnings.forEach(w => console.log(`  - ${w}`));
+  }
+  
   console.log(`✅ Generated ${OUTPUT} (${schedule.blocks.length} blocks, ${stats.blocksCompleted} done)`);
 }
 
