@@ -723,6 +723,76 @@ footer {
   .artifacts-grid { grid-template-columns: 1fr; }
 }
 
+/* === Mode Distribution Bar === */
+.mode-bar-section {
+  padding: 0 var(--space-md) var(--space-sm);
+}
+
+.mode-bar {
+  display: flex;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--border);
+}
+
+.mode-bar-segment {
+  height: 100%;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.mode-bar-segment.mode-build { background: var(--mode-build); }
+.mode-bar-segment.mode-think { background: var(--mode-think); }
+.mode-bar-segment.mode-explore { background: var(--mode-explore); }
+.mode-bar-segment.mode-maintain { background: var(--mode-maintain); }
+
+/* Subtle separators between segments */
+.mode-bar-segment + .mode-bar-segment {
+  border-left: 1px solid var(--bg);
+}
+
+.mode-bar-legend {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-xs);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.mode-bar-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.mode-bar-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.mode-bar-legend-dot.mode-build { background: var(--mode-build); }
+.mode-bar-legend-dot.mode-think { background: var(--mode-think); }
+.mode-bar-legend-dot.mode-explore { background: var(--mode-explore); }
+.mode-bar-legend-dot.mode-maintain { background: var(--mode-maintain); }
+
+@media (min-width: 768px) {
+  .mode-bar-section {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mode-bar-section {
+    grid-column: 1 / -1;
+    max-width: none;
+  }
+}
+
 /* === Next Up === */
 .next-up {
   padding: var(--space-md);

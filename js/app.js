@@ -229,6 +229,32 @@
     }).join('');
   }
 
+  function renderModeBar(stats) {
+    const bar = $('#modeBar');
+    const legend = $('#modeBarLegend');
+    if (!bar || !legend || !stats) return;
+    const dist = stats.modeDistribution || {};
+    const total = Object.values(dist).reduce((a, b) => a + b, 0);
+    if (total === 0) {
+      bar.innerHTML = '';
+      legend.innerHTML = '';
+      return;
+    }
+    const modes = ['BUILD', 'THINK', 'EXPLORE', 'MAINTAIN'];
+    bar.innerHTML = modes
+      .filter(m => dist[m] > 0)
+      .map(m => {
+        const pct = ((dist[m] / total) * 100).toFixed(1);
+        return `<div class="mode-bar-segment mode-${m.toLowerCase()}" style="width:${pct}%" title="${m}: ${dist[m]} blocks (${Math.round(pct)}%)"></div>`;
+      }).join('');
+    legend.innerHTML = modes
+      .filter(m => dist[m] > 0)
+      .map(m => {
+        const pct = Math.round((dist[m] / total) * 100);
+        return `<span class="mode-bar-legend-item"><span class="mode-bar-legend-dot mode-${m.toLowerCase()}"></span>${MODE_ICONS[m]} ${dist[m]} (${pct}%)</span>`;
+      }).join('');
+  }
+
   function renderAdherence(schedule) {
     const stat = $('#adherenceStat');
     const val = $('#adherenceValue');
@@ -379,6 +405,7 @@
   function renderAll(data) {
     renderBanner(data.current);
     renderStats(data.stats);
+    renderModeBar(data.stats);
     renderNextUp(data.schedule);
     renderAdherence(data.schedule);
     renderTimeline(data.schedule);
