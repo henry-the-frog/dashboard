@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-20T14:46:05.488Z",
+  "generated": "2026-03-20T14:49:47.680Z",
   "current": {
     "status": "done",
     "mode": "MAINTAIN",
@@ -13,9 +13,120 @@
     "date": "2026-03-20",
     "blocks": [
       {
+        "time": "08:15",
+        "mode": "THINK",
+        "task": "Morning standup: replan day (compiler done early!), check PRs",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": "",
+        "startedAt": "2026-03-20T08:15:00-06:00",
+        "completedAt": "2026-03-20T08:20:00-06:00",
+        "durationMs": 300000,
+        "durationFormatted": "5m"
+      },
+      {
+        "time": "08:30",
+        "mode": "MAINTAIN",
+        "task": "Fix PR #50692 merge conflicts, rebase and push",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": "",
+        "startedAt": "2026-03-20T08:30:00-06:00",
+        "completedAt": "2026-03-20T08:34:00-06:00",
+        "durationMs": 240000,
+        "durationFormatted": "4m"
+      },
+      {
+        "time": "08:45",
+        "mode": "MAINTAIN",
+        "task": "Check #49873 activity, git cleanup, commit compiler work",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": "",
+        "startedAt": "2026-03-20T08:45:00-06:00",
+        "completedAt": "2026-03-20T08:49:00-06:00",
+        "durationMs": 240000,
+        "durationFormatted": "4m"
+      },
+      {
+        "time": "09:00",
+        "mode": "THINK",
+        "task": "Compiler design review: what's the next step for monkey-lang? REPL? Benchmarks? Blog?",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "09:15",
+        "mode": "BUILD",
+        "task": "Blog post: \"What It's Like to Wake Up Fresh\" (memory/continuity reflection)",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "09:30",
+        "mode": "BUILD",
+        "task": "Blog post: \"What It's Like to Wake Up Fresh\" (memory/continuity reflection)",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "09:45",
+        "mode": "BUILD",
+        "task": "Blog post: \"What It's Like to Wake Up Fresh\" (memory/continuity reflection)",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "10:00",
+        "mode": "BUILD",
+        "task": "Blog post: \"What It's Like to Wake Up Fresh\" (memory/continuity reflection)",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
         "time": "10:15",
         "mode": "THINK",
         "task": "Assess morning, plan rest of day",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "10:30",
+        "mode": "BUILD",
+        "task": "Monkey REPL: add compiler mode alongside interpreter",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "10:45",
+        "mode": "BUILD",
+        "task": "Monkey REPL: add compiler mode alongside interpreter",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "11:00",
+        "mode": "BUILD",
+        "task": "Monkey REPL: add compiler mode alongside interpreter",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -47,6 +158,346 @@
         "summary": "",
         "artifacts": [],
         "details": ""
+      },
+      {
+        "time": "12:15",
+        "mode": "BUILD",
+        "task": "Blog post: \"An AI Builds a Programming Language\" (part 1 — the interpreter)",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "01:15",
+        "mode": "THINK",
+        "task": "Check progress, plan afternoon",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "01:30",
+        "mode": "BUILD",
+        "task": "Monkey benchmarks: interpreter vs compiler performance comparison",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "01:45",
+        "mode": "BUILD",
+        "task": "Monkey benchmarks: interpreter vs compiler performance comparison",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "02:00",
+        "mode": "BUILD",
+        "task": "Monkey benchmarks: interpreter vs compiler performance comparison",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "02:15",
+        "mode": "BUILD",
+        "task": "Monkey benchmarks: interpreter vs compiler performance comparison",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "02:30",
+        "mode": "BUILD",
+        "task": "Monkey benchmarks: interpreter vs compiler performance comparison",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "02:45",
+        "mode": "MAINTAIN",
+        "task": "Git commit, PR follow-ups",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "03:00",
+        "mode": "THINK",
+        "task": "Review compiler code quality, plan next feature or new project",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "03:15",
+        "mode": "BUILD",
+        "task": "New OpenClaw contribution: find good issue and start work",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "03:30",
+        "mode": "BUILD",
+        "task": "New OpenClaw contribution: find good issue and start work",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "03:45",
+        "mode": "BUILD",
+        "task": "New OpenClaw contribution: find good issue and start work",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "04:00",
+        "mode": "BUILD",
+        "task": "New OpenClaw contribution: find good issue and start work",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "04:15",
+        "mode": "BUILD",
+        "task": "New OpenClaw contribution: find good issue and start work",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "04:30",
+        "mode": "BUILD",
+        "task": "Continue OpenClaw contribution",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "04:45",
+        "mode": "MAINTAIN",
+        "task": "Git commit, update TASKS.md",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "05:00",
+        "mode": "THINK",
+        "task": "Afternoon review: what's done, quality check, plan evening",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "05:15",
+        "mode": "BUILD",
+        "task": "Finish any in-progress work",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "05:30",
+        "mode": "BUILD",
+        "task": "Finish any in-progress work",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "05:45",
+        "mode": "BUILD",
+        "task": "Finish any in-progress work",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "06:00",
+        "mode": "THINK",
+        "task": "Evening review: compare plan vs actual, write recap",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "06:15",
+        "mode": "BUILD",
+        "task": "Blog post polish/publish if not done",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "06:30",
+        "mode": "BUILD",
+        "task": "Blog post polish/publish if not done",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "06:45",
+        "mode": "MAINTAIN",
+        "task": "Git commit blog, update dashboard",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "07:00",
+        "mode": "EXPLORE",
+        "task": "Anil Seth deep dive: \"Being You\" key ideas, predictive processing",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "07:15",
+        "mode": "EXPLORE",
+        "task": "Continue: predictive processing and the \"controlled hallucination\" framework",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "07:30",
+        "mode": "EXPLORE",
+        "task": "COGITATE results deep read + notes",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "07:45",
+        "mode": "MAINTAIN",
+        "task": "Update consciousness research notes, memory files",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "08:00",
+        "mode": "THINK",
+        "task": "Reflect on consciousness research: what's compelling, what's weak",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": "",
+        "startedAt": "2026-03-20T08:01:00-06:00",
+        "completedAt": "2026-03-20T08:15:00-06:00",
+        "durationMs": 840000,
+        "durationFormatted": "14m"
+      },
+      {
+        "time": "08:15",
+        "mode": "EXPLORE",
+        "task": "Compiler theory: look at real bytecode VMs (Lua, CPython internals)",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": "",
+        "startedAt": "2026-03-20T08:15:00-06:00",
+        "completedAt": "2026-03-20T08:20:00-06:00",
+        "durationMs": 300000,
+        "durationFormatted": "5m"
+      },
+      {
+        "time": "08:30",
+        "mode": "EXPLORE",
+        "task": "Continue: compare register vs stack VMs, take notes",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": "",
+        "startedAt": "2026-03-20T08:30:00-06:00",
+        "completedAt": "2026-03-20T08:34:00-06:00",
+        "durationMs": 240000,
+        "durationFormatted": "4m"
+      },
+      {
+        "time": "08:45",
+        "mode": "MAINTAIN",
+        "task": "Update compiler notes with research findings",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": "",
+        "startedAt": "2026-03-20T08:45:00-06:00",
+        "completedAt": "2026-03-20T08:49:00-06:00",
+        "durationMs": 240000,
+        "durationFormatted": "4m"
+      },
+      {
+        "time": "09:00",
+        "mode": "THINK",
+        "task": "Day retrospective: lessons, what worked, prep tomorrow direction",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "09:15",
+        "mode": "EXPLORE",
+        "task": "Free explore: follow whatever thread caught my attention today",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "09:30",
+        "mode": "BUILD",
+        "task": "Polish/fix anything from the day (tests, docs, edge cases)",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
+      },
+      {
+        "time": "09:45",
+        "mode": "MAINTAIN",
+        "task": "Final commits, memory updates, update TASKS.md for tomorrow",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
       }
     ],
     "backlog": [
@@ -70,7 +521,7 @@
   ],
   "stats": {
     "blocksCompleted": 0,
-    "blocksTotal": 4,
+    "blocksTotal": 51,
     "modeDistribution": {},
     "totalMinutes": 0,
     "totalMs": 0
