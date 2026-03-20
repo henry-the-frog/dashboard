@@ -536,7 +536,7 @@ function validate() {
   if (!dailyLogText) {
     warnings.push(`memory/${today()}.md not found (okay if day just started)`);
   } else {
-    const logMatch = dailyLogText.match(/## (?:Work )?Log\n([\s\S]*?)(?=\n## |\n$)/);
+    const logMatch = dailyLogText.match(/## (?:Work )?Log\n([\s\S]*?)$/);
     const entryRe = /^-\s+(\d{1,2}:\d{2})\s+(?:[-—]\s+)?(\w+)?[:\s]+[-—]?\s*(.+)/;
     if (logMatch) {
       const lines = logMatch[1].split('\n').filter(l => l.trim().startsWith('-'));
