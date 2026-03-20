@@ -493,4 +493,89 @@ function generate() {
   console.log(`✅ Generated ${OUTPUT} (${schedule.blocks.length} blocks, ${stats.blocksCompleted} done)`);
 }
 
-generate();
+function validate() {
+  const scheduleText = readFile('SCHEDULE.md');
+  const dailyLogText = readFile(`memory/${today()}.md`);
+  const errors = [];
+  const warnings = [];
+
+  // Validate SCHEDULE.md
+  if (!scheduleText) {
+    errors.push('SCHEDULE.md not found');
+  } else {
+    const timelineMatch = scheduleText.match(/## Timeline\n([\s\S]*?)(?=\n## |\n$)/);
+    if (!timelineMatch) {
+      errors.push('SCHEDULE.md: missing ## Timeline section');
+    } else {
+      const lines = timelineMatch[1].split('\n').filter(l => l.trim().startsWith('-'));
+      const timeRe = /^-\s+(\d{1,2}:\d{2})(?:[–-](\d{1,2}:\d{2}))?\s+(🧠|🔨|🔍|🔧)\s+(\w+)\s+[-—]\s+(.+)/;
+      let parsed = 0;
+      for (const line of lines) {
+        if (timeRe.test(line)) {
+          parsed++;
+        } else {
+          errors.push(`SCHEDULE.md: unparseable line: ${line.substring(0, 80)}`);
+        }
+      }
+      if (parsed < 10) {
+        warnings.push(`SCHEDULE.md: only ${parsed} blocks parsed (expected 50+)`);
+      }
+      console.log(`📋 SCHEDULE.md: ${parsed}/${lines.length} lines parsed`);
+    }
+  }
+
+  // Validate daily log
+  if (!dailyLogText) {
+    warnings.push(`memory/${today()}.md not found (okay if day just started)`);
+  } else {
+    const logMatch = dailyLogText.match(/## (?:Work )?Log\n([\s\S]*?)(?=\n## |\n$)/);
+    const entryRe = /^-\s+(\d{1,2}:\d{2})\s+(?:[-—]\s+)?(\w+)?[:\s]+[-—]?\s*(.+)/;
+    if (logMatch) {
+      const lines = logMatch[1].split('\n').filter(l => l.trim().startsWith('-'));
+      let parsed = 0;
+      for (const line of lines) {
+        if (entryRe.test(line)) {
+          parsed++;
+        } else if (line.trim().length > 3) {
+          warnings.push(`Daily log: unparseable entry: ${line.substring(0, 80)}`);
+        }
+      }
+      console.log(`📝 Daily log: ${parsed}/${lines.length} entries parsed`);
+    }
+  }
+
+  // Validate CURRENT.md
+  const currentText = readFile('CURRENT.md');
+  if (!currentText) {
+    warnings.push('CURRENT.md not found');
+  } else {
+    const required = ['status', 'mode', 'task'];
+    for (const field of required) {
+      if (!new RegExp(`^${field}:`, 'm').test(currentText)) {
+        errors.push(`CURRENT.md: missing required field '${field}'`);
+      }
+    }
+    console.log('📄 CURRENT.md: OK');
+  }
+
+  // Report
+  if (errors.length) {
+    console.log(`\n❌ ${errors.length} error(s):`);
+    errors.forEach(e => console.log(`  - ${e}`));
+  }
+  if (warnings.length) {
+    console.log(`\n⚠️  ${warnings.length} warning(s):`);
+    warnings.forEach(w => console.log(`  - ${w}`));
+  }
+  if (!errors.length && !warnings.length) {
+    console.log('\n✅ All files valid!');
+  }
+
+  process.exit(errors.length > 0 ? 1 : 0);
+}
+
+if (args.includes('--validate')) {
+  validate();
+} else {
+  generate();
+}
