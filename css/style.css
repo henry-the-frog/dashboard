@@ -879,6 +879,121 @@ footer {
   }
 }
 
+/* === Duration Chart === */
+.duration-chart-section {
+  padding: var(--space-lg) var(--space-md);
+}
+
+.duration-chart-section h2 {
+  font-size: 1rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-md);
+}
+
+.duration-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 120px;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.duration-bar {
+  flex: 1;
+  min-width: 12px;
+  max-width: 24px;
+  border-radius: 3px 3px 0 0;
+  position: relative;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.15s;
+  animation: bar-grow 0.4s ease-out both;
+}
+
+.duration-bar:hover {
+  opacity: 0.8;
+  transform: scaleY(1.05);
+  transform-origin: bottom;
+}
+
+.duration-bar.mode-build { background: var(--mode-build); }
+.duration-bar.mode-think { background: var(--mode-think); }
+.duration-bar.mode-explore { background: var(--mode-explore); }
+.duration-bar.mode-maintain { background: var(--mode-maintain); }
+
+@keyframes bar-grow {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+.duration-bar-tooltip {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 2px 6px;
+  font-size: 0.65rem;
+  color: var(--text);
+  white-space: nowrap;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.duration-bar:hover .duration-bar-tooltip {
+  display: block;
+}
+
+.duration-stats {
+  display: flex;
+  gap: var(--space-lg);
+  margin-top: var(--space-sm);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.duration-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.duration-stat-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.duration-stat-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (min-width: 768px) {
+  .duration-chart-section {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .duration-chart-section {
+    grid-column: 1;
+  }
+}
+
 /* === Adjustments === */
 .adjustments-section {
   padding: var(--space-lg) var(--space-md);

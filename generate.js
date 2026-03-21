@@ -340,8 +340,9 @@ function computeStats(blocks) {
     blocksCompleted: completed,
     blocksTotal: blocks.length,
     modeDistribution: dist,
-    totalMinutes: totalMs > 0 ? Math.round(totalMs / 60000) : completed * 5, // estimate 5min if no timing data
+    totalMinutes: totalMs > 0 ? Math.round(totalMs / 60000) : completed * 5,
     totalMs,
+    avgDurationMs: completed > 0 && totalMs > 0 ? Math.round(totalMs / completed) : 0,
   };
 }
 
@@ -417,7 +418,11 @@ function parseRecentDays() {
 
 // --- Helpers ---
 function today() {
-  return new Date().toISOString().slice(0, 10);
+  const now = new Date();
+  const y = now.getFullYear();
+  const m = String(now.getMonth() + 1).padStart(2, '0');
+  const d = String(now.getDate()).padStart(2, '0');
+  return `${y}-${m}-${d}`;
 }
 
 // Normalize time to 24h format (work blocks run 8:00-22:00, so times 1:00-7:59 are PM)

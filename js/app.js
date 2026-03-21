@@ -274,6 +274,63 @@
     val.className = 'stat-value ' + (pct >= 70 ? 'adherence-high' : pct >= 40 ? 'adherence-mid' : 'adherence-low');
   }
 
+  function renderDurationChart(schedule) {
+    const section = $('#durationChartSection');
+    const chart = $('#durationChart');
+    const statsEl = $('#durationStats');
+    if (!section || !chart || !schedule?.blocks) return;
+
+    const blocksWithTime = schedule.blocks.filter(b => b.status === 'done' && b.durationMs > 0);
+    if (blocksWithTime.length < 3) {
+      section.style.display = 'none';
+      return;
+    }
+    section.style.display = '';
+
+    const maxDuration = Math.max(...blocksWithTime.map(b => b.durationMs));
+    const maxHeight = 100; // px
+
+    chart.innerHTML = blocksWithTime.map((block, i) => {
+      const height = Math.max(4, Math.round((block.durationMs / maxDuration) * maxHeight));
+      const mins = (block.durationMs / 60000).toFixed(1);
+      const modeClass = `mode-${block.mode.toLowerCase()}`;
+      return `<div class="duration-bar ${modeClass}" style="height:${height}px;animation-delay:${i * 20}ms" title="${block.time} ${block.mode}: ${mins}m">
+        <div class="duration-bar-tooltip">${block.time} · ${mins}m</div>
+      </div>`;
+    }).join('');
+
+    // Compute stats
+    const durations = blocksWithTime.map(b => b.durationMs);
+    const totalMs = durations.reduce((a, b) => a + b, 0);
+    const avgMs = totalMs / durations.length;
+    const sorted = [...durations].sort((a, b) => a - b);
+    const medianMs = sorted[Math.floor(sorted.length / 2)];
+
+    // Avg by mode
+    const modeAvgs = {};
+    for (const b of blocksWithTime) {
+      if (!modeAvgs[b.mode]) modeAvgs[b.mode] = { total: 0, count: 0 };
+      modeAvgs[b.mode].total += b.durationMs;
+      modeAvgs[b.mode].count++;
+    }
+
+    const fmtMin = (ms) => {
+      const m = ms / 60000;
+      return m >= 1 ? `${m.toFixed(1)}m` : `${Math.round(ms / 1000)}s`;
+    };
+
+    let statsHTML = `
+      <div class="duration-stat"><span class="duration-stat-value">${fmtMin(avgMs)}</span><span class="duration-stat-label">avg</span></div>
+      <div class="duration-stat"><span class="duration-stat-value">${fmtMin(medianMs)}</span><span class="duration-stat-label">median</span></div>
+      <div class="duration-stat"><span class="duration-stat-value">${fmtMin(totalMs)}</span><span class="duration-stat-label">total</span></div>
+    `;
+    for (const [mode, data] of Object.entries(modeAvgs)) {
+      const avg = data.total / data.count;
+      statsHTML += `<div class="duration-stat"><span class="duration-stat-value">${fmtMin(avg)}</span><span class="duration-stat-label">${MODE_ICONS[mode] || ''} avg</span></div>`;
+    }
+    statsEl.innerHTML = statsHTML;
+  }
+
   function renderAdjustments(adjustments) {
     const section = $('#adjustmentsSection');
     const list = $('#adjustmentsList');
@@ -406,6 +463,7 @@
     renderBanner(data.current);
     renderStats(data.stats);
     renderModeBar(data.stats);
+    renderDurationChart(data.schedule);
     renderNextUp(data.schedule);
     renderAdherence(data.schedule);
     renderTimeline(data.schedule);
