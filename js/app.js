@@ -255,25 +255,6 @@
       }).join('');
   }
 
-  function renderAdherence(schedule) {
-    const stat = $('#adherenceStat');
-    const val = $('#adherenceValue');
-    if (!stat || !val || !schedule?.blocks) return;
-
-    const done = schedule.blocks.filter(b => b.status === 'done');
-    if (done.length < 3) {
-      stat.style.display = 'none';
-      return;
-    }
-    stat.style.display = '';
-
-    // Adherence = % of done blocks (simple metric: they completed)
-    const total = schedule.blocks.length;
-    const pct = Math.round((done.length / total) * 100);
-    val.textContent = pct + '%';
-    val.className = 'stat-value ' + (pct >= 70 ? 'adherence-high' : pct >= 40 ? 'adherence-mid' : 'adherence-low');
-  }
-
   function renderDurationChart(schedule) {
     const section = $('#durationChartSection');
     const chart = $('#durationChart');
@@ -329,6 +310,46 @@
       statsHTML += `<div class="duration-stat"><span class="duration-stat-value">${fmtMin(avg)}</span><span class="duration-stat-label">${MODE_ICONS[mode] || ''} avg</span></div>`;
     }
     statsEl.innerHTML = statsHTML;
+  }
+
+  function renderPRs(prs) {
+    const section = $('#prsSection');
+    const list = $('#prsList');
+    if (!section || !list) return;
+    if (!prs || prs.length === 0) {
+      section.style.display = 'none';
+      return;
+    }
+    section.style.display = '';
+
+    list.innerHTML = prs.map(pr => {
+      const age = pr.ageHours;
+      const ageStr = age < 24 ? `${age}h ago` : `${Math.round(age / 24)}d ago`;
+      const ageClass = age > 72 ? 'pr-stale' : age > 24 ? 'pr-waiting' : 'pr-fresh';
+      const repo = pr.repo.split('/').pop();
+      return `
+        <a class="pr-card ${ageClass}" href="${esc(pr.url)}" target="_blank">
+          <div class="pr-number">#${pr.number}</div>
+          <div class="pr-title">${esc(pr.title)}</div>
+          <div class="pr-meta">
+            <span class="pr-repo">${esc(repo)}</span>
+            <span class="pr-age">${ageStr}</span>
+          </div>
+        </a>`;
+    }).join('');
+  }
+
+  function renderScheduleAdherence(adherence) {
+    const stat = $('#adherenceStat');
+    const val = $('#adherenceValue');
+    if (!stat || !val || !adherence) return;
+    if (adherence.pastBlocks < 3) {
+      stat.style.display = 'none';
+      return;
+    }
+    stat.style.display = '';
+    val.textContent = adherence.completionRate + '%';
+    val.className = 'stat-value ' + (adherence.completionRate >= 70 ? 'adherence-high' : adherence.completionRate >= 40 ? 'adherence-mid' : 'adherence-low');
   }
 
   function renderAdjustments(adjustments) {
@@ -497,11 +518,12 @@
     renderHighlights(data.todayHighlights);
     renderDurationChart(data.schedule);
     renderNextUp(data.schedule);
-    renderAdherence(data.schedule);
     renderTimeline(data.schedule);
     renderArtifacts(data.artifacts);
     renderAdjustments(data.adjustments);
     renderRecentDays(data.recentDays);
+    renderPRs(data.prs);
+    renderScheduleAdherence(data.scheduleAdherence);
     $('#lastUpdated').textContent = new Date(data.generated).toLocaleTimeString();
 
     // Re-open detail if one was selected

@@ -285,6 +285,29 @@ function parseProjectArtifacts(tasksText) {
   return artifacts;
 }
 
+function fetchOpenPRs() {
+  const { execSync } = require('child_process');
+  try {
+    const raw = execSync(
+      'gh search prs --author henry-the-frog --state open --json number,title,url,repository,createdAt,updatedAt --limit 20',
+      { encoding: 'utf8', timeout: 15000, stdio: ['pipe', 'pipe', 'pipe'] }
+    );
+    const prs = JSON.parse(raw);
+    return prs.map(pr => ({
+      number: pr.number,
+      title: pr.title,
+      url: pr.url,
+      repo: pr.repository?.nameWithOwner || '',
+      createdAt: pr.createdAt,
+      updatedAt: pr.updatedAt,
+      ageHours: Math.round((Date.now() - new Date(pr.createdAt).getTime()) / 3600000),
+    }));
+  } catch (err) {
+    console.warn('⚠️  Could not fetch PRs via gh CLI:', err.message);
+    return [];
+  }
+}
+
 function parseBlockTimes(workspace) {
   const timesFile = path.resolve(workspace, 'block-times.jsonl');
   const times = {};
@@ -487,6 +510,30 @@ function extractTodayHighlights(blocks) {
   return highlights.slice(0, 8); // Cap at 8
 }
 
+function computeAdherence(blocks) {
+  const now = new Date();
+  const nowStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+  
+  // Only count blocks that should have happened by now
+  const pastBlocks = blocks.filter(b => b.time <= nowStr);
+  const doneBlocks = pastBlocks.filter(b => b.status === 'done');
+  
+  // Completion rate: how many past blocks got done
+  const completionRate = pastBlocks.length > 0 ? Math.round((doneBlocks.length / pastBlocks.length) * 100) : 0;
+  
+  // Mode adherence: did we do the right type of work?
+  let modeMatches = 0;
+  // We can't easily compare planned vs actual mode (log doesn't always record mode changes)
+  // So adherence = completion rate for now
+  
+  return {
+    completionRate,
+    completedBlocks: doneBlocks.length,
+    pastBlocks: pastBlocks.length,
+    totalBlocks: blocks.length,
+  };
+}
+
 // --- Main ---
 function generate() {
   const currentText = readFile('CURRENT.md');
@@ -523,6 +570,12 @@ function generate() {
   // Extract today's highlights (notable completions from the log)
   const todayHighlights = extractTodayHighlights(schedule.blocks);
 
+  // Fetch open PRs
+  const prs = fetchOpenPRs();
+
+  // Schedule adherence: compare planned mode distribution vs actual
+  const scheduleAdherence = computeAdherence(schedule.blocks);
+
   const dashboard = {
     generated: new Date().toISOString(),
     current,
@@ -533,6 +586,8 @@ function generate() {
     blockers: [],
     recentDays,
     todayHighlights,
+    prs,
+    scheduleAdherence,
   };
 
   // Ensure output directory exists

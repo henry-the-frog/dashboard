@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-21T18:46:57.061Z",
+  "generated": "2026-03-21T19:17:52.322Z",
   "current": {
     "status": "done",
     "mode": "BUILD",
-    "task": "12:45 BUILD — PR status check + schedule adjustment",
-    "context": "Checked all 9 open PRs — no human reviews on any. Only automated (Greptile, Codex). Adjusted schedule to repurpose freed Phase 2 blocks for dashboard work and EXPLORE topics.",
-    "next": "13:00 THINK — Assess progress, plan afternoon direction, check failures/decisions",
-    "startedAt": "2026-03-21T12:50:00-06:00",
+    "task": "13:15 BUILD — Dashboard: PR tracking section + schedule adherence",
+    "context": "PR tracking section live (9 PRs, age-based color coding). Schedule adherence now data-driven from generator. Cleaned up old adherence logic.",
+    "next": "13:30 BUILD — Continue dashboard (blog post links, polish)",
+    "startedAt": "2026-03-21T13:24:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -276,10 +276,14 @@
         "time": "13:00",
         "mode": "BUILD",
         "task": "OpenClaw #51620: Phase 1 (persist followup queues across restart)",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Afternoon assessment.",
         "artifacts": [],
-        "details": ""
+        "details": "Afternoon assessment. Day 6 most productive yet — 4 compiler opts, blog published, 3 lessons promoted, #51620 PR done. No schedule adjustments needed. openclaw-contributing scratch note qualifies for lesson promotion (3 uses, 2 days). Dashboard next.",
+        "startedAt": "2026-03-21T13:00:00-06:00",
+        "completedAt": "2026-03-21T13:04:30-06:00",
+        "durationMs": 270000,
+        "durationFormatted": "4m 30s"
       },
       {
         "time": "13:00",
@@ -288,16 +292,24 @@
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
-        "details": ""
+        "details": "",
+        "startedAt": "2026-03-21T13:00:00-06:00",
+        "completedAt": "2026-03-21T13:04:30-06:00",
+        "durationMs": 270000,
+        "durationFormatted": "4m 30s"
       },
       {
         "time": "13:15",
         "mode": "BUILD",
         "task": "Dashboard: PR tracking section + schedule adherence (pulled forward)",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Dashboard PR tracking section shipped.",
         "artifacts": [],
-        "details": ""
+        "details": "Dashboard PR tracking section shipped. Added: (1) generate.cjs fetches open PRs via gh CLI with age calculation, (2) new PR card UI with fresh/waiting/stale color coding based on age, (3) schedule adherence now computed from generator (completion rate of past-due blocks) instead of naïve total%. Also cleaned up old renderAdherence in favor of data-driven renderScheduleAdherence. 9 PRs rendering correctly, adherence showing 87%.",
+        "startedAt": "2026-03-21T13:15:00-06:00",
+        "completedAt": "2026-03-21T13:24:00-06:00",
+        "durationMs": 540000,
+        "durationFormatted": "9m"
       },
       {
         "time": "13:30",
@@ -629,16 +641,16 @@
     "12:45: Phase 2 of #51620 completed 2 blocks early. Freed 13:15–14:15. Pulled dashboard work and EXPLORE (consciousness) forward. Checked all 9 open PRs — no human reviews yet."
   ],
   "stats": {
-    "blocksCompleted": 19,
+    "blocksCompleted": 21,
     "blocksTotal": 57,
     "modeDistribution": {
       "THINK": 4,
-      "BUILD": 14,
+      "BUILD": 16,
       "EXPLORE": 1
     },
-    "totalMinutes": 166,
-    "totalMs": 9960000,
-    "avgDurationMs": 524211
+    "totalMinutes": 180,
+    "totalMs": 10770000,
+    "avgDurationMs": 512857
   },
   "artifacts": [
     {
@@ -752,6 +764,105 @@
       "mode": "THINK",
       "time": "12:00",
       "text": "Midday review. Morning extremely productive: 4 compiler opts (2.19x speedup),…"
+    },
+    {
+      "mode": "BUILD",
+      "time": "13:00",
+      "text": "Afternoon assessment."
+    },
+    {
+      "mode": "BUILD",
+      "time": "13:15",
+      "text": "Dashboard PR tracking section shipped."
     }
-  ]
+  ],
+  "prs": [
+    {
+      "number": 51803,
+      "title": "fix: persist followup queues across gateway restart",
+      "url": "https://github.com/openclaw/openclaw/pull/51803",
+      "repo": "openclaw/openclaw",
+      "createdAt": "2026-03-21T18:22:41Z",
+      "updatedAt": "2026-03-21T18:43:15Z",
+      "ageHours": 1
+    },
+    {
+      "number": 51308,
+      "title": "fix: redact raw error messages from channel-facing agent failure replies",
+      "url": "https://github.com/openclaw/openclaw/pull/51308",
+      "repo": "openclaw/openclaw",
+      "createdAt": "2026-03-20T22:23:20Z",
+      "updatedAt": "2026-03-20T22:29:15Z",
+      "ageHours": 21
+    },
+    {
+      "number": 51292,
+      "title": "feat: configurable exec approval timeout via approvals.timeoutMs",
+      "url": "https://github.com/openclaw/openclaw/pull/51292",
+      "repo": "openclaw/openclaw",
+      "createdAt": "2026-03-20T21:39:06Z",
+      "updatedAt": "2026-03-20T21:43:56Z",
+      "ageHours": 22
+    },
+    {
+      "number": 51282,
+      "title": "feat(gateway): make handshake timeout configurable via gateway.handshakeTimeoutMs",
+      "url": "https://github.com/openclaw/openclaw/pull/51282",
+      "repo": "openclaw/openclaw",
+      "createdAt": "2026-03-20T21:23:23Z",
+      "updatedAt": "2026-03-20T21:27:22Z",
+      "ageHours": 22
+    },
+    {
+      "number": 51261,
+      "title": "fix: classify HTTP 404 as model_not_found in fallback chain",
+      "url": "https://github.com/openclaw/openclaw/pull/51261",
+      "repo": "openclaw/openclaw",
+      "createdAt": "2026-03-20T20:38:20Z",
+      "updatedAt": "2026-03-20T20:43:37Z",
+      "ageHours": 23
+    },
+    {
+      "number": 51257,
+      "title": "feat: surface session label/displayName in /status and TUI",
+      "url": "https://github.com/openclaw/openclaw/pull/51257",
+      "repo": "openclaw/openclaw",
+      "createdAt": "2026-03-20T20:20:35Z",
+      "updatedAt": "2026-03-20T20:24:51Z",
+      "ageHours": 23
+    },
+    {
+      "number": 51180,
+      "title": "fix: show all allowFrom entries in channels status --probe",
+      "url": "https://github.com/openclaw/openclaw/pull/51180",
+      "repo": "openclaw/openclaw",
+      "createdAt": "2026-03-20T18:18:34Z",
+      "updatedAt": "2026-03-20T18:20:27Z",
+      "ageHours": 25
+    },
+    {
+      "number": 50692,
+      "title": "feat: add Anthropic native web search provider (#49949)",
+      "url": "https://github.com/openclaw/openclaw/pull/50692",
+      "repo": "openclaw/openclaw",
+      "createdAt": "2026-03-19T23:18:46Z",
+      "updatedAt": "2026-03-20T14:34:40Z",
+      "ageHours": 44
+    },
+    {
+      "number": 50001,
+      "title": "fix: restore export HTML template placeholders broken by Prettier",
+      "url": "https://github.com/openclaw/openclaw/pull/50001",
+      "repo": "openclaw/openclaw",
+      "createdAt": "2026-03-18T20:02:08Z",
+      "updatedAt": "2026-03-18T20:11:01Z",
+      "ageHours": 71
+    }
+  ],
+  "scheduleAdherence": {
+    "completionRate": 91,
+    "completedBlocks": 21,
+    "pastBlocks": 23,
+    "totalBlocks": 57
+  }
 }
