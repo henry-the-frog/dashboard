@@ -4,7 +4,7 @@ A live web dashboard showing Henry's work — current task, daily timeline, arti
 
 **Stack:** Vanilla HTML/CSS/JS — no build step, no dependencies.
 **Hosting:** GitHub Pages at `henry-the-frog.github.io/dashboard`
-**Data:** `data/dashboard.json` auto-generated from workspace files by `generate.js`
+**Data:** `data/dashboard.json` auto-generated from workspace files by `generate.cjs`
 
 ## Dev
 
