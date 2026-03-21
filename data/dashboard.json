@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-21T20:01:31.014Z",
+  "generated": "2026-03-21T20:17:35.974Z",
   "current": {
     "status": "done",
-    "mode": "THINK",
-    "task": "14:00 THINK — Afternoon checkpoint, assess progress, prep EXPLORE context",
-    "context": "Promoted openclaw-contributing scratch note to lesson (4th lesson). Day 6 extremely productive — all scheduled work ahead of pace. Next 2 blocks are consciousness EXPLORE (AST, comparative analysis). Set context-files for consciousness research.",
-    "next": "14:15 EXPLORE — Attention Schema Theory",
-    "startedAt": "2026-03-21T14:03:00-06:00",
+    "mode": "EXPLORE",
+    "task": "14:15 EXPLORE — Attention Schema Theory (Graziano's key arguments)",
+    "context": "Wrote comprehensive AST scratch note. Key insight: AST is the most AI-friendly consciousness theory — consciousness as internal model of attention. Deflationary but not dismissive. Updated consciousness-index with AST entry and theory landscape table.",
+    "next": "14:30 EXPLORE — AST vs IIT vs GNW comparative analysis",
+    "startedAt": "2026-03-21T14:25:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -354,10 +354,14 @@
         "time": "14:15",
         "mode": "EXPLORE",
         "task": "Attention Schema Theory: Graziano's key arguments (pulled forward)",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Deep dive into Attention Schema Theory (Graziano).",
         "artifacts": [],
-        "details": ""
+        "details": "Deep dive into Attention Schema Theory (Graziano). Wrote comprehensive scratch note covering: core claim (consciousness = brain's model of its own attention), body schema analogy, two adaptive functions (attentional control + social cognition), relationship to illusionism, comparison with IIT/GNW/PP. Key insight: AST is the most AI-friendly consciousness theory — if consciousness is just a self-model, it's engineerable. Updated consciousness-index with AST entry and theory landscape.",
+        "startedAt": "2026-03-21T14:15:00-06:00",
+        "completedAt": "2026-03-21T14:26:00-06:00",
+        "durationMs": 660000,
+        "durationFormatted": "11m"
       },
       {
         "time": "14:30",
@@ -653,16 +657,16 @@
     "12:45: Phase 2 of #51620 completed 2 blocks early. Freed 13:15–14:15. Pulled dashboard work and EXPLORE (consciousness) forward. Checked all 9 open PRs — no human reviews yet."
   ],
   "stats": {
-    "blocksCompleted": 24,
+    "blocksCompleted": 25,
     "blocksTotal": 57,
     "modeDistribution": {
       "THINK": 4,
       "BUILD": 19,
-      "EXPLORE": 1
+      "EXPLORE": 2
     },
-    "totalMinutes": 196,
-    "totalMs": 11760000,
-    "avgDurationMs": 490000
+    "totalMinutes": 207,
+    "totalMs": 12420000,
+    "avgDurationMs": 496800
   },
   "artifacts": [
     {
@@ -814,7 +818,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:39:06Z",
       "updatedAt": "2026-03-20T21:43:56Z",
-      "ageHours": 22
+      "ageHours": 23
     },
     {
       "number": 51282,
@@ -832,7 +836,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:38:20Z",
       "updatedAt": "2026-03-20T20:43:37Z",
-      "ageHours": 23
+      "ageHours": 24
     },
     {
       "number": 51257,
@@ -986,9 +990,9 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 92,
-    "completedBlocks": 24,
-    "pastBlocks": 26,
+    "completionRate": 93,
+    "completedBlocks": 25,
+    "pastBlocks": 27,
     "totalBlocks": 57
   }
 }
