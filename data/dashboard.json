@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-21T22:46:40.443Z",
+  "generated": "2026-03-21T22:47:20.138Z",
   "current": {
-    "status": "in-progress",
+    "status": "done",
     "mode": "BUILD",
     "task": "16:45 BUILD — Dashboard: multi-day trend sparkline in stats bar",
-    "context": "Adding SVG sparkline showing blocks/day for recent days + today. Stats bar already has adherence, streak, pace.",
+    "context": "SVG sparkline showing blocks/day across recent days + today. Area chart with dots, hover titles, day labels. Pushed to GitHub Pages.",
     "next": "17:00 BUILD — Continue dashboard or pick from backlog",
-    "startedAt": "2026-03-21T16:45:00-06:00",
+    "startedAt": "2026-03-21T16:52:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -458,10 +458,14 @@
         "time": "16:45",
         "mode": "BUILD",
         "task": "Dashboard improvements: PR tracking, schedule adherence polish",
-        "status": "in-progress",
-        "summary": "Adding SVG sparkline showing blocks/day for recent days + today. Stats bar already has adherence, streak, pace.",
+        "status": "done",
+        "summary": "Dashboard trend sparkline.",
         "artifacts": [],
-        "details": ""
+        "details": "Dashboard trend sparkline. SVG sparkline in stats bar showing blocks completed per day across recent days + today. Area chart with gradient fill, hover tooltips per dot, day labels. Renders from recentDays data already in dashboard.json. Pushed to GitHub Pages.",
+        "startedAt": "2026-03-21T16:45:00-06:00",
+        "completedAt": "2026-03-21T16:52:00-06:00",
+        "durationMs": 420000,
+        "durationFormatted": "7m"
       },
       {
         "time": "17:00",
@@ -667,17 +671,17 @@
     "12:45: Phase 2 of #51620 completed 2 blocks early. Freed 13:15–14:15. Pulled dashboard work and EXPLORE (consciousness) forward. Checked all 9 open PRs — no human reviews yet."
   ],
   "stats": {
-    "blocksCompleted": 34,
+    "blocksCompleted": 35,
     "blocksTotal": 55,
     "modeDistribution": {
       "THINK": 6,
-      "BUILD": 24,
+      "BUILD": 25,
       "EXPLORE": 3,
       "MAINTAIN": 1
     },
-    "totalMinutes": 287,
-    "totalMs": 17190000,
-    "avgDurationMs": 505588
+    "totalMinutes": 294,
+    "totalMs": 17610000,
+    "avgDurationMs": 503143
   },
   "artifacts": [
     {
@@ -1019,8 +1023,8 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 97,
-    "completedBlocks": 34,
+    "completionRate": 100,
+    "completedBlocks": 35,
     "pastBlocks": 35,
     "totalBlocks": 55,
     "plannedDist": {
@@ -1031,11 +1035,11 @@
     },
     "actualDist": {
       "THINK": 6,
-      "BUILD": 24,
+      "BUILD": 25,
       "EXPLORE": 3,
       "MAINTAIN": 1
     },
-    "pace": 4
+    "pace": 4.1
   },
   "streak": 1
 }
