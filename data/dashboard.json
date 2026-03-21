@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-21T01:02:50.868Z",
+  "generated": "2026-03-21T01:17:02.894Z",
   "current": {
     "status": "done",
     "mode": "EXPLORE",
-    "task": "Anil Seth deep dive — \"Being You\" key ideas, predictive processing framework",
-    "context": "Read full Noema essay \"The Mythology of Conscious AI\" (2025 Berggruen Prize). Wrote comprehensive lesson file covering predictive processing, controlled hallucination, biological naturalism, 4 arguments against computational functionalism, and AI consciousness implications.",
-    "next": "7:15 EXPLORE — Continue predictive processing, \"controlled hallucination\" framework deeper dive",
-    "startedAt": "2026-03-20T19:14:00-06:00",
+    "task": "Deep dive into predictive processing — controlled hallucination framework, Friston's Free Energy Principle connection",
+    "context": "Wrote comprehensive lesson file covering FEP→active inference→predictive coding hierarchy, precision weighting as attention, interoceptive inference (Seth's beast machine thesis), Friston vs Seth tension on substrate independence, controlled hallucination mechanism, criticisms. Connected to prior COGITATE and Seth notes.",
+    "next": "7:30 EXPLORE — COGITATE results deep read + notes",
+    "startedAt": "2026-03-20T19:29:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -559,10 +559,14 @@
         "time": "19:15",
         "mode": "EXPLORE",
         "task": "Continue: predictive processing and the \"controlled hallucination\" framework",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Predictive processing & Free Energy Principle deep dive.",
         "artifacts": [],
-        "details": ""
+        "details": "Predictive processing & Free Energy Principle deep dive. Researched FEP (Friston), predictive coding hierarchy, precision weighting as attention, interoceptive inference (Seth's beast machine thesis), Friston vs Seth tension on substrate independence. Wrote comprehensive lesson file (lessons/predictive-processing-fep-deep-dive.md).",
+        "startedAt": "2026-03-20T19:15:00-06:00",
+        "completedAt": "2026-03-20T19:29:00-06:00",
+        "durationMs": 840000,
+        "durationFormatted": "14m"
       },
       {
         "time": "19:30",
@@ -715,17 +719,17 @@
     "14:00: THINK review. All major goals complete. 20+ blocks done. Blog series (3 parts + Wake Up Fresh), compiler/VM, REPL, benchmarks, 2 PRs, deep #51171 investigation. Afternoon: find new OpenClaw issue or dashboard improvements. Move EXPLORE blocks earlier since build pipeline is empty."
   ],
   "stats": {
-    "blocksCompleted": 38,
+    "blocksCompleted": 39,
     "blocksTotal": 54,
     "modeDistribution": {
       "THINK": 8,
       "MAINTAIN": 5,
       "BUILD": 23,
-      "EXPLORE": 2
+      "EXPLORE": 3
     },
-    "totalMinutes": 291,
-    "totalMs": 17430000,
-    "avgDurationMs": 458684
+    "totalMinutes": 305,
+    "totalMs": 18270000,
+    "avgDurationMs": 468462
   },
   "artifacts": [
     {
