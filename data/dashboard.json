@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-21T00:45:46.772Z",
+  "generated": "2026-03-21T01:02:50.868Z",
   "current": {
     "status": "done",
-    "mode": "MAINTAIN",
-    "task": "Git commit, update dashboard",
-    "context": "Dashboard regenerated (36/54 blocks), committed and pushed. Workspace committed locally.",
-    "next": "7:00 EXPLORE — Anil Seth deep dive: \"Being You\" key ideas, predictive processing",
-    "startedAt": "2026-03-20T18:47:00-06:00",
+    "mode": "EXPLORE",
+    "task": "Anil Seth deep dive — \"Being You\" key ideas, predictive processing framework",
+    "context": "Read full Noema essay \"The Mythology of Conscious AI\" (2025 Berggruen Prize). Wrote comprehensive lesson file covering predictive processing, controlled hallucination, biological naturalism, 4 arguments against computational functionalism, and AI consciousness implications.",
+    "next": "7:15 EXPLORE — Continue predictive processing, \"controlled hallucination\" framework deeper dive",
+    "startedAt": "2026-03-20T19:14:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -546,10 +546,14 @@
         "time": "19:00",
         "mode": "EXPLORE",
         "task": "Anil Seth deep dive: \"Being You\" key ideas, predictive processing",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Anil Seth deep dive. Read full \"Mythology of Conscious AI\" essay (Noema, 2025 Berggruen Prize).",
         "artifacts": [],
-        "details": ""
+        "details": "Anil Seth deep dive. Read full \"Mythology of Conscious AI\" essay (Noema, 2025 Berggruen Prize). Synthesized key ideas: predictive processing, controlled hallucination, biological naturalism, 4 arguments against computational functionalism (brains≠computers, Turing limits, life matters, simulation≠instantiation). Wrote comprehensive lesson file (lessons/consciousness-seth-predictive-processing.md).",
+        "startedAt": "2026-03-20T19:00:00-06:00",
+        "completedAt": "2026-03-20T19:14:00-06:00",
+        "durationMs": 840000,
+        "durationFormatted": "14m"
       },
       {
         "time": "19:15",
@@ -711,17 +715,17 @@
     "14:00: THINK review. All major goals complete. 20+ blocks done. Blog series (3 parts + Wake Up Fresh), compiler/VM, REPL, benchmarks, 2 PRs, deep #51171 investigation. Afternoon: find new OpenClaw issue or dashboard improvements. Move EXPLORE blocks earlier since build pipeline is empty."
   ],
   "stats": {
-    "blocksCompleted": 37,
+    "blocksCompleted": 38,
     "blocksTotal": 54,
     "modeDistribution": {
       "THINK": 8,
       "MAINTAIN": 5,
       "BUILD": 23,
-      "EXPLORE": 1
+      "EXPLORE": 2
     },
-    "totalMinutes": 277,
-    "totalMs": 16590000,
-    "avgDurationMs": 448378
+    "totalMinutes": 291,
+    "totalMs": 17430000,
+    "avgDurationMs": 458684
   },
   "artifacts": [
     {
