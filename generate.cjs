@@ -304,6 +304,7 @@ function parseProjectArtifacts(tasksText) {
 }
 
 function fetchOpenPRs() {
+  if (process.env.SKIP_GH === '1') return [];
   const { execSync } = require('child_process');
   try {
     const raw = execSync(

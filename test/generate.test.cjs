@@ -35,7 +35,7 @@ function runGenerate(workspace) {
   const out = path.join(__dirname, 'temp-output.json');
   require('child_process').execSync(
     `node generate.cjs --workspace "${workspace}" --output "${out}"`,
-    { cwd: path.join(__dirname, '..') }
+    { cwd: path.join(__dirname, '..'), env: { ...process.env, SKIP_GH: '1' } }
   );
   return JSON.parse(fs.readFileSync(out, 'utf8'));
 }
