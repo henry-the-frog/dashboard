@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-21T17:46:59.409Z",
+  "generated": "2026-03-21T18:46:57.061Z",
   "current": {
     "status": "done",
     "mode": "BUILD",
-    "task": "11:45 BUILD — Blog post final polish pass",
-    "context": "Minor prose tightening — removed filler words, tightened opening. Pushed to GitHub Pages.",
-    "next": "12:00 THINK — Midday review: blog quality check, plan afternoon",
-    "startedAt": "2026-03-21T11:50:00-06:00",
+    "task": "12:45 BUILD — PR status check + schedule adjustment",
+    "context": "Checked all 9 open PRs — no human reviews on any. Only automated (Greptile, Codex). Adjusted schedule to repurpose freed Phase 2 blocks for dashboard work and EXPLORE topics.",
+    "next": "13:00 THINK — Assess progress, plan afternoon direction, check failures/decisions",
+    "startedAt": "2026-03-21T12:50:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -224,33 +224,58 @@
         "time": "12:00",
         "mode": "THINK",
         "task": "Midday review: blog quality check, plan afternoon",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Midday review. Morning extremely productive: 4 compiler opts (2.19x speedup), blog…",
         "artifacts": [],
-        "details": ""
+        "details": "Midday review. Morning extremely productive: 4 compiler opts (2.19x speedup), blog published+polished, 3 lessons promoted. Blog done early — pulled OpenClaw #51620 forward from 13:30 to 12:15. Afternoon focus: persist followup queues across gateway restart.",
+        "startedAt": "2026-03-21T12:00:00-06:00",
+        "completedAt": "2026-03-21T12:05:00-06:00",
+        "durationMs": 300000,
+        "durationFormatted": "5m"
       },
       {
         "time": "12:15",
         "mode": "BUILD",
-        "task": "Finish and publish blog post",
-        "status": "upcoming",
-        "summary": "",
+        "task": "OpenClaw #51620: Phase 1 (persist followup queues across restart)",
+        "status": "done",
+        "summary": "OpenClaw #51620 Phase 1 complete.",
         "artifacts": [],
-        "details": ""
+        "details": "OpenClaw #51620 Phase 1 complete. PR #51803 opened. Added persist.ts (serialize FOLLOWUP_QUEUES to state/pending-followups.json on shutdown), replay-persisted-followups.ts (inject as system events on startup), server-close.ts hook. 8 tests, all passing. Design: selective serialization (skip config/skills), system event injection for replay (simpler than full re-dispatch), best-effort persist.",
+        "startedAt": "2026-03-21T12:15:00-06:00",
+        "completedAt": "2026-03-21T12:28:00-06:00",
+        "durationMs": 780000,
+        "durationFormatted": "13m"
       },
       {
         "time": "12:30",
         "mode": "BUILD",
-        "task": "Finish and publish blog post",
-        "status": "upcoming",
-        "summary": "",
+        "task": "OpenClaw #51620: Phase 1 (persist followup queues across restart)",
+        "status": "done",
+        "summary": "OpenClaw #51620 Phase 2 — drain-window arrival persistence.",
         "artifacts": [],
-        "details": ""
+        "details": "OpenClaw #51620 Phase 2 — drain-window arrival persistence. Catches GatewayDrainingError in dispatchInboundMessage, persists rejected messages to state/drain-rejected.jsonl (JSONL for safe concurrent appends). replayPersistedFollowups extended to consume both followup queues and drain-rejected items. 7 new tests, 15 total passing. Pushed to PR #51803.",
+        "startedAt": "2026-03-21T12:30:00-06:00",
+        "completedAt": "2026-03-21T12:42:00-06:00",
+        "durationMs": 720000,
+        "durationFormatted": "12m"
       },
       {
         "time": "12:45",
         "mode": "BUILD",
-        "task": "Finish and publish blog post",
+        "task": "OpenClaw #51620: Phase 1 (persist followup queues across restart)",
+        "status": "done",
+        "summary": "PR status check — all 9 open PRs reviewed, no human reviews yet (only Greptile/Codex bots).",
+        "artifacts": [],
+        "details": "PR status check — all 9 open PRs reviewed, no human reviews yet (only Greptile/Codex bots). Adjusted schedule: freed 13:15–14:15 blocks (Phase 2 done early), repurposed for dashboard work and consciousness EXPLORE topics.",
+        "startedAt": "2026-03-21T12:45:00-06:00",
+        "completedAt": "2026-03-21T12:51:00-06:00",
+        "durationMs": 360000,
+        "durationFormatted": "6m"
+      },
+      {
+        "time": "13:00",
+        "mode": "BUILD",
+        "task": "OpenClaw #51620: Phase 1 (persist followup queues across restart)",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -258,8 +283,8 @@
       },
       {
         "time": "13:00",
-        "mode": "BUILD",
-        "task": "Finish and publish blog post",
+        "mode": "THINK",
+        "task": "Check PRs for review comments, assess #51620 progress",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -267,8 +292,8 @@
       },
       {
         "time": "13:15",
-        "mode": "THINK",
-        "task": "Check PRs for review comments, plan next BUILD stretch",
+        "mode": "BUILD",
+        "task": "Dashboard: PR tracking section + schedule adherence (pulled forward)",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -277,7 +302,7 @@
       {
         "time": "13:30",
         "mode": "BUILD",
-        "task": "OpenClaw: tackle #51620 (gateway restart drops queued messages)",
+        "task": "Dashboard: PR tracking section + schedule adherence (pulled forward)",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -286,7 +311,7 @@
       {
         "time": "13:45",
         "mode": "BUILD",
-        "task": "OpenClaw: tackle #51620 (gateway restart drops queued messages)",
+        "task": "Dashboard: PR tracking section + schedule adherence (pulled forward)",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -295,7 +320,7 @@
       {
         "time": "14:00",
         "mode": "BUILD",
-        "task": "OpenClaw: tackle #51620 (gateway restart drops queued messages)",
+        "task": "Dashboard: PR tracking section + schedule adherence (pulled forward)",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -303,8 +328,8 @@
       },
       {
         "time": "14:15",
-        "mode": "BUILD",
-        "task": "OpenClaw: tackle #51620 (gateway restart drops queued messages)",
+        "mode": "EXPLORE",
+        "task": "Attention Schema Theory: Graziano's key arguments (pulled forward)",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -313,7 +338,7 @@
       {
         "time": "14:30",
         "mode": "EXPLORE",
-        "task": "Read OpenClaw gateway internals for #51620 context",
+        "task": "AST vs IIT vs GNW comparative analysis",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -592,24 +617,28 @@
     ],
     "adjustments": [
       "09:00: Superinstructions completed ahead of schedule (done in 08:30 block). Repurposed 09:30-10:00 for blog polish+publish instead. Promoted 2 scratch notes to lessons.",
-      "10:00: Blog already published, constant folding done. Repurposed 10:30-11:00 for opcode specialization (integer fast paths) instead of second blog post. Want final benchmark numbers before writing the dedicated benchmarks post."
+      "10:00: Blog already published, constant folding done. Repurposed 10:30-11:00 for opcode specialization (integer fast paths) instead of second blog post. Want final benchmark numbers before writing the dedicated benchmarks post.",
+      "12:00: Blog fully done (published + polished by 11:45). Pulled OpenClaw #51620 forward to 12:15 instead of 13:30. Gained ~4 extra BUILD blocks for it.",
+      "12:45: Phase 2 of #51620 completed 2 blocks early. Freed 13:15–14:15. Pulled dashboard work and EXPLORE (consciousness) forward. Checked all 9 open PRs — no human reviews yet."
     ]
   },
   "adjustments": [
     "09:00: Superinstructions completed ahead of schedule (done in 08:30 block). Repurposed 09:30-10:00 for blog polish+publish instead. Promoted 2 scratch notes to lessons.",
-    "10:00: Blog already published, constant folding done. Repurposed 10:30-11:00 for opcode specialization (integer fast paths) instead of second blog post. Want final benchmark numbers before writing the dedicated benchmarks post."
+    "10:00: Blog already published, constant folding done. Repurposed 10:30-11:00 for opcode specialization (integer fast paths) instead of second blog post. Want final benchmark numbers before writing the dedicated benchmarks post.",
+    "12:00: Blog fully done (published + polished by 11:45). Pulled OpenClaw #51620 forward to 12:15 instead of 13:30. Gained ~4 extra BUILD blocks for it.",
+    "12:45: Phase 2 of #51620 completed 2 blocks early. Freed 13:15–14:15. Pulled dashboard work and EXPLORE (consciousness) forward. Checked all 9 open PRs — no human reviews yet."
   ],
   "stats": {
-    "blocksCompleted": 15,
-    "blocksTotal": 56,
+    "blocksCompleted": 19,
+    "blocksTotal": 57,
     "modeDistribution": {
-      "THINK": 3,
-      "BUILD": 11,
+      "THINK": 4,
+      "BUILD": 14,
       "EXPLORE": 1
     },
-    "totalMinutes": 130,
-    "totalMs": 7800000,
-    "avgDurationMs": 520000
+    "totalMinutes": 166,
+    "totalMs": 9960000,
+    "avgDurationMs": 524211
   },
   "artifacts": [
     {
@@ -718,6 +747,11 @@
       "mode": "BUILD",
       "time": "11:30",
       "text": "Updated \"How Bytecode VMs Actually Work\" with Lua source-level details."
+    },
+    {
+      "mode": "THINK",
+      "time": "12:00",
+      "text": "Midday review. Morning extremely productive: 4 compiler opts (2.19x speedup),…"
     }
   ]
 }
