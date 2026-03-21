@@ -559,9 +559,40 @@
     }
   }
 
+  function renderHeatmap(schedule) {
+    const section = $('#heatmapSection');
+    const grid = $('#heatmapGrid');
+    const labels = $('#heatmapTimeLabels');
+    if (!section || !grid || !schedule?.blocks || schedule.blocks.length === 0) return;
+    section.style.display = '';
+
+    grid.innerHTML = schedule.blocks.map((block, i) => {
+      const tooltip = `${block.time} ${MODE_ICONS[block.mode] || ''} ${block.mode}: ${block.task.substring(0, 50)}`;
+      return `<div class="heatmap-cell" data-mode="${block.mode}" data-status="${block.status}" data-index="${i}" title="">
+        <span class="heatmap-tooltip">${esc(tooltip)}</span>
+      </div>`;
+    }).join('');
+
+    // Time labels: first, middle, last
+    const blocks = schedule.blocks;
+    if (blocks.length > 2) {
+      const mid = blocks[Math.floor(blocks.length / 2)];
+      labels.innerHTML = `<span>${blocks[0].time}</span><span>${mid.time}</span><span>${blocks[blocks.length - 1].time}</span>`;
+    }
+
+    // Click to open detail
+    grid.addEventListener('click', (e) => {
+      const cell = e.target.closest('.heatmap-cell');
+      if (!cell) return;
+      const idx = parseInt(cell.dataset.index, 10);
+      if (!isNaN(idx)) openDetail(idx);
+    });
+  }
+
   function renderAll(data) {
     renderBanner(data.current);
     renderStats(data.stats);
+    renderHeatmap(data.schedule);
     renderModeBar(data.stats);
     renderHighlights(data.todayHighlights);
     renderDurationChart(data.schedule);
