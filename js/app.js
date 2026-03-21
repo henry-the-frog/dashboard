@@ -580,6 +580,9 @@
     if (selectedBlockIndex >= 0) {
       openDetail(selectedBlockIndex);
     }
+
+    initCollapsible();
+    renderWorkdayProgress();
   }
 
   // --- Events ---
@@ -729,6 +732,84 @@
     }, { passive: true });
   })();
 
+  // --- Collapsible Sections ---
+  function initCollapsible() {
+    const sections = [
+      'highlightsSection', 'durationChartSection', 'adjustmentsSection',
+      'recentDaysSection', 'blogSection', 'prsSection', 'artifactsSection'
+    ];
+    for (const id of sections) {
+      const section = document.getElementById(id);
+      if (!section) continue;
+      const h2 = section.querySelector('h2');
+      if (!h2 || h2.dataset.collapsible) continue;
+      h2.dataset.collapsible = 'true';
+      h2.style.cursor = 'pointer';
+      h2.style.userSelect = 'none';
+
+      // Restore state from localStorage
+      const key = `collapse_${id}`;
+      const collapsed = localStorage.getItem(key) === '1';
+      if (collapsed) {
+        section.classList.add('collapsed');
+      }
+
+      // Add chevron indicator
+      const chevron = document.createElement('span');
+      chevron.className = 'collapse-chevron';
+      chevron.textContent = collapsed ? '▸' : '▾';
+      h2.prepend(chevron);
+
+      h2.addEventListener('click', () => {
+        const isCollapsed = section.classList.toggle('collapsed');
+        chevron.textContent = isCollapsed ? '▸' : '▾';
+        localStorage.setItem(key, isCollapsed ? '1' : '0');
+      });
+    }
+  }
+
+  // --- Workday Time Progress ---
+  function renderWorkdayProgress() {
+    let bar = document.getElementById('workdayProgress');
+    if (!bar) {
+      const container = document.createElement('div');
+      container.className = 'workday-progress-section';
+      container.innerHTML = `
+        <div class="workday-progress-track">
+          <div class="workday-progress-fill" id="workdayProgressFill"></div>
+          <div class="workday-progress-marker" id="workdayProgressMarker"></div>
+        </div>
+        <div class="workday-progress-labels">
+          <span>8:15</span>
+          <span id="workdayTimeLabel"></span>
+          <span>21:45</span>
+        </div>`;
+      // Insert after stats bar
+      const statsBar = document.getElementById('statsBar');
+      if (statsBar && statsBar.nextSibling) {
+        statsBar.parentNode.insertBefore(container, statsBar.nextSibling);
+      }
+      bar = container;
+    }
+
+    const now = new Date();
+    const startMin = 8 * 60 + 15;  // 8:15
+    const endMin = 21 * 60 + 45;   // 21:45
+    const nowMin = now.getHours() * 60 + now.getMinutes();
+    const pct = Math.max(0, Math.min(100, ((nowMin - startMin) / (endMin - startMin)) * 100));
+
+    const fill = document.getElementById('workdayProgressFill');
+    const marker = document.getElementById('workdayProgressMarker');
+    const label = document.getElementById('workdayTimeLabel');
+    if (fill) fill.style.width = pct + '%';
+    if (marker) marker.style.left = pct + '%';
+    if (label) {
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      label.textContent = `${h}:${m}`;
+    }
+  }
+
   // --- Init ---
   startPolling();
   startTick();
@@ -776,5 +857,8 @@
     // Also update time remaining stat
     const timeRemEl = $('#timeRemaining');
     if (timeRemEl) updateTimeRemaining(currentData.stats, timeRemEl);
+
+    // Update workday progress
+    renderWorkdayProgress();
   }
 })();
