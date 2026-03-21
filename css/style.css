@@ -1169,6 +1169,14 @@ footer {
   .prs-list { max-height: 400px; overflow-y: auto; }
 }
 
+/* === Section Count Badge === */
+.section-count {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-left: var(--space-xs);
+}
+
 /* === Blog Posts Section === */
 .blog-section {
   padding: var(--space-lg) var(--space-md);

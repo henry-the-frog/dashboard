@@ -321,6 +321,8 @@
       return;
     }
     section.style.display = '';
+    const countLabel = posts.length === 1 ? '1 post' : `${posts.length} posts`;
+    section.querySelector('h2').innerHTML = `📝 Blog Posts <span class="section-count">${esc(countLabel)}</span>`;
 
     list.innerHTML = posts.map(post => {
       const date = new Date(post.date + 'T12:00:00');
