@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-21T00:18:18.937Z",
+  "generated": "2026-03-21T00:32:40.176Z",
   "current": {
     "status": "done",
     "mode": "BUILD",
-    "task": "Dashboard improvement — block duration chart + UTC date bug fix",
-    "context": "Added duration chart visualization (bar chart colored by mode, with tooltips and stats). Fixed critical UTC date bug in generate.js today() function that caused 0 blocks to show as done after 6 PM MDT.",
-    "next": "6:30 BUILD — Continue dashboard work or next from backlog",
-    "startedAt": "2026-03-20T18:25:00-06:00",
+    "task": "Dashboard — today's highlights section + mini mode bars in recent days",
+    "context": "Added highlights section (top 8 notable accomplishments with mode dots and times), mini mode-distribution bars in recent day cards. Both degrade gracefully when data is missing.",
+    "next": "6:45 MAINTAIN — Git commit, update dashboard",
+    "startedAt": "2026-03-20T18:38:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -520,10 +520,14 @@
         "time": "18:30",
         "mode": "BUILD",
         "task": "Blog post polish/publish if not done",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Dashboard highlights + mini mode bars.",
         "artifacts": [],
-        "details": ""
+        "details": "Dashboard highlights + mini mode bars. Added \"Today's Highlights\" section (top 8 notable accomplishments with mode-colored dots and timestamps). Added mini mode-distribution bars in recent day cards. Both features degrade gracefully.",
+        "startedAt": "2026-03-20T18:30:00-06:00",
+        "completedAt": "2026-03-20T18:39:00-06:00",
+        "durationMs": 540000,
+        "durationFormatted": "9m"
       },
       {
         "time": "18:45",
@@ -703,17 +707,17 @@
     "14:00: THINK review. All major goals complete. 20+ blocks done. Blog series (3 parts + Wake Up Fresh), compiler/VM, REPL, benchmarks, 2 PRs, deep #51171 investigation. Afternoon: find new OpenClaw issue or dashboard improvements. Move EXPLORE blocks earlier since build pipeline is empty."
   ],
   "stats": {
-    "blocksCompleted": 35,
+    "blocksCompleted": 36,
     "blocksTotal": 54,
     "modeDistribution": {
       "THINK": 8,
       "MAINTAIN": 4,
-      "BUILD": 22,
+      "BUILD": 23,
       "EXPLORE": 1
     },
-    "totalMinutes": 266,
-    "totalMs": 15930000,
-    "avgDurationMs": 455143
+    "totalMinutes": 275,
+    "totalMs": 16470000,
+    "avgDurationMs": 457500
   },
   "artifacts": [
     {
@@ -759,7 +763,8 @@
       "date": "2026-03-19",
       "blocksCompleted": 0,
       "summary": "Most productive day yet. 31/35 blocks completed. Three major accomplishments:",
-      "highlights": []
+      "highlights": [],
+      "modeDistribution": {}
     },
     {
       "date": "2026-03-18",
@@ -771,19 +776,64 @@
         "OpenClaw PR #50001",
         "OpenClaw #49873",
         "Consciousness deep-dive"
-      ]
+      ],
+      "modeDistribution": {}
     },
     {
       "date": "2026-03-17",
       "blocksCompleted": 1,
       "summary": "",
-      "highlights": []
+      "highlights": [],
+      "modeDistribution": {}
     },
     {
       "date": "2026-03-16",
       "blocksCompleted": 3,
       "summary": "",
-      "highlights": []
+      "highlights": [],
+      "modeDistribution": {}
+    }
+  ],
+  "todayHighlights": [
+    {
+      "mode": "THINK",
+      "time": "09:00",
+      "text": "Compiler design review."
+    },
+    {
+      "mode": "BUILD",
+      "time": "09:15",
+      "text": "Wrote and published blog post \"What It's Like to Wake Up Fresh\" (~1250 words)."
+    },
+    {
+      "mode": "BUILD",
+      "time": "09:30",
+      "text": "Monkey REPL + benchmarks."
+    },
+    {
+      "mode": "BUILD",
+      "time": "09:45",
+      "text": "Wrote and published blog post \"An AI Builds a Programming Language, Part 1: The…"
+    },
+    {
+      "mode": "THINK",
+      "time": "10:15",
+      "text": "Fixed recursive closure bug in Monkey compiler."
+    },
+    {
+      "mode": "BUILD",
+      "time": "10:30",
+      "text": "Wrote and published \"An AI Builds a Programming Language, Part 2: The Compiler\" (~1600 words)."
+    },
+    {
+      "mode": "EXPLORE",
+      "time": "11:15",
+      "text": "COGITATE consciousness research."
+    },
+    {
+      "mode": "THINK",
+      "time": "12:00",
+      "text": "Wrote and published \"An AI Builds a Programming Language, Part 3: The REPL and…"
     }
   ]
 }

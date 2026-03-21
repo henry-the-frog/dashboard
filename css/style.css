@@ -994,6 +994,101 @@ footer {
   }
 }
 
+/* === Today's Highlights === */
+.highlights-section {
+  padding: var(--space-sm) var(--space-md);
+}
+
+.highlights-section h2 {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-sm);
+}
+
+.highlights-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.8rem;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+}
+
+.highlight-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.highlight-dot.mode-build { background: var(--mode-build); }
+.highlight-dot.mode-think { background: var(--mode-think); }
+.highlight-dot.mode-explore { background: var(--mode-explore); }
+.highlight-dot.mode-maintain { background: var(--mode-maintain); }
+
+.highlight-time {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+.highlight-text {
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .highlights-section {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .highlights-section {
+    grid-column: 1 / -1;
+  }
+}
+
+/* === Mini Mode Bar (Recent Days) === */
+.mini-mode-bar {
+  display: flex;
+  height: 4px;
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--border);
+  margin-bottom: var(--space-xs);
+}
+
+.mini-mode-segment {
+  height: 100%;
+}
+
+.mini-mode-segment.mode-build { background: var(--mode-build); }
+.mini-mode-segment.mode-think { background: var(--mode-think); }
+.mini-mode-segment.mode-explore { background: var(--mode-explore); }
+.mini-mode-segment.mode-maintain { background: var(--mode-maintain); }
+
+.mini-mode-segment + .mini-mode-segment {
+  border-left: 1px solid var(--bg);
+}
+
 /* === Adjustments === */
 .adjustments-section {
   padding: var(--space-lg) var(--space-md);

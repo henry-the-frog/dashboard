@@ -345,6 +345,25 @@
       .join('');
   }
 
+  function renderHighlights(highlights) {
+    const section = $('#highlightsSection');
+    const list = $('#highlightsList');
+    if (!section || !list) return;
+    if (!highlights || highlights.length === 0) {
+      section.style.display = 'none';
+      return;
+    }
+    section.style.display = '';
+    list.innerHTML = highlights.map(h => {
+      const modeClass = `mode-${h.mode.toLowerCase()}`;
+      return `<li class="highlight-item">
+        <span class="highlight-dot ${modeClass}"></span>
+        <span class="highlight-time">${esc(h.time)}</span>
+        <span class="highlight-text">${esc(h.text)}</span>
+      </li>`;
+    }).join('');
+  }
+
   function renderRecentDays(recentDays) {
     const section = $('#recentDaysSection');
     const list = $('#recentDaysList');
@@ -370,6 +389,17 @@
           ? `<div class="recent-day-summary">${esc(day.summary)}</div>`
           : '';
 
+        // Mini mode bar
+        const dist = day.modeDistribution || {};
+        const modeTotal = Object.values(dist).reduce((a, b) => a + b, 0);
+        const modes = ['BUILD', 'THINK', 'EXPLORE', 'MAINTAIN'];
+        const miniBar = modeTotal > 0
+          ? `<div class="mini-mode-bar">${modes.filter(m => dist[m] > 0).map(m => {
+              const pct = ((dist[m] / modeTotal) * 100).toFixed(1);
+              return `<div class="mini-mode-segment mode-${m.toLowerCase()}" style="width:${pct}%" title="${m}: ${dist[m]}"></div>`;
+            }).join('')}</div>`
+          : '';
+
         return `
           <div class="recent-day-card">
             <div class="recent-day-header">
@@ -377,6 +407,7 @@
               <span class="recent-day-date">${monthDay}</span>
               ${day.blocksCompleted > 0 ? `<span class="recent-day-blocks">${day.blocksCompleted} items</span>` : ''}
             </div>
+            ${miniBar}
             ${summaryHTML}
             ${highlights ? `<ul class="recent-day-highlights">${highlights}</ul>` : '<div class="recent-day-empty">No data</div>'}
           </div>`;
@@ -463,6 +494,7 @@
     renderBanner(data.current);
     renderStats(data.stats);
     renderModeBar(data.stats);
+    renderHighlights(data.todayHighlights);
     renderDurationChart(data.schedule);
     renderNextUp(data.schedule);
     renderAdherence(data.schedule);

@@ -410,7 +410,19 @@ function parseRecentDays() {
         blocksCompleted = accomplishments;
       }
 
-      days.push({ date, blocksCompleted, summary, highlights });
+      // Extract mode distribution from log entries
+      const modeDist = {};
+      for (const line of lines) {
+        const modeMatch = line.match(/^-\s+\d{1,2}:\d{2}\s+(\w+):/);
+        if (modeMatch) {
+          const mode = modeMatch[1].toUpperCase();
+          if (['BUILD', 'THINK', 'EXPLORE', 'MAINTAIN'].includes(mode)) {
+            modeDist[mode] = (modeDist[mode] || 0) + 1;
+          }
+        }
+      }
+
+      days.push({ date, blocksCompleted, summary, highlights, modeDistribution: modeDist });
     }
   } catch { /* no memory dir */ }
   return days;
@@ -454,6 +466,27 @@ function markCurrentBlock(blocks, current) {
   }
 }
 
+function extractTodayHighlights(blocks) {
+  const highlights = [];
+  const keywords = ['published', 'opened pr', 'completed', 'fixed', 'built', 'wrote', 'launched', 'shipped'];
+  for (const block of blocks) {
+    if (block.status !== 'done' || !block.details) continue;
+    const text = block.details.toLowerCase();
+    if (keywords.some(kw => text.includes(kw))) {
+      // Extract a short highlight from the details
+      const detail = block.details;
+      const firstSentence = detail.match(/^.{15,100}?[.!](?=\s|$)/);
+      const highlight = firstSentence ? firstSentence[0] : detail.substring(0, 80).replace(/\s+\S*$/, '') + '…';
+      highlights.push({
+        mode: block.mode,
+        time: block.time,
+        text: highlight,
+      });
+    }
+  }
+  return highlights.slice(0, 8); // Cap at 8
+}
+
 // --- Main ---
 function generate() {
   const currentText = readFile('CURRENT.md');
@@ -487,6 +520,9 @@ function generate() {
   }
   const recentDays = parseRecentDays();
 
+  // Extract today's highlights (notable completions from the log)
+  const todayHighlights = extractTodayHighlights(schedule.blocks);
+
   const dashboard = {
     generated: new Date().toISOString(),
     current,
@@ -496,6 +532,7 @@ function generate() {
     artifacts,
     blockers: [],
     recentDays,
+    todayHighlights,
   };
 
   // Ensure output directory exists
