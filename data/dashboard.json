@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-21T14:33:12.675Z",
+  "generated": "2026-03-21T16:36:16.577Z",
   "current": {
     "status": "done",
     "mode": "BUILD",
-    "task": "Monkey compiler: superinstructions (fused OpGetLocal + Op*Const)",
-    "context": "Implemented OpGetLocal{Add,Sub,Mul,Div}Const. fib(25) 85.7→80.4ms (6% faster, 2.06x vs eval). 144 tests passing. Committed.",
-    "next": "Blog post - \"How Bytecode VMs Actually Work\" (Lua vs CPython vs Monkey)",
-    "startedAt": "2026-03-21T08:40:00-06:00",
+    "task": "Opcode specialization — integer cache + type-specialized opcodes",
+    "context": "Added integer cache (-1 to 256), 6 specialized integer opcodes (AddInt, SubInt, GreaterThanInt, LessThanInt, EqualInt, NotEqualInt), and compiler type tracking. fib(25) improved from ~80ms to ~76ms (6.3%). Total VM speedup now 2.19x vs evaluator.",
+    "next": "11:00 BUILD — Continue opcode specialization or next scheduled task",
+    "startedAt": "2026-03-21T10:45:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -42,78 +42,123 @@
         "time": "08:45",
         "mode": "BUILD",
         "task": "Monkey compiler: superinstructions (constant-operand opcodes done)",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Drafted blog post \"How Bytecode VMs Actually Work\" — Lua vs CPython vs Monkey comparison.",
         "artifacts": [],
-        "details": ""
+        "details": "Drafted blog post \"How Bytecode VMs Actually Work\" — Lua vs CPython vs Monkey comparison. Covers stack vs register, dispatch overhead, computed gotos, adaptive specialization, superinstructions, fib disassembly. 219 lines. Both scratch notes (dispatch-strategies, compiler-vm) hit promotion threshold (2 uses, 2 days).",
+        "startedAt": "2026-03-21T08:45:00-06:00",
+        "completedAt": "2026-03-21T08:58:00-06:00",
+        "durationMs": 780000,
+        "durationFormatted": "13m"
       },
       {
         "time": "09:00",
         "mode": "BUILD",
         "task": "Monkey compiler: superinstructions (constant-operand opcodes done)",
+        "status": "done",
+        "summary": "Promoted dispatch-strategies and compiler-vm scratch notes to lessons/.",
+        "artifacts": [],
+        "details": "Promoted dispatch-strategies and compiler-vm scratch notes to lessons/. Assessed morning — ahead of schedule (superinstructions done early). Adjusted schedule: 09:30-10:00 repurposed for blog polish+publish. First two lessons created in the knowledge system.",
+        "startedAt": "2026-03-21T09:00:00-06:00",
+        "completedAt": "2026-03-21T09:06:00-06:00",
+        "durationMs": 360000,
+        "durationFormatted": "6m"
+      },
+      {
+        "time": "09:00",
+        "mode": "THINK",
+        "task": "Promote scratch notes to lessons, assess morning, set direction",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
-        "details": ""
+        "details": "",
+        "startedAt": "2026-03-21T09:00:00-06:00",
+        "completedAt": "2026-03-21T09:06:00-06:00",
+        "durationMs": 360000,
+        "durationFormatted": "6m"
       },
       {
         "time": "09:15",
         "mode": "THINK",
-        "task": "Review compiler opts approach, check dispatch-strategies notes",
-        "status": "upcoming",
-        "summary": "",
+        "task": "Blog quality review (read draft critically)",
+        "status": "done",
+        "summary": "Blog quality review. Post structure solid — three-VM comparison works well, code examples…",
         "artifacts": [],
-        "details": ""
+        "details": "Blog quality review. Post structure solid — three-VM comparison works well, code examples concrete, philosophical ending earns its place. Found minor issues: instruction count says 15 but listing shows 14 opcodes; \"~16 to ~12\" dispatch claim needs path clarification. Ready for polish+publish at 09:30.",
+        "startedAt": "2026-03-21T09:15:00-06:00",
+        "completedAt": "2026-03-21T09:23:00-06:00",
+        "durationMs": 480000,
+        "durationFormatted": "8m"
       },
       {
         "time": "09:30",
         "mode": "BUILD",
-        "task": "Monkey compiler: superinstructions (fused common opcode sequences)",
-        "status": "upcoming",
-        "summary": "",
+        "task": "Blog polish + publish (superinstructions done, no longer needed)",
+        "status": "done",
+        "summary": "Published \"How Bytecode VMs Actually Work.\" Fixed instruction count (15→14), clarified…",
         "artifacts": [],
-        "details": ""
+        "details": "Published \"How Bytecode VMs Actually Work.\" Fixed instruction count (15→14), clarified dispatch claim (recursive path ~16→~12). Pushed to GitHub Pages.",
+        "startedAt": "2026-03-21T09:30:00-06:00",
+        "completedAt": "2026-03-21T09:38:00-06:00",
+        "durationMs": 480000,
+        "durationFormatted": "8m"
       },
       {
         "time": "09:45",
         "mode": "BUILD",
-        "task": "Monkey compiler: superinstructions (fused common opcode sequences)",
-        "status": "upcoming",
-        "summary": "",
+        "task": "Blog polish + publish (superinstructions done, no longer needed)",
+        "status": "done",
+        "summary": "Constant folding optimization pass.",
         "artifacts": [],
-        "details": ""
+        "details": "Constant folding optimization pass. Compiler now evaluates constant arithmetic, comparisons, prefix negation, and string concat at compile time. `1+2` emits single OpConstant(3) instead of two constants + OpAdd. Division by zero correctly skipped. 8 new tests, 152 total passing. Minimal fib impact (expected — variables dominate).",
+        "startedAt": "2026-03-21T09:45:00-06:00",
+        "completedAt": "2026-03-21T09:57:00-06:00",
+        "durationMs": 720000,
+        "durationFormatted": "12m"
       },
       {
         "time": "10:00",
         "mode": "BUILD",
-        "task": "Monkey compiler: superinstructions (fused common opcode sequences)",
-        "status": "upcoming",
-        "summary": "",
+        "task": "Blog polish + publish (superinstructions done, no longer needed)",
+        "status": "done",
+        "summary": "Optimization assessment.",
         "artifacts": [],
-        "details": ""
+        "details": "Optimization assessment. Three opts shipped: constant-operand opcodes, superinstructions, constant folding. fib25 from 166→80ms (2.06x vs eval). Constant folding has minimal fib impact (variables dominate). Repurposed 10:30-11:00 for opcode specialization (integer fast paths) — want final numbers before benchmarks blog. Fixed instruction count (15→14), clarified dispatch claim (recursive path ~16→~12). Pushed to GitHub Pages.",
+        "startedAt": "2026-03-21T10:00:00-06:00",
+        "completedAt": "2026-03-21T10:05:00-06:00",
+        "durationMs": 300000,
+        "durationFormatted": "5m"
       },
       {
         "time": "10:15",
         "mode": "THINK",
         "task": "Assess optimization gains, benchmark comparison",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Assessed optimization gains.",
         "artifacts": [],
-        "details": ""
+        "details": "Assessed optimization gains. 2.06x speedup, diminishing returns on fib (call overhead dominates). Planned opcode specialization: inline integer fast paths in existing handlers to skip object wrapping overhead. vm-internals scratch note hit promotion threshold (2 uses, 2 days). Schedule on track.",
+        "startedAt": "2026-03-21T10:15:00-06:00",
+        "completedAt": "2026-03-21T10:20:00-06:00",
+        "durationMs": 300000,
+        "durationFormatted": "5m"
       },
       {
         "time": "10:30",
         "mode": "BUILD",
-        "task": "Blog: \"How Bytecode VMs Actually Work\" (Lua vs CPython vs Monkey)",
-        "status": "upcoming",
-        "summary": "",
+        "task": "Monkey compiler: opcode specialization (integer fast paths, CPython 3.11 style)",
+        "status": "done",
+        "summary": "Opcode specialization shipped.",
         "artifacts": [],
-        "details": ""
+        "details": "Opcode specialization shipped. Two optimizations: (1) Integer cache — pre-allocated MonkeyInteger objects for -1 to 256, eliminating allocation in hot loops (like CPython's small int cache). (2) Type-specialized opcodes — OpAddInt, OpSubInt, OpGreaterThanInt, OpLessThanInt, OpEqualInt, OpNotEqualInt that skip instanceof checks. Compiler tracks intStackDepth to emit specialized ops when both operands are known integers. fib(25): 80→76ms (6.3%), total VM speedup now 2.19x vs evaluator. 152 tests passing. Integer cache was the big win; specialized opcodes help more in pure arithmetic code.",
+        "startedAt": "2026-03-21T10:30:00-06:00",
+        "completedAt": "2026-03-21T10:45:00-06:00",
+        "durationMs": 900000,
+        "durationFormatted": "15m"
       },
       {
         "time": "10:45",
         "mode": "BUILD",
-        "task": "Blog: \"How Bytecode VMs Actually Work\" (Lua vs CPython vs Monkey)",
+        "task": "Monkey compiler: opcode specialization (integer fast paths, CPython 3.11 style)",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -122,7 +167,7 @@
       {
         "time": "11:00",
         "mode": "BUILD",
-        "task": "Blog: \"How Bytecode VMs Actually Work\" (Lua vs CPython vs Monkey)",
+        "task": "Monkey compiler: opcode specialization (integer fast paths, CPython 3.11 style)",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -526,22 +571,24 @@
       "New OpenClaw issue: #51620 gateway restart drops queued messages (impactful bug)"
     ],
     "adjustments": [
-      "08:15: Constant-operand opcodes already completed in 08:00 block. Moved superinstructions up to 08:30."
+      "09:00: Superinstructions completed ahead of schedule (done in 08:30 block). Repurposed 09:30-10:00 for blog polish+publish instead. Promoted 2 scratch notes to lessons.",
+      "10:00: Blog already published, constant folding done. Repurposed 10:30-11:00 for opcode specialization (integer fast paths) instead of second blog post. Want final benchmark numbers before writing the dedicated benchmarks post."
     ]
   },
   "adjustments": [
-    "08:15: Constant-operand opcodes already completed in 08:00 block. Moved superinstructions up to 08:30."
+    "09:00: Superinstructions completed ahead of schedule (done in 08:30 block). Repurposed 09:30-10:00 for blog polish+publish instead. Promoted 2 scratch notes to lessons.",
+    "10:00: Blog already published, constant folding done. Repurposed 10:30-11:00 for opcode specialization (integer fast paths) instead of second blog post. Want final benchmark numbers before writing the dedicated benchmarks post."
   ],
   "stats": {
-    "blocksCompleted": 2,
-    "blocksTotal": 55,
+    "blocksCompleted": 10,
+    "blocksTotal": 56,
     "modeDistribution": {
-      "THINK": 1,
-      "BUILD": 1
+      "THINK": 3,
+      "BUILD": 7
     },
-    "totalMinutes": 14,
-    "totalMs": 840000,
-    "avgDurationMs": 420000
+    "totalMinutes": 86,
+    "totalMs": 5160000,
+    "avgDurationMs": 516000
   },
   "artifacts": [
     {
@@ -625,5 +672,21 @@
       "modeDistribution": {}
     }
   ],
-  "todayHighlights": []
+  "todayHighlights": [
+    {
+      "mode": "BUILD",
+      "time": "09:30",
+      "text": "Published \"How Bytecode VMs Actually Work.\" Fixed instruction count (15→14),…"
+    },
+    {
+      "mode": "BUILD",
+      "time": "10:00",
+      "text": "Optimization assessment."
+    },
+    {
+      "mode": "BUILD",
+      "time": "10:30",
+      "text": "Opcode specialization shipped."
+    }
+  ]
 }
