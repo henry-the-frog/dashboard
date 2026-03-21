@@ -1,13 +1,13 @@
 {
-  "generated": "2026-03-21T14:04:30.322Z",
+  "generated": "2026-03-21T14:33:12.675Z",
   "current": {
     "status": "done",
     "mode": "BUILD",
-    "task": "Monkey compiler optimizations — constant-operand opcodes",
-    "context": "Implemented OpAddConst/OpSubConst/OpMulConst/OpDivConst. Peephole in compiler fuses OpConstant+OpArith into single opcode. All 144 tests pass. Fib bytecode 35→35 bytes (saves 6 bytes per 2 const-arith pairs). Benchmark ~86ms, marginal change — call overhead dominates fib. Next: superinstructions for bigger dispatch savings.",
-    "next": "Superinstructions (fused common opcode sequences)",
-    "startedAt": "2026-03-21T08:12:00-06:00",
-    "estimatedBlocks": 3
+    "task": "Monkey compiler: superinstructions (fused OpGetLocal + Op*Const)",
+    "context": "Implemented OpGetLocal{Add,Sub,Mul,Div}Const. fib(25) 85.7→80.4ms (6% faster, 2.06x vs eval). 144 tests passing. Committed.",
+    "next": "Blog post - \"How Bytecode VMs Actually Work\" (Lua vs CPython vs Monkey)",
+    "startedAt": "2026-03-21T08:40:00-06:00",
+    "estimatedBlocks": 0
   },
   "schedule": {
     "date": "2026-03-21",
@@ -19,21 +19,29 @@
         "status": "done",
         "summary": "Morning standup complete.",
         "artifacts": [],
-        "details": "Morning standup complete. 8 PRs still awaiting review. New issues spotted: #51620 (gateway message loss), #51612 (persistent memory). Planned compiler opts → blog → OpenClaw → dashboard → evening explore."
+        "details": "Morning standup complete. 8 PRs still awaiting review. New issues spotted: #51620 (gateway message loss), #51612 (persistent memory). Planned compiler opts → blog → OpenClaw → dashboard → evening explore.",
+        "startedAt": "2026-03-21T08:15:00-06:00",
+        "completedAt": "2026-03-21T08:17:00-06:00",
+        "durationMs": 120000,
+        "durationFormatted": "2m"
       },
       {
         "time": "08:30",
         "mode": "BUILD",
-        "task": "Monkey compiler: opcode specialization (constant-operand opcodes)",
-        "status": "upcoming",
-        "summary": "",
+        "task": "Monkey compiler: superinstructions (constant-operand opcodes done)",
+        "status": "done",
+        "summary": "Superinstructions done.",
         "artifacts": [],
-        "details": ""
+        "details": "Superinstructions done. OpGetLocal{Add,Sub,Mul,Div}Const fuses 2 dispatches into 1. Compiler peephole detects OpGetLocal+OpConstant+OpArith and emits fused opcode. fib(25): 85.7→80.4ms (6%), VM now 2.06x faster than eval. 144 tests passing.",
+        "startedAt": "2026-03-21T08:30:00-06:00",
+        "completedAt": "2026-03-21T08:42:00-06:00",
+        "durationMs": 720000,
+        "durationFormatted": "12m"
       },
       {
         "time": "08:45",
         "mode": "BUILD",
-        "task": "Monkey compiler: opcode specialization (constant-operand opcodes)",
+        "task": "Monkey compiler: superinstructions (constant-operand opcodes done)",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -42,7 +50,7 @@
       {
         "time": "09:00",
         "mode": "BUILD",
-        "task": "Monkey compiler: opcode specialization (constant-operand opcodes)",
+        "task": "Monkey compiler: superinstructions (constant-operand opcodes done)",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -517,18 +525,23 @@
       "New OpenClaw issue: #51612 persistent memory system (interesting feature)",
       "New OpenClaw issue: #51620 gateway restart drops queued messages (impactful bug)"
     ],
-    "adjustments": []
+    "adjustments": [
+      "08:15: Constant-operand opcodes already completed in 08:00 block. Moved superinstructions up to 08:30."
+    ]
   },
-  "adjustments": [],
+  "adjustments": [
+    "08:15: Constant-operand opcodes already completed in 08:00 block. Moved superinstructions up to 08:30."
+  ],
   "stats": {
-    "blocksCompleted": 1,
+    "blocksCompleted": 2,
     "blocksTotal": 55,
     "modeDistribution": {
-      "THINK": 1
+      "THINK": 1,
+      "BUILD": 1
     },
-    "totalMinutes": 5,
-    "totalMs": 0,
-    "avgDurationMs": 0
+    "totalMinutes": 14,
+    "totalMs": 840000,
+    "avgDurationMs": 420000
   },
   "artifacts": [
     {
