@@ -19,6 +19,8 @@ const FIXTURES = path.join(__dirname, 'fixtures');
 const TEMP_WS = path.join(__dirname, 'temp-workspace');
 
 function setup() {
+  // Clean any leftover state from previous runs
+  fs.rmSync(TEMP_WS, { recursive: true, force: true });
   for (const dir of [FIXTURES, TEMP_WS, path.join(TEMP_WS, 'memory')]) {
     fs.mkdirSync(dir, { recursive: true });
   }
@@ -32,7 +34,7 @@ function teardown() {
 function runGenerate(workspace) {
   const out = path.join(__dirname, 'temp-output.json');
   require('child_process').execSync(
-    `node generate.js --workspace "${workspace}" --output "${out}"`,
+    `node generate.cjs --workspace "${workspace}" --output "${out}"`,
     { cwd: path.join(__dirname, '..') }
   );
   return JSON.parse(fs.readFileSync(out, 'utf8'));
@@ -193,7 +195,7 @@ test('stats computation is accurate', () => {
   const data = runGenerate(TEMP_WS);
   assert.strictEqual(data.stats.blocksCompleted, 3);
   assert.strictEqual(data.stats.blocksTotal, 5);
-  assert.strictEqual(data.stats.totalMinutes, 45);
+  assert.strictEqual(data.stats.totalMinutes, 15); // 3 blocks × 5 min estimated average
   assert.deepStrictEqual(data.stats.modeDistribution, { THINK: 1, BUILD: 2 });
   teardown();
 });
@@ -332,7 +334,7 @@ test('schedule with no backlog section', () => {
 
 test('full generation against real workspace', () => {
   const out = path.join(__dirname, '..', 'data', 'dashboard.json');
-  require('child_process').execSync('node generate.js', { cwd: path.join(__dirname, '..') });
+  require('child_process').execSync('node generate.cjs', { cwd: path.join(__dirname, '..') });
   const data = JSON.parse(fs.readFileSync(out, 'utf8'));
 
   assert(data.generated);
