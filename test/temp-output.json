@@ -1,0 +1,142 @@
+{
+  "generated": "2026-03-21T22:32:59.926Z",
+  "current": {
+    "status": "in-progress",
+    "mode": "BUILD",
+    "task": "Write tests",
+    "context": "Testing the parser",
+    "next": "Ship it",
+    "startedAt": "2026-03-19T12:00-06:00",
+    "estimatedBlocks": 2
+  },
+  "schedule": {
+    "date": "2026-03-21",
+    "blocks": [],
+    "backlog": []
+  },
+  "adjustments": [],
+  "stats": {
+    "blocksCompleted": 0,
+    "blocksTotal": 0,
+    "modeDistribution": {},
+    "totalMinutes": 0,
+    "totalMs": 0,
+    "avgDurationMs": 0
+  },
+  "artifacts": [],
+  "blockers": [],
+  "recentDays": [],
+  "todayHighlights": [],
+  "prs": [
+    {
+      "number": 51803,
+      "title": "fix: persist followup queues across gateway restart",
+      "url": "https://github.com/openclaw/openclaw/pull/51803",
+      "repo": "openclaw/openclaw",
+      "createdAt": "2026-03-21T18:22:41Z",
+      "updatedAt": "2026-03-21T20:52:10Z",
+      "ageHours": 4,
+      "ciStatus": "pending",
+      "reviewStatus": "none"
+    },
+    {
+      "number": 51308,
+      "title": "fix: redact raw error messages from channel-facing agent failure replies",
+      "url": "https://github.com/openclaw/openclaw/pull/51308",
+      "repo": "openclaw/openclaw",
+      "createdAt": "2026-03-20T22:23:20Z",
+      "updatedAt": "2026-03-21T20:46:34Z",
+      "ageHours": 24,
+      "ciStatus": "pending",
+      "reviewStatus": "none"
+    },
+    {
+      "number": 51292,
+      "title": "feat: configurable exec approval timeout via approvals.timeoutMs",
+      "url": "https://github.com/openclaw/openclaw/pull/51292",
+      "repo": "openclaw/openclaw",
+      "createdAt": "2026-03-20T21:39:06Z",
+      "updatedAt": "2026-03-21T20:46:35Z",
+      "ageHours": 25,
+      "ciStatus": "pending",
+      "reviewStatus": "none"
+    },
+    {
+      "number": 51282,
+      "title": "feat(gateway): make handshake timeout configurable via gateway.handshakeTimeoutMs",
+      "url": "https://github.com/openclaw/openclaw/pull/51282",
+      "repo": "openclaw/openclaw",
+      "createdAt": "2026-03-20T21:23:23Z",
+      "updatedAt": "2026-03-21T20:51:02Z",
+      "ageHours": 25,
+      "ciStatus": "pending",
+      "reviewStatus": "none"
+    },
+    {
+      "number": 51261,
+      "title": "fix: classify HTTP 404 as model_not_found in fallback chain",
+      "url": "https://github.com/openclaw/openclaw/pull/51261",
+      "repo": "openclaw/openclaw",
+      "createdAt": "2026-03-20T20:38:20Z",
+      "updatedAt": "2026-03-21T20:50:04Z",
+      "ageHours": 26,
+      "ciStatus": "pending",
+      "reviewStatus": "none"
+    },
+    {
+      "number": 51257,
+      "title": "feat: surface session label/displayName in /status and TUI",
+      "url": "https://github.com/openclaw/openclaw/pull/51257",
+      "repo": "openclaw/openclaw",
+      "createdAt": "2026-03-20T20:20:35Z",
+      "updatedAt": "2026-03-21T20:50:26Z",
+      "ageHours": 26,
+      "ciStatus": "pending",
+      "reviewStatus": "none"
+    },
+    {
+      "number": 51180,
+      "title": "fix: show all allowFrom entries in channels status --probe",
+      "url": "https://github.com/openclaw/openclaw/pull/51180",
+      "repo": "openclaw/openclaw",
+      "createdAt": "2026-03-20T18:18:34Z",
+      "updatedAt": "2026-03-21T20:46:52Z",
+      "ageHours": 28,
+      "ciStatus": "pending",
+      "reviewStatus": "none"
+    },
+    {
+      "number": 50692,
+      "title": "feat: add Anthropic native web search provider (#49949)",
+      "url": "https://github.com/openclaw/openclaw/pull/50692",
+      "repo": "openclaw/openclaw",
+      "createdAt": "2026-03-19T23:18:46Z",
+      "updatedAt": "2026-03-21T20:51:20Z",
+      "ageHours": 47,
+      "ciStatus": "pending",
+      "reviewStatus": "none"
+    },
+    {
+      "number": 50001,
+      "title": "fix: restore export HTML template placeholders broken by Prettier",
+      "url": "https://github.com/openclaw/openclaw/pull/50001",
+      "repo": "openclaw/openclaw",
+      "createdAt": "2026-03-18T20:02:08Z",
+      "updatedAt": "2026-03-21T20:46:10Z",
+      "ageHours": 75,
+      "ciStatus": "pending",
+      "reviewStatus": "none"
+    }
+  ],
+  "blogPosts": [],
+  "scheduleAdherence": {
+    "completionRate": 0,
+    "completedBlocks": 0,
+    "pastBlocks": 0,
+    "totalBlocks": 0,
+    "plannedDist": {},
+    "actualDist": {},
+    "pace": 0
+  },
+  "streak": 0
+}

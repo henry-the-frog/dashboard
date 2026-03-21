@@ -612,16 +612,35 @@ function computeAdherence(blocks) {
   // Completion rate: how many past blocks got done
   const completionRate = pastBlocks.length > 0 ? Math.round((doneBlocks.length / pastBlocks.length) * 100) : 0;
   
-  // Mode adherence: did we do the right type of work?
-  let modeMatches = 0;
-  // We can't easily compare planned vs actual mode (log doesn't always record mode changes)
-  // So adherence = completion rate for now
-  
+  // Planned vs actual mode distribution
+  const plannedDist = {};
+  const actualDist = {};
+  for (const b of blocks) {
+    plannedDist[b.mode] = (plannedDist[b.mode] || 0) + 1;
+  }
+  for (const b of doneBlocks) {
+    actualDist[b.mode] = (actualDist[b.mode] || 0) + 1;
+  }
+
+  // Pace: blocks completed per hour of elapsed work time
+  const firstBlock = blocks[0];
+  const lastDone = [...doneBlocks].reverse()[0];
+  let pace = 0;
+  if (firstBlock && lastDone) {
+    const [fh, fm] = firstBlock.time.split(':').map(Number);
+    const [nh, nm] = nowStr.split(':').map(Number);
+    const elapsedHours = ((nh * 60 + nm) - (fh * 60 + fm)) / 60;
+    if (elapsedHours > 0) pace = +(doneBlocks.length / elapsedHours).toFixed(1);
+  }
+
   return {
     completionRate,
     completedBlocks: doneBlocks.length,
     pastBlocks: pastBlocks.length,
     totalBlocks: blocks.length,
+    plannedDist,
+    actualDist,
+    pace,
   };
 }
 

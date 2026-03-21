@@ -403,6 +403,58 @@
     stat.style.display = '';
     val.textContent = adherence.completionRate + '%';
     val.className = 'stat-value ' + (adherence.completionRate >= 70 ? 'adherence-high' : adherence.completionRate >= 40 ? 'adherence-mid' : 'adherence-low');
+
+    // Pace stat
+    const paceStat = $('#paceStat');
+    const paceVal = $('#paceValue');
+    if (paceStat && paceVal && adherence.pace > 0) {
+      paceStat.style.display = '';
+      paceVal.textContent = adherence.pace;
+    }
+
+    // Mode adherence comparison (planned vs actual)
+    renderModeAdherence(adherence);
+  }
+
+  function renderModeAdherence(adherence) {
+    const section = $('#adjustmentsSection');
+    if (!section || !adherence?.plannedDist || !adherence?.actualDist) return;
+
+    // Find or create mode adherence element
+    let el = document.getElementById('modeAdherence');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'modeAdherence';
+      el.className = 'mode-adherence';
+      // Insert before adjustments list
+      const h2 = section.querySelector('h2');
+      if (h2) h2.insertAdjacentElement('afterend', el);
+      else section.prepend(el);
+    }
+
+    const modes = ['BUILD', 'THINK', 'EXPLORE', 'MAINTAIN'];
+    const planned = adherence.plannedDist;
+    const actual = adherence.actualDist;
+    const maxVal = Math.max(...modes.map(m => Math.max(planned[m] || 0, actual[m] || 0)), 1);
+
+    el.innerHTML = `<div class="mode-adherence-title">Planned vs Actual</div>` +
+      modes.filter(m => (planned[m] || 0) + (actual[m] || 0) > 0).map(m => {
+        const p = planned[m] || 0;
+        const a = actual[m] || 0;
+        const pPct = (p / maxVal * 100).toFixed(0);
+        const aPct = (a / maxVal * 100).toFixed(0);
+        const delta = a - p;
+        const deltaStr = delta > 0 ? `+${delta}` : delta < 0 ? `${delta}` : '=';
+        const deltaClass = delta > 0 ? 'delta-over' : delta < 0 ? 'delta-under' : 'delta-match';
+        return `<div class="mode-adherence-row">
+          <span class="mode-adherence-label">${MODE_ICONS[m] || ''}</span>
+          <div class="mode-adherence-bars">
+            <div class="mode-adherence-bar planned" style="width:${pPct}%"><span>${p}</span></div>
+            <div class="mode-adherence-bar actual mode-${m.toLowerCase()}" style="width:${aPct}%"><span>${a}</span></div>
+          </div>
+          <span class="mode-adherence-delta ${deltaClass}">${deltaStr}</span>
+        </div>`;
+      }).join('');
   }
 
   function renderStreak(streak) {
@@ -583,19 +635,25 @@
     if (!section || !grid || !schedule?.blocks || schedule.blocks.length === 0) return;
     section.style.display = '';
 
-    grid.innerHTML = schedule.blocks.map((block, i) => {
+    let html = '';
+    let lastHour = null;
+    schedule.blocks.forEach((block, i) => {
+      const hour = block.time.split(':')[0];
+      // Insert hour separator + label when hour changes
+      if (hour !== lastHour && lastHour !== null) {
+        html += `<div class="heatmap-separator" title="${hour}:00"></div>`;
+      }
+      lastHour = hour;
       const tooltip = `${block.time} ${MODE_ICONS[block.mode] || ''} ${block.mode}: ${block.task.substring(0, 50)}`;
-      return `<div class="heatmap-cell" data-mode="${block.mode}" data-status="${block.status}" data-index="${i}" title="">
+      html += `<div class="heatmap-cell" data-mode="${block.mode}" data-status="${block.status}" data-index="${i}" title="">
         <span class="heatmap-tooltip">${esc(tooltip)}</span>
       </div>`;
-    }).join('');
+    });
+    grid.innerHTML = html;
 
-    // Time labels: first, middle, last
-    const blocks = schedule.blocks;
-    if (blocks.length > 2) {
-      const mid = blocks[Math.floor(blocks.length / 2)];
-      labels.innerHTML = `<span>${blocks[0].time}</span><span>${mid.time}</span><span>${blocks[blocks.length - 1].time}</span>`;
-    }
+    // Time labels: show each hour
+    const hours = [...new Set(schedule.blocks.map(b => b.time.split(':')[0]))];
+    labels.innerHTML = hours.map(h => `<span>${h}:00</span>`).join('');
 
     // Click to open detail
     grid.addEventListener('click', (e) => {

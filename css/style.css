@@ -1510,10 +1510,11 @@ footer {
 }
 
 .heatmap-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 18px);
+  display: flex;
+  flex-wrap: wrap;
   gap: 3px;
   margin-bottom: 4px;
+  align-items: center;
 }
 
 .heatmap-cell {
@@ -1567,7 +1568,90 @@ footer {
 .heatmap-time-labels {
   display: flex;
   justify-content: space-between;
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   color: var(--text-muted);
   padding: 0 2px;
+  gap: var(--space-xs);
+  overflow-x: auto;
 }
+
+/* Heatmap hour separators */
+.heatmap-separator {
+  width: 2px;
+  height: 18px;
+  background: var(--border);
+  border-radius: 1px;
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+/* === Mode Adherence (Planned vs Actual) === */
+.mode-adherence {
+  margin-bottom: var(--space-md);
+}
+
+.mode-adherence-title {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-sm);
+}
+
+.mode-adherence-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: 4px;
+}
+
+.mode-adherence-label {
+  width: 24px;
+  text-align: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.mode-adherence-bars {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mode-adherence-bar {
+  height: 8px;
+  border-radius: 4px;
+  min-width: 2px;
+  position: relative;
+  transition: width 0.6s ease;
+}
+
+.mode-adherence-bar span {
+  position: absolute;
+  right: -20px;
+  top: -2px;
+  font-size: 0.6rem;
+  color: var(--text-muted);
+}
+
+.mode-adherence-bar.planned {
+  background: var(--border);
+}
+
+.mode-adherence-bar.actual.mode-build { background: var(--mode-build); }
+.mode-adherence-bar.actual.mode-think { background: var(--mode-think); }
+.mode-adherence-bar.actual.mode-explore { background: var(--mode-explore); }
+.mode-adherence-bar.actual.mode-maintain { background: var(--mode-maintain); }
+
+.mode-adherence-delta {
+  font-size: 0.7rem;
+  font-weight: 600;
+  width: 28px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.delta-over { color: var(--mode-build); }
+.delta-under { color: #f85149; }
+.delta-match { color: var(--text-muted); }

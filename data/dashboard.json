@@ -1,13 +1,13 @@
 {
-  "generated": "2026-03-21T22:18:43.017Z",
+  "generated": "2026-03-21T22:32:14.690Z",
   "current": {
-    "status": "done",
+    "status": "in-progress",
     "mode": "BUILD",
-    "task": "16:15 BUILD — Dashboard polish: backlog section, PR count badge, heatmap grid fix",
-    "context": "Added backlog rendering (7 items from SCHEDULE.md), PR count badge on section header, heatmap desktop grid-column fix. All collapsible. Pushed to GitHub Pages.",
-    "next": "16:30 BUILD — Continue dashboard work or pick from backlog",
-    "startedAt": "2026-03-21T16:22:00-06:00",
-    "estimatedBlocks": 0
+    "task": "16:30 BUILD — Dashboard polish: mode adherence comparison, heatmap layout fix, stats refinements",
+    "context": "Adding planned vs actual mode comparison to adherence section, fixing heatmap to use hour-grouped grid, refining stats display.",
+    "next": "17:15 BUILD — Continue dashboard work",
+    "startedAt": "2026-03-21T16:30:00-06:00",
+    "estimatedBlocks": 2
   },
   "schedule": {
     "date": "2026-03-21",
@@ -445,8 +445,8 @@
         "time": "16:30",
         "mode": "BUILD",
         "task": "Dashboard improvements: PR tracking, schedule adherence polish",
-        "status": "upcoming",
-        "summary": "",
+        "status": "in-progress",
+        "summary": "Adding planned vs actual mode comparison to adherence section, fixing heatmap to use hour-grouped grid, refining stats display.",
         "artifacts": [],
         "details": ""
       },
@@ -895,7 +895,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-18T20:02:08Z",
       "updatedAt": "2026-03-21T20:46:10Z",
-      "ageHours": 74,
+      "ageHours": 75,
       "ciStatus": "pending",
       "reviewStatus": "none"
     }
@@ -1015,10 +1015,23 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 100,
+    "completionRate": 97,
     "completedBlocks": 33,
-    "pastBlocks": 33,
-    "totalBlocks": 55
+    "pastBlocks": 34,
+    "totalBlocks": 55,
+    "plannedDist": {
+      "THINK": 9,
+      "BUILD": 31,
+      "EXPLORE": 9,
+      "MAINTAIN": 6
+    },
+    "actualDist": {
+      "THINK": 6,
+      "BUILD": 23,
+      "EXPLORE": 3,
+      "MAINTAIN": 1
+    },
+    "pace": 4
   },
   "streak": 1
 }
