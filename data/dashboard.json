@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-21T00:32:40.176Z",
+  "generated": "2026-03-21T00:45:20.623Z",
   "current": {
-    "status": "done",
-    "mode": "BUILD",
-    "task": "Dashboard — today's highlights section + mini mode bars in recent days",
-    "context": "Added highlights section (top 8 notable accomplishments with mode dots and times), mini mode-distribution bars in recent day cards. Both degrade gracefully when data is missing.",
-    "next": "6:45 MAINTAIN — Git commit, update dashboard",
-    "startedAt": "2026-03-20T18:38:00-06:00",
+    "status": "in-progress",
+    "mode": "MAINTAIN",
+    "task": "Git commit, update dashboard",
+    "context": "Previous block added highlights + mini mode bars. Need to commit, regenerate dashboard, push.",
+    "next": "7:00 EXPLORE — Anil Seth deep dive",
+    "startedAt": "2026-03-20T18:45:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -533,8 +533,8 @@
         "time": "18:45",
         "mode": "MAINTAIN",
         "task": "Git commit blog, update dashboard",
-        "status": "upcoming",
-        "summary": "",
+        "status": "in-progress",
+        "summary": "Previous block added highlights + mini mode bars. Need to commit, regenerate dashboard, push.",
         "artifacts": [],
         "details": ""
       },
