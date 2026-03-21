@@ -312,6 +312,33 @@
     statsEl.innerHTML = statsHTML;
   }
 
+  function renderBlogPosts(posts) {
+    const section = $('#blogSection');
+    const list = $('#blogList');
+    if (!section || !list) return;
+    if (!posts || posts.length === 0) {
+      section.style.display = 'none';
+      return;
+    }
+    section.style.display = '';
+
+    list.innerHTML = posts.map(post => {
+      const date = new Date(post.date + 'T12:00:00');
+      const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+      const tags = (post.categories || []).slice(0, 3)
+        .map(c => `<span class="blog-tag">${esc(c)}</span>`).join('');
+      return `
+        <a class="blog-card" href="${esc(post.url)}" target="_blank">
+          <div class="blog-date">${dateStr}</div>
+          <div class="blog-title">${esc(post.title)}</div>
+          <div class="blog-meta">
+            ${tags}
+            <span class="blog-reading-time">${post.readingTime} min read</span>
+          </div>
+        </a>`;
+    }).join('');
+  }
+
   function renderPRs(prs) {
     const section = $('#prsSection');
     const list = $('#prsList');
@@ -523,6 +550,7 @@
     renderAdjustments(data.adjustments);
     renderRecentDays(data.recentDays);
     renderPRs(data.prs);
+    renderBlogPosts(data.blogPosts);
     renderScheduleAdherence(data.scheduleAdherence);
     $('#lastUpdated').textContent = new Date(data.generated).toLocaleTimeString();
 

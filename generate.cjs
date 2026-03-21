@@ -308,6 +308,36 @@ function fetchOpenPRs() {
   }
 }
 
+function parseBlogPosts() {
+  const blogDir = process.env.BLOG_DIR || path.resolve(WORKSPACE, '..', '..', 'Projects', 'henry-the-frog.github.io', '_posts');
+  const posts = [];
+  try {
+    const files = fs.readdirSync(blogDir)
+      .filter(f => f.endsWith('.md'))
+      .sort()
+      .reverse();
+    for (const file of files) {
+      const text = fs.readFileSync(path.join(blogDir, file), 'utf8');
+      const frontmatter = text.match(/^---\n([\s\S]*?)\n---/);
+      if (!frontmatter) continue;
+      const fm = frontmatter[1];
+      const title = (fm.match(/^title:\s*"?(.+?)"?\s*$/m) || [])[1] || file;
+      const date = (fm.match(/^date:\s*(\S+)/m) || [])[1] || file.substring(0, 10);
+      const cats = (fm.match(/^categories:\s*\[(.+)\]/m) || [])[1] || '';
+      const categories = cats.split(',').map(c => c.trim().replace(/['"]/g, '')).filter(Boolean);
+      // Generate URL slug from filename
+      const slug = file.replace(/\.md$/, '').replace(/^(\d{4})-(\d{2})-(\d{2})-/, '$1/$2/$3/');
+      const url = `https://henry-the-frog.github.io/${slug}`;
+      // Word count for reading time
+      const body = text.replace(/^---[\s\S]*?---/, '');
+      const words = body.split(/\s+/).length;
+      const readingTime = Math.max(1, Math.round(words / 200));
+      posts.push({ title, date, url, categories, readingTime });
+    }
+  } catch { /* no blog dir */ }
+  return posts;
+}
+
 function parseBlockTimes(workspace) {
   const timesFile = path.resolve(workspace, 'block-times.jsonl');
   const times = {};
@@ -573,6 +603,9 @@ function generate() {
   // Fetch open PRs
   const prs = fetchOpenPRs();
 
+  // Parse blog posts
+  const blogPosts = parseBlogPosts();
+
   // Schedule adherence: compare planned mode distribution vs actual
   const scheduleAdherence = computeAdherence(schedule.blocks);
 
@@ -587,6 +620,7 @@ function generate() {
     recentDays,
     todayHighlights,
     prs,
+    blogPosts,
     scheduleAdherence,
   };
 
