@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-21T16:36:16.577Z",
+  "generated": "2026-03-21T17:33:45.804Z",
   "current": {
     "status": "done",
     "mode": "BUILD",
-    "task": "Opcode specialization — integer cache + type-specialized opcodes",
-    "context": "Added integer cache (-1 to 256), 6 specialized integer opcodes (AddInt, SubInt, GreaterThanInt, LessThanInt, EqualInt, NotEqualInt), and compiler type tracking. fib(25) improved from ~80ms to ~76ms (6.3%). Total VM speedup now 2.19x vs evaluator.",
-    "next": "11:00 BUILD — Continue opcode specialization or next scheduled task",
-    "startedAt": "2026-03-21T10:45:00-06:00",
+    "task": "11:30 BUILD — Update blog post with Lua/CPython source-level findings",
+    "context": "Updated Lua section with 8 source-verified details (pc++ trick, OP_ADDI uniqueness, FORLOOP counter, RETURN0/1, goto startfunc, k-bit, OP_LOADI). Updated benchmarks (76ms/2.19x). Updated What's Next (opcode specialization shipped). Pushed to GitHub Pages.",
+    "next": "11:45 BUILD — Continue blog post improvements or pull from backlog",
+    "startedAt": "2026-03-21T11:38:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -159,37 +159,53 @@
         "time": "10:45",
         "mode": "BUILD",
         "task": "Monkey compiler: opcode specialization (integer fast paths, CPython 3.11 style)",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Deep read of Lua 5.4 source (lopcodes.h, lvm.c).",
         "artifacts": [],
-        "details": ""
+        "details": "Deep read of Lua 5.4 source (lopcodes.h, lvm.c). Studied all 82 opcodes, 5 instruction formats (iABC/iABx/iAsBx/iAx/isJ). Key findings: arithmetic macro layering system (op_arith/op_arithK/op_arithI), pc++ trick to skip metamethod handlers on type match, FORLOOP pre-computed counter optimization, RETURN0/1 inlined poscall, same-C-frame goto for Lua-to-Lua calls, k-bit for register/constant dual encoding. Updated scratch note (3rd use).",
+        "startedAt": "2026-03-21T10:45:00-06:00",
+        "completedAt": "2026-03-21T10:58:00-06:00",
+        "durationMs": 780000,
+        "durationFormatted": "13m"
       },
       {
         "time": "11:00",
         "mode": "BUILD",
         "task": "Monkey compiler: opcode specialization (integer fast paths, CPython 3.11 style)",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Promoted vm-internals-lua-cpython scratch note to lessons/vm-internals-production.md (3rd lesson).",
         "artifacts": [],
-        "details": ""
+        "details": "Promoted vm-internals-lua-cpython scratch note to lessons/vm-internals-production.md (3rd lesson). Assessed progress: morning extremely productive (4 opts shipped, blog published, Lua deep-read done). Schedule on track. Next stretch: update blog with Lua source findings, then afternoon pivots to OpenClaw #51620.",
+        "startedAt": "2026-03-21T11:00:00-06:00",
+        "completedAt": "2026-03-21T11:05:00-06:00",
+        "durationMs": 300000,
+        "durationFormatted": "5m"
       },
       {
         "time": "11:15",
         "mode": "EXPLORE",
         "task": "Deep read: Lua 5.4 source (lopcodes.c, lvm.c) for blog accuracy",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Deep read of Lua 5.4 lvm.c (1700 lines) and lopcodes.h.",
         "artifacts": [],
-        "details": ""
+        "details": "Deep read of Lua 5.4 lvm.c (1700 lines) and lopcodes.h. Verified all lesson claims against actual source. New findings: (1) OP_ADDI is the ONLY arithmetic op with immediate — no SUBI/MULI, compiler rewrites subtraction as ADDI with negative sC. (2) OP_LOADI loads integers from sBx (17-bit signed) without constant pool lookup. (3) FORLOOP counter uses unsigned division to avoid signed overflow. (4) Confirmed computed goto dispatch (ljumptab.h) on GCC, switch fallback elsewhere. Created scratch note with 8 blog-ready details.",
+        "startedAt": "2026-03-21T11:15:00-06:00",
+        "completedAt": "2026-03-21T11:27:00-06:00",
+        "durationMs": 720000,
+        "durationFormatted": "12m"
       },
       {
         "time": "11:30",
         "mode": "BUILD",
         "task": "Continue blog post, incorporate Lua/CPython specifics",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Updated \"How Bytecode VMs Actually Work\" with Lua source-level details.",
         "artifacts": [],
-        "details": ""
+        "details": "Updated \"How Bytecode VMs Actually Work\" with Lua source-level details. Expanded Lua section from 1 paragraph to detailed analysis: pc++ metamethod skip, OP_ADDI uniqueness, FORLOOP counter algorithm, RETURN0/1 inlining, goto startfunc, k-bit encoding. Updated benchmarks with opcode specialization (76ms, 2.19x). Updated What's Next (specialization shipped). Pushed to GitHub Pages.",
+        "startedAt": "2026-03-21T11:30:00-06:00",
+        "completedAt": "2026-03-21T11:38:00-06:00",
+        "durationMs": 480000,
+        "durationFormatted": "8m"
       },
       {
         "time": "11:45",
@@ -580,15 +596,16 @@
     "10:00: Blog already published, constant folding done. Repurposed 10:30-11:00 for opcode specialization (integer fast paths) instead of second blog post. Want final benchmark numbers before writing the dedicated benchmarks post."
   ],
   "stats": {
-    "blocksCompleted": 10,
+    "blocksCompleted": 14,
     "blocksTotal": 56,
     "modeDistribution": {
       "THINK": 3,
-      "BUILD": 7
+      "BUILD": 10,
+      "EXPLORE": 1
     },
-    "totalMinutes": 86,
-    "totalMs": 5160000,
-    "avgDurationMs": 516000
+    "totalMinutes": 124,
+    "totalMs": 7440000,
+    "avgDurationMs": 531429
   },
   "artifacts": [
     {
@@ -687,6 +704,16 @@
       "mode": "BUILD",
       "time": "10:30",
       "text": "Opcode specialization shipped."
+    },
+    {
+      "mode": "BUILD",
+      "time": "11:00",
+      "text": "Promoted vm-internals-lua-cpython scratch note to lessons/vm-internals-production.md (3rd lesson)."
+    },
+    {
+      "mode": "BUILD",
+      "time": "11:30",
+      "text": "Updated \"How Bytecode VMs Actually Work\" with Lua source-level details."
     }
   ]
 }
