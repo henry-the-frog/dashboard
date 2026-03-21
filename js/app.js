@@ -351,17 +351,24 @@
     }
     section.style.display = '';
 
+    const ciIcons = { pass: '✅', fail: '❌', pending: '⏳', none: '⚪', unknown: '⚪' };
+    const reviewIcons = { approved: '👍', changes_requested: '🔄', review_required: '👀', none: '' };
+
     list.innerHTML = prs.map(pr => {
       const age = pr.ageHours;
       const ageStr = age < 24 ? `${age}h ago` : `${Math.round(age / 24)}d ago`;
       const ageClass = age > 72 ? 'pr-stale' : age > 24 ? 'pr-waiting' : 'pr-fresh';
       const repo = pr.repo.split('/').pop();
+      const ci = ciIcons[pr.ciStatus] || '⚪';
+      const review = reviewIcons[pr.reviewStatus] || '';
       return `
         <a class="pr-card ${ageClass}" href="${esc(pr.url)}" target="_blank">
           <div class="pr-number">#${pr.number}</div>
           <div class="pr-title">${esc(pr.title)}</div>
           <div class="pr-meta">
             <span class="pr-repo">${esc(repo)}</span>
+            <span class="pr-ci" title="CI: ${pr.ciStatus || 'unknown'}">${ci}</span>
+            ${review ? `<span class="pr-review" title="Review: ${pr.reviewStatus}">${review}</span>` : ''}
             <span class="pr-age">${ageStr}</span>
           </div>
         </a>`;
@@ -379,6 +386,18 @@
     stat.style.display = '';
     val.textContent = adherence.completionRate + '%';
     val.className = 'stat-value ' + (adherence.completionRate >= 70 ? 'adherence-high' : adherence.completionRate >= 40 ? 'adherence-mid' : 'adherence-low');
+  }
+
+  function renderStreak(streak) {
+    const stat = $('#streakStat');
+    const val = $('#streakValue');
+    if (!stat || !val) return;
+    if (!streak || streak < 1) {
+      stat.style.display = 'none';
+      return;
+    }
+    stat.style.display = '';
+    val.textContent = streak + 'd';
   }
 
   function renderAdjustments(adjustments) {
@@ -554,6 +573,7 @@
     renderPRs(data.prs);
     renderBlogPosts(data.blogPosts);
     renderScheduleAdherence(data.scheduleAdherence);
+    renderStreak(data.streak);
     $('#lastUpdated').textContent = new Date(data.generated).toLocaleTimeString();
 
     // Re-open detail if one was selected

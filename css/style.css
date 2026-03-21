@@ -1151,6 +1151,12 @@ footer {
   margin-top: var(--space-xs);
   font-size: 0.7rem;
   color: var(--text-muted);
+  align-items: center;
+}
+
+.pr-ci, .pr-review {
+  font-size: 0.8rem;
+  line-height: 1;
 }
 
 .pr-repo {

@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-21T21:00:51.859Z",
+  "generated": "2026-03-21T21:19:06.912Z",
   "current": {
     "status": "done",
-    "mode": "THINK",
-    "task": "15:00 THINK — Afternoon checkpoint, progress review, quality check on PRs",
-    "context": "All 9 PRs still awaiting review (weekend). Day on track — most productive day yet. Next stretch: dashboard improvements (polish PR tracking, schedule adherence, test suite).",
-    "next": "15:15 BUILD — Dashboard improvements: polish PR tracking, schedule adherence, mobile responsiveness",
-    "startedAt": "2026-03-21T15:06:00-06:00",
+    "mode": "BUILD",
+    "task": "15:15 BUILD — Dashboard improvements: polish PR tracking, schedule adherence, mobile responsiveness",
+    "context": "Shipped 4 improvements: deduped timeline blocks (57→55), PR CI/review status indicators, streak counter, streak stat in stats bar.",
+    "next": "15:30 BUILD — Continue dashboard improvements or pull from backlog",
+    "startedAt": "2026-03-21T15:28:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -59,19 +59,6 @@
         "summary": "Promoted dispatch-strategies and compiler-vm scratch notes to lessons/.",
         "artifacts": [],
         "details": "Promoted dispatch-strategies and compiler-vm scratch notes to lessons/. Assessed morning — ahead of schedule (superinstructions done early). Adjusted schedule: 09:30-10:00 repurposed for blog polish+publish. First two lessons created in the knowledge system.",
-        "startedAt": "2026-03-21T09:00:00-06:00",
-        "completedAt": "2026-03-21T09:06:00-06:00",
-        "durationMs": 360000,
-        "durationFormatted": "6m"
-      },
-      {
-        "time": "09:00",
-        "mode": "THINK",
-        "task": "Promote scratch notes to lessons, assess morning, set direction",
-        "status": "upcoming",
-        "summary": "",
-        "artifacts": [],
-        "details": "",
         "startedAt": "2026-03-21T09:00:00-06:00",
         "completedAt": "2026-03-21T09:06:00-06:00",
         "durationMs": 360000,
@@ -286,19 +273,6 @@
         "durationFormatted": "4m 30s"
       },
       {
-        "time": "13:00",
-        "mode": "THINK",
-        "task": "Check PRs for review comments, assess #51620 progress",
-        "status": "upcoming",
-        "summary": "",
-        "artifacts": [],
-        "details": "",
-        "startedAt": "2026-03-21T13:00:00-06:00",
-        "completedAt": "2026-03-21T13:04:30-06:00",
-        "durationMs": 270000,
-        "durationFormatted": "4m 30s"
-      },
-      {
         "time": "13:15",
         "mode": "BUILD",
         "task": "Dashboard: PR tracking section + schedule adherence (pulled forward)",
@@ -406,10 +380,14 @@
         "time": "15:15",
         "mode": "BUILD",
         "task": "Continue OpenClaw #51620 or start new issue",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Dashboard improvements shipped.",
         "artifacts": [],
-        "details": ""
+        "details": "Dashboard improvements shipped. (1) Fixed duplicate timeline blocks at 09:00 and 13:00 — added dedup logic in generator (57→55 blocks). (2) PR cards now show CI status (✅/❌/⏳) and review status (👍/🔄/👀) via per-PR gh CLI enrichment. (3) Added streak counter (consecutive active days) to stats bar. (4) Added computeStreak function to generator.",
+        "startedAt": "2026-03-21T15:15:00-06:00",
+        "completedAt": "2026-03-21T15:28:00-06:00",
+        "durationMs": 780000,
+        "durationFormatted": "13m"
       },
       {
         "time": "15:30",
@@ -669,17 +647,17 @@
     "12:45: Phase 2 of #51620 completed 2 blocks early. Freed 13:15–14:15. Pulled dashboard work and EXPLORE (consciousness) forward. Checked all 9 open PRs — no human reviews yet."
   ],
   "stats": {
-    "blocksCompleted": 28,
-    "blocksTotal": 57,
+    "blocksCompleted": 29,
+    "blocksTotal": 55,
     "modeDistribution": {
       "THINK": 5,
-      "BUILD": 19,
+      "BUILD": 20,
       "EXPLORE": 3,
       "MAINTAIN": 1
     },
-    "totalMinutes": 231,
-    "totalMs": 13860000,
-    "avgDurationMs": 495000
+    "totalMinutes": 244,
+    "totalMs": 14640000,
+    "avgDurationMs": 504828
   },
   "artifacts": [
     {
@@ -813,7 +791,9 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-21T18:22:41Z",
       "updatedAt": "2026-03-21T20:52:10Z",
-      "ageHours": 3
+      "ageHours": 3,
+      "ciStatus": "pending",
+      "reviewStatus": "none"
     },
     {
       "number": 51308,
@@ -822,7 +802,9 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T22:23:20Z",
       "updatedAt": "2026-03-21T20:46:34Z",
-      "ageHours": 23
+      "ageHours": 23,
+      "ciStatus": "pending",
+      "reviewStatus": "none"
     },
     {
       "number": 51292,
@@ -831,7 +813,9 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:39:06Z",
       "updatedAt": "2026-03-21T20:46:35Z",
-      "ageHours": 23
+      "ageHours": 24,
+      "ciStatus": "pending",
+      "reviewStatus": "none"
     },
     {
       "number": 51282,
@@ -840,7 +824,9 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:23:23Z",
       "updatedAt": "2026-03-21T20:51:02Z",
-      "ageHours": 24
+      "ageHours": 24,
+      "ciStatus": "pending",
+      "reviewStatus": "none"
     },
     {
       "number": 51261,
@@ -849,7 +835,9 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:38:20Z",
       "updatedAt": "2026-03-21T20:50:04Z",
-      "ageHours": 24
+      "ageHours": 25,
+      "ciStatus": "pending",
+      "reviewStatus": "none"
     },
     {
       "number": 51257,
@@ -858,7 +846,9 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:20:35Z",
       "updatedAt": "2026-03-21T20:50:26Z",
-      "ageHours": 25
+      "ageHours": 25,
+      "ciStatus": "pending",
+      "reviewStatus": "none"
     },
     {
       "number": 51180,
@@ -867,7 +857,9 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T18:18:34Z",
       "updatedAt": "2026-03-21T20:46:52Z",
-      "ageHours": 27
+      "ageHours": 27,
+      "ciStatus": "pending",
+      "reviewStatus": "none"
     },
     {
       "number": 50692,
@@ -876,7 +868,9 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-19T23:18:46Z",
       "updatedAt": "2026-03-21T20:51:20Z",
-      "ageHours": 46
+      "ageHours": 46,
+      "ciStatus": "pending",
+      "reviewStatus": "none"
     },
     {
       "number": 50001,
@@ -885,7 +879,9 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-18T20:02:08Z",
       "updatedAt": "2026-03-21T20:46:10Z",
-      "ageHours": 73
+      "ageHours": 73,
+      "ciStatus": "pending",
+      "reviewStatus": "none"
     }
   ],
   "blogPosts": [
@@ -1003,9 +999,10 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 93,
-    "completedBlocks": 28,
-    "pastBlocks": 30,
-    "totalBlocks": 57
-  }
+    "completionRate": 100,
+    "completedBlocks": 29,
+    "pastBlocks": 29,
+    "totalBlocks": 55
+  },
+  "streak": 1
 }

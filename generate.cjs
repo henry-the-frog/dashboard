@@ -132,7 +132,25 @@ function parseSchedule(text) {
     }
   }
 
-  return { date, blocks, backlog, adjustments };
+  // Deduplicate blocks at same time slot (keep the one with more info, or first)
+  const deduped = [];
+  const seen = new Map();
+  for (const block of blocks) {
+    const existing = seen.get(block.time);
+    if (existing) {
+      // Keep whichever has more detail (longer task name, or done status)
+      if (block.status === 'done' && existing.status !== 'done') {
+        deduped[deduped.indexOf(existing)] = block;
+        seen.set(block.time, block);
+      }
+      // Otherwise keep existing
+    } else {
+      seen.set(block.time, block);
+      deduped.push(block);
+    }
+  }
+
+  return { date, blocks: deduped, backlog, adjustments };
 }
 
 function parseDailyLog(text, blocks) {
@@ -293,19 +311,62 @@ function fetchOpenPRs() {
       { encoding: 'utf8', timeout: 15000, stdio: ['pipe', 'pipe', 'pipe'] }
     );
     const prs = JSON.parse(raw);
-    return prs.map(pr => ({
-      number: pr.number,
-      title: pr.title,
-      url: pr.url,
-      repo: pr.repository?.nameWithOwner || '',
-      createdAt: pr.createdAt,
-      updatedAt: pr.updatedAt,
-      ageHours: Math.round((Date.now() - new Date(pr.createdAt).getTime()) / 3600000),
-    }));
+    return prs.map(pr => {
+      const repo = pr.repository?.nameWithOwner || '';
+      // Fetch CI status and review state per PR
+      let ciStatus = 'unknown';
+      let reviewStatus = 'none';
+      try {
+        const checksRaw = execSync(
+          `gh pr view ${pr.number} --repo ${repo} --json statusCheckRollup,reviewDecision`,
+          { encoding: 'utf8', timeout: 10000, stdio: ['pipe', 'pipe', 'pipe'] }
+        );
+        const checksData = JSON.parse(checksRaw);
+        const checks = checksData.statusCheckRollup || [];
+        if (checks.length === 0) {
+          ciStatus = 'none';
+        } else if (checks.every(c => c.conclusion === 'SUCCESS')) {
+          ciStatus = 'pass';
+        } else if (checks.some(c => c.conclusion === 'FAILURE' || c.conclusion === 'ERROR')) {
+          ciStatus = 'fail';
+        } else {
+          ciStatus = 'pending';
+        }
+        reviewStatus = (checksData.reviewDecision || 'none').toLowerCase();
+      } catch { /* skip enrichment on failure */ }
+
+      return {
+        number: pr.number,
+        title: pr.title,
+        url: pr.url,
+        repo,
+        createdAt: pr.createdAt,
+        updatedAt: pr.updatedAt,
+        ageHours: Math.round((Date.now() - new Date(pr.createdAt).getTime()) / 3600000),
+        ciStatus,
+        reviewStatus,
+      };
+    });
   } catch (err) {
     console.warn('⚠️  Could not fetch PRs via gh CLI:', err.message);
     return [];
   }
+}
+
+function computeStreak(recentDays) {
+  let streak = 0;
+  const todayStr = today();
+  const todayLog = readFile(`memory/${todayStr}.md`);
+  if (todayLog && /^-\s+\d{1,2}:\d{2}/m.test(todayLog)) {
+    streak = 1;
+  } else {
+    return 0;
+  }
+  for (const day of recentDays) {
+    if (day.blocksCompleted > 0) streak++;
+    else break;
+  }
+  return streak;
 }
 
 function parseBlogPosts() {
@@ -609,6 +670,9 @@ function generate() {
   // Schedule adherence: compare planned mode distribution vs actual
   const scheduleAdherence = computeAdherence(schedule.blocks);
 
+  // Streak: consecutive active days
+  const streak = computeStreak(recentDays);
+
   const dashboard = {
     generated: new Date().toISOString(),
     current,
@@ -622,6 +686,7 @@ function generate() {
     prs,
     blogPosts,
     scheduleAdherence,
+    streak,
   };
 
   // Ensure output directory exists
