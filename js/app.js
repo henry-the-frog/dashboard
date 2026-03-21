@@ -469,6 +469,54 @@
     val.textContent = streak + 'd';
   }
 
+  function renderTrendSparkline(recentDays, todayBlocks) {
+    const stat = $('#trendStat');
+    const svg = $('#trendSparkline');
+    if (!stat || !svg) return;
+
+    // Build data: recent days (oldest→newest) + today
+    const days = (recentDays || []).slice().reverse();
+    const points = days.map(d => ({ label: d.date.slice(5), value: d.blocksCompleted || 0 }));
+    // Add today
+    points.push({ label: 'today', value: todayBlocks || 0 });
+
+    if (points.length < 2) {
+      stat.style.display = 'none';
+      return;
+    }
+    stat.style.display = '';
+
+    const W = 120, H = 40, padY = 6, padX = 4;
+    const maxVal = Math.max(...points.map(p => p.value), 1);
+    const stepX = (W - padX * 2) / (points.length - 1);
+
+    const coords = points.map((p, i) => ({
+      x: padX + i * stepX,
+      y: padY + (1 - p.value / maxVal) * (H - padY * 2 - 8),
+      ...p,
+    }));
+
+    // Build path
+    const linePath = coords.map((c, i) => `${i === 0 ? 'M' : 'L'} ${c.x.toFixed(1)} ${c.y.toFixed(1)}`).join(' ');
+    const areaPath = linePath + ` L ${coords[coords.length - 1].x.toFixed(1)} ${H - padY} L ${coords[0].x.toFixed(1)} ${H - padY} Z`;
+
+    // Dots
+    const dots = coords.map((c, i) => {
+      const isToday = i === coords.length - 1;
+      const cls = isToday ? 'trend-dot-today' : 'trend-dot';
+      const r = isToday ? 3 : 2;
+      return `<circle class="${cls}" cx="${c.x.toFixed(1)}" cy="${c.y.toFixed(1)}" r="${r}"><title>${c.label}: ${c.value} blocks</title></circle>`;
+    }).join('');
+
+    // Day labels (show first, last, and today)
+    const labels = coords
+      .filter((_, i) => i === 0 || i === coords.length - 1)
+      .map(c => `<text class="trend-label" x="${c.x.toFixed(1)}" y="${H - 1}">${c.label}</text>`)
+      .join('');
+
+    svg.innerHTML = `<path class="trend-area" d="${areaPath}"/><path class="trend-line" d="${linePath}"/>${dots}${labels}`;
+  }
+
   function renderAdjustments(adjustments) {
     const section = $('#adjustmentsSection');
     const list = $('#adjustmentsList');
@@ -681,6 +729,7 @@
     renderBacklog(data.schedule);
     renderScheduleAdherence(data.scheduleAdherence);
     renderStreak(data.streak);
+    renderTrendSparkline(data.recentDays, data.stats?.blocksCompleted || 0);
     $('#lastUpdated').textContent = new Date(data.generated).toLocaleTimeString();
 
     // Re-open detail if one was selected

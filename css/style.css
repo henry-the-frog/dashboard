@@ -1655,3 +1655,50 @@ footer {
 .delta-over { color: var(--mode-build); }
 .delta-under { color: #f85149; }
 .delta-match { color: var(--text-muted); }
+
+/* === Trend Sparkline === */
+.stat-sparkline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 130px;
+}
+
+.trend-sparkline {
+  width: 120px;
+  height: 36px;
+}
+
+.trend-sparkline .trend-line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.trend-sparkline .trend-area {
+  fill: var(--accent);
+  opacity: 0.1;
+}
+
+.trend-sparkline .trend-dot {
+  fill: var(--accent);
+  transition: r 0.15s;
+}
+
+.trend-sparkline .trend-dot:hover {
+  r: 4;
+}
+
+.trend-sparkline .trend-dot-today {
+  fill: #79c0ff;
+  stroke: var(--accent);
+  stroke-width: 1.5;
+}
+
+.trend-sparkline .trend-label {
+  font-size: 6px;
+  fill: var(--text-muted);
+  text-anchor: middle;
+}

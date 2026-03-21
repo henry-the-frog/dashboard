@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-21T22:33:53.971Z",
+  "generated": "2026-03-21T22:46:40.443Z",
   "current": {
-    "status": "done",
+    "status": "in-progress",
     "mode": "BUILD",
-    "task": "16:30 BUILD — Dashboard polish: mode adherence comparison, heatmap hour separators, pace stat",
-    "context": "Added planned vs actual mode distribution comparison (stacked bars with delta indicators), heatmap hour-grouped layout with visual separators, blocks/hr pace stat. Pushed to GitHub Pages.",
-    "next": "17:00 BUILD — Dashboard improvements or pick from backlog",
-    "startedAt": "2026-03-21T16:39:00-06:00",
+    "task": "16:45 BUILD — Dashboard: multi-day trend sparkline in stats bar",
+    "context": "Adding SVG sparkline showing blocks/day for recent days + today. Stats bar already has adherence, streak, pace.",
+    "next": "17:00 BUILD — Continue dashboard or pick from backlog",
+    "startedAt": "2026-03-21T16:45:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -458,8 +458,8 @@
         "time": "16:45",
         "mode": "BUILD",
         "task": "Dashboard improvements: PR tracking, schedule adherence polish",
-        "status": "upcoming",
-        "summary": "",
+        "status": "in-progress",
+        "summary": "Adding SVG sparkline showing blocks/day for recent days + today. Stats bar already has adherence, streak, pace.",
         "artifacts": [],
         "details": ""
       },
@@ -1019,9 +1019,9 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 100,
+    "completionRate": 97,
     "completedBlocks": 34,
-    "pastBlocks": 34,
+    "pastBlocks": 35,
     "totalBlocks": 55,
     "plannedDist": {
       "THINK": 9,
@@ -1035,7 +1035,7 @@
       "EXPLORE": 3,
       "MAINTAIN": 1
     },
-    "pace": 4.1
+    "pace": 4
   },
   "streak": 1
 }
