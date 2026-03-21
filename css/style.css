@@ -787,6 +787,9 @@ footer {
 }
 
 @media (min-width: 1024px) {
+  .heatmap-section {
+    grid-column: 1 / -1;
+  }
   .mode-bar-section {
     grid-column: 1 / -1;
     max-width: none;
@@ -1332,6 +1335,47 @@ footer {
 /* === Adjustments === */
 .adjustments-section {
   padding: var(--space-lg) var(--space-md);
+}
+
+/* === Backlog Section === */
+.backlog-section {
+  padding: var(--space-lg) var(--space-md);
+}
+
+.backlog-section h2 {
+  font-size: 1rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-md);
+}
+
+.backlog-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.backlog-list li {
+  font-size: 0.8rem;
+  color: var(--text);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--text-muted);
+  border-radius: var(--radius);
+  line-height: 1.4;
+}
+
+@media (min-width: 768px) {
+  .backlog-section { max-width: 640px; margin: 0 auto; }
+}
+
+@media (min-width: 1024px) {
+  .backlog-section { grid-column: 2; }
 }
 
 .adjustments-section h2 {

@@ -341,6 +341,21 @@
     }).join('');
   }
 
+  function renderBacklog(schedule) {
+    const section = $('#backlogSection');
+    const list = $('#backlogList');
+    if (!section || !list) return;
+    const backlog = schedule?.backlog;
+    if (!backlog || backlog.length === 0) {
+      section.style.display = 'none';
+      return;
+    }
+    section.style.display = '';
+    const countLabel = backlog.length === 1 ? '1 item' : `${backlog.length} items`;
+    section.querySelector('h2').innerHTML = `📋 Backlog <span class="section-count">${esc(countLabel)}</span>`;
+    list.innerHTML = backlog.map(item => `<li>${esc(item)}</li>`).join('');
+  }
+
   function renderPRs(prs) {
     const section = $('#prsSection');
     const list = $('#prsList');
@@ -350,6 +365,8 @@
       return;
     }
     section.style.display = '';
+    const countLabel = prs.length === 1 ? '1 PR' : `${prs.length} PRs`;
+    section.querySelector('h2').innerHTML = `🔀 Open PRs <span class="section-count">${esc(countLabel)}</span>`;
 
     const ciIcons = { pass: '✅', fail: '❌', pending: '⏳', none: '⚪', unknown: '⚪' };
     const reviewIcons = { approved: '👍', changes_requested: '🔄', review_required: '👀', none: '' };
@@ -603,6 +620,7 @@
     renderRecentDays(data.recentDays);
     renderPRs(data.prs);
     renderBlogPosts(data.blogPosts);
+    renderBacklog(data.schedule);
     renderScheduleAdherence(data.scheduleAdherence);
     renderStreak(data.streak);
     $('#lastUpdated').textContent = new Date(data.generated).toLocaleTimeString();
@@ -767,7 +785,7 @@
   function initCollapsible() {
     const sections = [
       'highlightsSection', 'durationChartSection', 'adjustmentsSection',
-      'recentDaysSection', 'blogSection', 'prsSection', 'artifactsSection'
+      'recentDaysSection', 'blogSection', 'prsSection', 'backlogSection', 'artifactsSection'
     ];
     for (const id of sections) {
       const section = document.getElementById(id);
