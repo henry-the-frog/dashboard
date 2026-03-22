@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-22T02:17:48.413Z",
+  "generated": "2026-03-22T02:32:43.005Z",
   "current": {
     "status": "done",
     "mode": "EXPLORE",
-    "task": "20:15 EXPLORE — Tracing JIT deep dive: LuaJIT trace recording mechanics",
-    "context": "Deep-dived into LuaJIT source (lj_trace.c, lj_record.c, lj_ir.h, lj_jit.h, lj_snap.c). Documented IR format, snapshot system, trace lifecycle, penalty system, trace stitching, optimization flags. Updated tracing-jit-compilation scratch note with source-level findings.",
-    "next": "20:30 EXPLORE — Continue: copy-and-patch compilation (new CPython JIT)",
-    "startedAt": "2026-03-21T20:28:00-06:00",
+    "task": "20:30 EXPLORE — Copy-and-patch compilation deep dive (CPython's new JIT)",
+    "context": "Read CPython JIT source (jit.c, template.c, _stencils.py, _targets.py). Documented the full pipeline: build-time template compilation via Clang → stencil extraction → runtime memcpy+patch. Key insights: compilation-is-linking, musttail+preserve_none CPS, TOS cache as register alloc lite. Created scratch note.",
+    "next": "20:45 MAINTAIN — Update research notes, commit",
+    "startedAt": "2026-03-21T20:43:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -653,10 +653,14 @@
         "time": "20:30",
         "mode": "EXPLORE",
         "task": "Continue: copy-and-patch compilation (new CPython JIT)",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Copy-and-patch JIT deep dive.",
         "artifacts": [],
-        "details": ""
+        "details": "Copy-and-patch JIT deep dive. Read CPython source (jit.c, template.c, Tools/jit/_stencils.py, _targets.py). Key findings: (1) Build-time: Clang compiles template.c per-uop with opcode as compile-time constant, extracting machine code stencils + relocation holes. (2) Runtime _PyJIT_Compile: two-pass (size calc → allocate → memcpy stencils + patch holes), O(n) in trace length. (3) Continuation-passing style via musttail + preserve_none CC — each stencil tail-calls the next, adjacent ones compile to fallthrough. (4) TOS cache passes 3 values in registers between uops — poor man's register allocation. (5) No cross-uop optimization (each template independently compiled), but tier-2 optimizer handles that at uop IR level. ~5-9% over tier-2 interpreter. Created scratch note.",
+        "startedAt": "2026-03-21T20:30:00-06:00",
+        "completedAt": "2026-03-21T20:43:00-06:00",
+        "durationMs": 780000,
+        "durationFormatted": "13m"
       },
       {
         "time": "20:45",
@@ -727,17 +731,17 @@
     "12:45: Phase 2 of #51620 completed 2 blocks early. Freed 13:15–14:15. Pulled dashboard work and EXPLORE (consciousness) forward. Checked all 9 open PRs — no human reviews yet."
   ],
   "stats": {
-    "blocksCompleted": 49,
+    "blocksCompleted": 50,
     "blocksTotal": 55,
     "modeDistribution": {
       "THINK": 8,
       "BUILD": 30,
-      "EXPLORE": 7,
+      "EXPLORE": 8,
       "MAINTAIN": 4
     },
-    "totalMinutes": 390,
-    "totalMs": 23400000,
-    "avgDurationMs": 477551
+    "totalMinutes": 403,
+    "totalMs": 24180000,
+    "avgDurationMs": 483600
   },
   "artifacts": [
     {
@@ -965,7 +969,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-18T20:02:08Z",
       "updatedAt": "2026-03-21T20:46:10Z",
-      "ageHours": 78,
+      "ageHours": 79,
       "ciStatus": "pending",
       "reviewStatus": "none"
     }
@@ -1086,8 +1090,8 @@
   ],
   "scheduleAdherence": {
     "completionRate": 100,
-    "completedBlocks": 49,
-    "pastBlocks": 49,
+    "completedBlocks": 50,
+    "pastBlocks": 50,
     "totalBlocks": 55,
     "plannedDist": {
       "THINK": 9,
@@ -1098,7 +1102,7 @@
     "actualDist": {
       "THINK": 8,
       "BUILD": 30,
-      "EXPLORE": 7,
+      "EXPLORE": 8,
       "MAINTAIN": 4
     },
     "pace": 4.1
