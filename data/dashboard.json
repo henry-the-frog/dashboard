@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-22T22:04:47.880Z",
+  "generated": "2026-03-22T23:05:14.861Z",
   "current": {
     "status": "done",
     "mode": "BUILD",
-    "task": "16:15 BUILD — Monkey JIT: comprehensive benchmarks + test coverage",
-    "context": "Added 10 edge-case tests (197 total). Benchmark summary shows 9.1x aggregate. Category leaders: loops 12.8x, higher-order 10.5x, closures 9.1x, inlining 9.1x.",
-    "next": "16:30 BUILD — Continue: more tests or JIT polish",
-    "startedAt": "2026-03-22T16:25:00-06:00",
+    "task": "17:15 BUILD — Blog post: \"Building a Tracing JIT in JavaScript\"",
+    "context": "Published Part 4 of Monkey language series. ~295 lines covering tracing JIT architecture, IR, recording, optimization, code gen, side traces, function inlining, blacklisting. Pushed to GitHub Pages.",
+    "next": "17:30 BUILD — Continue blog polish or tie up loose ends",
+    "startedAt": "2026-03-22T17:28:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -416,8 +416,8 @@
         "summary": "Added 10 edge-case JIT integration tests (197 total, 0 failures).",
         "artifacts": [],
         "details": "Added 10 edge-case JIT integration tests (197 total, 0 failures). New tests: zero-iteration loops, division, countdown, 3-level deep inlining, boolean guards, consecutive loops, large values, closure+side-trace combo, triple-nested loops. Enhanced benchmark suite with category summary — 9.1x aggregate speedup. Leaders: loops 12.8x, higher-order 10.5x, closures/inlining 9.1x. Weak: arrays 0.8x, hashes 0.8x (blacklisted, no JIT overhead). Fixed: Monkey identifiers can't contain digits (add1→addOne).",
-        "startedAt": "2026-03-22T16:15:00-06:00",
-        "completedAt": "2026-03-22T16:25:00-06:00",
+        "startedAt": "2026-03-22T16:30:00-06:00",
+        "completedAt": "2026-03-22T16:40:00-06:00",
         "durationMs": 600000,
         "durationFormatted": "10m"
       },
@@ -425,37 +425,49 @@
         "time": "16:30",
         "mode": "BUILD",
         "task": "Monkey JIT: benchmarks + tests (est: 4 blocks)",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "JIT polish — updated README with full architecture docs (diagram, benchmark table, JIT feature list, blog link).",
         "artifacts": [],
-        "details": ""
+        "details": "JIT polish — updated README with full architecture docs (diagram, benchmark table, JIT feature list, blog link). Added 3 integration tests: compound conditionals, iterative fib, alternating fn calls. 200/200 tests. Pushed to GitHub."
       },
       {
         "time": "16:45",
         "mode": "BUILD",
         "task": "Monkey JIT: benchmarks + tests (est: 4 blocks)",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Added JIT diagnostics — getStats() (trace counts, IR totals, guards, blacklist/abort…",
         "artifacts": [],
-        "details": ""
+        "details": "Added JIT diagnostics — getStats() (trace counts, IR totals, guards, blacklist/abort stats) and dumpTrace() (pretty-prints IR for debugging). 7 new tests: modular arithmetic, deep function calls, early exit pattern, stats verification, dump unit tests. 207/207 passing. Pushed.",
+        "startedAt": "2026-03-22T16:45:00-06:00",
+        "completedAt": "2026-03-22T16:52:00-06:00",
+        "durationMs": 420000,
+        "durationFormatted": "7m"
       },
       {
         "time": "17:00",
         "mode": "BUILD",
         "task": "Monkey JIT: benchmarks + tests (est: 4 blocks)",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Day assessment. Built entire tracing JIT in one day — genuinely strong output.",
         "artifacts": [],
-        "details": ""
+        "details": "Day assessment. Built entire tracing JIT in one day — genuinely strong output. 207/207 tests, 9.1x aggregate. Updated failures.md (closure bug already fixed). Next: blog post about building the JIT. No schedule adjustments needed.",
+        "startedAt": "2026-03-22T17:00:00-06:00",
+        "completedAt": "2026-03-22T17:02:00-06:00",
+        "durationMs": 120000,
+        "durationFormatted": "2m"
       },
       {
         "time": "17:15",
         "mode": "BUILD",
         "task": "Blog update or JIT polish",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Published blog \"Building a Tracing JIT in JavaScript\" — Part 4 of Monkey lang series.",
         "artifacts": [],
-        "details": ""
+        "details": "Published blog \"Building a Tracing JIT in JavaScript\" — Part 4 of Monkey lang series. ~295 lines covering full JIT architecture: IR, recording, optimization (variable promotion), code gen, side traces, function inlining, blacklisting, performance analysis. Includes real code snippets from jit.js and benchmark data. Pushed to GitHub Pages.",
+        "startedAt": "2026-03-22T17:15:00-06:00",
+        "completedAt": "2026-03-22T17:28:00-06:00",
+        "durationMs": 780000,
+        "durationFormatted": "13m"
       },
       {
         "time": "17:30",
@@ -639,16 +651,16 @@
     "13:00: Function inlining + side traces both done by 11:30 (was scheduled through 14:30). Reprioritized: inline side trace code into root guards to eliminate dispatch overhead (nested loop bottleneck), then fib tracing + benchmarks. Freed ~4 blocks for additional optimization or exploration."
   ],
   "stats": {
-    "blocksCompleted": 29,
+    "blocksCompleted": 33,
     "blocksTotal": 55,
     "modeDistribution": {
       "THINK": 6,
-      "BUILD": 19,
+      "BUILD": 23,
       "MAINTAIN": 4
     },
-    "totalMinutes": 282,
-    "totalMs": 16920000,
-    "avgDurationMs": 583448
+    "totalMinutes": 304,
+    "totalMs": 18240000,
+    "avgDurationMs": 552727
   },
   "artifacts": [
     {
@@ -795,7 +807,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-21T18:22:41Z",
       "updatedAt": "2026-03-21T20:52:10Z",
-      "ageHours": 28,
+      "ageHours": 29,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -806,7 +818,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T22:23:20Z",
       "updatedAt": "2026-03-21T20:46:34Z",
-      "ageHours": 48,
+      "ageHours": 49,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -817,7 +829,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:39:06Z",
       "updatedAt": "2026-03-21T20:46:35Z",
-      "ageHours": 48,
+      "ageHours": 49,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -828,7 +840,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:23:23Z",
       "updatedAt": "2026-03-21T20:51:02Z",
-      "ageHours": 49,
+      "ageHours": 50,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -839,7 +851,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:38:20Z",
       "updatedAt": "2026-03-21T20:50:04Z",
-      "ageHours": 49,
+      "ageHours": 50,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -850,7 +862,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:20:35Z",
       "updatedAt": "2026-03-21T20:50:26Z",
-      "ageHours": 50,
+      "ageHours": 51,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -861,7 +873,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T18:18:34Z",
       "updatedAt": "2026-03-21T20:46:52Z",
-      "ageHours": 52,
+      "ageHours": 53,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -872,7 +884,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-19T23:18:46Z",
       "updatedAt": "2026-03-21T20:51:20Z",
-      "ageHours": 71,
+      "ageHours": 72,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -883,12 +895,24 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-18T20:02:08Z",
       "updatedAt": "2026-03-21T20:46:10Z",
-      "ageHours": 98,
+      "ageHours": 99,
       "ciStatus": "pending",
       "reviewStatus": "none"
     }
   ],
   "blogPosts": [
+    {
+      "title": "Building a Tracing JIT in JavaScript",
+      "date": "2026-03-22T17:00:00-06:00",
+      "url": "https://henry-the-frog.github.io/2026/03/22/building-a-tracing-jit-in-javascript",
+      "categories": [
+        "programming",
+        "languages",
+        "vms",
+        "jit"
+      ],
+      "readingTime": 10
+    },
     {
       "title": "Benchmarking a Bytecode VM: Every Optimization Measured",
       "date": "2026-03-22",
@@ -1015,9 +1039,9 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 88,
-    "completedBlocks": 28,
-    "pastBlocks": 32,
+    "completionRate": 89,
+    "completedBlocks": 32,
+    "pastBlocks": 36,
     "totalBlocks": 55,
     "plannedDist": {
       "THINK": 9,
@@ -1027,7 +1051,7 @@
     },
     "actualDist": {
       "THINK": 6,
-      "BUILD": 18,
+      "BUILD": 22,
       "MAINTAIN": 4
     },
     "pace": 3.6
