@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-22T19:01:03.367Z",
+  "generated": "2026-03-22T20:20:16.650Z",
   "current": {
     "status": "done",
-    "mode": "THINK",
-    "task": "13:00 THINK — Review progress, confirm next stretch plan",
-    "context": "THINK complete. Checked failures.md (raw/boxed confusion relevant to inlining work). decisions.md clean. Next 4 blocks: inline side trace code into root guard exits (13:15-14:00), then fib tracing + benchmarks (14:15-14:30), then promote tracing-jit scratch note (14:45). Context files stay relevant.",
-    "next": "13:15 BUILD — Inline side trace code into root trace guard exits",
-    "startedAt": "2026-03-22T13:00:00-06:00",
+    "mode": "BUILD",
+    "task": "14:30 BUILD — Comprehensive benchmark suite expansion",
+    "context": "Added 8 new benchmarks (arrays, closures, higher-order, hashes). Discovered JIT bug: closures with free variables crash (\"unknown opcode: 0\") after trace compilation triggers (~56 iterations). Arrays also show 0 traces/regression. Higher-order fns work great (11-16x). All 185 tests still pass.",
+    "next": "14:45 MAINTAIN — Commit, push, promote tracing-jit scratch note to lessons/",
+    "startedAt": "2026-03-22T14:28:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -268,19 +268,23 @@
         "time": "13:15",
         "mode": "BUILD",
         "task": "Monkey JIT: inline side trace code into root guards (eliminate dispatch overhead)",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Inlined side trace dispatch into compiled root traces.",
         "artifacts": [],
-        "details": ""
+        "details": "Inlined side trace dispatch into compiled root traces. Added __sideTraces parameter to compiled functions; guard exits now check for side traces inline and call them directly (no VM roundtrip). On loop_back, root trace continues via 'continue loop'. Added __reloadPromoted() for re-reading promoted vars after side trace modifies globals/locals. All 178 tests passing. Benchmarks: hot loop 20.3x, 100k sum 13.7x, nested loops 4.2x, inlined fns 5-8x. The nested loop improvement is modest (4.2x) because side traces are still separate compiled functions — true IR-level inlining would merge them.",
+        "startedAt": "2026-03-22T13:15:00-06:00",
+        "completedAt": "2026-03-22T13:22:00-06:00",
+        "durationMs": 420000,
+        "durationFormatted": "7m"
       },
       {
         "time": "13:30",
         "mode": "BUILD",
         "task": "Monkey JIT: inline side trace code into root guards (eliminate dispatch overhead)",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Recursive function tracing — implemented FunctionCompiler (method JIT for self-recursive functions).",
         "artifacts": [],
-        "details": ""
+        "details": "Recursive function tracing — implemented FunctionCompiler (method JIT for self-recursive functions). Two compilation modes: boxed (generic) and raw integer (specialized). Raw mode generates inner __rawFib that works entirely with raw JS numbers — zero boxing at recursion boundaries. Fixed _canUseRawInts to only check referenced constants (not entire pool, which includes CompiledFunction objects). Added storeFuncTrace, _executeFuncTrace, hot function counting (threshold 16). 178/178 tests. fib(25): 10.4x JIT/VM (118ms→11.36ms), 14x JIT/Eval. Key architectural insight: the inner raw function calls itself directly — boxing only happens at the VM↔JIT boundary, not at each recursion level. This is effectively what LuaJIT does with type-specialized traces."
       },
       {
         "time": "13:45",
@@ -289,25 +293,37 @@
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
-        "details": ""
+        "details": "",
+        "startedAt": "2026-03-22T13:45:00-06:00",
+        "completedAt": "2026-03-22T14:00:00-06:00",
+        "durationMs": 900000,
+        "durationFormatted": "15m"
       },
       {
         "time": "14:00",
         "mode": "BUILD",
         "task": "Monkey JIT: inline side trace code into root guards (eliminate dispatch overhead)",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Added 7 new JIT integration tests: FunctionCompiler recursive fib, multiple base cases,…",
         "artifacts": [],
-        "details": ""
+        "details": "Added 7 new JIT integration tests: FunctionCompiler recursive fib, multiple base cases, recursive countdown, JIT vs non-JIT correctness check for fib(25), loop+recursive combo (fib in while loop), negative arithmetic, multiplication in traces. Added 3 stress benchmarks: fib(30) 18.3x vs eval/11.8x vs VM, loop+fib 10.1x, factorial(20). Fixed expected values for nested fn calls and conditional fn benchmarks. All 185 tests passing, all benchmarks correct.",
+        "startedAt": "2026-03-22T14:00:00-06:00",
+        "completedAt": "2026-03-22T14:14:00-06:00",
+        "durationMs": 840000,
+        "durationFormatted": "14m"
       },
       {
         "time": "14:15",
         "mode": "BUILD",
         "task": "Monkey JIT: recursive fibonacci tracing + benchmarks",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Expanded comprehensive benchmark suite — added 8 new benchmarks covering arrays,…",
         "artifacts": [],
-        "details": ""
+        "details": "Expanded comprehensive benchmark suite — added 8 new benchmarks covering arrays, closures, higher-order functions, and hashes. Discovered JIT closure bug: free variable closures crash with \"unknown opcode: 0\" after trace compilation triggers. Arrays show 0 traces (JIT overhead without benefit). Higher-order fns excellent (11-16x). Lexer note: identifiers can't contain digits (add5→add + 5).",
+        "startedAt": "2026-03-22T14:15:00-06:00",
+        "completedAt": "2026-03-22T14:29:00-06:00",
+        "durationMs": 840000,
+        "durationFormatted": "14m"
       },
       {
         "time": "14:30",
@@ -599,16 +615,16 @@
     "13:00: Function inlining + side traces both done by 11:30 (was scheduled through 14:30). Reprioritized: inline side trace code into root guards to eliminate dispatch overhead (nested loop bottleneck), then fib tracing + benchmarks. Freed ~4 blocks for additional optimization or exploration."
   ],
   "stats": {
-    "blocksCompleted": 18,
+    "blocksCompleted": 22,
     "blocksTotal": 55,
     "modeDistribution": {
       "THINK": 4,
-      "BUILD": 12,
+      "BUILD": 16,
       "MAINTAIN": 2
     },
-    "totalMinutes": 192,
-    "totalMs": 11520000,
-    "avgDurationMs": 640000
+    "totalMinutes": 227,
+    "totalMs": 13620000,
+    "avgDurationMs": 619091
   },
   "artifacts": [
     {
@@ -735,6 +751,16 @@
       "mode": "BUILD",
       "time": "12:00",
       "text": "Fixed inlined function guard exit IP bug."
+    },
+    {
+      "mode": "BUILD",
+      "time": "13:30",
+      "text": "Recursive function tracing — implemented FunctionCompiler (method JIT for self-recursive functions)."
+    },
+    {
+      "mode": "BUILD",
+      "time": "14:00",
+      "text": "Added 7 new JIT integration tests: FunctionCompiler recursive fib, multiple…"
     }
   ],
   "prs": [
@@ -745,7 +771,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-21T18:22:41Z",
       "updatedAt": "2026-03-21T20:52:10Z",
-      "ageHours": 25,
+      "ageHours": 26,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -756,7 +782,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T22:23:20Z",
       "updatedAt": "2026-03-21T20:46:34Z",
-      "ageHours": 45,
+      "ageHours": 46,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -767,7 +793,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:39:06Z",
       "updatedAt": "2026-03-21T20:46:35Z",
-      "ageHours": 45,
+      "ageHours": 47,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -778,7 +804,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:23:23Z",
       "updatedAt": "2026-03-21T20:51:02Z",
-      "ageHours": 46,
+      "ageHours": 47,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -789,7 +815,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:38:20Z",
       "updatedAt": "2026-03-21T20:50:04Z",
-      "ageHours": 46,
+      "ageHours": 48,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -800,7 +826,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:20:35Z",
       "updatedAt": "2026-03-21T20:50:26Z",
-      "ageHours": 47,
+      "ageHours": 48,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -811,7 +837,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T18:18:34Z",
       "updatedAt": "2026-03-21T20:46:52Z",
-      "ageHours": 49,
+      "ageHours": 50,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -822,7 +848,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-19T23:18:46Z",
       "updatedAt": "2026-03-21T20:51:20Z",
-      "ageHours": 68,
+      "ageHours": 69,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -833,7 +859,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-18T20:02:08Z",
       "updatedAt": "2026-03-21T20:46:10Z",
-      "ageHours": 95,
+      "ageHours": 96,
       "ciStatus": "pending",
       "reviewStatus": "none"
     }
@@ -965,9 +991,9 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 90,
-    "completedBlocks": 18,
-    "pastBlocks": 20,
+    "completionRate": 88,
+    "completedBlocks": 22,
+    "pastBlocks": 25,
     "totalBlocks": 55,
     "plannedDist": {
       "THINK": 9,
@@ -977,10 +1003,10 @@
     },
     "actualDist": {
       "THINK": 4,
-      "BUILD": 12,
+      "BUILD": 16,
       "MAINTAIN": 2
     },
-    "pace": 3.8
+    "pace": 3.6
   },
   "streak": 1
 }
