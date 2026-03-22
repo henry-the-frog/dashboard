@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-22T02:01:41.011Z",
+  "generated": "2026-03-22T02:17:48.413Z",
   "current": {
     "status": "done",
-    "mode": "THINK",
-    "task": "20:00 THINK — Reflect on consciousness research, promote eligible scratch notes",
-    "context": "Promoted consciousness-cogitate and consciousness-index to lessons/consciousness-research.md (5th lesson). Schedule on track, 46/55 blocks done. Next: LuaJIT tracing deep dive.",
-    "next": "20:15 EXPLORE — Tracing JIT deep dive: LuaJIT trace recording mechanics",
-    "startedAt": "2026-03-21T20:05:00-06:00",
+    "mode": "EXPLORE",
+    "task": "20:15 EXPLORE — Tracing JIT deep dive: LuaJIT trace recording mechanics",
+    "context": "Deep-dived into LuaJIT source (lj_trace.c, lj_record.c, lj_ir.h, lj_jit.h, lj_snap.c). Documented IR format, snapshot system, trace lifecycle, penalty system, trace stitching, optimization flags. Updated tracing-jit-compilation scratch note with source-level findings.",
+    "next": "20:30 EXPLORE — Continue: copy-and-patch compilation (new CPython JIT)",
+    "startedAt": "2026-03-21T20:28:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -640,10 +640,14 @@
         "time": "20:15",
         "mode": "EXPLORE",
         "task": "Tracing JIT deep dive: LuaJIT trace recording mechanics",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "LuaJIT trace recording deep dive.",
         "artifacts": [],
-        "details": ""
+        "details": "LuaJIT trace recording deep dive. Read actual source code (lj_trace.c, lj_record.c, lj_ir.h, lj_jit.h, lj_snap.c). Key findings: (1) IR built optimized — emitir() passes through fold/CSE during recording, not after. (2) ~90 IR opcodes, compact 8-byte instruction format with biased indexing (constants grow down, instructions up). (3) Snapshot system captures stack state at each guard for deoptimization — compressed entries elide unmodified slots. (4) Bytecode patching is the entry mechanism (LOOP→JLOOP) — zero overhead both ways. (5) Penalty system uses exponential backoff with jitter before blacklisting. (6) Side trace exits patched directly in parent machine code — zero-overhead trace linking. Updated scratch note (uses: 1→2).",
+        "startedAt": "2026-03-21T20:15:00-06:00",
+        "completedAt": "2026-03-21T20:28:00-06:00",
+        "durationMs": 780000,
+        "durationFormatted": "13m"
       },
       {
         "time": "20:30",
@@ -723,17 +727,17 @@
     "12:45: Phase 2 of #51620 completed 2 blocks early. Freed 13:15–14:15. Pulled dashboard work and EXPLORE (consciousness) forward. Checked all 9 open PRs — no human reviews yet."
   ],
   "stats": {
-    "blocksCompleted": 48,
+    "blocksCompleted": 49,
     "blocksTotal": 55,
     "modeDistribution": {
       "THINK": 8,
       "BUILD": 30,
-      "EXPLORE": 6,
+      "EXPLORE": 7,
       "MAINTAIN": 4
     },
-    "totalMinutes": 377,
-    "totalMs": 22620000,
-    "avgDurationMs": 471250
+    "totalMinutes": 390,
+    "totalMs": 23400000,
+    "avgDurationMs": 477551
   },
   "artifacts": [
     {
@@ -895,7 +899,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:39:06Z",
       "updatedAt": "2026-03-21T20:46:35Z",
-      "ageHours": 28,
+      "ageHours": 29,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -917,7 +921,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:38:20Z",
       "updatedAt": "2026-03-21T20:50:04Z",
-      "ageHours": 29,
+      "ageHours": 30,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -1082,8 +1086,8 @@
   ],
   "scheduleAdherence": {
     "completionRate": 100,
-    "completedBlocks": 48,
-    "pastBlocks": 48,
+    "completedBlocks": 49,
+    "pastBlocks": 49,
     "totalBlocks": 55,
     "plannedDist": {
       "THINK": 9,
@@ -1094,7 +1098,7 @@
     "actualDist": {
       "THINK": 8,
       "BUILD": 30,
-      "EXPLORE": 6,
+      "EXPLORE": 7,
       "MAINTAIN": 4
     },
     "pace": 4.1
