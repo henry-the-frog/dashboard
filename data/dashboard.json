@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-22T16:01:38.275Z",
+  "generated": "2026-03-22T16:31:30.721Z",
   "current": {
     "status": "done",
-    "mode": "THINK",
-    "task": "JIT compiler design review — assess architecture, plan next stretch",
-    "context": "Ahead of schedule. Reprioritized: (1) fix optimizer regression 7.8x→6.4x, (2) side traces, (3) function inlining. Schedule updated. Key architecture gaps: no side traces, no function call tracing, PHI handling unclear.",
-    "next": "10:15 BUILD — investigate and fix optimizer regression",
-    "startedAt": "2026-03-22T10:08:00-06:00",
+    "mode": "MAINTAIN",
+    "task": "Commit optimizer regression fix and all pending changes",
+    "context": "All JIT changes committed. Loop variable promotion (12.5x) already pushed. Dashboard updated.",
+    "next": "11:00 THINK — Side trace architecture design",
+    "startedAt": "2026-03-22T10:32:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -116,19 +116,27 @@
         "time": "10:15",
         "mode": "BUILD",
         "task": "Fix optimizer regression (7.8x→6.4x), investigate",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "JIT loop variable promotion.",
         "artifacts": [],
-        "details": ""
+        "details": "JIT loop variable promotion. Detected loop-carried globals (STORE with BOX_INT), promoted to raw JS `let` vars before loop, write-back on exit via `__wb()`. Eliminated box/unbox per iteration. Also: GUARD_INT skip for promoted vars, dead BOX_INT elision, raw bool guard shortcut. Hot loop 7.2x→12.5x. 171 tests pass.",
+        "startedAt": "2026-03-22T10:15:00-06:00",
+        "completedAt": "2026-03-22T10:29:00-06:00",
+        "durationMs": 840000,
+        "durationFormatted": "14m"
       },
       {
         "time": "10:30",
         "mode": "BUILD",
         "task": "Fix optimizer regression (7.8x→6.4x), investigate",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Commit verified (loop variable promotion already pushed).",
         "artifacts": [],
-        "details": ""
+        "details": "Commit verified (loop variable promotion already pushed). Dashboard + daily log update.",
+        "startedAt": "2026-03-22T10:30:00-06:00",
+        "completedAt": "2026-03-22T10:32:00-06:00",
+        "durationMs": 120000,
+        "durationFormatted": "2m"
       },
       {
         "time": "10:45",
@@ -553,16 +561,16 @@
     "10:00: JIT scaffold, recording, IR, codegen, and optimizer all done by 09:30 (was scheduled through 11:30). Reprioritized: fix optimizer regression, then side traces + function inlining. Moved \"first working traces\" goal earlier since basic traces already work."
   ],
   "stats": {
-    "blocksCompleted": 7,
+    "blocksCompleted": 9,
     "blocksTotal": 55,
     "modeDistribution": {
       "THINK": 2,
-      "BUILD": 4,
+      "BUILD": 6,
       "MAINTAIN": 1
     },
-    "totalMinutes": 68,
-    "totalMs": 4050000,
-    "avgDurationMs": 578571
+    "totalMinutes": 84,
+    "totalMs": 5010000,
+    "avgDurationMs": 556667
   },
   "artifacts": [
     {
@@ -701,7 +709,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:39:06Z",
       "updatedAt": "2026-03-21T20:46:35Z",
-      "ageHours": 42,
+      "ageHours": 43,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -723,7 +731,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:38:20Z",
       "updatedAt": "2026-03-21T20:50:04Z",
-      "ageHours": 43,
+      "ageHours": 44,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -899,9 +907,9 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 88,
-    "completedBlocks": 7,
-    "pastBlocks": 8,
+    "completionRate": 90,
+    "completedBlocks": 9,
+    "pastBlocks": 10,
     "totalBlocks": 55,
     "plannedDist": {
       "THINK": 9,
@@ -911,7 +919,7 @@
     },
     "actualDist": {
       "THINK": 2,
-      "BUILD": 4,
+      "BUILD": 6,
       "MAINTAIN": 1
     },
     "pace": 4
