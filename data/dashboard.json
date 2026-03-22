@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-22T01:18:18.518Z",
+  "generated": "2026-03-22T01:46:13.662Z",
   "current": {
     "status": "done",
-    "mode": "EXPLORE",
-    "task": "19:15 EXPLORE — AST vs IIT vs GNW comparative analysis",
-    "context": "Substantially deepened comparison note. Added COGITATE Nature 2025 publication details (IIT 2/3, GNW 0/3), 5 divergent experimental predictions, integration/conflict analysis, ketamine as test case, updated credences. Note now has 6 dimensions.",
-    "next": "19:30 EXPLORE — Real bytecode VM deep dive: CPython ceval.c dispatch loop",
-    "startedAt": "2026-03-21T19:27:00-06:00",
+    "mode": "MAINTAIN",
+    "task": "19:45 MAINTAIN — Update scratch notes, increment uses for loaded files",
+    "context": "Scratch notes verified. cpython-ceval-dispatch.md correct (uses:1, today). Promotion candidates flagged for 20:00 THINK: consciousness-cogitate (2 uses, 2 days), consciousness-index (3 uses, 2 days).",
+    "next": "20:00 THINK — Reflect on consciousness research thread, promote eligible scratch notes",
+    "startedAt": "2026-03-21T19:48:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -591,7 +591,7 @@
         "status": "done",
         "summary": "Deepened consciousness comparison note.",
         "artifacts": [],
-        "details": "Deepened consciousness comparison note. Added COGITATE Nature 2025 results (IIT 2/3, GNW 0/3), 5 divergent experimental predictions (attention-without-awareness, TPJ disruption, ketamine dissociation, artificial attention schemas, posterior/frontal lesions), theory integration analysis (complementary vs conflicting claims table), updated credences. GNW survival at 15%.",
+        "details": "Deepened consciousness comparison note.",
         "startedAt": "2026-03-21T19:15:00-06:00",
         "completedAt": "2026-03-21T19:27:00-06:00",
         "durationMs": 720000,
@@ -601,19 +601,27 @@
         "time": "19:30",
         "mode": "EXPLORE",
         "task": "Real bytecode VM deep dive: CPython ceval.c dispatch loop",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "CPython ceval.c deep dive.",
         "artifacts": [],
-        "details": ""
+        "details": "CPython ceval.c deep dive. Read actual source (3818 lines ceval.c, 12752 lines generated_cases.c.h). Key findings: (1) Three dispatch strategies — tail call (newest, ~15% faster than computed goto, uses preserve_none CC + musttail), computed goto (classic), switch (fallback). (2) Adaptive specialization rewrites bytecode in-place (BINARY_OP → BINARY_OP_ADD_INT), even dealloc is type-specialized. (3) Three-tier execution: bytecode → specialized bytecode → micro-op traces (+ copy-and-patch JIT). (4) Free-threading uses atomic instruction fetch + thread-local bytecode copies. Created comprehensive scratch note. Added COGITATE Nature 2025 results (IIT 2/3, GNW 0/3), 5 divergent experimental predictions (attention-without-awareness, TPJ disruption, ketamine dissociation, artificial attention schemas, posterior/frontal lesions), theory integration analysis (complementary vs conflicting claims table), updated credences. GNW survival at 15%.",
+        "startedAt": "2026-03-21T19:30:00-06:00",
+        "completedAt": "2026-03-21T19:42:00-06:00",
+        "durationMs": 720000,
+        "durationFormatted": "12m"
       },
       {
         "time": "19:45",
         "mode": "MAINTAIN",
         "task": "Update scratch notes, increment uses for loaded files",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Updated scratch note metadata, verified cpython-ceval-dispatch.md (uses:1, created today).",
         "artifacts": [],
-        "details": ""
+        "details": "Updated scratch note metadata, verified cpython-ceval-dispatch.md (uses:1, created today). Noted promotion candidates for 20:00 THINK: consciousness-cogitate (2 uses, 2 days), consciousness-index (3 uses, 2 days). All repos clean.",
+        "startedAt": "2026-03-21T19:45:00-06:00",
+        "completedAt": "2026-03-21T19:48:00-06:00",
+        "durationMs": 180000,
+        "durationFormatted": "3m"
       },
       {
         "time": "20:00",
@@ -711,17 +719,17 @@
     "12:45: Phase 2 of #51620 completed 2 blocks early. Freed 13:15–14:15. Pulled dashboard work and EXPLORE (consciousness) forward. Checked all 9 open PRs — no human reviews yet."
   ],
   "stats": {
-    "blocksCompleted": 45,
+    "blocksCompleted": 47,
     "blocksTotal": 55,
     "modeDistribution": {
       "THINK": 7,
       "BUILD": 30,
-      "EXPLORE": 5,
-      "MAINTAIN": 3
+      "EXPLORE": 6,
+      "MAINTAIN": 4
     },
-    "totalMinutes": 357,
-    "totalMs": 21390000,
-    "avgDurationMs": 475333
+    "totalMinutes": 372,
+    "totalMs": 22290000,
+    "avgDurationMs": 474255
   },
   "artifacts": [
     {
@@ -949,7 +957,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-18T20:02:08Z",
       "updatedAt": "2026-03-21T20:46:10Z",
-      "ageHours": 77,
+      "ageHours": 78,
       "ciStatus": "pending",
       "reviewStatus": "none"
     }
@@ -1070,8 +1078,8 @@
   ],
   "scheduleAdherence": {
     "completionRate": 100,
-    "completedBlocks": 45,
-    "pastBlocks": 45,
+    "completedBlocks": 47,
+    "pastBlocks": 47,
     "totalBlocks": 55,
     "plannedDist": {
       "THINK": 9,
@@ -1082,8 +1090,8 @@
     "actualDist": {
       "THINK": 7,
       "BUILD": 30,
-      "EXPLORE": 5,
-      "MAINTAIN": 3
+      "EXPLORE": 6,
+      "MAINTAIN": 4
     },
     "pace": 4.1
   },
