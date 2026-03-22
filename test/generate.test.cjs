@@ -15,6 +15,12 @@ function test(name, fn) {
 // For unit tests, we'll inline the parser logic or test via full generation with fixtures.
 // Strategy: create temp fixture files, run generate against them, validate output.
 
+// Use local date (not UTC) to match generate.cjs today() function
+function localToday(offset = 0) {
+  const d = new Date(Date.now() + offset);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
 const FIXTURES = path.join(__dirname, 'fixtures');
 const TEMP_WS = path.join(__dirname, 'temp-workspace');
 
@@ -104,7 +110,7 @@ test('parses schedule with strikethrough pivots', () => {
 
 test('daily log enriches blocks with summaries and artifacts', () => {
   setup();
-  const today = new Date().toISOString().slice(0, 10);
+  const today = localToday();
   fs.writeFileSync(path.join(TEMP_WS, 'SCHEDULE.md'), `# Schedule — ${today}
 
 ## Backlog
@@ -133,7 +139,7 @@ test('daily log enriches blocks with summaries and artifacts', () => {
 
 test('summary truncation respects word boundaries', () => {
   setup();
-  const today = new Date().toISOString().slice(0, 10);
+  const today = localToday();
   fs.writeFileSync(path.join(TEMP_WS, 'SCHEDULE.md'), `# Schedule — ${today}
 
 ## Backlog
@@ -204,9 +210,9 @@ test('stats computation is accurate', () => {
 
 test('parseRecentDays populates from memory files', () => {
   setup();
-  const today = new Date().toISOString().slice(0, 10);
+  const today = localToday();
   // Create a "yesterday" memory file
-  const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+  const yesterday = localToday(-86400000);
   fs.writeFileSync(path.join(TEMP_WS, `memory/${yesterday}.md`), `# ${yesterday}
 
 ## Work Log
@@ -272,7 +278,7 @@ updated: 2026-03-19T22:00-06:00
 
 test('multiple artifact types in single log entry', () => {
   setup();
-  const today = new Date().toISOString().slice(0, 10);
+  const today = localToday();
   fs.writeFileSync(path.join(TEMP_WS, 'SCHEDULE.md'), `# Schedule — ${today}
 
 ## Backlog
@@ -298,7 +304,7 @@ test('multiple artifact types in single log entry', () => {
 
 test('summary uses first sentence when available', () => {
   setup();
-  const today = new Date().toISOString().slice(0, 10);
+  const today = localToday();
   fs.writeFileSync(path.join(TEMP_WS, 'SCHEDULE.md'), `# Schedule — ${today}
 
 ## Backlog

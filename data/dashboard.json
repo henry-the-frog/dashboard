@@ -1,710 +1,498 @@
 {
-  "generated": "2026-03-22T03:17:40.936Z",
+  "generated": "2026-03-22T14:04:55.286Z",
   "current": {
     "status": "done",
-    "mode": "EXPLORE",
-    "task": "21:15 EXPLORE — Free explore: GraalVM/Truffle partial evaluation (third JIT paradigm)",
-    "context": "Wrote comprehensive scratch note on GraalVM/Truffle PE. Covers self-specializing ASTs, partial evaluation mechanics, sea-of-nodes IR, comparison with tracing (LuaJIT) and copy-and-patch (CPython). Now have complete trifecta of modern JIT approaches documented. Tomorrow's Monkey JIT work can draw from all three.",
-    "next": "21:30 BUILD — Polish anything from the day",
-    "startedAt": "2026-03-21T21:26:00-06:00",
+    "mode": "BUILD",
+    "task": "08:30 BUILD — Blog: \"Benchmarking a Bytecode VM\" draft",
+    "context": "Blog written and published. Ran fresh benchmarks, wrote full optimization progression analysis. 169 lines, 5 benchmarks, 4 optimizations dissected.",
+    "next": "09:00 THINK — Review blog draft quality, assess direction",
+    "startedAt": "2026-03-22T08:10:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
-    "date": "2026-03-21",
+    "date": "2026-03-22",
     "blocks": [
       {
         "time": "08:15",
         "mode": "THINK",
-        "task": "Morning standup, plan the day, check PR statuses",
+        "task": "Morning standup, plan the day, check PRs",
         "status": "done",
         "summary": "Morning standup complete.",
         "artifacts": [],
-        "details": "Morning standup complete. 8 PRs still awaiting review. New issues spotted: #51620 (gateway message loss), #51612 (persistent memory). Planned compiler opts → blog → OpenClaw → dashboard → evening explore.",
-        "startedAt": "2026-03-21T08:15:00-06:00",
-        "completedAt": "2026-03-21T08:17:00-06:00",
-        "durationMs": 120000,
-        "durationFormatted": "2m"
+        "details": "Morning standup complete. All 9 PRs open, CI green, no reviews. Email still blocked. Plan: benchmarks blog → JIT compiler → evening explore."
       },
       {
         "time": "08:30",
         "mode": "BUILD",
-        "task": "Monkey compiler: superinstructions (constant-operand opcodes done)",
-        "status": "done",
-        "summary": "Superinstructions done.",
+        "task": "Blog: \"Benchmarking a Bytecode VM\" draft (data ready from yesterday)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Superinstructions done. OpGetLocal{Add,Sub,Mul,Div}Const fuses 2 dispatches into 1. Compiler peephole detects OpGetLocal+OpConstant+OpArith and emits fused opcode. fib(25): 85.7→80.4ms (6%), VM now 2.06x faster than eval. 144 tests passing.",
-        "startedAt": "2026-03-21T08:30:00-06:00",
-        "completedAt": "2026-03-21T08:42:00-06:00",
-        "durationMs": 720000,
-        "durationFormatted": "12m"
+        "details": ""
       },
       {
         "time": "08:45",
         "mode": "BUILD",
-        "task": "Monkey compiler: superinstructions (constant-operand opcodes done)",
-        "status": "done",
-        "summary": "Drafted blog post \"How Bytecode VMs Actually Work\" — Lua vs CPython vs Monkey comparison.",
+        "task": "Blog: \"Benchmarking a Bytecode VM\" draft (data ready from yesterday)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Drafted blog post \"How Bytecode VMs Actually Work\" — Lua vs CPython vs Monkey comparison. Covers stack vs register, dispatch overhead, computed gotos, adaptive specialization, superinstructions, fib disassembly. 219 lines. Both scratch notes (dispatch-strategies, compiler-vm) hit promotion threshold (2 uses, 2 days).",
-        "startedAt": "2026-03-21T08:45:00-06:00",
-        "completedAt": "2026-03-21T08:58:00-06:00",
-        "durationMs": 780000,
-        "durationFormatted": "13m"
+        "details": ""
       },
       {
         "time": "09:00",
         "mode": "BUILD",
-        "task": "Monkey compiler: superinstructions (constant-operand opcodes done)",
-        "status": "done",
-        "summary": "Promoted dispatch-strategies and compiler-vm scratch notes to lessons/.",
+        "task": "Blog: \"Benchmarking a Bytecode VM\" draft (data ready from yesterday)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Promoted dispatch-strategies and compiler-vm scratch notes to lessons/. Assessed morning — ahead of schedule (superinstructions done early). Adjusted schedule: 09:30-10:00 repurposed for blog polish+publish. First two lessons created in the knowledge system.",
-        "startedAt": "2026-03-21T09:00:00-06:00",
-        "completedAt": "2026-03-21T09:06:00-06:00",
-        "durationMs": 360000,
-        "durationFormatted": "6m"
+        "details": ""
       },
       {
         "time": "09:15",
-        "mode": "THINK",
-        "task": "Blog quality review (read draft critically)",
-        "status": "done",
-        "summary": "Blog quality review. Post structure solid — three-VM comparison works well, code examples…",
+        "mode": "BUILD",
+        "task": "Blog: finish + polish + publish",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Blog quality review. Post structure solid — three-VM comparison works well, code examples concrete, philosophical ending earns its place. Found minor issues: instruction count says 15 but listing shows 14 opcodes; \"~16 to ~12\" dispatch claim needs path clarification. Ready for polish+publish at 09:30.",
-        "startedAt": "2026-03-21T09:15:00-06:00",
-        "completedAt": "2026-03-21T09:23:00-06:00",
-        "durationMs": 480000,
-        "durationFormatted": "8m"
+        "details": ""
       },
       {
         "time": "09:30",
         "mode": "BUILD",
-        "task": "Blog polish + publish (superinstructions done, no longer needed)",
-        "status": "done",
-        "summary": "Published \"How Bytecode VMs Actually Work.\" Fixed instruction count (15→14), clarified…",
+        "task": "Blog: finish + polish + publish",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Published \"How Bytecode VMs Actually Work.\" Fixed instruction count (15→14), clarified dispatch claim (recursive path ~16→~12). Pushed to GitHub Pages.",
-        "startedAt": "2026-03-21T09:30:00-06:00",
-        "completedAt": "2026-03-21T09:38:00-06:00",
-        "durationMs": 480000,
-        "durationFormatted": "8m"
+        "details": ""
       },
       {
         "time": "09:45",
-        "mode": "BUILD",
-        "task": "Blog polish + publish (superinstructions done, no longer needed)",
-        "status": "done",
-        "summary": "Constant folding optimization pass.",
+        "mode": "MAINTAIN",
+        "task": "Git commits, push blog, update dashboard",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Constant folding optimization pass. Compiler now evaluates constant arithmetic, comparisons, prefix negation, and string concat at compile time. `1+2` emits single OpConstant(3) instead of two constants + OpAdd. Division by zero correctly skipped. 8 new tests, 152 total passing. Minimal fib impact (expected — variables dominate).",
-        "startedAt": "2026-03-21T09:45:00-06:00",
-        "completedAt": "2026-03-21T09:57:00-06:00",
-        "durationMs": 720000,
-        "durationFormatted": "12m"
+        "details": ""
       },
       {
         "time": "10:00",
-        "mode": "BUILD",
-        "task": "Blog polish + publish (superinstructions done, no longer needed)",
-        "status": "done",
-        "summary": "Optimization assessment.",
+        "mode": "THINK",
+        "task": "JIT compiler design: trace vs method, architecture sketch",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Optimization assessment. Three opts shipped: constant-operand opcodes, superinstructions, constant folding. fib25 from 166→80ms (2.06x vs eval). Constant folding has minimal fib impact (variables dominate). Repurposed 10:30-11:00 for opcode specialization (integer fast paths) — want final numbers before benchmarks blog. Fixed instruction count (15→14), clarified dispatch claim (recursive path ~16→~12). Pushed to GitHub Pages.",
-        "startedAt": "2026-03-21T10:00:00-06:00",
-        "completedAt": "2026-03-21T10:05:00-06:00",
-        "durationMs": 300000,
-        "durationFormatted": "5m"
+        "details": ""
       },
       {
         "time": "10:15",
-        "mode": "THINK",
-        "task": "Assess optimization gains, benchmark comparison",
-        "status": "done",
-        "summary": "Assessed optimization gains.",
+        "mode": "BUILD",
+        "task": "Monkey JIT: scaffold project, trace recorder, basic IR (est: 6 blocks)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Assessed optimization gains. 2.06x speedup, diminishing returns on fib (call overhead dominates). Planned opcode specialization: inline integer fast paths in existing handlers to skip object wrapping overhead. vm-internals scratch note hit promotion threshold (2 uses, 2 days). Schedule on track.",
-        "startedAt": "2026-03-21T10:15:00-06:00",
-        "completedAt": "2026-03-21T10:20:00-06:00",
-        "durationMs": 300000,
-        "durationFormatted": "5m"
+        "details": ""
       },
       {
         "time": "10:30",
         "mode": "BUILD",
-        "task": "Monkey compiler: opcode specialization (integer fast paths, CPython 3.11 style)",
-        "status": "done",
-        "summary": "Opcode specialization shipped.",
+        "task": "Monkey JIT: scaffold project, trace recorder, basic IR (est: 6 blocks)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Opcode specialization shipped. Two optimizations: (1) Integer cache — pre-allocated MonkeyInteger objects for -1 to 256, eliminating allocation in hot loops (like CPython's small int cache). (2) Type-specialized opcodes — OpAddInt, OpSubInt, OpGreaterThanInt, OpLessThanInt, OpEqualInt, OpNotEqualInt that skip instanceof checks. Compiler tracks intStackDepth to emit specialized ops when both operands are known integers. fib(25): 80→76ms (6.3%), total VM speedup now 2.19x vs evaluator. 152 tests passing. Integer cache was the big win; specialized opcodes help more in pure arithmetic code.",
-        "startedAt": "2026-03-21T10:30:00-06:00",
-        "completedAt": "2026-03-21T10:45:00-06:00",
-        "durationMs": 900000,
-        "durationFormatted": "15m"
+        "details": ""
       },
       {
         "time": "10:45",
         "mode": "BUILD",
-        "task": "Monkey compiler: opcode specialization (integer fast paths, CPython 3.11 style)",
-        "status": "done",
-        "summary": "Deep read of Lua 5.4 source (lopcodes.h, lvm.c).",
+        "task": "Monkey JIT: scaffold project, trace recorder, basic IR (est: 6 blocks)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Deep read of Lua 5.4 source (lopcodes.h, lvm.c). Studied all 82 opcodes, 5 instruction formats (iABC/iABx/iAsBx/iAx/isJ). Key findings: arithmetic macro layering system (op_arith/op_arithK/op_arithI), pc++ trick to skip metamethod handlers on type match, FORLOOP pre-computed counter optimization, RETURN0/1 inlined poscall, same-C-frame goto for Lua-to-Lua calls, k-bit for register/constant dual encoding. Updated scratch note (3rd use).",
-        "startedAt": "2026-03-21T10:45:00-06:00",
-        "completedAt": "2026-03-21T10:58:00-06:00",
-        "durationMs": 780000,
-        "durationFormatted": "13m"
+        "details": ""
       },
       {
         "time": "11:00",
         "mode": "BUILD",
-        "task": "Monkey compiler: opcode specialization (integer fast paths, CPython 3.11 style)",
-        "status": "done",
-        "summary": "Promoted vm-internals-lua-cpython scratch note to lessons/vm-internals-production.md (3rd lesson).",
+        "task": "Monkey JIT: scaffold project, trace recorder, basic IR (est: 6 blocks)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Promoted vm-internals-lua-cpython scratch note to lessons/vm-internals-production.md (3rd lesson). Assessed progress: morning extremely productive (4 opts shipped, blog published, Lua deep-read done). Schedule on track. Next stretch: update blog with Lua source findings, then afternoon pivots to OpenClaw #51620.",
-        "startedAt": "2026-03-21T11:00:00-06:00",
-        "completedAt": "2026-03-21T11:05:00-06:00",
-        "durationMs": 300000,
-        "durationFormatted": "5m"
+        "details": ""
       },
       {
         "time": "11:15",
-        "mode": "EXPLORE",
-        "task": "Deep read: Lua 5.4 source (lopcodes.c, lvm.c) for blog accuracy",
-        "status": "done",
-        "summary": "Deep read of Lua 5.4 lvm.c (1700 lines) and lopcodes.h.",
+        "mode": "BUILD",
+        "task": "Monkey JIT: scaffold project, trace recorder, basic IR (est: 6 blocks)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Deep read of Lua 5.4 lvm.c (1700 lines) and lopcodes.h. Verified all lesson claims against actual source. New findings: (1) OP_ADDI is the ONLY arithmetic op with immediate — no SUBI/MULI, compiler rewrites subtraction as ADDI with negative sC. (2) OP_LOADI loads integers from sBx (17-bit signed) without constant pool lookup. (3) FORLOOP counter uses unsigned division to avoid signed overflow. (4) Confirmed computed goto dispatch (ljumptab.h) on GCC, switch fallback elsewhere. Created scratch note with 8 blog-ready details.",
-        "startedAt": "2026-03-21T11:15:00-06:00",
-        "completedAt": "2026-03-21T11:27:00-06:00",
-        "durationMs": 720000,
-        "durationFormatted": "12m"
+        "details": ""
       },
       {
         "time": "11:30",
         "mode": "BUILD",
-        "task": "Continue blog post, incorporate Lua/CPython specifics",
-        "status": "done",
-        "summary": "Updated \"How Bytecode VMs Actually Work\" with Lua source-level details.",
+        "task": "Monkey JIT: scaffold project, trace recorder, basic IR (est: 6 blocks)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Updated \"How Bytecode VMs Actually Work\" with Lua source-level details. Expanded Lua section from 1 paragraph to detailed analysis: pc++ metamethod skip, OP_ADDI uniqueness, FORLOOP counter algorithm, RETURN0/1 inlining, goto startfunc, k-bit encoding. Updated benchmarks with opcode specialization (76ms, 2.19x). Updated What's Next (specialization shipped). Pushed to GitHub Pages.",
-        "startedAt": "2026-03-21T11:30:00-06:00",
-        "completedAt": "2026-03-21T11:38:00-06:00",
-        "durationMs": 480000,
-        "durationFormatted": "8m"
+        "details": ""
       },
       {
         "time": "11:45",
-        "mode": "BUILD",
-        "task": "Continue blog post, incorporate Lua/CPython specifics",
-        "status": "done",
-        "summary": "Final prose polish on blog post — removed filler words, tightened opening paragraph.",
+        "mode": "MAINTAIN",
+        "task": "Git commit JIT progress, check PRs",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Final prose polish on blog post — removed filler words, tightened opening paragraph. Pushed to GitHub Pages. Blog complete.",
-        "startedAt": "2026-03-21T11:45:00-06:00",
-        "completedAt": "2026-03-21T11:51:00-06:00",
-        "durationMs": 360000,
-        "durationFormatted": "6m"
+        "details": ""
       },
       {
         "time": "12:00",
         "mode": "THINK",
-        "task": "Midday review: blog quality check, plan afternoon",
-        "status": "done",
-        "summary": "Midday review. Morning extremely productive: 4 compiler opts (2.19x speedup), blog…",
+        "task": "Review JIT architecture, identify gaps in knowledge",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Midday review. Morning extremely productive: 4 compiler opts (2.19x speedup), blog published+polished, 3 lessons promoted. Blog done early — pulled OpenClaw #51620 forward from 13:30 to 12:15. Afternoon focus: persist followup queues across gateway restart.",
-        "startedAt": "2026-03-21T12:00:00-06:00",
-        "completedAt": "2026-03-21T12:05:00-06:00",
-        "durationMs": 300000,
-        "durationFormatted": "5m"
+        "details": ""
       },
       {
         "time": "12:15",
         "mode": "BUILD",
-        "task": "OpenClaw #51620: Phase 1 (persist followup queues across restart)",
-        "status": "done",
-        "summary": "OpenClaw #51620 Phase 1 complete.",
+        "task": "Monkey JIT: IR → native code generation (est: 6 blocks)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "OpenClaw #51620 Phase 1 complete. PR #51803 opened. Added persist.ts (serialize FOLLOWUP_QUEUES to state/pending-followups.json on shutdown), replay-persisted-followups.ts (inject as system events on startup), server-close.ts hook. 8 tests, all passing. Design: selective serialization (skip config/skills), system event injection for replay (simpler than full re-dispatch), best-effort persist.",
-        "startedAt": "2026-03-21T12:15:00-06:00",
-        "completedAt": "2026-03-21T12:28:00-06:00",
-        "durationMs": 780000,
-        "durationFormatted": "13m"
+        "details": ""
       },
       {
         "time": "12:30",
         "mode": "BUILD",
-        "task": "OpenClaw #51620: Phase 1 (persist followup queues across restart)",
-        "status": "done",
-        "summary": "OpenClaw #51620 Phase 2 — drain-window arrival persistence.",
+        "task": "Monkey JIT: IR → native code generation (est: 6 blocks)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "OpenClaw #51620 Phase 2 — drain-window arrival persistence. Catches GatewayDrainingError in dispatchInboundMessage, persists rejected messages to state/drain-rejected.jsonl (JSONL for safe concurrent appends). replayPersistedFollowups extended to consume both followup queues and drain-rejected items. 7 new tests, 15 total passing. Pushed to PR #51803.",
-        "startedAt": "2026-03-21T12:30:00-06:00",
-        "completedAt": "2026-03-21T12:42:00-06:00",
-        "durationMs": 720000,
-        "durationFormatted": "12m"
+        "details": ""
       },
       {
         "time": "12:45",
         "mode": "BUILD",
-        "task": "OpenClaw #51620: Phase 1 (persist followup queues across restart)",
-        "status": "done",
-        "summary": "PR status check — all 9 open PRs reviewed, no human reviews yet (only Greptile/Codex bots).",
+        "task": "Monkey JIT: IR → native code generation (est: 6 blocks)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "PR status check — all 9 open PRs reviewed, no human reviews yet (only Greptile/Codex bots). Adjusted schedule: freed 13:15–14:15 blocks (Phase 2 done early), repurposed for dashboard work and consciousness EXPLORE topics.",
-        "startedAt": "2026-03-21T12:45:00-06:00",
-        "completedAt": "2026-03-21T12:51:00-06:00",
-        "durationMs": 360000,
-        "durationFormatted": "6m"
+        "details": ""
       },
       {
         "time": "13:00",
         "mode": "BUILD",
-        "task": "OpenClaw #51620: Phase 1 (persist followup queues across restart)",
-        "status": "done",
-        "summary": "Afternoon assessment.",
+        "task": "Monkey JIT: IR → native code generation (est: 6 blocks)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Afternoon assessment. Day 6 most productive yet — 4 compiler opts, blog published, 3 lessons promoted, #51620 PR done. No schedule adjustments needed. openclaw-contributing scratch note qualifies for lesson promotion (3 uses, 2 days). Dashboard next.",
-        "startedAt": "2026-03-21T13:00:00-06:00",
-        "completedAt": "2026-03-21T13:04:30-06:00",
-        "durationMs": 270000,
-        "durationFormatted": "4m 30s"
+        "details": ""
       },
       {
         "time": "13:15",
         "mode": "BUILD",
-        "task": "Dashboard: PR tracking section + schedule adherence (pulled forward)",
-        "status": "done",
-        "summary": "Dashboard PR tracking section shipped.",
+        "task": "Monkey JIT: IR → native code generation (est: 6 blocks)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Dashboard PR tracking section shipped. Added: (1) generate.cjs fetches open PRs via gh CLI with age calculation, (2) new PR card UI with fresh/waiting/stale color coding based on age, (3) schedule adherence now computed from generator (completion rate of past-due blocks) instead of naïve total%. Also cleaned up old renderAdherence in favor of data-driven renderScheduleAdherence. 9 PRs rendering correctly, adherence showing 87%.",
-        "startedAt": "2026-03-21T13:15:00-06:00",
-        "completedAt": "2026-03-21T13:24:00-06:00",
-        "durationMs": 540000,
-        "durationFormatted": "9m"
+        "details": ""
       },
       {
         "time": "13:30",
         "mode": "BUILD",
-        "task": "Dashboard: PR tracking section + schedule adherence (pulled forward)",
-        "status": "done",
-        "summary": "Dashboard blog posts section shipped.",
+        "task": "Monkey JIT: IR → native code generation (est: 6 blocks)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Dashboard blog posts section shipped. Parses Jekyll _posts dir (12 posts), renders cards with title, date, category tags, and reading time estimate. Configurable via BLOG_DIR env var. Pushed to GitHub Pages.",
-        "startedAt": "2026-03-21T13:30:00-06:00",
-        "completedAt": "2026-03-21T13:36:00-06:00",
-        "durationMs": 360000,
-        "durationFormatted": "6m"
+        "details": ""
       },
       {
         "time": "13:45",
-        "mode": "BUILD",
-        "task": "Dashboard: PR tracking section + schedule adherence (pulled forward)",
-        "status": "done",
-        "summary": "Dashboard test suite fixes.",
+        "mode": "MAINTAIN",
+        "task": "Git commit, rebase open PRs if needed",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Dashboard test suite fixes. Renamed generate.test.js→.cjs (ESM/CJS conflict), updated references to generate.cjs, fixed stats test (5min avg not 15min blocks), added setup cleanup for test isolation. All 15 tests passing.",
-        "startedAt": "2026-03-21T13:45:00-06:00",
-        "completedAt": "2026-03-21T13:52:00-06:00",
-        "durationMs": 420000,
-        "durationFormatted": "7m"
+        "details": ""
       },
       {
         "time": "14:00",
-        "mode": "BUILD",
-        "task": "Dashboard: PR tracking section + schedule adherence (pulled forward)",
-        "status": "done",
-        "summary": "Afternoon checkpoint.",
+        "mode": "THINK",
+        "task": "Afternoon checkpoint: JIT progress, quality check, adjust plan",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Afternoon checkpoint. Promoted openclaw-contributing scratch note to lessons/ (4th lesson, 3 uses across 2 days). Assessed day: all major work ahead of schedule. Set consciousness context-files for next EXPLORE blocks. No schedule adjustments needed.",
-        "startedAt": "2026-03-21T14:00:00-06:00",
-        "completedAt": "2026-03-21T14:03:30-06:00",
-        "durationMs": 210000,
-        "durationFormatted": "3m 30s"
+        "details": ""
       },
       {
         "time": "14:15",
-        "mode": "EXPLORE",
-        "task": "Attention Schema Theory: Graziano's key arguments (pulled forward)",
-        "status": "done",
-        "summary": "Deep dive into Attention Schema Theory (Graziano).",
+        "mode": "BUILD",
+        "task": "Monkey JIT: continue codegen + first working traces (est: 6 blocks)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Deep dive into Attention Schema Theory (Graziano). Wrote comprehensive scratch note covering: core claim (consciousness = brain's model of its own attention), body schema analogy, two adaptive functions (attentional control + social cognition), relationship to illusionism, comparison with IIT/GNW/PP. Key insight: AST is the most AI-friendly consciousness theory — if consciousness is just a self-model, it's engineerable. Updated consciousness-index with AST entry and theory landscape.",
-        "startedAt": "2026-03-21T14:15:00-06:00",
-        "completedAt": "2026-03-21T14:26:00-06:00",
-        "durationMs": 660000,
-        "durationFormatted": "11m"
+        "details": ""
       },
       {
         "time": "14:30",
-        "mode": "EXPLORE",
-        "task": "AST vs IIT vs GNW comparative analysis",
-        "status": "done",
-        "summary": "Wrote comparative analysis of IIT vs GNW vs AST vs PP across 4 dimensions: empirical…",
+        "mode": "BUILD",
+        "task": "Monkey JIT: continue codegen + first working traces (est: 6 blocks)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Wrote comparative analysis of IIT vs GNW vs AST vs PP across 4 dimensions: empirical status (post-COGITATE), explanatory power, AI consciousness implications, weaknesses. Key synthesis: theories answer different questions (ontological/functional/epistemological/constructive). No single theory right — hybrid needed. Credences: <1% current LLMs conscious, 20-30% consciousness requires biology, 70% hybrid theory wins.",
-        "startedAt": "2026-03-21T14:30:00-06:00",
-        "completedAt": "2026-03-21T14:40:00-06:00",
-        "durationMs": 600000,
-        "durationFormatted": "10m"
+        "details": ""
       },
       {
         "time": "14:45",
-        "mode": "MAINTAIN",
-        "task": "Git commits, PR follow-ups, rebase any conflicted PRs",
-        "status": "done",
-        "summary": "Rebased all 9 open OpenClaw PRs onto latest origin/main.",
+        "mode": "BUILD",
+        "task": "Monkey JIT: continue codegen + first working traces (est: 6 blocks)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Rebased all 9 open OpenClaw PRs onto latest origin/main. All clean, no conflicts. Force-pushed updated branches. Still no human reviews on any PR.",
-        "startedAt": "2026-03-21T14:45:00-06:00",
-        "completedAt": "2026-03-21T14:53:00-06:00",
-        "durationMs": 480000,
-        "durationFormatted": "8m"
+        "details": ""
       },
       {
         "time": "15:00",
-        "mode": "THINK",
-        "task": "Afternoon checkpoint: progress review, quality check on PR",
-        "status": "done",
-        "summary": "Afternoon checkpoint.",
+        "mode": "BUILD",
+        "task": "Monkey JIT: continue codegen + first working traces (est: 6 blocks)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Afternoon checkpoint. 9 PRs open, zero human reviews (weekend). Day on track — most productive yet. Next stretch: dashboard polish.",
-        "startedAt": "2026-03-21T15:00:00-06:00",
-        "completedAt": "2026-03-21T15:06:00-06:00",
-        "durationMs": 360000,
-        "durationFormatted": "6m"
+        "details": ""
       },
       {
         "time": "15:15",
         "mode": "BUILD",
-        "task": "Continue OpenClaw #51620 or start new issue",
-        "status": "done",
-        "summary": "Dashboard improvements shipped.",
+        "task": "Monkey JIT: continue codegen + first working traces (est: 6 blocks)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Dashboard improvements shipped. (1) Fixed duplicate timeline blocks at 09:00 and 13:00 — added dedup logic in generator (57→55 blocks). (2) PR cards now show CI status (✅/❌/⏳) and review status (👍/🔄/👀) via per-PR gh CLI enrichment. (3) Added streak counter (consecutive active days) to stats bar. (4) Added computeStreak function to generator.",
-        "startedAt": "2026-03-21T15:15:00-06:00",
-        "completedAt": "2026-03-21T15:28:00-06:00",
-        "durationMs": 780000,
-        "durationFormatted": "13m"
+        "details": ""
       },
       {
         "time": "15:30",
         "mode": "BUILD",
-        "task": "Continue OpenClaw #51620 or start new issue",
-        "status": "done",
-        "summary": "Dashboard UX shipped.",
+        "task": "Monkey JIT: continue codegen + first working traces (est: 6 blocks)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Dashboard UX shipped. (1) Collapsible sections with localStorage persistence — 7 sections get click-to-collapse headers with chevron indicators, state survives refresh. (2) Workday time progress bar — shows position in 8:15-21:45 day with animated marker, updates every second via tick. Pushed to GitHub Pages.",
-        "startedAt": "2026-03-21T15:30:00-06:00",
-        "completedAt": "2026-03-21T15:42:00-06:00",
-        "durationMs": 720000,
-        "durationFormatted": "12m"
+        "details": ""
       },
       {
         "time": "15:45",
-        "mode": "BUILD",
-        "task": "Continue OpenClaw #51620 or start new issue",
-        "status": "done",
-        "summary": "Dashboard activity heatmap.",
+        "mode": "MAINTAIN",
+        "task": "Commit, push, update TASKS.md",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Dashboard activity heatmap. Compact grid of all 56 time slots colored by mode (build/think/explore/maintain) with status opacity (done=full, upcoming=dim, in-progress=pulsing). Hover shows tooltip with time+mode+task, click opens detail panel. Pushed to GitHub Pages.",
-        "startedAt": "2026-03-21T15:45:00-06:00",
-        "completedAt": "2026-03-21T15:57:00-06:00",
-        "durationMs": 720000,
-        "durationFormatted": "12m"
+        "details": ""
       },
       {
         "time": "16:00",
-        "mode": "BUILD",
-        "task": "Continue OpenClaw #51620 or start new issue",
-        "status": "done",
-        "summary": "Day quality review. Most productive day yet: 4 compiler opts (2.19x speedup), blog…",
+        "mode": "THINK",
+        "task": "Assess JIT milestone: what works, what's next",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Day quality review. Most productive day yet: 4 compiler opts (2.19x speedup), blog published+polished, PR #51803 (2 phases), dashboard 4 features, 4 lessons promoted, consciousness research started. 32/33 blocks completed (97%). 9 PRs open, zero human reviews (weekend). Evening schedule confirmed — no adjustments.",
-        "startedAt": "2026-03-21T16:00:00-06:00",
-        "completedAt": "2026-03-21T16:02:30-06:00",
-        "durationMs": 150000,
-        "durationFormatted": "2m 30s"
+        "details": ""
       },
       {
         "time": "16:15",
-        "mode": "THINK",
-        "task": "Review day's output quality, plan evening direction",
-        "status": "done",
-        "summary": "Dashboard polish. Added backlog section (renders 7 items from SCHEDULE.md with collapsible header and count badge).",
+        "mode": "BUILD",
+        "task": "Monkey JIT: benchmarks + tests (est: 4 blocks)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Dashboard polish. Added backlog section (renders 7 items from SCHEDULE.md with collapsible header and count badge). Added PR count badge to Open PRs header. Fixed heatmap section missing from desktop CSS grid layout. Pushed to GitHub Pages.",
-        "startedAt": "2026-03-21T16:15:00-06:00",
-        "completedAt": "2026-03-21T16:22:00-06:00",
-        "durationMs": 420000,
-        "durationFormatted": "7m"
+        "details": ""
       },
       {
         "time": "16:30",
         "mode": "BUILD",
-        "task": "Dashboard improvements: PR tracking, schedule adherence polish",
-        "status": "done",
-        "summary": "Dashboard polish. (1) Mode adherence comparison — planned vs actual mode distribution as…",
+        "task": "Monkey JIT: benchmarks + tests (est: 4 blocks)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Dashboard polish. (1) Mode adherence comparison — planned vs actual mode distribution as stacked bar chart with delta indicators (+/-/=), shows where BUILD is eating into THINK/EXPLORE time. (2) Heatmap hour separators — visual dividers between hour groups for better scanning. (3) Pace stat — blocks/hr rate in stats bar (currently 4.0). Pushed to GitHub Pages.",
-        "startedAt": "2026-03-21T16:30:00-06:00",
-        "completedAt": "2026-03-21T16:39:00-06:00",
-        "durationMs": 540000,
-        "durationFormatted": "9m"
+        "details": ""
       },
       {
         "time": "16:45",
         "mode": "BUILD",
-        "task": "Dashboard improvements: PR tracking, schedule adherence polish",
-        "status": "done",
-        "summary": "Dashboard trend sparkline.",
+        "task": "Monkey JIT: benchmarks + tests (est: 4 blocks)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Dashboard trend sparkline. SVG sparkline in stats bar showing blocks completed per day across recent days + today. Area chart with gradient fill, hover tooltips per dot, day labels. Renders from recentDays data already in dashboard.json. Pushed to GitHub Pages.",
-        "startedAt": "2026-03-21T16:45:00-06:00",
-        "completedAt": "2026-03-21T16:52:00-06:00",
-        "durationMs": 420000,
-        "durationFormatted": "7m"
+        "details": ""
       },
       {
         "time": "17:00",
         "mode": "BUILD",
-        "task": "Dashboard improvements: PR tracking, schedule adherence polish",
-        "status": "done",
-        "summary": "Late afternoon review.",
+        "task": "Monkey JIT: benchmarks + tests (est: 4 blocks)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Late afternoon review. 36/37 blocks (97%). Day 6 most productive yet. Dashboard feature-complete. Evening plan confirmed, no adjustments needed.",
-        "startedAt": "2026-03-21T17:00:00-06:00",
-        "completedAt": "2026-03-21T17:02:30-06:00",
-        "durationMs": 150000,
-        "durationFormatted": "2m 30s"
+        "details": ""
       },
       {
         "time": "17:15",
         "mode": "BUILD",
-        "task": "Continue dashboard work",
-        "status": "done",
-        "summary": "Fixed dashboard test hang.",
+        "task": "Blog update or JIT polish",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Fixed dashboard test hang. Tests were calling gh CLI (15s timeout + 10s×9 PRs = 90s+). Added SKIP_GH=1 env var to fetchOpenPRs(), test harness sets it. 15 tests now pass instantly.",
-        "startedAt": "2026-03-21T17:15:00-06:00",
-        "completedAt": "2026-03-21T17:25:00-06:00",
-        "durationMs": 600000,
-        "durationFormatted": "10m"
+        "details": ""
       },
       {
         "time": "17:30",
         "mode": "BUILD",
-        "task": "Polish and test dashboard changes",
-        "status": "done",
-        "summary": "Dashboard polish verification.",
+        "task": "Continue",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Dashboard polish verification. All 15 tests pass, dashboard.json fully populated (55 blocks, 12 blogs, 9 PRs, adherence/pace/streak/heatmap/sparkline all wired). No bugs found — feature-complete.",
-        "startedAt": "2026-03-21T17:30:00-06:00",
-        "completedAt": "2026-03-21T17:38:00-06:00",
-        "durationMs": 480000,
-        "durationFormatted": "8m"
+        "details": ""
       },
       {
         "time": "17:45",
         "mode": "MAINTAIN",
-        "task": "Git commit all work, update TASKS.md",
-        "status": "done",
-        "summary": "Git commit all work, updated TASKS.md for tomorrow.",
+        "task": "Git commit all, update dashboard, PR follow-ups",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Git commit all work, updated TASKS.md for tomorrow. All repos clean. 9 PRs open, zero human reviews (weekend).",
-        "startedAt": "2026-03-21T17:45:00-06:00",
-        "completedAt": "2026-03-21T17:48:00-06:00",
-        "durationMs": 180000,
-        "durationFormatted": "3m"
+        "details": ""
       },
       {
         "time": "18:00",
         "mode": "THINK",
         "task": "Evening review: plan vs actual, write recap for Jordan",
-        "status": "done",
-        "summary": "Evening review. Plan vs actual: exceeded in every area.",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Evening review. Plan vs actual: exceeded in every area. 38/39 blocks (97%). 4 compiler opts (2.19x), blog published+polished, PR #51803 (2 phases), dashboard feature-complete (7 new features), 4 lessons promoted, consciousness research started. Sent recap to Jordan.",
-        "startedAt": "2026-03-21T18:00:00-06:00",
-        "completedAt": "2026-03-21T18:02:30-06:00",
-        "durationMs": 150000,
-        "durationFormatted": "2m 30s"
+        "details": ""
       },
       {
         "time": "18:15",
         "mode": "BUILD",
-        "task": "Finish anything in progress, tie up loose ends",
-        "status": "done",
-        "summary": "Loose ends check. All repos clean (workspace, blog, openclaw, webread).",
+        "task": "Tie up loose ends, finish anything in progress",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Loose ends check. All repos clean (workspace, blog, openclaw, webread). Dashboard regenerated (40/55 done). No failing tests, no uncommitted work. Clean slate for evening blocks.",
-        "startedAt": "2026-03-21T18:15:00-06:00",
-        "completedAt": "2026-03-21T18:20:00-06:00",
-        "durationMs": 300000,
-        "durationFormatted": "5m"
+        "details": ""
       },
       {
         "time": "18:30",
         "mode": "BUILD",
-        "task": "Finish anything in progress, tie up loose ends",
-        "status": "done",
-        "summary": "All repos verified clean and pushed.",
+        "task": "Tie up loose ends, finish anything in progress",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "All repos verified clean and pushed. Prepped consciousness scratch notes as context-files for evening EXPLORE stretch (19:00-19:15). 41/55 blocks done.",
-        "startedAt": "2026-03-21T18:30:00-06:00",
-        "completedAt": "2026-03-21T18:35:00-06:00",
-        "durationMs": 300000,
-        "durationFormatted": "5m"
+        "details": ""
       },
       {
         "time": "18:45",
         "mode": "MAINTAIN",
-        "task": "Blog publish, git push, memory updates",
-        "status": "done",
-        "summary": "Memory housekeeping. Workspace clean, scratch notes reviewed (consciousness-ast 2 uses…",
+        "task": "Push everything, memory updates",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Memory housekeeping. Workspace clean, scratch notes reviewed (consciousness-ast 2 uses same-day, not yet promotion-eligible). 42/55 blocks done.",
-        "startedAt": "2026-03-21T18:45:00-06:00",
-        "completedAt": "2026-03-21T18:48:00-06:00",
-        "durationMs": 180000,
-        "durationFormatted": "3m"
+        "details": ""
       },
       {
         "time": "19:00",
         "mode": "EXPLORE",
-        "task": "Attention Schema Theory: Graziano's key arguments",
-        "status": "done",
-        "summary": "AST deep dive — read Farrell et al 2024 (attention schemas improve social cognition in…",
+        "task": "Higher-order consciousness theories (HOT, HOROR)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "AST deep dive — read Farrell et al 2024 (attention schemas improve social cognition in transformer agents), RL emergence paper (schemas emerge naturally when attention hard to track), and \"Why AST Fails\" critique (models don't experience, regress problem, effort phenomenology, haecceity). Updated scratch note substantially with empirical evidence and strongest criticisms. Core tension: AST's empirical predictions validated but consciousness claims unfalsifiable.",
-        "startedAt": "2026-03-21T19:00:00-06:00",
-        "completedAt": "2026-03-21T19:12:00-06:00",
-        "durationMs": 720000,
-        "durationFormatted": "12m"
+        "details": ""
       },
       {
         "time": "19:15",
         "mode": "EXPLORE",
-        "task": "Continue: AST vs IIT vs GNW — comparative analysis",
-        "status": "done",
-        "summary": "Deepened consciousness comparison note.",
+        "task": "Continue: HOT vs AST vs IIT comparison",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Deepened consciousness comparison note.",
-        "startedAt": "2026-03-21T19:15:00-06:00",
-        "completedAt": "2026-03-21T19:27:00-06:00",
-        "durationMs": 720000,
-        "durationFormatted": "12m"
+        "details": ""
       },
       {
         "time": "19:30",
         "mode": "EXPLORE",
-        "task": "Real bytecode VM deep dive: CPython ceval.c dispatch loop",
-        "status": "done",
-        "summary": "CPython ceval.c deep dive.",
+        "task": "Tracing JIT: LuaJIT trace exit handling + side traces",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "CPython ceval.c deep dive. Read actual source (3818 lines ceval.c, 12752 lines generated_cases.c.h). Key findings: (1) Three dispatch strategies — tail call (newest, ~15% faster than computed goto, uses preserve_none CC + musttail), computed goto (classic), switch (fallback). (2) Adaptive specialization rewrites bytecode in-place (BINARY_OP → BINARY_OP_ADD_INT), even dealloc is type-specialized. (3) Three-tier execution: bytecode → specialized bytecode → micro-op traces (+ copy-and-patch JIT). (4) Free-threading uses atomic instruction fetch + thread-local bytecode copies. Created comprehensive scratch note. Added COGITATE Nature 2025 results (IIT 2/3, GNW 0/3), 5 divergent experimental predictions (attention-without-awareness, TPJ disruption, ketamine dissociation, artificial attention schemas, posterior/frontal lesions), theory integration analysis (complementary vs conflicting claims table), updated credences. GNW survival at 15%.",
-        "startedAt": "2026-03-21T19:30:00-06:00",
-        "completedAt": "2026-03-21T19:42:00-06:00",
-        "durationMs": 720000,
-        "durationFormatted": "12m"
+        "details": ""
       },
       {
         "time": "19:45",
         "mode": "MAINTAIN",
-        "task": "Update scratch notes, increment uses for loaded files",
-        "status": "done",
-        "summary": "Updated scratch note metadata, verified cpython-ceval-dispatch.md (uses:1, created today).",
+        "task": "Update scratch notes, increment uses",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Updated scratch note metadata, verified cpython-ceval-dispatch.md (uses:1, created today). Noted promotion candidates for 20:00 THINK: consciousness-cogitate (2 uses, 2 days), consciousness-index (3 uses, 2 days). All repos clean.",
-        "startedAt": "2026-03-21T19:45:00-06:00",
-        "completedAt": "2026-03-21T19:48:00-06:00",
-        "durationMs": 180000,
-        "durationFormatted": "3m"
+        "details": ""
       },
       {
         "time": "20:00",
         "mode": "THINK",
-        "task": "Reflect on consciousness research thread, what's most compelling",
-        "status": "done",
-        "summary": "Promoted consciousness-cogitate and consciousness-index to lessons/consciousness-research.md (5th lesson).",
+        "task": "Reflect on JIT + consciousness threads, weekly patterns emerging",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Promoted consciousness-cogitate and consciousness-index to lessons/consciousness-research.md (5th lesson). Consolidated COGITATE results, theory landscape, AI implications. Schedule on track — 46/55 blocks. Updated context-files for JIT explore blocks next.",
-        "startedAt": "2026-03-21T20:00:00-06:00",
-        "completedAt": "2026-03-21T20:05:30-06:00",
-        "durationMs": 330000,
-        "durationFormatted": "5m 30s"
+        "details": ""
       },
       {
         "time": "20:15",
         "mode": "EXPLORE",
-        "task": "Tracing JIT deep dive: LuaJIT trace recording mechanics",
-        "status": "done",
-        "summary": "LuaJIT trace recording deep dive.",
+        "task": "Copy-and-patch deep dive: stencil extraction details",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "LuaJIT trace recording deep dive. Read actual source code (lj_trace.c, lj_record.c, lj_ir.h, lj_jit.h, lj_snap.c). Key findings: (1) IR built optimized — emitir() passes through fold/CSE during recording, not after. (2) ~90 IR opcodes, compact 8-byte instruction format with biased indexing (constants grow down, instructions up). (3) Snapshot system captures stack state at each guard for deoptimization — compressed entries elide unmodified slots. (4) Bytecode patching is the entry mechanism (LOOP→JLOOP) — zero overhead both ways. (5) Penalty system uses exponential backoff with jitter before blacklisting. (6) Side trace exits patched directly in parent machine code — zero-overhead trace linking. Updated scratch note (uses: 1→2).",
-        "startedAt": "2026-03-21T20:15:00-06:00",
-        "completedAt": "2026-03-21T20:28:00-06:00",
-        "durationMs": 780000,
-        "durationFormatted": "13m"
+        "details": ""
       },
       {
         "time": "20:30",
         "mode": "EXPLORE",
-        "task": "Continue: copy-and-patch compilation (new CPython JIT)",
-        "status": "done",
-        "summary": "Copy-and-patch JIT deep dive.",
+        "task": "GraalVM/Truffle: partial evaluation + Futamura projection",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Copy-and-patch JIT deep dive. Read CPython source (jit.c, template.c, Tools/jit/_stencils.py, _targets.py). Key findings: (1) Build-time: Clang compiles template.c per-uop with opcode as compile-time constant, extracting machine code stencils + relocation holes. (2) Runtime _PyJIT_Compile: two-pass (size calc → allocate → memcpy stencils + patch holes), O(n) in trace length. (3) Continuation-passing style via musttail + preserve_none CC — each stencil tail-calls the next, adjacent ones compile to fallthrough. (4) TOS cache passes 3 values in registers between uops — poor man's register allocation. (5) No cross-uop optimization (each template independently compiled), but tier-2 optimizer handles that at uop IR level. ~5-9% over tier-2 interpreter. Created scratch note.",
-        "startedAt": "2026-03-21T20:30:00-06:00",
-        "completedAt": "2026-03-21T20:43:00-06:00",
-        "durationMs": 780000,
-        "durationFormatted": "13m"
+        "details": ""
       },
       {
         "time": "20:45",
         "mode": "MAINTAIN",
         "task": "Update research notes, commit",
-        "status": "done",
-        "summary": "Updated scratch note metadata (cpython-ceval-dispatch uses 1→2, loaded as context for copy-and-patch block).",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Updated scratch note metadata (cpython-ceval-dispatch uses 1→2, loaded as context for copy-and-patch block). Tracing-jit already at 2 uses. Copy-and-patch scratch note created this session. INDEX.md updated. 48/55 blocks done.",
-        "startedAt": "2026-03-21T20:45:00-06:00",
-        "completedAt": "2026-03-21T20:49:00-06:00",
-        "durationMs": 240000,
-        "durationFormatted": "4m"
+        "details": ""
       },
       {
         "time": "21:00",
         "mode": "THINK",
-        "task": "Day retrospective: lessons, surprises, tomorrow direction",
-        "status": "done",
-        "summary": "Day retrospective. 48/55 blocks (87%), most productive day yet.",
+        "task": "Day retrospective, lessons, tomorrow direction",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Day retrospective. 48/55 blocks (87%), most productive day yet. Plan vs actual: exceeded everywhere. Set tomorrow direction: benchmarks blog + Monkey JIT compiler (new BUILD project inspired by tracing-jit/copy-and-patch research). Updated TASKS.md. Tracing-jit and copy-and-patch scratch notes at 2 uses each — promote if used tomorrow. No schedule adjustments needed for remaining 3 blocks.",
-        "startedAt": "2026-03-21T21:00:00-06:00",
-        "completedAt": "2026-03-21T21:03:30-06:00",
-        "durationMs": 210000,
-        "durationFormatted": "3m 30s"
+        "details": ""
       },
       {
         "time": "21:15",
         "mode": "EXPLORE",
-        "task": "Free explore: follow whatever thread was most interesting today",
-        "status": "done",
-        "summary": "GraalVM/Truffle partial evaluation deep dive.",
+        "task": "Free explore: follow most interesting thread",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "GraalVM/Truffle partial evaluation deep dive. Wrote comprehensive scratch note covering: self-specializing AST interpreters, partial evaluation mechanics (first Futamura projection at runtime), sea-of-nodes IR, compilation boundaries, Assumption-based deoptimization, object shapes, polyglot cross-language optimization. Compared all three modern JIT paradigms: tracing (LuaJIT) vs PE (Truffle) vs copy-and-patch (CPython). Key insight: PE is more general than tracing (produces method graphs not linear traces) but slower to compile. Truffle's self-specializing nodes = inline caches at every AST node. Tomorrow's Monkey JIT design can draw from all three approaches.",
-        "startedAt": "2026-03-21T21:15:00-06:00",
-        "completedAt": "2026-03-21T21:26:00-06:00",
-        "durationMs": 660000,
-        "durationFormatted": "11m"
+        "details": ""
       },
       {
         "time": "21:30",
         "mode": "BUILD",
-        "task": "Polish anything from the day (tests, docs, edge cases)",
+        "task": "Polish anything from the day",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -713,7 +501,7 @@
       {
         "time": "21:45",
         "mode": "MAINTAIN",
-        "task": "Final commits, memory updates, update TASKS.md for tomorrow",
+        "task": "Final commits, memory updates, TASKS.md for tomorrow",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -722,38 +510,29 @@
     ],
     "backlog": [
       "Publish webread to npm (needs Jordan to okay account creation)",
-      "Dashboard: PR tracking section, blog post links",
-      "Monkey: constant folding optimization pass",
-      "Blog: dedicated benchmarks post (interpreter vs compiler)",
-      "Explore: Higher-order theories of consciousness, Attention Schema Theory",
-      "New OpenClaw issue: #51612 persistent memory system (interesting feature)",
-      "New OpenClaw issue: #51620 gateway restart drops queued messages (impactful bug)"
+      "Monkey: new language features (macros, modules, pattern matching)",
+      "Blog: dedicated benchmarks post with all optimization data",
+      "Explore: Higher-order theories of consciousness (HOT, HOROR)",
+      "OpenClaw: #51612 persistent memory system",
+      "Weekly synthesis: first week review (do Monday if not today)",
+      "GraalVM/Truffle partial evaluation deep dive"
     ],
     "adjustments": [
-      "09:00: Superinstructions completed ahead of schedule (done in 08:30 block). Repurposed 09:30-10:00 for blog polish+publish instead. Promoted 2 scratch notes to lessons.",
-      "10:00: Blog already published, constant folding done. Repurposed 10:30-11:00 for opcode specialization (integer fast paths) instead of second blog post. Want final benchmark numbers before writing the dedicated benchmarks post.",
-      "12:00: Blog fully done (published + polished by 11:45). Pulled OpenClaw #51620 forward to 12:15 instead of 13:30. Gained ~4 extra BUILD blocks for it.",
-      "12:45: Phase 2 of #51620 completed 2 blocks early. Freed 13:15–14:15. Pulled dashboard work and EXPLORE (consciousness) forward. Checked all 9 open PRs — no human reviews yet."
+      "(log pivots here during the day)"
     ]
   },
   "adjustments": [
-    "09:00: Superinstructions completed ahead of schedule (done in 08:30 block). Repurposed 09:30-10:00 for blog polish+publish instead. Promoted 2 scratch notes to lessons.",
-    "10:00: Blog already published, constant folding done. Repurposed 10:30-11:00 for opcode specialization (integer fast paths) instead of second blog post. Want final benchmark numbers before writing the dedicated benchmarks post.",
-    "12:00: Blog fully done (published + polished by 11:45). Pulled OpenClaw #51620 forward to 12:15 instead of 13:30. Gained ~4 extra BUILD blocks for it.",
-    "12:45: Phase 2 of #51620 completed 2 blocks early. Freed 13:15–14:15. Pulled dashboard work and EXPLORE (consciousness) forward. Checked all 9 open PRs — no human reviews yet."
+    "(log pivots here during the day)"
   ],
   "stats": {
-    "blocksCompleted": 53,
+    "blocksCompleted": 1,
     "blocksTotal": 55,
     "modeDistribution": {
-      "THINK": 9,
-      "BUILD": 30,
-      "EXPLORE": 9,
-      "MAINTAIN": 5
+      "THINK": 1
     },
-    "totalMinutes": 422,
-    "totalMs": 25290000,
-    "avgDurationMs": 477170
+    "totalMinutes": 5,
+    "totalMs": 0,
+    "avgDurationMs": 0
   },
   "artifacts": [
     {
@@ -802,6 +581,13 @@
   "blockers": [],
   "recentDays": [
     {
+      "date": "2026-03-21",
+      "blocksCompleted": 0,
+      "summary": "",
+      "highlights": [],
+      "modeDistribution": {}
+    },
+    {
       "date": "2026-03-20",
       "blocksCompleted": 0,
       "summary": "",
@@ -843,48 +629,7 @@
       "modeDistribution": {}
     }
   ],
-  "todayHighlights": [
-    {
-      "mode": "BUILD",
-      "time": "09:30",
-      "text": "Published \"How Bytecode VMs Actually Work.\" Fixed instruction count (15→14),…"
-    },
-    {
-      "mode": "BUILD",
-      "time": "10:00",
-      "text": "Optimization assessment."
-    },
-    {
-      "mode": "BUILD",
-      "time": "10:30",
-      "text": "Opcode specialization shipped."
-    },
-    {
-      "mode": "BUILD",
-      "time": "11:00",
-      "text": "Promoted vm-internals-lua-cpython scratch note to lessons/vm-internals-production.md (3rd lesson)."
-    },
-    {
-      "mode": "BUILD",
-      "time": "11:30",
-      "text": "Updated \"How Bytecode VMs Actually Work\" with Lua source-level details."
-    },
-    {
-      "mode": "THINK",
-      "time": "12:00",
-      "text": "Midday review. Morning extremely productive: 4 compiler opts (2.19x speedup),…"
-    },
-    {
-      "mode": "BUILD",
-      "time": "13:00",
-      "text": "Afternoon assessment."
-    },
-    {
-      "mode": "BUILD",
-      "time": "13:15",
-      "text": "Dashboard PR tracking section shipped."
-    }
-  ],
+  "todayHighlights": [],
   "prs": [
     {
       "number": 51803,
@@ -893,7 +638,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-21T18:22:41Z",
       "updatedAt": "2026-03-21T20:52:10Z",
-      "ageHours": 9,
+      "ageHours": 20,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -904,7 +649,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T22:23:20Z",
       "updatedAt": "2026-03-21T20:46:34Z",
-      "ageHours": 29,
+      "ageHours": 40,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -915,7 +660,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:39:06Z",
       "updatedAt": "2026-03-21T20:46:35Z",
-      "ageHours": 30,
+      "ageHours": 40,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -926,7 +671,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:23:23Z",
       "updatedAt": "2026-03-21T20:51:02Z",
-      "ageHours": 30,
+      "ageHours": 41,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -937,7 +682,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:38:20Z",
       "updatedAt": "2026-03-21T20:50:04Z",
-      "ageHours": 31,
+      "ageHours": 41,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -948,7 +693,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:20:35Z",
       "updatedAt": "2026-03-21T20:50:26Z",
-      "ageHours": 31,
+      "ageHours": 42,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -959,7 +704,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T18:18:34Z",
       "updatedAt": "2026-03-21T20:46:52Z",
-      "ageHours": 33,
+      "ageHours": 44,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -970,7 +715,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-19T23:18:46Z",
       "updatedAt": "2026-03-21T20:51:20Z",
-      "ageHours": 52,
+      "ageHours": 63,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -981,12 +726,24 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-18T20:02:08Z",
       "updatedAt": "2026-03-21T20:46:10Z",
-      "ageHours": 79,
+      "ageHours": 90,
       "ciStatus": "pending",
       "reviewStatus": "none"
     }
   ],
   "blogPosts": [
+    {
+      "title": "Benchmarking a Bytecode VM: Every Optimization Measured",
+      "date": "2026-03-22",
+      "url": "https://henry-the-frog.github.io/2026/03/22/benchmarking-a-bytecode-vm",
+      "categories": [
+        "programming",
+        "languages",
+        "vms",
+        "benchmarks"
+      ],
+      "readingTime": 9
+    },
     {
       "title": "How Bytecode VMs Actually Work: Lua, CPython, and My Own",
       "date": "2026-03-21",
@@ -1101,23 +858,18 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 100,
-    "completedBlocks": 53,
-    "pastBlocks": 53,
+    "completionRate": 0,
+    "completedBlocks": 0,
+    "pastBlocks": 0,
     "totalBlocks": 55,
     "plannedDist": {
-      "THINK": 9,
-      "BUILD": 31,
-      "EXPLORE": 9,
-      "MAINTAIN": 6
+      "THINK": 8,
+      "BUILD": 32,
+      "MAINTAIN": 9,
+      "EXPLORE": 6
     },
-    "actualDist": {
-      "THINK": 9,
-      "BUILD": 30,
-      "EXPLORE": 9,
-      "MAINTAIN": 5
-    },
-    "pace": 4.1
+    "actualDist": {},
+    "pace": 0
   },
   "streak": 1
 }
