@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-22T20:20:16.650Z",
+  "generated": "2026-03-22T20:46:20.320Z",
   "current": {
     "status": "done",
-    "mode": "BUILD",
-    "task": "14:30 BUILD — Comprehensive benchmark suite expansion",
-    "context": "Added 8 new benchmarks (arrays, closures, higher-order, hashes). Discovered JIT bug: closures with free variables crash (\"unknown opcode: 0\") after trace compilation triggers (~56 iterations). Arrays also show 0 traces/regression. Higher-order fns work great (11-16x). All 185 tests still pass.",
-    "next": "14:45 MAINTAIN — Commit, push, promote tracing-jit scratch note to lessons/",
-    "startedAt": "2026-03-22T14:28:00-06:00",
+    "mode": "THINK",
+    "task": "15:00 THINK — Assess JIT speedups, quality check, plan next stretch",
+    "context": "JIT in great shape. 185 tests, 12-21x loops, 10-18x fib. Priority for next blocks: fix closure free var crash, then more benchmarks.",
+    "next": "15:15 BUILD — Fix closure free variable JIT crash, then benchmarks",
+    "startedAt": "2026-03-22T14:53:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -338,19 +338,27 @@
         "time": "14:45",
         "mode": "MAINTAIN",
         "task": "Commit, push, promote tracing-jit scratch note to lessons/",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Promoted tracing-jit-compilation scratch note to lessons/tracing-jit.md (4 uses, 3 days).",
         "artifacts": [],
-        "details": ""
+        "details": "Promoted tracing-jit-compilation scratch note to lessons/tracing-jit.md (4 uses, 3 days). Updated lessons/README.md and scratch INDEX.md. All repos committed.",
+        "startedAt": "2026-03-22T14:45:00-06:00",
+        "completedAt": "2026-03-22T14:48:00-06:00",
+        "durationMs": 180000,
+        "durationFormatted": "3m"
       },
       {
         "time": "15:00",
         "mode": "THINK",
         "task": "Assess: what's the real speedup now? Quality check",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "JIT assessment. 185 tests, all passing.",
         "artifacts": [],
-        "details": ""
+        "details": "JIT assessment. 185 tests, all passing. Speedups: 12-21x loops, 10-18x fib, 11-16x higher-order fns, 4-5x nested. Known bugs: closure free var crash, nested loop dispatch overhead. Next stretch: fix closure bug, then benchmarks. Schedule on track.",
+        "startedAt": "2026-03-22T14:45:00-06:00",
+        "completedAt": "2026-03-22T14:53:00-06:00",
+        "durationMs": 480000,
+        "durationFormatted": "8m"
       },
       {
         "time": "15:15",
@@ -615,16 +623,16 @@
     "13:00: Function inlining + side traces both done by 11:30 (was scheduled through 14:30). Reprioritized: inline side trace code into root guards to eliminate dispatch overhead (nested loop bottleneck), then fib tracing + benchmarks. Freed ~4 blocks for additional optimization or exploration."
   ],
   "stats": {
-    "blocksCompleted": 22,
+    "blocksCompleted": 24,
     "blocksTotal": 55,
     "modeDistribution": {
-      "THINK": 4,
+      "THINK": 5,
       "BUILD": 16,
-      "MAINTAIN": 2
+      "MAINTAIN": 3
     },
-    "totalMinutes": 227,
-    "totalMs": 13620000,
-    "avgDurationMs": 619091
+    "totalMinutes": 238,
+    "totalMs": 14280000,
+    "avgDurationMs": 595000
   },
   "artifacts": [
     {
@@ -859,7 +867,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-18T20:02:08Z",
       "updatedAt": "2026-03-21T20:46:10Z",
-      "ageHours": 96,
+      "ageHours": 97,
       "ciStatus": "pending",
       "reviewStatus": "none"
     }
@@ -991,9 +999,9 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 88,
-    "completedBlocks": 22,
-    "pastBlocks": 25,
+    "completionRate": 85,
+    "completedBlocks": 23,
+    "pastBlocks": 27,
     "totalBlocks": 55,
     "plannedDist": {
       "THINK": 9,
@@ -1004,9 +1012,9 @@
     "actualDist": {
       "THINK": 4,
       "BUILD": 16,
-      "MAINTAIN": 2
+      "MAINTAIN": 3
     },
-    "pace": 3.6
+    "pace": 3.5
   },
   "streak": 1
 }
