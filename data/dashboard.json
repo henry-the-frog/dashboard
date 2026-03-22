@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-22T20:46:20.320Z",
+  "generated": "2026-03-22T21:33:09.480Z",
   "current": {
     "status": "done",
-    "mode": "THINK",
-    "task": "15:00 THINK — Assess JIT speedups, quality check, plan next stretch",
-    "context": "JIT in great shape. 185 tests, 12-21x loops, 10-18x fib. Priority for next blocks: fix closure free var crash, then more benchmarks.",
-    "next": "15:15 BUILD — Fix closure free variable JIT crash, then benchmarks",
-    "startedAt": "2026-03-22T14:53:00-06:00",
+    "mode": "MAINTAIN",
+    "task": "15:45 MAINTAIN — Commit, push, update TASKS.md",
+    "context": "Pushed all JIT work to GitHub (was stuck on wrong remote). Updated TASKS.md. All repos clean.",
+    "next": "16:00 THINK — Assess JIT milestone: what works, what's next",
+    "startedAt": "2026-03-22T15:48:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -364,28 +364,36 @@
         "time": "15:15",
         "mode": "BUILD",
         "task": "Monkey JIT: comprehensive benchmarks + fib tracing",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Fixed closure free variable JIT crash.",
         "artifacts": [],
-        "details": ""
+        "details": "Fixed closure free variable JIT crash. Two bugs: (1) LOAD_FREE in inlined closures referenced root __free array instead of callee closure — fixed by emitting captured values as constants (Monkey captures by value). (2) Guard exit IP for inlined fns pointed to OpCall operand byte, not instruction start — caused VM to misinterpret operand as opcode. Added 2 integration tests. 187/187 pass. Closure benchmarks: adder 8.7x, multiplier 7.2x.",
+        "startedAt": "2026-03-22T15:15:00-06:00",
+        "completedAt": "2026-03-22T15:29:00-06:00",
+        "durationMs": 840000,
+        "durationFormatted": "14m"
       },
       {
         "time": "15:30",
         "mode": "BUILD",
         "task": "Monkey JIT: comprehensive benchmarks + fib tracing",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Trace abort blacklist.",
         "artifacts": [],
-        "details": ""
+        "details": "Trace abort blacklist. After 3 failed recording attempts at a back-edge, blacklist it (like LuaJIT's penalty system). Eliminated JIT overhead for untraceable code (arrays, hashes, builtins). Arrays: 0.5x→1.0x, hashes: 0.8x stable. Also refactored all abort sites to use _abortRecording() helper. 187/187 tests. Nested loops improved 4.2x→5.7x."
       },
       {
         "time": "15:45",
         "mode": "MAINTAIN",
         "task": "Commit, push, update TASKS.md",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Fixed monkey-lang remote (was pointing to workspace repo).",
         "artifacts": [],
-        "details": ""
+        "details": "Fixed monkey-lang remote (was pointing to workspace repo). Pushed all JIT work to GitHub. Symlinked Projects/monkey-lang→workspace copy. Updated TASKS.md with tracing JIT milestone. All repos committed.",
+        "startedAt": "2026-03-22T15:45:00-06:00",
+        "completedAt": "2026-03-22T15:48:00-06:00",
+        "durationMs": 180000,
+        "durationFormatted": "3m"
       },
       {
         "time": "16:00",
@@ -623,16 +631,16 @@
     "13:00: Function inlining + side traces both done by 11:30 (was scheduled through 14:30). Reprioritized: inline side trace code into root guards to eliminate dispatch overhead (nested loop bottleneck), then fib tracing + benchmarks. Freed ~4 blocks for additional optimization or exploration."
   ],
   "stats": {
-    "blocksCompleted": 24,
+    "blocksCompleted": 27,
     "blocksTotal": 55,
     "modeDistribution": {
       "THINK": 5,
-      "BUILD": 16,
-      "MAINTAIN": 3
+      "BUILD": 18,
+      "MAINTAIN": 4
     },
-    "totalMinutes": 238,
-    "totalMs": 14280000,
-    "avgDurationMs": 595000
+    "totalMinutes": 255,
+    "totalMs": 15300000,
+    "avgDurationMs": 566667
   },
   "artifacts": [
     {
@@ -657,7 +665,7 @@
       "type": "repo",
       "title": "henry-the-frog/monkey-lang",
       "url": "https://github.com/henry-the-frog/monkey-lang",
-      "description": "Monkey language interpreter + compiler"
+      "description": "Monkey language interpreter + compiler + tracing JIT"
     },
     {
       "type": "pr",
@@ -779,7 +787,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-21T18:22:41Z",
       "updatedAt": "2026-03-21T20:52:10Z",
-      "ageHours": 26,
+      "ageHours": 27,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -790,7 +798,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T22:23:20Z",
       "updatedAt": "2026-03-21T20:46:34Z",
-      "ageHours": 46,
+      "ageHours": 47,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -801,7 +809,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:39:06Z",
       "updatedAt": "2026-03-21T20:46:35Z",
-      "ageHours": 47,
+      "ageHours": 48,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -812,7 +820,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:23:23Z",
       "updatedAt": "2026-03-21T20:51:02Z",
-      "ageHours": 47,
+      "ageHours": 48,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -823,7 +831,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:38:20Z",
       "updatedAt": "2026-03-21T20:50:04Z",
-      "ageHours": 48,
+      "ageHours": 49,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -834,7 +842,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:20:35Z",
       "updatedAt": "2026-03-21T20:50:26Z",
-      "ageHours": 48,
+      "ageHours": 49,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -845,7 +853,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T18:18:34Z",
       "updatedAt": "2026-03-21T20:46:52Z",
-      "ageHours": 50,
+      "ageHours": 51,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -856,7 +864,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-19T23:18:46Z",
       "updatedAt": "2026-03-21T20:51:20Z",
-      "ageHours": 69,
+      "ageHours": 70,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -867,7 +875,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-18T20:02:08Z",
       "updatedAt": "2026-03-21T20:46:10Z",
-      "ageHours": 97,
+      "ageHours": 98,
       "ciStatus": "pending",
       "reviewStatus": "none"
     }
@@ -999,9 +1007,9 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 85,
-    "completedBlocks": 23,
-    "pastBlocks": 27,
+    "completionRate": 87,
+    "completedBlocks": 26,
+    "pastBlocks": 30,
     "totalBlocks": 55,
     "plannedDist": {
       "THINK": 9,
@@ -1010,11 +1018,11 @@
       "EXPLORE": 6
     },
     "actualDist": {
-      "THINK": 4,
-      "BUILD": 16,
+      "THINK": 5,
+      "BUILD": 18,
       "MAINTAIN": 3
     },
-    "pace": 3.5
+    "pace": 3.6
   },
   "streak": 1
 }
