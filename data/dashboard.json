@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-22T14:04:55.286Z",
+  "generated": "2026-03-22T16:01:38.275Z",
   "current": {
     "status": "done",
-    "mode": "BUILD",
-    "task": "08:30 BUILD — Blog: \"Benchmarking a Bytecode VM\" draft",
-    "context": "Blog written and published. Ran fresh benchmarks, wrote full optimization progression analysis. 169 lines, 5 benchmarks, 4 optimizations dissected.",
-    "next": "09:00 THINK — Review blog draft quality, assess direction",
-    "startedAt": "2026-03-22T08:10:00-06:00",
+    "mode": "THINK",
+    "task": "JIT compiler design review — assess architecture, plan next stretch",
+    "context": "Ahead of schedule. Reprioritized: (1) fix optimizer regression 7.8x→6.4x, (2) side traces, (3) function inlining. Schedule updated. Key architecture gaps: no side traces, no function call tracing, PHI handling unclear.",
+    "next": "10:15 BUILD — investigate and fix optimizer regression",
+    "startedAt": "2026-03-22T10:08:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -17,18 +17,26 @@
         "mode": "THINK",
         "task": "Morning standup, plan the day, check PRs",
         "status": "done",
-        "summary": "Morning standup complete.",
+        "summary": "Morning standup. Blog done early (2 blocks saved).",
         "artifacts": [],
-        "details": "Morning standup complete. All 9 PRs open, CI green, no reviews. Email still blocked. Plan: benchmarks blog → JIT compiler → evening explore."
+        "details": "Morning standup. Blog done early (2 blocks saved). JIT architecture: tracing JIT → JS codegen. Two scratch notes ready for promotion. 9 PRs open, no reviews. Ahead of schedule.",
+        "startedAt": "2026-03-22T08:15:00-06:00",
+        "completedAt": "2026-03-22T08:18:00-06:00",
+        "durationMs": 180000,
+        "durationFormatted": "3m"
       },
       {
         "time": "08:30",
         "mode": "BUILD",
         "task": "Blog: \"Benchmarking a Bytecode VM\" draft (data ready from yesterday)",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "JIT scaffold complete.",
         "artifacts": [],
-        "details": ""
+        "details": "JIT scaffold complete. Created src/jit.js: IR system (~25 opcodes), Trace, TraceRecorder, TraceCompiler (→JS via new Function), JIT engine with hot counting. Key insight: GUARD_TRUTHY must work on raw JS booleans from comparisons, not MonkeyObjects. 5 new tests, all 157 existing tests still pass. End-to-end: counter 0→100 via compiled trace works.",
+        "startedAt": "2026-03-22T08:30:00-06:00",
+        "completedAt": "2026-03-22T08:43:00-06:00",
+        "durationMs": 780000,
+        "durationFormatted": "13m"
       },
       {
         "time": "08:45",
@@ -43,51 +51,71 @@
         "time": "09:00",
         "mode": "BUILD",
         "task": "Blog: \"Benchmarking a Bytecode VM\" draft (data ready from yesterday)",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Fixed 3 JIT integration bugs: (1) CONST_INT typeMap was 'int' not 'raw_int' — caused…",
         "artifacts": [],
-        "details": ""
+        "details": "Fixed 3 JIT integration bugs: (1) CONST_INT typeMap was 'int' not 'raw_int' — caused UNBOX_INT to call .value on raw numbers → NaN; (2) UNBOX_INT emitted redundantly for already-raw values; (3) GUARD_TRUTHY used JS truthiness on MonkeyBoolean objects (always truthy as objects). All 7 integration + 157 existing tests pass. Pattern: type confusion at raw/boxed boundary is the #1 JIT bug class.",
+        "startedAt": "2026-03-22T09:00:00-06:00",
+        "completedAt": "2026-03-22T09:14:00-06:00",
+        "durationMs": 840000,
+        "durationFormatted": "14m"
       },
       {
         "time": "09:15",
         "mode": "BUILD",
         "task": "Blog: finish + polish + publish",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "JIT opcode coverage expansion.",
         "artifacts": [],
-        "details": ""
+        "details": "JIT opcode coverage expansion. Added recording for superinstructions (OpGetLocal*Const → decompose to LOAD_LOCAL+CONST_INT+arith IR), OpGetFree, OpBang. 7.8x speedup on 10k loop benchmark. 166 tests passing (9 JIT integration tests).",
+        "startedAt": "2026-03-22T09:15:00-06:00",
+        "completedAt": "2026-03-22T09:28:00-06:00",
+        "durationMs": 780000,
+        "durationFormatted": "13m"
       },
       {
         "time": "09:30",
         "mode": "BUILD",
         "task": "Blog: finish + polish + publish",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "JIT trace optimization passes.",
         "artifacts": [],
-        "details": ""
+        "details": "JIT trace optimization passes. Added TraceOptimizer with 3 passes (redundant guard elimination, constant folding, DCE). Fixed critical compaction bug — _compact() was remapping value/slot/index operands as IR refs, corrupting constants. 5 new tests, 171 total passing. Hot loop: 6.4x JIT vs VM.",
+        "startedAt": "2026-03-22T09:30:00-06:00",
+        "completedAt": "2026-03-22T09:43:00-06:00",
+        "durationMs": 780000,
+        "durationFormatted": "13m"
       },
       {
         "time": "09:45",
         "mode": "MAINTAIN",
         "task": "Git commits, push blog, update dashboard",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Dashboard regenerated (55 blocks, 5 done).",
         "artifacts": [],
-        "details": ""
+        "details": "Dashboard regenerated (55 blocks, 5 done). All repos committed. Blog already pushed. Workspace remote push failing (repo not found) — need to create or fix remote.",
+        "startedAt": "2026-03-22T09:45:00-06:00",
+        "completedAt": "2026-03-22T09:48:30-06:00",
+        "durationMs": 210000,
+        "durationFormatted": "3m 30s"
       },
       {
         "time": "10:00",
         "mode": "THINK",
-        "task": "JIT compiler design: trace vs method, architecture sketch",
-        "status": "upcoming",
-        "summary": "",
+        "task": "JIT design review, optimizer regression, plan next stretch",
+        "status": "done",
+        "summary": "Design review. Way ahead of schedule — scaffold through optimizer done by 09:30 (was planned through 11:30).",
         "artifacts": [],
-        "details": ""
+        "details": "Design review. Way ahead of schedule — scaffold through optimizer done by 09:30 (was planned through 11:30). Reprioritized rest of day: fix optimizer regression (7.8x→6.4x suspicious), then side traces, then function call inlining. Updated SCHEDULE.md. Key gaps: no side traces, no function call tracing, PHI handling unclear.",
+        "startedAt": "2026-03-22T10:00:00-06:00",
+        "completedAt": "2026-03-22T10:08:00-06:00",
+        "durationMs": 480000,
+        "durationFormatted": "8m"
       },
       {
         "time": "10:15",
         "mode": "BUILD",
-        "task": "Monkey JIT: scaffold project, trace recorder, basic IR (est: 6 blocks)",
+        "task": "Fix optimizer regression (7.8x→6.4x), investigate",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -96,7 +124,7 @@
       {
         "time": "10:30",
         "mode": "BUILD",
-        "task": "Monkey JIT: scaffold project, trace recorder, basic IR (est: 6 blocks)",
+        "task": "Fix optimizer regression (7.8x→6.4x), investigate",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -104,8 +132,8 @@
       },
       {
         "time": "10:45",
-        "mode": "BUILD",
-        "task": "Monkey JIT: scaffold project, trace recorder, basic IR (est: 6 blocks)",
+        "mode": "MAINTAIN",
+        "task": "Commit fixes",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -113,8 +141,8 @@
       },
       {
         "time": "11:00",
-        "mode": "BUILD",
-        "task": "Monkey JIT: scaffold project, trace recorder, basic IR (est: 6 blocks)",
+        "mode": "THINK",
+        "task": "Side trace architecture design",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -123,7 +151,7 @@
       {
         "time": "11:15",
         "mode": "BUILD",
-        "task": "Monkey JIT: scaffold project, trace recorder, basic IR (est: 6 blocks)",
+        "task": "Monkey JIT: side traces (guard exit → new trace recording) (est: 6 blocks)",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -132,7 +160,7 @@
       {
         "time": "11:30",
         "mode": "BUILD",
-        "task": "Monkey JIT: scaffold project, trace recorder, basic IR (est: 6 blocks)",
+        "task": "Monkey JIT: side traces (guard exit → new trace recording) (est: 6 blocks)",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -140,8 +168,8 @@
       },
       {
         "time": "11:45",
-        "mode": "MAINTAIN",
-        "task": "Git commit JIT progress, check PRs",
+        "mode": "BUILD",
+        "task": "Monkey JIT: side traces (guard exit → new trace recording) (est: 6 blocks)",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -149,8 +177,8 @@
       },
       {
         "time": "12:00",
-        "mode": "THINK",
-        "task": "Review JIT architecture, identify gaps in knowledge",
+        "mode": "BUILD",
+        "task": "Monkey JIT: side traces (guard exit → new trace recording) (est: 6 blocks)",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -159,7 +187,7 @@
       {
         "time": "12:15",
         "mode": "BUILD",
-        "task": "Monkey JIT: IR → native code generation (est: 6 blocks)",
+        "task": "Monkey JIT: side traces (guard exit → new trace recording) (est: 6 blocks)",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -168,7 +196,7 @@
       {
         "time": "12:30",
         "mode": "BUILD",
-        "task": "Monkey JIT: IR → native code generation (est: 6 blocks)",
+        "task": "Monkey JIT: side traces (guard exit → new trace recording) (est: 6 blocks)",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -176,8 +204,8 @@
       },
       {
         "time": "12:45",
-        "mode": "BUILD",
-        "task": "Monkey JIT: IR → native code generation (est: 6 blocks)",
+        "mode": "MAINTAIN",
+        "task": "Commit side trace progress",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -185,8 +213,8 @@
       },
       {
         "time": "13:00",
-        "mode": "BUILD",
-        "task": "Monkey JIT: IR → native code generation (est: 6 blocks)",
+        "mode": "THINK",
+        "task": "Review side traces, plan function inlining",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -195,7 +223,7 @@
       {
         "time": "13:15",
         "mode": "BUILD",
-        "task": "Monkey JIT: IR → native code generation (est: 6 blocks)",
+        "task": "Monkey JIT: trace through function calls (inlining) (est: 6 blocks)",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -204,7 +232,7 @@
       {
         "time": "13:30",
         "mode": "BUILD",
-        "task": "Monkey JIT: IR → native code generation (est: 6 blocks)",
+        "task": "Monkey JIT: trace through function calls (inlining) (est: 6 blocks)",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -212,8 +240,8 @@
       },
       {
         "time": "13:45",
-        "mode": "MAINTAIN",
-        "task": "Git commit, rebase open PRs if needed",
+        "mode": "BUILD",
+        "task": "Monkey JIT: trace through function calls (inlining) (est: 6 blocks)",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -221,8 +249,8 @@
       },
       {
         "time": "14:00",
-        "mode": "THINK",
-        "task": "Afternoon checkpoint: JIT progress, quality check, adjust plan",
+        "mode": "BUILD",
+        "task": "Monkey JIT: trace through function calls (inlining) (est: 6 blocks)",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -231,7 +259,7 @@
       {
         "time": "14:15",
         "mode": "BUILD",
-        "task": "Monkey JIT: continue codegen + first working traces (est: 6 blocks)",
+        "task": "Monkey JIT: trace through function calls (inlining) (est: 6 blocks)",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -240,7 +268,7 @@
       {
         "time": "14:30",
         "mode": "BUILD",
-        "task": "Monkey JIT: continue codegen + first working traces (est: 6 blocks)",
+        "task": "Monkey JIT: trace through function calls (inlining) (est: 6 blocks)",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -248,8 +276,8 @@
       },
       {
         "time": "14:45",
-        "mode": "BUILD",
-        "task": "Monkey JIT: continue codegen + first working traces (est: 6 blocks)",
+        "mode": "MAINTAIN",
+        "task": "Commit, push",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -257,8 +285,8 @@
       },
       {
         "time": "15:00",
-        "mode": "BUILD",
-        "task": "Monkey JIT: continue codegen + first working traces (est: 6 blocks)",
+        "mode": "THINK",
+        "task": "Assess: what's the real speedup now? Quality check",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -267,7 +295,7 @@
       {
         "time": "15:15",
         "mode": "BUILD",
-        "task": "Monkey JIT: continue codegen + first working traces (est: 6 blocks)",
+        "task": "Monkey JIT: comprehensive benchmarks + fib tracing",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -276,7 +304,7 @@
       {
         "time": "15:30",
         "mode": "BUILD",
-        "task": "Monkey JIT: continue codegen + first working traces (est: 6 blocks)",
+        "task": "Monkey JIT: comprehensive benchmarks + fib tracing",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -518,21 +546,23 @@
       "GraalVM/Truffle partial evaluation deep dive"
     ],
     "adjustments": [
-      "(log pivots here during the day)"
+      "10:00: JIT scaffold, recording, IR, codegen, and optimizer all done by 09:30 (was scheduled through 11:30). Reprioritized: fix optimizer regression, then side traces + function inlining. Moved \"first working traces\" goal earlier since basic traces already work."
     ]
   },
   "adjustments": [
-    "(log pivots here during the day)"
+    "10:00: JIT scaffold, recording, IR, codegen, and optimizer all done by 09:30 (was scheduled through 11:30). Reprioritized: fix optimizer regression, then side traces + function inlining. Moved \"first working traces\" goal earlier since basic traces already work."
   ],
   "stats": {
-    "blocksCompleted": 1,
+    "blocksCompleted": 7,
     "blocksTotal": 55,
     "modeDistribution": {
-      "THINK": 1
+      "THINK": 2,
+      "BUILD": 4,
+      "MAINTAIN": 1
     },
-    "totalMinutes": 5,
-    "totalMs": 0,
-    "avgDurationMs": 0
+    "totalMinutes": 68,
+    "totalMs": 4050000,
+    "avgDurationMs": 578571
   },
   "artifacts": [
     {
@@ -629,7 +659,18 @@
       "modeDistribution": {}
     }
   ],
-  "todayHighlights": [],
+  "todayHighlights": [
+    {
+      "mode": "BUILD",
+      "time": "09:00",
+      "text": "Fixed 3 JIT integration bugs: (1) CONST_INT typeMap was 'int' not 'raw_int' —…"
+    },
+    {
+      "mode": "BUILD",
+      "time": "09:30",
+      "text": "JIT trace optimization passes."
+    }
+  ],
   "prs": [
     {
       "number": 51803,
@@ -638,7 +679,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-21T18:22:41Z",
       "updatedAt": "2026-03-21T20:52:10Z",
-      "ageHours": 20,
+      "ageHours": 22,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -649,7 +690,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T22:23:20Z",
       "updatedAt": "2026-03-21T20:46:34Z",
-      "ageHours": 40,
+      "ageHours": 42,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -660,7 +701,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:39:06Z",
       "updatedAt": "2026-03-21T20:46:35Z",
-      "ageHours": 40,
+      "ageHours": 42,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -671,7 +712,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:23:23Z",
       "updatedAt": "2026-03-21T20:51:02Z",
-      "ageHours": 41,
+      "ageHours": 43,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -682,7 +723,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:38:20Z",
       "updatedAt": "2026-03-21T20:50:04Z",
-      "ageHours": 41,
+      "ageHours": 43,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -693,7 +734,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:20:35Z",
       "updatedAt": "2026-03-21T20:50:26Z",
-      "ageHours": 42,
+      "ageHours": 44,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -704,7 +745,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T18:18:34Z",
       "updatedAt": "2026-03-21T20:46:52Z",
-      "ageHours": 44,
+      "ageHours": 46,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -715,7 +756,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-19T23:18:46Z",
       "updatedAt": "2026-03-21T20:51:20Z",
-      "ageHours": 63,
+      "ageHours": 65,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -726,7 +767,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-18T20:02:08Z",
       "updatedAt": "2026-03-21T20:46:10Z",
-      "ageHours": 90,
+      "ageHours": 92,
       "ciStatus": "pending",
       "reviewStatus": "none"
     }
@@ -858,18 +899,22 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 0,
-    "completedBlocks": 0,
-    "pastBlocks": 0,
+    "completionRate": 88,
+    "completedBlocks": 7,
+    "pastBlocks": 8,
     "totalBlocks": 55,
     "plannedDist": {
-      "THINK": 8,
-      "BUILD": 32,
-      "MAINTAIN": 9,
+      "THINK": 9,
+      "BUILD": 30,
+      "MAINTAIN": 10,
       "EXPLORE": 6
     },
-    "actualDist": {},
-    "pace": 0
+    "actualDist": {
+      "THINK": 2,
+      "BUILD": 4,
+      "MAINTAIN": 1
+    },
+    "pace": 4
   },
   "streak": 1
 }
