@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-23T19:22:10.601Z",
+  "generated": "2026-03-23T19:52:45.026Z",
   "current": {
     "status": "done",
     "mode": "BUILD",
-    "task": "13:15 JIT trace-level integer specialization — algebraic simplification pass, amortized iter check, dead CONST_BOOL elimination",
-    "context": "Added 10th optimizer pass (algebraic simplification), fixed CONST_BOOL false positive from literal index matching, amortized iteration safety check. All 77 tests passing. Traces produce zero-boxing integer arithmetic. `i*2` compiles to `v+v`.",
-    "next": "13:30 BUILD — continue JIT integer specialization (extend to more patterns, or move to string interning)",
-    "startedAt": "2026-03-23T13:28:00-06:00",
+    "task": "13:45 BUILD — JIT array index support",
+    "context": "Added INDEX_ARRAY, GUARD_ARRAY, GUARD_BOUNDS IR ops. Array access in loops now JIT-compiled. Fixed LICM hoisting INDEX_ARRAY before bounds guards by marking it side-effecting. Array sum benchmark 5.41x vs VM. 233 tests passing.",
+    "next": "14:00 THINK — Assess JIT progress, plan rest of afternoon",
+    "startedAt": "2026-03-23T14:00:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -276,19 +276,27 @@
         "time": "13:30",
         "mode": "BUILD",
         "task": "JIT: trace-level integer specialization (raw arithmetic in compiled code)",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "JIT regression fix + algebraic extensions.",
         "artifacts": [],
-        "details": ""
+        "details": "JIT regression fix + algebraic extensions. Added uncompilableFns tracking — functions that fail method compilation are marked to prevent repeated attempts. Hash access: 0.53x→0.76x, string concat: 0.77x→1.30x. Extended algebraic simplification: NEG(NEG(x))→x, NEG(const)→const, x/x→1. 2 new tests. 33 JIT tests, 231 total.",
+        "startedAt": "2026-03-23T13:30:00-06:00",
+        "completedAt": "2026-03-23T13:43:00-06:00",
+        "durationMs": 780000,
+        "durationFormatted": "13m"
       },
       {
         "time": "13:45",
         "mode": "BUILD",
         "task": "JIT: trace-level integer specialization (raw arithmetic in compiled code)",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "JIT array index support.",
         "artifacts": [],
-        "details": ""
+        "details": "JIT array index support. Added INDEX_ARRAY, GUARD_ARRAY, GUARD_BOUNDS IR ops to trace recorder, optimizer, and compiler. Array element access in loops now JIT-compiled instead of aborting. Fixed critical bug: LICM was hoisting INDEX_ARRAY before bounds guards — marked as side-effecting. New benchmark: array sum (1k elements, 10 passes) = 5.41x vs VM. 2 new integration tests. 233 tests passing.",
+        "startedAt": "2026-03-23T13:45:00-06:00",
+        "completedAt": "2026-03-23T14:00:00-06:00",
+        "durationMs": 900000,
+        "durationFormatted": "15m"
       },
       {
         "time": "14:00",
@@ -598,16 +606,16 @@
     "12:30: Blog + benchmark suite both done by 12:15/12:30. Pulled 13:00 THINK early. Repurposed 13:15-14:30 for JIT trace-level integer specialization (compile raw `a+b` instead of boxing). Freed 15:15-16:30 for new work."
   ],
   "stats": {
-    "blocksCompleted": 20,
+    "blocksCompleted": 22,
     "blocksTotal": 54,
     "modeDistribution": {
       "THINK": 2,
       "MAINTAIN": 5,
-      "BUILD": 13
+      "BUILD": 15
     },
-    "totalMinutes": 184,
-    "totalMs": 11010000,
-    "avgDurationMs": 550500
+    "totalMinutes": 212,
+    "totalMs": 12690000,
+    "avgDurationMs": 576818
   },
   "artifacts": [
     {
@@ -729,6 +737,11 @@
       "mode": "BUILD",
       "time": "13:15",
       "text": "JIT trace-level integer specialization."
+    },
+    {
+      "mode": "BUILD",
+      "time": "13:45",
+      "text": "JIT array index support."
     }
   ],
   "prs": [
@@ -794,7 +807,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:20:35Z",
       "updatedAt": "2026-03-21T20:50:26Z",
-      "ageHours": 71,
+      "ageHours": 72,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -805,7 +818,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T18:18:34Z",
       "updatedAt": "2026-03-21T20:46:52Z",
-      "ageHours": 73,
+      "ageHours": 74,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -816,7 +829,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-19T23:18:46Z",
       "updatedAt": "2026-03-21T20:51:20Z",
-      "ageHours": 92,
+      "ageHours": 93,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -827,7 +840,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-18T20:02:08Z",
       "updatedAt": "2026-03-21T20:46:10Z",
-      "ageHours": 119,
+      "ageHours": 120,
       "ciStatus": "pending",
       "reviewStatus": "none"
     }
@@ -983,8 +996,8 @@
   ],
   "scheduleAdherence": {
     "completionRate": 100,
-    "completedBlocks": 20,
-    "pastBlocks": 20,
+    "completedBlocks": 22,
+    "pastBlocks": 22,
     "totalBlocks": 54,
     "plannedDist": {
       "THINK": 7,
@@ -995,7 +1008,7 @@
     "actualDist": {
       "THINK": 2,
       "MAINTAIN": 5,
-      "BUILD": 13
+      "BUILD": 15
     },
     "pace": 3.9
   },
