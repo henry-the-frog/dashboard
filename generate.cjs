@@ -645,6 +645,39 @@ function computeAdherence(blocks) {
   };
 }
 
+function parseBenchmarks() {
+  const benchDir = path.resolve(WORKSPACE, 'projects', 'monkey-lang', 'benchmarks');
+  try {
+    const latestPath = path.join(benchDir, 'latest.json');
+    if (!fs.existsSync(latestPath)) return null;
+    const data = JSON.parse(fs.readFileSync(latestPath, 'utf8'));
+    
+    // Summarize: pick key benchmarks and compute aggregate
+    const results = (data.benchmarks || []).map(b => ({
+      name: b.name,
+      category: b.category,
+      jitVsVm: b.speedup?.jitVsVm || 0,
+      jitVsEval: b.speedup?.jitVsEval || 0,
+      traces: b.traces || 0,
+      correct: b.correct,
+    }));
+    
+    // Aggregate speedup (geometric mean of jitVsVm for correct benchmarks)
+    const valid = results.filter(r => r.correct && r.jitVsVm > 0);
+    const geoMean = valid.length > 0
+      ? Math.exp(valid.reduce((sum, r) => sum + Math.log(r.jitVsVm), 0) / valid.length)
+      : 0;
+    
+    return {
+      timestamp: data.timestamp,
+      gitHash: data.gitHash,
+      count: results.length,
+      aggregate: +geoMean.toFixed(2),
+      results,
+    };
+  } catch { return null; }
+}
+
 // --- Main ---
 function generate() {
   const currentText = readFile('CURRENT.md');
@@ -693,6 +726,9 @@ function generate() {
   // Streak: consecutive active days
   const streak = computeStreak(recentDays);
 
+  // Parse JIT benchmarks
+  const benchmarks = parseBenchmarks();
+
   const dashboard = {
     generated: new Date().toISOString(),
     current,
@@ -707,6 +743,7 @@ function generate() {
     blogPosts,
     scheduleAdherence,
     streak,
+    benchmarks,
   };
 
   // Ensure output directory exists

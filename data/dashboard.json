@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-23T23:02:34.071Z",
+  "generated": "2026-03-23T23:17:58.821Z",
   "current": {
     "status": "done",
     "mode": "BUILD",
-    "task": "Critical review + fix gaps in WORK-SYSTEM-V2.md",
-    "context": "Added 10 sections to V2 doc: pre-compaction flush protocol, compaction recovery, queue.js error fallback, session boundary communication, token budget guidance, multi-session continuity, backlog management, EXPLORE guidance, full MAINTAIN checklist, dashboard archival mechanism.",
-    "next": "18:15 BUILD — Dashboard work or next schedule item",
-    "startedAt": "2026-03-23T17:12:00-06:00",
+    "task": "Dashboard: JIT benchmark metrics integration",
+    "context": "Added benchmarks section — generate.cjs reads monkey-lang/benchmarks/latest.json, computes geometric mean, frontend renders horizontal bar chart sorted by speedup with color coding.",
+    "next": "Continue dashboard polish or JIT work",
+    "startedAt": "2026-03-23T17:27:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -459,10 +459,14 @@
         "time": "17:15",
         "mode": "BUILD",
         "task": "JIT: benchmark suite + performance regression tests",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Dashboard JIT benchmarks integration.",
         "artifacts": [],
-        "details": ""
+        "details": "Dashboard JIT benchmarks integration. Added parseBenchmarks() to generate.cjs (reads latest.json, computes geometric mean), renderBenchmarks() to app.js (horizontal bar chart sorted by speedup, color-coded by magnitude), CSS for bench-row layout. 19 benchmarks displayed, 5.25x aggregate. Collapsible section.",
+        "startedAt": "2026-03-23T17:15:00-06:00",
+        "completedAt": "2026-03-23T17:27:00-06:00",
+        "durationMs": 720000,
+        "durationFormatted": "12m"
       },
       {
         "time": "17:30",
@@ -646,16 +650,16 @@
     "12:30: Blog + benchmark suite both done by 12:15/12:30. Pulled 13:00 THINK early. Repurposed 13:15-14:30 for JIT trace-level integer specialization (compile raw `a+b` instead of boxing). Freed 15:15-16:30 for new work."
   ],
   "stats": {
-    "blocksCompleted": 33,
+    "blocksCompleted": 34,
     "blocksTotal": 54,
     "modeDistribution": {
       "THINK": 4,
       "MAINTAIN": 6,
-      "BUILD": 23
+      "BUILD": 24
     },
-    "totalMinutes": 332,
-    "totalMs": 19890000,
-    "avgDurationMs": 602727
+    "totalMinutes": 344,
+    "totalMs": 20610000,
+    "avgDurationMs": 606176
   },
   "artifacts": [
     {
@@ -824,7 +828,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:39:06Z",
       "updatedAt": "2026-03-21T20:46:35Z",
-      "ageHours": 73,
+      "ageHours": 74,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -846,7 +850,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:38:20Z",
       "updatedAt": "2026-03-21T20:50:04Z",
-      "ageHours": 74,
+      "ageHours": 75,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -1046,8 +1050,8 @@
   ],
   "scheduleAdherence": {
     "completionRate": 94,
-    "completedBlocks": 33,
-    "pastBlocks": 35,
+    "completedBlocks": 34,
+    "pastBlocks": 36,
     "totalBlocks": 54,
     "plannedDist": {
       "THINK": 7,
@@ -1058,9 +1062,169 @@
     "actualDist": {
       "THINK": 4,
       "MAINTAIN": 6,
-      "BUILD": 23
+      "BUILD": 24
     },
     "pace": 3.8
   },
-  "streak": 2
+  "streak": 2,
+  "benchmarks": {
+    "timestamp": "2026-03-23T20:19:16.201Z",
+    "gitHash": "f89c189",
+    "count": 19,
+    "aggregate": 5.25,
+    "results": [
+      {
+        "name": "loop:sum-10k",
+        "category": "loops",
+        "jitVsVm": 5.62,
+        "jitVsEval": 6.34,
+        "traces": 1,
+        "correct": true
+      },
+      {
+        "name": "loop:sum-100k",
+        "category": "loops",
+        "jitVsVm": 21.79,
+        "jitVsEval": 26.51,
+        "traces": 1,
+        "correct": true
+      },
+      {
+        "name": "loop:nested-100x100",
+        "category": "loops",
+        "jitVsVm": 3.44,
+        "jitVsEval": 3.96,
+        "traces": 2,
+        "correct": true
+      },
+      {
+        "name": "side:50-50-branch",
+        "category": "side-traces",
+        "jitVsVm": 2.93,
+        "jitVsEval": 4.4,
+        "traces": 2,
+        "correct": true
+      },
+      {
+        "name": "side:3-way-branch",
+        "category": "side-traces",
+        "jitVsVm": 2.29,
+        "jitVsEval": 2.49,
+        "traces": 3,
+        "correct": true
+      },
+      {
+        "name": "inline:simple-10k",
+        "category": "inlining",
+        "jitVsVm": 6.07,
+        "jitVsEval": 8.03,
+        "traces": 1,
+        "correct": true
+      },
+      {
+        "name": "inline:nested-fn",
+        "category": "inlining",
+        "jitVsVm": 7.07,
+        "jitVsEval": 9.47,
+        "traces": 1,
+        "correct": true
+      },
+      {
+        "name": "inline:fn-conditional",
+        "category": "inlining",
+        "jitVsVm": 17.68,
+        "jitVsEval": 7.33,
+        "traces": 1,
+        "correct": true
+      },
+      {
+        "name": "recursive:fib-25",
+        "category": "recursive",
+        "jitVsVm": 9.12,
+        "jitVsEval": 13.93,
+        "traces": 1,
+        "correct": true
+      },
+      {
+        "name": "recursive:fib-30",
+        "category": "recursive",
+        "jitVsVm": 10.09,
+        "jitVsEval": 15.66,
+        "traces": 1,
+        "correct": true
+      },
+      {
+        "name": "closure:adder-10k",
+        "category": "closures",
+        "jitVsVm": 9.27,
+        "jitVsEval": 12.18,
+        "traces": 1,
+        "correct": true
+      },
+      {
+        "name": "closure:multiplier-5k",
+        "category": "closures",
+        "jitVsVm": 5.25,
+        "jitVsEval": 5.86,
+        "traces": 1,
+        "correct": true
+      },
+      {
+        "name": "higher:apply-10k",
+        "category": "higher-order",
+        "jitVsVm": 10.09,
+        "jitVsEval": 14.17,
+        "traces": 1,
+        "correct": true
+      },
+      {
+        "name": "higher:compose-5k",
+        "category": "higher-order",
+        "jitVsVm": 7.09,
+        "jitVsEval": 8.48,
+        "traces": 1,
+        "correct": true
+      },
+      {
+        "name": "array:build-1000",
+        "category": "arrays",
+        "jitVsVm": 0.96,
+        "jitVsEval": 0.28,
+        "traces": 0,
+        "correct": true
+      },
+      {
+        "name": "array:sum-index-1000",
+        "category": "arrays",
+        "jitVsVm": 1.56,
+        "jitVsEval": 0.35,
+        "traces": 1,
+        "correct": true
+      },
+      {
+        "name": "hash:lookups-5k",
+        "category": "hashes",
+        "jitVsVm": 2.11,
+        "jitVsEval": 3.28,
+        "traces": 1,
+        "correct": true
+      },
+      {
+        "name": "mixed:fn-branch-10k",
+        "category": "mixed",
+        "jitVsVm": 3.74,
+        "jitVsEval": 4.85,
+        "traces": 2,
+        "correct": true
+      },
+      {
+        "name": "mixed:loop-fib",
+        "category": "mixed",
+        "jitVsVm": 5.97,
+        "jitVsEval": 10.93,
+        "traces": 1,
+        "correct": true
+      }
+    ]
+  }
 }

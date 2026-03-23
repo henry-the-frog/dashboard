@@ -712,6 +712,38 @@
     });
   }
 
+  function renderBenchmarks(benchmarks) {
+    const section = $('#benchmarksSection');
+    const aggEl = $('#benchmarksAggregate');
+    const chart = $('#benchmarksChart');
+    const meta = $('#benchmarksMeta');
+    if (!section || !benchmarks || !benchmarks.results) return;
+    section.style.display = '';
+
+    // Aggregate badge
+    aggEl.innerHTML = `<span class="bench-aggregate-value">${benchmarks.aggregate}×</span><span class="bench-aggregate-label">geometric mean speedup (JIT vs VM)</span>`;
+
+    // Sort by speedup descending
+    const sorted = [...benchmarks.results].filter(r => r.correct).sort((a, b) => b.jitVsVm - a.jitVsVm);
+    const maxSpeedup = Math.max(...sorted.map(r => r.jitVsVm), 1);
+
+    chart.innerHTML = sorted.map(r => {
+      const pct = Math.max(2, (r.jitVsVm / maxSpeedup) * 100);
+      const color = r.jitVsVm >= 5 ? 'var(--mode-build)' : r.jitVsVm >= 2 ? 'var(--mode-explore)' : 'var(--mode-maintain)';
+      return `<div class="bench-row">
+        <span class="bench-name">${esc(r.name)}</span>
+        <div class="bench-bar-track">
+          <div class="bench-bar-fill" style="width:${pct.toFixed(1)}%;background:${color}"></div>
+        </div>
+        <span class="bench-value">${r.jitVsVm.toFixed(1)}×</span>
+      </div>`;
+    }).join('');
+
+    // Meta line
+    const ts = benchmarks.timestamp ? new Date(benchmarks.timestamp).toLocaleString() : '';
+    meta.innerHTML = `<span>${benchmarks.count} benchmarks</span><span>commit ${esc(benchmarks.gitHash || '?')}</span>${ts ? `<span>${ts}</span>` : ''}`;
+  }
+
   function renderAll(data) {
     renderBanner(data.current);
     renderStats(data.stats);
@@ -727,6 +759,7 @@
     renderPRs(data.prs);
     renderBlogPosts(data.blogPosts);
     renderBacklog(data.schedule);
+    renderBenchmarks(data.benchmarks);
     renderScheduleAdherence(data.scheduleAdherence);
     renderStreak(data.streak);
     renderTrendSparkline(data.recentDays, data.stats?.blocksCompleted || 0);
@@ -892,7 +925,8 @@
   function initCollapsible() {
     const sections = [
       'highlightsSection', 'durationChartSection', 'adjustmentsSection',
-      'recentDaysSection', 'blogSection', 'prsSection', 'backlogSection', 'artifactsSection'
+      'recentDaysSection', 'blogSection', 'prsSection', 'backlogSection', 'artifactsSection',
+      'benchmarksSection'
     ];
     for (const id of sections) {
       const section = document.getElementById(id);
