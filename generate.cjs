@@ -504,16 +504,33 @@ function parseRecentDays() {
         }
       }
 
-      // Source 2: Key Accomplishments bullets (narrative format)
+      // Source 2: Key Accomplishments / Major Deliverables bullets (narrative format)
       if (highlights.length < 3) {
-        const accomMatch = text.match(/## Key Accomplishments\n([\s\S]*?)(?=\n## |\n$)/);
+        const sectionPat = /## (?:Key Accomplishments|Major Deliverables|Highlights)\n([\s\S]*?)(?=\n## |\n$)/;
+        const accomMatch = text.match(sectionPat);
         if (accomMatch) {
           for (const line of accomMatch[1].split('\n')) {
             if (highlights.length >= 5) break;
-            const m = line.match(/^-\s+\*\*(.+?)\*\*/);
+            const m = line.match(/^-?\s*\*\*(.+?)\*\*/);
             if (m) {
-              highlights.push(m[1].replace(/:$/, '').trim());
+              highlights.push(m[1].replace(/[:(]$/, '').trim());
             }
+          }
+        }
+      }
+
+      // Source 3: First-level bullets with substantive content
+      if (highlights.length < 3) {
+        for (const line of lines) {
+          if (highlights.length >= 5) break;
+          const m = line.match(/^-\s+(.{20,80})/);
+          if (m && !m[1].startsWith('**') && !m[1].match(/^\d{1,2}:\d{2}/)) {
+            let h = m[1];
+            const dotIdx = h.indexOf('. ');
+            if (dotIdx > 15 && dotIdx < 70) h = h.substring(0, dotIdx);
+            else if (h.length > 60) h = h.substring(0, h.lastIndexOf(' ', 60) || 60);
+            h = h.replace(/[.!]+$/, '').trim();
+            if (h.length > 15) highlights.push(h);
           }
         }
       }
@@ -525,6 +542,29 @@ function parseRecentDays() {
         blocksCompleted = accomplishments;
       }
 
+      // Try to extract block count from header text (e.g., "56/56 blocks" or "34 blocks")
+      if (blocksCompleted <= 1) {
+        const headerBlockMatch = text.match(/(\d+)\/(\d+)\s+blocks/);
+        if (headerBlockMatch) {
+          blocksCompleted = parseInt(headerBlockMatch[1], 10);
+        } else {
+          const simpleBlockMatch = text.match(/(\d{2,})\s+blocks/);
+          if (simpleBlockMatch) blocksCompleted = parseInt(simpleBlockMatch[1], 10);
+        }
+      }
+
+      // Also check block-times.jsonl for accurate historical counts
+      try {
+        const btPath = path.resolve(WORKSPACE, 'block-times.jsonl');
+        if (fs.existsSync(btPath)) {
+          const btLines = fs.readFileSync(btPath, 'utf8').split('\n').filter(Boolean);
+          const dayCount = btLines.filter(l => {
+            try { return JSON.parse(l).date === date; } catch { return false; }
+          }).length;
+          if (dayCount > blocksCompleted) blocksCompleted = dayCount;
+        }
+      } catch { /* ignore */ }
+
       // Extract mode distribution from log entries
       const modeDist = {};
       for (const line of lines) {
@@ -535,6 +575,15 @@ function parseRecentDays() {
             modeDist[mode] = (modeDist[mode] || 0) + 1;
           }
         }
+      }
+
+      // Fallback mode distribution from narrative sections
+      if (Object.keys(modeDist).length === 0) {
+        // Count section headers as mode indicators
+        if (text.match(/build|implement|added|fixed|publish/i)) modeDist.BUILD = Math.max(1, Math.round(blocksCompleted * 0.5));
+        if (text.match(/explore|research|deep dive|consciousness/i)) modeDist.EXPLORE = Math.max(1, Math.round(blocksCompleted * 0.15));
+        if (text.match(/think|reflect|review|assess/i)) modeDist.THINK = Math.max(1, Math.round(blocksCompleted * 0.2));
+        if (text.match(/maintain|commit|cleanup|pr triage/i)) modeDist.MAINTAIN = Math.max(1, Math.round(blocksCompleted * 0.15));
       }
 
       days.push({ date, blocksCompleted, summary, highlights, modeDistribution: modeDist });
