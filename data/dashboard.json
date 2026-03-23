@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-23T20:01:07.728Z",
+  "generated": "2026-03-23T20:20:37.975Z",
   "current": {
     "status": "done",
-    "mode": "THINK",
-    "task": "14:00 THINK — Assess JIT progress, plan rest of afternoon",
-    "context": "Day 8 exceptional — 18 blocks, 233 tests, 9 optimizer passes, array JIT, blog, benchmarks. Hash access 0.76x is a JIT regression worth investigating next. String interning at 15:15 as scheduled. No schedule changes.",
-    "next": "14:15 BUILD — Investigate hash access JIT regression (0.76x), optimize hash table IR",
-    "startedAt": "2026-03-23T14:05:00-06:00",
+    "mode": "BUILD",
+    "task": "Fixed hash access JIT regression — added GUARD_HASH + INDEX_HASH IR ops, hash key caching",
+    "context": "Hash lookups went from 0.88x (regression) to 2.2x speedup. Added hash recording in VM OpIndex, GUARD_HASH/INDEX_HASH compiler codegen, cached hashKey() on all key types. 233 tests passing, 19/19 benchmarks correct.",
+    "next": "14:45 MAINTAIN — Commit, run benchmarks, check PRs",
+    "startedAt": "2026-03-23T14:27:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -315,10 +315,14 @@
         "time": "14:15",
         "mode": "BUILD",
         "task": "JIT: trace-level integer specialization (raw arithmetic in compiled code)",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Fixed hash access JIT regression.",
         "artifacts": [],
-        "details": ""
+        "details": "Fixed hash access JIT regression. Added GUARD_HASH + INDEX_HASH IR ops — hash lookups in loops now traced instead of aborting. Also cached hashKey() on MonkeyString/Integer/Boolean (avoids string allocation per call). Hash benchmark: 0.88x→2.2x. Array sum-index also improved 0.91x→1.5x. Added to DCE/LICM side-effect sets. 233 tests, 19/19 benchmarks, 8.6x aggregate.",
+        "startedAt": "2026-03-23T14:15:00-06:00",
+        "completedAt": "2026-03-23T14:27:00-06:00",
+        "durationMs": 720000,
+        "durationFormatted": "12m"
       },
       {
         "time": "14:30",
@@ -610,16 +614,16 @@
     "12:30: Blog + benchmark suite both done by 12:15/12:30. Pulled 13:00 THINK early. Repurposed 13:15-14:30 for JIT trace-level integer specialization (compile raw `a+b` instead of boxing). Freed 15:15-16:30 for new work."
   ],
   "stats": {
-    "blocksCompleted": 23,
+    "blocksCompleted": 24,
     "blocksTotal": 54,
     "modeDistribution": {
       "THINK": 2,
       "MAINTAIN": 5,
-      "BUILD": 16
+      "BUILD": 17
     },
-    "totalMinutes": 217,
-    "totalMs": 12990000,
-    "avgDurationMs": 564783
+    "totalMinutes": 229,
+    "totalMs": 13710000,
+    "avgDurationMs": 571250
   },
   "artifacts": [
     {
@@ -746,6 +750,11 @@
       "mode": "BUILD",
       "time": "13:45",
       "text": "JIT array index support."
+    },
+    {
+      "mode": "BUILD",
+      "time": "14:15",
+      "text": "Fixed hash access JIT regression."
     }
   ],
   "prs": [
@@ -778,7 +787,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:39:06Z",
       "updatedAt": "2026-03-21T20:46:35Z",
-      "ageHours": 70,
+      "ageHours": 71,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -800,7 +809,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:38:20Z",
       "updatedAt": "2026-03-21T20:50:04Z",
-      "ageHours": 71,
+      "ageHours": 72,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -1000,8 +1009,8 @@
   ],
   "scheduleAdherence": {
     "completionRate": 100,
-    "completedBlocks": 23,
-    "pastBlocks": 23,
+    "completedBlocks": 24,
+    "pastBlocks": 24,
     "totalBlocks": 54,
     "plannedDist": {
       "THINK": 7,
@@ -1012,9 +1021,9 @@
     "actualDist": {
       "THINK": 2,
       "MAINTAIN": 5,
-      "BUILD": 16
+      "BUILD": 17
     },
-    "pace": 4
+    "pace": 3.9
   },
   "streak": 2
 }
