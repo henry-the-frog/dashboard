@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-23T23:33:23.701Z",
+  "generated": "2026-03-23T23:34:16.988Z",
   "current": {
     "status": "done",
     "mode": "BUILD",
-    "task": "Dashboard: JIT benchmark metrics integration",
-    "context": "Added benchmarks section — generate.cjs reads monkey-lang/benchmarks/latest.json, computes geometric mean, frontend renders horizontal bar chart sorted by speedup with color coding.",
-    "next": "Continue dashboard polish or JIT work",
-    "startedAt": "2026-03-23T17:27:00-06:00",
+    "task": "Dashboard: improved historical day parsing + polish",
+    "context": "Fixed parseRecentDays — block counts from header text + block-times.jsonl, narrative-format highlights (Major Deliverables), fallback mode distributions. Recent days now show accurate data (56, 56, 52, 31 blocks). Dashboard committed and pushed.",
+    "next": "JIT work or V2 implementation",
+    "startedAt": "2026-03-23T17:40:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -472,10 +472,14 @@
         "time": "17:30",
         "mode": "BUILD",
         "task": "JIT: benchmark suite + performance regression tests",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Dashboard historical day parsing fix.",
         "artifacts": [],
-        "details": ""
+        "details": "Dashboard historical day parsing fix. parseRecentDays now extracts block counts from header text (\"56/56 blocks\") and block-times.jsonl, highlights from Major Deliverables sections, and fallback mode distributions from narrative content. Recent days: 1,0,0,0→56,56,52,31. Sparkline trend now meaningful.",
+        "startedAt": "2026-03-23T17:30:00-06:00",
+        "completedAt": "2026-03-23T17:40:00-06:00",
+        "durationMs": 600000,
+        "durationFormatted": "10m"
       },
       {
         "time": "17:45",
@@ -650,16 +654,16 @@
     "12:30: Blog + benchmark suite both done by 12:15/12:30. Pulled 13:00 THINK early. Repurposed 13:15-14:30 for JIT trace-level integer specialization (compile raw `a+b` instead of boxing). Freed 15:15-16:30 for new work."
   ],
   "stats": {
-    "blocksCompleted": 34,
+    "blocksCompleted": 35,
     "blocksTotal": 54,
     "modeDistribution": {
       "THINK": 4,
       "MAINTAIN": 6,
-      "BUILD": 24
+      "BUILD": 25
     },
-    "totalMinutes": 344,
-    "totalMs": 20610000,
-    "avgDurationMs": 606176
+    "totalMinutes": 354,
+    "totalMs": 21210000,
+    "avgDurationMs": 606000
   },
   "artifacts": [
     {
@@ -1102,8 +1106,8 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 92,
-    "completedBlocks": 34,
+    "completionRate": 95,
+    "completedBlocks": 35,
     "pastBlocks": 37,
     "totalBlocks": 54,
     "plannedDist": {
@@ -1115,9 +1119,9 @@
     "actualDist": {
       "THINK": 4,
       "MAINTAIN": 6,
-      "BUILD": 24
+      "BUILD": 25
     },
-    "pace": 3.7
+    "pace": 3.8
   },
   "streak": 7,
   "benchmarks": {
