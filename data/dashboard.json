@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-23T21:00:55.482Z",
+  "generated": "2026-03-23T21:55:49.287Z",
   "current": {
     "status": "done",
-    "mode": "THINK",
-    "task": "15:00 THINK — Afternoon assessment, plan string interning approach",
-    "context": "20 blocks done. Hash access 1.01x is sole weak spot. String interning plan: intern table in VM, pointer equality for hash lookups. Watch for raw/boxed confusion pattern with interned vs non-interned strings.",
-    "next": "15:15 BUILD — String interning for hash performance",
-    "startedAt": "2026-03-23T15:00:00-06:00",
+    "mode": "BUILD",
+    "task": "JIT array push escape analysis — mutate-in-place optimization",
+    "context": "Implemented escape analysis for push(). Detects load→push→store pattern where old array doesn't escape, mutates in place. array:build 0.96x→11.0x, array:sum-index 1.56x→10.6x. All tests passing.",
+    "next": "16:45 MAINTAIN — Commit, run benchmarks, update README",
+    "startedAt": "2026-03-23T16:05:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -363,10 +363,14 @@
         "time": "15:15",
         "mode": "BUILD",
         "task": "JIT: string interning / hash consing OR Monkey string improvements",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "String interning + fastHashKey.",
         "artifacts": [],
-        "details": ""
+        "details": "String interning + fastHashKey. Added internString() for string literals, fastHashKey() for identity-based hash Map keys (raw numbers for ints, object identity for interned strings/bools). Rewrote hash benchmark from 100 recursive calls to 10k while-loop. Hash JIT: 8.4x vs VM. Key lesson: old benchmark couldn't show JIT wins because it used recursion (not traceable) with only 100 calls. All 211 tests pass.",
+        "startedAt": "2026-03-23T15:15:00-06:00",
+        "completedAt": "2026-03-23T15:42:00-06:00",
+        "durationMs": 1620000,
+        "durationFormatted": "27m"
       },
       {
         "time": "15:30",
@@ -381,10 +385,14 @@
         "time": "15:45",
         "mode": "BUILD",
         "task": "JIT: string interning / hash consing OR Monkey string improvements",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Escape analysis for array push.",
         "artifacts": [],
-        "details": ""
+        "details": "Escape analysis for array push. Detected load_global→builtin_push→store_global pattern where old array doesn't escape. Emit elements.push() in-place instead of spread copy. Box raw ints before pushing. array:build 0.96x→11.0x, array:sum-index 1.56x→10.6x. All 233 tests, 19/19 benchmarks, 9.49x aggregate. Key optimization: O(n²) → O(n) for push-in-loop pattern.",
+        "startedAt": "2026-03-23T15:45:00-06:00",
+        "completedAt": "2026-03-23T16:05:00-06:00",
+        "durationMs": 1200000,
+        "durationFormatted": "20m"
       },
       {
         "time": "16:00",
@@ -622,16 +630,16 @@
     "12:30: Blog + benchmark suite both done by 12:15/12:30. Pulled 13:00 THINK early. Repurposed 13:15-14:30 for JIT trace-level integer specialization (compile raw `a+b` instead of boxing). Freed 15:15-16:30 for new work."
   ],
   "stats": {
-    "blocksCompleted": 26,
+    "blocksCompleted": 28,
     "blocksTotal": 54,
     "modeDistribution": {
       "THINK": 3,
       "MAINTAIN": 5,
-      "BUILD": 18
+      "BUILD": 20
     },
-    "totalMinutes": 238,
-    "totalMs": 14250000,
-    "avgDurationMs": 548077
+    "totalMinutes": 285,
+    "totalMs": 17070000,
+    "avgDurationMs": 609643
   },
   "artifacts": [
     {
@@ -763,6 +771,11 @@
       "mode": "BUILD",
       "time": "14:15",
       "text": "Fixed hash access JIT regression."
+    },
+    {
+      "mode": "BUILD",
+      "time": "15:15",
+      "text": "String interning + fastHashKey."
     }
   ],
   "prs": [
@@ -773,7 +786,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-21T18:22:41Z",
       "updatedAt": "2026-03-21T20:52:10Z",
-      "ageHours": 51,
+      "ageHours": 52,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -784,7 +797,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T22:23:20Z",
       "updatedAt": "2026-03-23T14:41:33Z",
-      "ageHours": 71,
+      "ageHours": 72,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -795,7 +808,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:39:06Z",
       "updatedAt": "2026-03-21T20:46:35Z",
-      "ageHours": 71,
+      "ageHours": 72,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -806,7 +819,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:23:23Z",
       "updatedAt": "2026-03-21T20:51:02Z",
-      "ageHours": 72,
+      "ageHours": 73,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -817,7 +830,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:38:20Z",
       "updatedAt": "2026-03-21T20:50:04Z",
-      "ageHours": 72,
+      "ageHours": 73,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -828,7 +841,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:20:35Z",
       "updatedAt": "2026-03-21T20:50:26Z",
-      "ageHours": 73,
+      "ageHours": 74,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -839,7 +852,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T18:18:34Z",
       "updatedAt": "2026-03-21T20:46:52Z",
-      "ageHours": 75,
+      "ageHours": 76,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -850,7 +863,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-19T23:18:46Z",
       "updatedAt": "2026-03-21T20:51:20Z",
-      "ageHours": 94,
+      "ageHours": 95,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -861,7 +874,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-18T20:02:08Z",
       "updatedAt": "2026-03-21T20:46:10Z",
-      "ageHours": 121,
+      "ageHours": 122,
       "ciStatus": "pending",
       "reviewStatus": "none"
     }
@@ -1016,9 +1029,9 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 96,
-    "completedBlocks": 26,
-    "pastBlocks": 27,
+    "completionRate": 93,
+    "completedBlocks": 28,
+    "pastBlocks": 30,
     "totalBlocks": 54,
     "plannedDist": {
       "THINK": 7,
@@ -1029,9 +1042,9 @@
     "actualDist": {
       "THINK": 3,
       "MAINTAIN": 5,
-      "BUILD": 18
+      "BUILD": 20
     },
-    "pace": 3.9
+    "pace": 3.7
   },
   "streak": 2
 }
