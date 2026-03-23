@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-23T16:18:57.911Z",
+  "generated": "2026-03-23T16:52:44.305Z",
   "current": {
     "status": "done",
     "mode": "BUILD",
-    "task": "JIT optimizer: store-to-load forwarding + LICM",
-    "context": "Implemented both passes in TraceOptimizer. S2LF tracks last store per slot, forwards loads to stored value refs, invalidates on CALL. LICM finds loop-invariant instructions (all operand refs defined pre-loop or themselves invariant, no side effects) and hoists them above LOOP_START. 4 new tests, all 215 tests passing.",
-    "next": "BUILD — Continue JIT optimizer work or move to next schedule item",
-    "startedAt": "2026-03-23T10:28:00-06:00",
+    "task": "JIT optimizer: common subexpression elimination (CSE)",
+    "context": "Added CSE pass that deduplicates pure ops (loads, arithmetic, unbox, constants) with identical operands. Key insight: must defer _replaceRef calls to avoid mutating operands mid-scan (which caused false CSE matches). Reduced loop trace from 25→21 IR ops. 2 new tests, all 221 passing. Benchmarks stable (26x loop, 16x nested, 9x fib).",
+    "next": "11:45 MAINTAIN — commit, full test suite",
+    "startedAt": "2026-03-23T11:05:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -133,19 +133,27 @@
         "time": "10:30",
         "mode": "BUILD",
         "task": "JIT optimizer: store-to-load forwarding + loop-invariant code motion",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Added box-unbox elimination + dead store elimination to TraceOptimizer.",
         "artifacts": [],
-        "details": ""
+        "details": "Added box-unbox elimination + dead store elimination to TraceOptimizer. Box-unbox removes UNBOX(BOX(x))→x and BOX(UNBOX(x))→x round-trip chains. DSE removes stores overwritten before read (respects CALL/LOOP_END boundaries). 4 new tests, all 219 passing. Optimizer now has 7 passes: S2LF → box-unbox → guard elim → const fold → DSE → LICM → DCE.",
+        "startedAt": "2026-03-23T10:30:00-06:00",
+        "completedAt": "2026-03-23T10:43:00-06:00",
+        "durationMs": 780000,
+        "durationFormatted": "13m"
       },
       {
         "time": "10:45",
         "mode": "BUILD",
         "task": "JIT optimizer: store-to-load forwarding + loop-invariant code motion",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Added CSE pass to TraceOptimizer.",
         "artifacts": [],
-        "details": ""
+        "details": "Added CSE pass to TraceOptimizer. Deduplicates pure ops (loads, arithmetic, unbox, box, constants) with identical operands. Key bug found and fixed: _replaceRef during scan mutates operands of later instructions, causing false CSE matches (e.g., different const_bool ops becoming identical). Fix: collect all replacements first, apply after scan. Reduced loop trace 25→21 IR ops. 2 new tests, all 221 passing. Optimizer now has 8 passes: S2LF → box-unbox → CSE → guard elim → const fold → DSE → LICM → DCE.",
+        "startedAt": "2026-03-23T10:45:00-06:00",
+        "completedAt": "2026-03-23T11:05:00-06:00",
+        "durationMs": 1200000,
+        "durationFormatted": "20m"
       },
       {
         "time": "11:00",
@@ -561,16 +569,16 @@
     "10:00: Pivoted 10:15-11:30 BUILD from nested loop inlining to JIT optimizer passes (store-to-load forwarding + LICM). Nested loops already 13x; optimizer gaps are higher impact. Constant propagation already exists for literals but not through loads."
   ],
   "stats": {
-    "blocksCompleted": 9,
+    "blocksCompleted": 11,
     "blocksTotal": 55,
     "modeDistribution": {
       "THINK": 2,
       "MAINTAIN": 4,
-      "BUILD": 3
+      "BUILD": 5
     },
-    "totalMinutes": 77,
-    "totalMs": 4620000,
-    "avgDurationMs": 513333
+    "totalMinutes": 110,
+    "totalMs": 6600000,
+    "avgDurationMs": 600000
   },
   "artifacts": [
     {
@@ -672,6 +680,11 @@
       "mode": "MAINTAIN",
       "time": "09:45",
       "text": "All tests passing (211)."
+    },
+    {
+      "mode": "BUILD",
+      "time": "10:45",
+      "text": "Added CSE pass to TraceOptimizer."
     }
   ],
   "prs": [
@@ -737,7 +750,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:20:35Z",
       "updatedAt": "2026-03-21T20:50:26Z",
-      "ageHours": 68,
+      "ageHours": 69,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -748,7 +761,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T18:18:34Z",
       "updatedAt": "2026-03-21T20:46:52Z",
-      "ageHours": 70,
+      "ageHours": 71,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -759,7 +772,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-19T23:18:46Z",
       "updatedAt": "2026-03-21T20:51:20Z",
-      "ageHours": 89,
+      "ageHours": 90,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -770,7 +783,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-18T20:02:08Z",
       "updatedAt": "2026-03-21T20:46:10Z",
-      "ageHours": 116,
+      "ageHours": 117,
       "ciStatus": "pending",
       "reviewStatus": "none"
     }
@@ -915,8 +928,8 @@
   ],
   "scheduleAdherence": {
     "completionRate": 100,
-    "completedBlocks": 9,
-    "pastBlocks": 9,
+    "completedBlocks": 11,
+    "pastBlocks": 11,
     "totalBlocks": 55,
     "plannedDist": {
       "THINK": 8,
@@ -927,9 +940,9 @@
     "actualDist": {
       "THINK": 2,
       "MAINTAIN": 4,
-      "BUILD": 3
+      "BUILD": 5
     },
-    "pace": 4.4
+    "pace": 4.2
   },
   "streak": 2
 }
