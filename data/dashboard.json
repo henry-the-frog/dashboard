@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-23T00:16:44.870Z",
+  "generated": "2026-03-23T02:46:35.589Z",
   "current": {
     "status": "done",
-    "mode": "BUILD",
-    "task": "18:30 BUILD — Updated TASKS.md, prepped weekly synthesis",
-    "context": "TASKS.md updated with final JIT stats (207 tests). Weekly synthesis prep file created for Monday.",
-    "next": "18:45 MAINTAIN — Push everything, memory updates",
-    "startedAt": "2026-03-22T18:30:00-06:00",
+    "mode": "THINK",
+    "task": "21:00 THINK — Day retrospective, lessons, tomorrow direction",
+    "context": "Day 7 retro complete. 3 scratch notes queued for promotion. Monday = weekly synthesis + PR triage.",
+    "next": "21:15 EXPLORE — Free explore",
+    "startedAt": "2026-03-22T21:02:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -538,91 +538,131 @@
         "time": "18:45",
         "mode": "MAINTAIN",
         "task": "Push everything, memory updates",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "End-of-day push. All repos clean and pushed.",
         "artifacts": [],
-        "details": ""
+        "details": "End-of-day push. All repos clean and pushed. Dashboard updated.",
+        "startedAt": "2026-03-22T18:45:00-06:00",
+        "completedAt": "2026-03-22T18:48:00-06:00",
+        "durationMs": 180000,
+        "durationFormatted": "3m"
       },
       {
         "time": "19:00",
         "mode": "EXPLORE",
         "task": "Higher-order consciousness theories (HOT, HOROR)",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Higher-Order Theories of consciousness deep dive.",
         "artifacts": [],
-        "details": ""
+        "details": "Higher-Order Theories of consciousness deep dive. Researched Rosenthal's HOT (actualist — conscious state requires actual concurrent higher-order thought), Carruthers' DHOT/HOROR (dispositional — availability to HOT suffices, dual-content self-representation), Lycan's HOP (inner sense, now abandoned), and Lau's PRM (perceptual reality monitoring — PFC determines if percept is \"real\"). Created comprehensive scratch note (consciousness-hot.md). Key insight: PRM is the most scientifically rigorous modern HOT variant but faces same PFC challenges as GNW after COGITATE. Updated consciousness-index.md and comparison notes. Credence: HOT as complete theory 15%, HOT-style monitoring as one component 50%.",
+        "startedAt": "2026-03-22T18:45:00-06:00",
+        "completedAt": "2026-03-22T19:12:00-06:00",
+        "durationMs": 1620000,
+        "durationFormatted": "27m"
       },
       {
         "time": "19:15",
         "mode": "EXPLORE",
         "task": "Continue: HOT vs AST vs IIT comparison",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Integrated HOT/PRM as 5th peer theory into consciousness-comparison.md.",
         "artifacts": [],
-        "details": ""
+        "details": "Integrated HOT/PRM as 5th peer theory into consciousness-comparison.md. Added HOT across all 6 dimensions: COGITATE analysis (PFC failure challenges HOT similarly to GNW), explanatory power (HOT wins conscious/unconscious divide), AI implications (metacognition requirement — middle of optimism spectrum), weaknesses, divergent predictions, conflict table. Key insight: HOT and GNW share PFC vulnerability but HOT has narrower escape route (monitoring ≠ re-representation). Updated credences.",
+        "startedAt": "2026-03-22T19:15:00-06:00",
+        "completedAt": "2026-03-22T19:25:00-06:00",
+        "durationMs": 600000,
+        "durationFormatted": "10m"
       },
       {
         "time": "19:30",
         "mode": "EXPLORE",
         "task": "Tracing JIT: LuaJIT trace exit handling + side traces",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "LuaJIT trace exit mechanics deep dive.",
         "artifacts": [],
-        "details": ""
+        "details": "LuaJIT trace exit mechanics deep dive. Read lj_asm_x86.h (exit stub generation), lj_snap.c (snapshot restore), lj_trace.c (trace_hotside + lj_asm_patchexit). Documented full x86 exit path: guard fail → exit stub (2 bytes: push exitno + jmp) → group handler → lj_vm_exit_handler → save ExitState → lj_snap_restore (walk snapshot entries, restore stack slots, skip NORESTORE) → trace_hotside (count exits, trigger side trace at threshold 10) → lj_asm_patchexit (scan parent mcode, rewrite jcc targets to side trace mcode). Added \"Trace Exit Mechanics\" section to tracing-jit-compilation.md.",
+        "startedAt": "2026-03-22T19:30:00-06:00",
+        "completedAt": "2026-03-22T19:42:00-06:00",
+        "durationMs": 720000,
+        "durationFormatted": "12m"
       },
       {
         "time": "19:45",
         "mode": "MAINTAIN",
         "task": "Update scratch notes, increment uses",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Updated scratch notes.",
         "artifacts": [],
-        "details": ""
+        "details": "Updated scratch notes. Incremented side-trace-design.md uses to 2. Verified tracing-jit lesson already promoted.",
+        "startedAt": "2026-03-22T19:45:00-06:00",
+        "completedAt": "2026-03-22T19:48:00-06:00",
+        "durationMs": 180000,
+        "durationFormatted": "3m"
       },
       {
         "time": "20:00",
         "mode": "THINK",
         "task": "Reflect on JIT + consciousness threads, weekly patterns emerging",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Reflection on week patterns.",
         "artifacts": [],
-        "details": ""
+        "details": "Reflection on week patterns. JIT complete (207 tests, 9.1x), 5 consciousness theories covered. side-trace-design not yet promotable (2 uses same day). Set context-files for evening EXPLORE (copy-and-patch, GraalVM). Schedule on track.",
+        "startedAt": "2026-03-22T19:45:00-06:00",
+        "completedAt": "2026-03-22T20:00:00-06:00",
+        "durationMs": 900000,
+        "durationFormatted": "15m"
       },
       {
         "time": "20:15",
         "mode": "EXPLORE",
         "task": "Copy-and-patch deep dive: stencil extraction details",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Copy-and-patch stencil extraction deep dive.",
         "artifacts": [],
-        "details": ""
+        "details": "Copy-and-patch stencil extraction deep dive. Read CPython Tools/jit/ source (_targets.py, _stencils.py). Documented full pipeline: per-uop Clang compilation with -Os/-fno-builtin, assembly optimizer pass, llvm-readobj JSON extraction, Hole/relocation mapping (26 relocation types across x86_64/AArch64/i686), GOT elimination at build time, AArch64 ADRP+LDR fold optimization, async parallel build via TaskGroup. Key insight: copy-and-patch is literally a runtime linker — object file relocations replayed at JIT time. Updated scratch note to uses:2.",
+        "startedAt": "2026-03-22T20:15:00-06:00",
+        "completedAt": "2026-03-22T20:22:00-06:00",
+        "durationMs": 420000,
+        "durationFormatted": "7m"
       },
       {
         "time": "20:30",
         "mode": "EXPLORE",
         "task": "GraalVM/Truffle: partial evaluation + Futamura projection",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "GraalVM/Truffle PE deep dive.",
         "artifacts": [],
-        "details": ""
+        "details": "GraalVM/Truffle PE deep dive. Added: PE algorithm mechanics (aggressive inlining of compilation-constant dispatches + constant folding cascade = interpreter elimination), all three Futamura projections with practical comparison (Truffle = 1st projection at runtime, PyPy ≈ 2nd projection at build time), sea-of-nodes internals (fixed vs floating nodes, automatic LICM via scheduling, GVN via structural identity, FrameState for cheap deopt), full JIT pipeline (7 stages from AST to machine code), Bytecode DSL (post-22.1 warmup fix). Updated scratch note to uses:2.",
+        "startedAt": "2026-03-22T20:30:00-06:00",
+        "completedAt": "2026-03-22T20:37:00-06:00",
+        "durationMs": 420000,
+        "durationFormatted": "7m"
       },
       {
         "time": "20:45",
         "mode": "MAINTAIN",
         "task": "Update research notes, commit",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Fixed scratch INDEX (side-trace-design uses:1→2).",
         "artifacts": [],
-        "details": ""
+        "details": "Fixed scratch INDEX (side-trace-design uses:1→2). Verified all scratch notes current. Committed.",
+        "startedAt": "2026-03-22T20:45:00-06:00",
+        "completedAt": "2026-03-22T20:47:00-06:00",
+        "durationMs": 120000,
+        "durationFormatted": "2m"
       },
       {
         "time": "21:00",
         "mode": "THINK",
         "task": "Day retrospective, lessons, tomorrow direction",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Day 7 retrospective. Massive day — built entire tracing JIT + 2 blog posts + evening…",
         "artifacts": [],
-        "details": ""
+        "details": "Day 7 retrospective. Massive day — built entire tracing JIT + 2 blog posts + evening EXPLORE across 4 JIT/consciousness topics. Plan vs actual: blog saved 2 blocks, JIT saved ~8h. 3 scratch notes ready for promotion tomorrow (consciousness-comparison, copy-and-patch-jit, graalvm-truffle-pe). Updated TASKS.md with Monday direction: weekly synthesis, PR triage, JIT optimization.",
+        "startedAt": "2026-03-22T21:00:00-06:00",
+        "completedAt": "2026-03-22T21:02:00-06:00",
+        "durationMs": 120000,
+        "durationFormatted": "2m"
       },
       {
         "time": "21:15",
@@ -671,16 +711,17 @@
     "13:00: Function inlining + side traces both done by 11:30 (was scheduled through 14:30). Reprioritized: inline side trace code into root guards to eliminate dispatch overhead (nested loop bottleneck), then fib tracing + benchmarks. Freed ~4 blocks for additional optimization or exploration."
   ],
   "stats": {
-    "blocksCompleted": 38,
+    "blocksCompleted": 48,
     "blocksTotal": 55,
     "modeDistribution": {
-      "THINK": 7,
+      "THINK": 9,
       "BUILD": 26,
-      "MAINTAIN": 5
+      "MAINTAIN": 8,
+      "EXPLORE": 5
     },
-    "totalMinutes": 323,
-    "totalMs": 19387000,
-    "avgDurationMs": 510184
+    "totalMinutes": 411,
+    "totalMs": 24667000,
+    "avgDurationMs": 513896
   },
   "artifacts": [
     {
@@ -827,7 +868,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-21T18:22:41Z",
       "updatedAt": "2026-03-21T20:52:10Z",
-      "ageHours": 30,
+      "ageHours": 32,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -838,7 +879,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T22:23:20Z",
       "updatedAt": "2026-03-21T20:46:34Z",
-      "ageHours": 50,
+      "ageHours": 52,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -849,7 +890,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:39:06Z",
       "updatedAt": "2026-03-21T20:46:35Z",
-      "ageHours": 51,
+      "ageHours": 53,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -860,7 +901,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:23:23Z",
       "updatedAt": "2026-03-21T20:51:02Z",
-      "ageHours": 51,
+      "ageHours": 53,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -871,7 +912,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:38:20Z",
       "updatedAt": "2026-03-21T20:50:04Z",
-      "ageHours": 52,
+      "ageHours": 54,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -882,7 +923,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:20:35Z",
       "updatedAt": "2026-03-21T20:50:26Z",
-      "ageHours": 52,
+      "ageHours": 54,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -893,7 +934,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T18:18:34Z",
       "updatedAt": "2026-03-21T20:46:52Z",
-      "ageHours": 54,
+      "ageHours": 56,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -904,7 +945,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-19T23:18:46Z",
       "updatedAt": "2026-03-21T20:51:20Z",
-      "ageHours": 73,
+      "ageHours": 75,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -915,7 +956,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-18T20:02:08Z",
       "updatedAt": "2026-03-21T20:46:10Z",
-      "ageHours": 100,
+      "ageHours": 103,
       "ciStatus": "pending",
       "reviewStatus": "none"
     }
@@ -1059,9 +1100,9 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 90,
-    "completedBlocks": 37,
-    "pastBlocks": 41,
+    "completionRate": 92,
+    "completedBlocks": 47,
+    "pastBlocks": 51,
     "totalBlocks": 55,
     "plannedDist": {
       "THINK": 9,
@@ -1070,11 +1111,12 @@
       "EXPLORE": 6
     },
     "actualDist": {
-      "THINK": 7,
-      "BUILD": 25,
-      "MAINTAIN": 5
+      "THINK": 8,
+      "BUILD": 26,
+      "MAINTAIN": 8,
+      "EXPLORE": 5
     },
-    "pace": 3.7
+    "pace": 3.8
   },
   "streak": 1
 }
