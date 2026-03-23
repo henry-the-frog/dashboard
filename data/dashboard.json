@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-23T15:16:13.964Z",
+  "generated": "2026-03-23T15:38:33.045Z",
   "current": {
-    "status": "in-progress",
-    "mode": "MAINTAIN",
-    "task": "Git cleanup, dashboard update, PR status check",
-    "context": "Type specialization complete (211 tests). All repos clean. 9 PRs open, all CI green, no reviews. Pulling forward 09:45 MAINTAIN since BUILD was already done.",
+    "status": "done",
+    "mode": "BUILD",
+    "task": "JIT: type specialization — inline stack ops + frame caching in VM dispatch loop",
+    "context": "Cached currentFrame() in local variable across dispatch loop. Inlined stack ops in specialized int opcodes. Fib VM went ~120ms→~100ms (17-20% speedup). 211 tests passing.",
     "next": "THINK — Plan JIT work: nested loops vs type specialization vs constant propagation",
-    "startedAt": "2026-03-23T09:16:00-06:00",
+    "startedAt": "2026-03-23T09:42:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -68,19 +68,27 @@
         "time": "09:15",
         "mode": "BUILD",
         "task": "JIT: type specialization for integer arithmetic (pivoted from nested loops — already 13x, low marginal gain)",
-        "status": "in-progress",
-        "summary": "Type specialization complete (211 tests). All repos clean. 9 PRs open, all CI green, no reviews. Pulling forward 09:45 MAINTAIN since BUILD was already done.",
+        "status": "done",
+        "summary": "Type specialization already done — pulled forward MAINTAIN.",
         "artifacts": [],
-        "details": ""
+        "details": "Type specialization already done — pulled forward MAINTAIN. All repos clean. 9 PRs open, all CI green, no reviews. Dashboard regenerated and pushed. Git cleanup complete.",
+        "startedAt": "2026-03-23T09:15:00-06:00",
+        "completedAt": "2026-03-23T09:18:00-06:00",
+        "durationMs": 180000,
+        "durationFormatted": "3m"
       },
       {
         "time": "09:30",
         "mode": "BUILD",
         "task": "JIT: type specialization for integer arithmetic (pivoted from nested loops — already 13x, low marginal gain)",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Frame caching optimization in VM dispatch loop.",
         "artifacts": [],
-        "details": ""
+        "details": "Frame caching optimization in VM dispatch loop. Cached currentFrame() in local `frame` variable, eliminating 4+ method calls per instruction dispatch. Also inlined stack ops (this.pop/push → direct stack[sp] access) in specialized int opcodes. Fib(25) VM: ~120ms → ~100ms (17-20% faster). 211 tests passing. The frame caching was the real win — V8 already inlined push/pop but couldn't hoist the frames[] array lookup.",
+        "startedAt": "2026-03-23T15:30:00.000Z",
+        "completedAt": "2026-03-23T15:38:13.000Z",
+        "durationMs": 720000,
+        "durationFormatted": "12m"
       },
       {
         "time": "09:45",
@@ -541,15 +549,16 @@
     "08:45: Nested loop optimization deprioritized — already 13x speedup, side trace call overhead is <0.2%. Pivoting 09:15 to type specialization (higher impact). This also consolidates with the 15:15 type specialization block."
   ],
   "stats": {
-    "blocksCompleted": 4,
+    "blocksCompleted": 6,
     "blocksTotal": 55,
     "modeDistribution": {
       "THINK": 1,
-      "MAINTAIN": 3
+      "MAINTAIN": 3,
+      "BUILD": 2
     },
-    "totalMinutes": 41,
-    "totalMs": 2460000,
-    "avgDurationMs": 615000
+    "totalMinutes": 56,
+    "totalMs": 3360000,
+    "avgDurationMs": 560000
   },
   "artifacts": [
     {
@@ -743,7 +752,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-18T20:02:08Z",
       "updatedAt": "2026-03-21T20:46:10Z",
-      "ageHours": 115,
+      "ageHours": 116,
       "ciStatus": "pending",
       "reviewStatus": "none"
     }
@@ -887,9 +896,9 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 80,
-    "completedBlocks": 4,
-    "pastBlocks": 5,
+    "completionRate": 100,
+    "completedBlocks": 6,
+    "pastBlocks": 6,
     "totalBlocks": 55,
     "plannedDist": {
       "THINK": 8,
@@ -899,9 +908,10 @@
     },
     "actualDist": {
       "THINK": 1,
-      "MAINTAIN": 3
+      "MAINTAIN": 3,
+      "BUILD": 2
     },
-    "pace": 3.9
+    "pace": 4.3
   },
   "streak": 2
 }
