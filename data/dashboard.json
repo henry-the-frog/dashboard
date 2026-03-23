@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-23T15:45:43.430Z",
+  "generated": "2026-03-23T16:01:58.454Z",
   "current": {
-    "status": "in-progress",
-    "mode": "MAINTAIN",
-    "task": "Git cleanup, dashboard update, commit",
-    "context": "Previous block finished type specialization (17-20% speedup). Everything committed. Running maintenance pass.",
-    "next": "THINK — Plan JIT work: nested loops vs type specialization vs constant propagation",
-    "startedAt": "2026-03-23T09:45:00-06:00",
+    "status": "done",
+    "mode": "THINK",
+    "task": "Plan JIT optimizer work for 10:15-11:30 BUILD stretch",
+    "context": "Assessed optimizer — has guard elim, const fold, DCE. Missing store-to-load forwarding (comment stub exists) and LICM. These are the next high-impact passes. Type specialization done at VM level (quickening), frame caching done.",
+    "next": "BUILD — JIT store-to-load forwarding + LICM in TraceOptimizer",
+    "startedAt": "2026-03-23T10:03:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -94,24 +94,32 @@
         "time": "09:45",
         "mode": "MAINTAIN",
         "task": "Git cleanup, dashboard update, commit",
-        "status": "in-progress",
-        "summary": "Previous block finished type specialization (17-20% speedup). Everything committed. Running maintenance pass.",
+        "status": "done",
+        "summary": "All tests passing (211).",
         "artifacts": [],
-        "details": ""
+        "details": "All tests passing (211). Dashboard regenerated. Everything committed and clean. Fixed dashboard generate path (generate.cjs not .js).",
+        "startedAt": "2026-03-23T09:45:00-06:00",
+        "completedAt": "2026-03-23T09:48:00-06:00",
+        "durationMs": 180000,
+        "durationFormatted": "3m"
       },
       {
         "time": "10:00",
         "mode": "THINK",
-        "task": "Plan JIT work: nested loops vs type specialization vs constant propagation",
-        "status": "upcoming",
-        "summary": "",
+        "task": "Plan JIT work: assessed optimizer gaps, pivoting to store-to-load forwarding + LICM",
+        "status": "done",
+        "summary": "Assessed JIT optimizer gaps.",
         "artifacts": [],
-        "details": ""
+        "details": "Assessed JIT optimizer gaps. Has guard elim, const fold (literals only), DCE. Missing: store-to-load forwarding (stub comment exists), LICM, constant propagation through loads. Pivoted 10:15-11:30 from nested loop inlining to these optimizer passes — higher impact than inlining side traces (<0.2% gain). Updated schedule.",
+        "startedAt": "2026-03-23T10:00:00-06:00",
+        "completedAt": "2026-03-23T10:04:00-06:00",
+        "durationMs": 240000,
+        "durationFormatted": "4m"
       },
       {
         "time": "10:15",
         "mode": "BUILD",
-        "task": "Monkey JIT: nested loop optimization (inline side trace IR into root trace)",
+        "task": "JIT optimizer: store-to-load forwarding + loop-invariant code motion",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -120,7 +128,7 @@
       {
         "time": "10:30",
         "mode": "BUILD",
-        "task": "Monkey JIT: nested loop optimization (inline side trace IR into root trace)",
+        "task": "JIT optimizer: store-to-load forwarding + loop-invariant code motion",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -129,7 +137,7 @@
       {
         "time": "10:45",
         "mode": "BUILD",
-        "task": "Monkey JIT: nested loop optimization (inline side trace IR into root trace)",
+        "task": "JIT optimizer: store-to-load forwarding + loop-invariant code motion",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -138,7 +146,7 @@
       {
         "time": "11:00",
         "mode": "BUILD",
-        "task": "Monkey JIT: nested loop optimization (inline side trace IR into root trace)",
+        "task": "JIT optimizer: store-to-load forwarding + loop-invariant code motion",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -147,7 +155,7 @@
       {
         "time": "11:15",
         "mode": "BUILD",
-        "task": "Monkey JIT: nested loop optimization (inline side trace IR into root trace)",
+        "task": "JIT optimizer: store-to-load forwarding + loop-invariant code motion",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -156,7 +164,7 @@
       {
         "time": "11:30",
         "mode": "BUILD",
-        "task": "Monkey JIT: nested loop optimization (inline side trace IR into root trace)",
+        "task": "JIT optimizer: store-to-load forwarding + loop-invariant code motion",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -541,24 +549,24 @@
     ],
     "adjustments": [
       "08:15: Weekly synthesis finished at 08:01, freeing 08:30-09:00. Moved PR triage up, added early JIT BUILD block at 09:15.",
-      "08:45: Nested loop optimization deprioritized — already 13x speedup, side trace call overhead is <0.2%. Pivoting 09:15 to type specialization (higher impact). This also consolidates with the 15:15 type specialization block."
+      "10:00: Pivoted 10:15-11:30 BUILD from nested loop inlining to JIT optimizer passes (store-to-load forwarding + LICM). Nested loops already 13x; optimizer gaps are higher impact. Constant propagation already exists for literals but not through loads."
     ]
   },
   "adjustments": [
     "08:15: Weekly synthesis finished at 08:01, freeing 08:30-09:00. Moved PR triage up, added early JIT BUILD block at 09:15.",
-    "08:45: Nested loop optimization deprioritized — already 13x speedup, side trace call overhead is <0.2%. Pivoting 09:15 to type specialization (higher impact). This also consolidates with the 15:15 type specialization block."
+    "10:00: Pivoted 10:15-11:30 BUILD from nested loop inlining to JIT optimizer passes (store-to-load forwarding + LICM). Nested loops already 13x; optimizer gaps are higher impact. Constant propagation already exists for literals but not through loads."
   ],
   "stats": {
-    "blocksCompleted": 6,
+    "blocksCompleted": 8,
     "blocksTotal": 55,
     "modeDistribution": {
-      "THINK": 1,
-      "MAINTAIN": 3,
+      "THINK": 2,
+      "MAINTAIN": 4,
       "BUILD": 2
     },
-    "totalMinutes": 56,
-    "totalMs": 3360000,
-    "avgDurationMs": 560000
+    "totalMinutes": 63,
+    "totalMs": 3780000,
+    "avgDurationMs": 472500
   },
   "artifacts": [
     {
@@ -655,7 +663,13 @@
       "modeDistribution": {}
     }
   ],
-  "todayHighlights": [],
+  "todayHighlights": [
+    {
+      "mode": "MAINTAIN",
+      "time": "09:45",
+      "text": "All tests passing (211)."
+    }
+  ],
   "prs": [
     {
       "number": 51803,
@@ -664,7 +678,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-21T18:22:41Z",
       "updatedAt": "2026-03-21T20:52:10Z",
-      "ageHours": 45,
+      "ageHours": 46,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -675,7 +689,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T22:23:20Z",
       "updatedAt": "2026-03-23T14:41:33Z",
-      "ageHours": 65,
+      "ageHours": 66,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -697,7 +711,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:23:23Z",
       "updatedAt": "2026-03-21T20:51:02Z",
-      "ageHours": 66,
+      "ageHours": 67,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -719,7 +733,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:20:35Z",
       "updatedAt": "2026-03-21T20:50:26Z",
-      "ageHours": 67,
+      "ageHours": 68,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -730,7 +744,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T18:18:34Z",
       "updatedAt": "2026-03-21T20:46:52Z",
-      "ageHours": 69,
+      "ageHours": 70,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -741,7 +755,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-19T23:18:46Z",
       "updatedAt": "2026-03-21T20:51:20Z",
-      "ageHours": 88,
+      "ageHours": 89,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -896,9 +910,9 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 86,
-    "completedBlocks": 6,
-    "pastBlocks": 7,
+    "completionRate": 100,
+    "completedBlocks": 8,
+    "pastBlocks": 8,
     "totalBlocks": 55,
     "plannedDist": {
       "THINK": 8,
@@ -907,11 +921,11 @@
       "EXPLORE": 7
     },
     "actualDist": {
-      "THINK": 1,
-      "MAINTAIN": 3,
+      "THINK": 2,
+      "MAINTAIN": 4,
       "BUILD": 2
     },
-    "pace": 4
+    "pace": 4.5
   },
   "streak": 2
 }
