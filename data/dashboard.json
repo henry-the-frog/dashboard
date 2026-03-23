@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-23T21:55:49.287Z",
+  "generated": "2026-03-23T22:11:55.031Z",
   "current": {
     "status": "done",
     "mode": "BUILD",
-    "task": "JIT array push escape analysis — mutate-in-place optimization",
-    "context": "Implemented escape analysis for push(). Detects load→push→store pattern where old array doesn't escape, mutates in place. array:build 0.96x→11.0x, array:sum-index 1.56x→10.6x. All tests passing.",
+    "task": "JIT LICM codegen for hash lookups — attempted pre-loop emission",
+    "context": "Tried to hoist hash lookups (GUARD_HASH + INDEX_HASH) before the while() loop in codegen. IR-level LICM works but codegen fails because pre-loop guard exits reference the 'loop:' label (continue loop / side trace dispatch) which doesn't exist yet. Reverted. Hash lookups remain 2.0x — bottleneck is JS Map.get() per iteration. Need proper pre-loop codegen infrastructure to fix.",
     "next": "16:45 MAINTAIN — Commit, run benchmarks, update README",
-    "startedAt": "2026-03-23T16:05:00-06:00",
+    "startedAt": "2026-03-23T16:15:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -398,10 +398,14 @@
         "time": "16:00",
         "mode": "BUILD",
         "task": "JIT: string interning / hash consing OR Monkey string improvements",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Attempted LICM codegen for hash lookup hoisting.",
         "artifacts": [],
-        "details": ""
+        "details": "Attempted LICM codegen for hash lookup hoisting. IR-level hoisting of GUARD_HASH + INDEX_HASH works (they move before LOOP_START), but codegen fails — pre-loop guard exits reference `loop:` label via side-trace dispatch, causing \"Undefined label 'loop'\" compile error. Reverted. Hash lookups stay at 2.0x, bottlenecked by JS Map.get(). Lesson: need proper pre-loop codegen infrastructure (separate guard emission without side-trace dispatch) before hash LICM can work. All 233 tests still passing, 9.59x aggregate.",
+        "startedAt": "2026-03-23T16:00:00-06:00",
+        "completedAt": "2026-03-23T16:17:00-06:00",
+        "durationMs": 1020000,
+        "durationFormatted": "17m"
       },
       {
         "time": "16:15",
@@ -630,16 +634,16 @@
     "12:30: Blog + benchmark suite both done by 12:15/12:30. Pulled 13:00 THINK early. Repurposed 13:15-14:30 for JIT trace-level integer specialization (compile raw `a+b` instead of boxing). Freed 15:15-16:30 for new work."
   ],
   "stats": {
-    "blocksCompleted": 28,
+    "blocksCompleted": 29,
     "blocksTotal": 54,
     "modeDistribution": {
       "THINK": 3,
       "MAINTAIN": 5,
-      "BUILD": 20
+      "BUILD": 21
     },
-    "totalMinutes": 285,
-    "totalMs": 17070000,
-    "avgDurationMs": 609643
+    "totalMinutes": 302,
+    "totalMs": 18090000,
+    "avgDurationMs": 623793
   },
   "artifacts": [
     {
@@ -808,7 +812,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:39:06Z",
       "updatedAt": "2026-03-21T20:46:35Z",
-      "ageHours": 72,
+      "ageHours": 73,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -830,7 +834,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:38:20Z",
       "updatedAt": "2026-03-21T20:50:04Z",
-      "ageHours": 73,
+      "ageHours": 74,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -1029,9 +1033,9 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 93,
-    "completedBlocks": 28,
-    "pastBlocks": 30,
+    "completionRate": 94,
+    "completedBlocks": 29,
+    "pastBlocks": 31,
     "totalBlocks": 54,
     "plannedDist": {
       "THINK": 7,
@@ -1042,7 +1046,7 @@
     "actualDist": {
       "THINK": 3,
       "MAINTAIN": 5,
-      "BUILD": 20
+      "BUILD": 21
     },
     "pace": 3.7
   },
