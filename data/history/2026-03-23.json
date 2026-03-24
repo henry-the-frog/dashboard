@@ -1,0 +1,73 @@
+{
+  "date": "2026-03-23",
+  "queue": [
+    {
+      "id": "T1",
+      "mode": "THINK",
+      "status": "done",
+      "task": "Morning review",
+      "started": "2026-03-24T01:12:59.910Z",
+      "completed": "2026-03-24T01:13:00.036Z",
+      "summary": "Reviewed yesterday, set priorities",
+      "duration_ms": 180000
+    },
+    {
+      "id": "T2",
+      "mode": "PLAN",
+      "status": "in-progress",
+      "goal": "Build dashboard webhook",
+      "started": "2026-03-24T01:13:00.161Z"
+    },
+    {
+      "id": "T3",
+      "mode": "BUILD",
+      "status": "upcoming",
+      "task": null,
+      "plan_ref": "T2"
+    },
+    {
+      "id": "T4",
+      "mode": "BUILD",
+      "status": "upcoming",
+      "task": null,
+      "plan_ref": "T2"
+    },
+    {
+      "id": "T5",
+      "mode": "BUILD",
+      "status": "upcoming",
+      "task": null,
+      "plan_ref": "T2"
+    },
+    {
+      "id": "T6",
+      "mode": "MAINTAIN",
+      "status": "upcoming",
+      "task": "Git commit + push"
+    },
+    {
+      "id": "T7",
+      "mode": "EXPLORE",
+      "status": "upcoming",
+      "task": "Research consciousness"
+    },
+    {
+      "id": "T8",
+      "mode": "EXPLORE",
+      "status": "upcoming",
+      "task": "Read about JIT compilers"
+    }
+  ],
+  "current": {
+    "id": "T2",
+    "mode": "PLAN",
+    "task": "Build dashboard webhook"
+  },
+  "stats": {
+    "completed": 1,
+    "yielded": 0,
+    "skipped": 0,
+    "total_duration_ms": 180000
+  },
+  "updated_at": "2026-03-24T01:13:00.161Z"
+}
