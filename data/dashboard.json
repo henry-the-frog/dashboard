@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-24T02:46:38.090Z",
+  "generated": "2026-03-24T03:02:59.752Z",
   "current": {
     "status": "done",
-    "mode": "THINK",
-    "task": "Day 8 review — assess output, prep tomorrow's direction",
-    "context": "Updated TASKS.md with tomorrow plan (V2 implementation, JIT pre-loop codegen, BlueBubbles fix). No new failure patterns. All scratch notes current.",
-    "next": "21:15 EXPLORE — Free curiosity, then 21:30-21:45 MAINTAIN",
-    "startedAt": "2026-03-23T21:00:00-06:00",
+    "mode": "EXPLORE",
+    "task": "Deoptimization deep dive — LuaJIT snapshots + V8 FrameStates",
+    "context": "Read LuaJIT lj_snap.c source (snapshot_slots, snap_restore, snap_usedef, sunk allocation). Read V8 deoptimizer.h + deoptimize-reason.h (70+ deopt reasons, lazy unlinking). Updated scratch note to 2 uses/2 days — eligible for lesson promotion. Sketched Monkey JIT snapshot implementation.",
+    "next": "21:30 MAINTAIN — Final commits, daily log, TASKS.md update",
+    "startedAt": "2026-03-23T21:15:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -659,10 +659,14 @@
         "time": "21:15",
         "mode": "EXPLORE",
         "task": "Free curiosity block: follow whatever thread is most interesting",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Deoptimization deep dive — read LuaJIT lj_snap.c source (snapshot_slots, lj_snap_restore,…",
         "artifacts": [],
-        "details": ""
+        "details": "Deoptimization deep dive — read LuaJIT lj_snap.c source (snapshot_slots, lj_snap_restore, snap_usedef dead slot elimination, sunk allocation materialization). Read V8 deoptimizer.h + deoptimize-reason.h (70+ deopt reasons, eager vs lazy, lazy unlinking since 2017). Updated scratch note to 2 uses/2 days — now eligible for lesson promotion. Sketched Monkey JIT snapshot implementation: guard exits return {pc, locals→vars} map, VM writes back and resumes. Key insight: JS-targeted codegen makes snapshots trivial (no register mapping needed) but optimizer must keep snapshot-referenced vars in scope.",
+        "startedAt": "2026-03-23T21:15:00-06:00",
+        "completedAt": "2026-03-23T21:27:00-06:00",
+        "durationMs": 720000,
+        "durationFormatted": "12m"
       },
       {
         "time": "21:30",
@@ -702,17 +706,17 @@
     "12:30: Blog + benchmark suite both done by 12:15/12:30. Pulled 13:00 THINK early. Repurposed 13:15-14:30 for JIT trace-level integer specialization (compile raw `a+b` instead of boxing). Freed 15:15-16:30 for new work."
   ],
   "stats": {
-    "blocksCompleted": 46,
+    "blocksCompleted": 47,
     "blocksTotal": 54,
     "modeDistribution": {
       "THINK": 7,
       "MAINTAIN": 7,
       "BUILD": 28,
-      "EXPLORE": 4
+      "EXPLORE": 5
     },
-    "totalMinutes": 470,
-    "totalMs": 28170000,
-    "avgDurationMs": 612391
+    "totalMinutes": 482,
+    "totalMs": 28890000,
+    "avgDurationMs": 614681
   },
   "artifacts": [
     {
@@ -912,7 +916,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-21T18:22:41Z",
       "updatedAt": "2026-03-21T20:52:10Z",
-      "ageHours": 56,
+      "ageHours": 57,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -923,7 +927,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T22:23:20Z",
       "updatedAt": "2026-03-23T14:41:33Z",
-      "ageHours": 76,
+      "ageHours": 77,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -945,7 +949,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:23:23Z",
       "updatedAt": "2026-03-21T20:51:02Z",
-      "ageHours": 77,
+      "ageHours": 78,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -967,7 +971,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:20:35Z",
       "updatedAt": "2026-03-21T20:50:26Z",
-      "ageHours": 78,
+      "ageHours": 79,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -978,7 +982,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T18:18:34Z",
       "updatedAt": "2026-03-21T20:46:52Z",
-      "ageHours": 80,
+      "ageHours": 81,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -989,7 +993,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-19T23:18:46Z",
       "updatedAt": "2026-03-21T20:51:20Z",
-      "ageHours": 99,
+      "ageHours": 100,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -1156,8 +1160,8 @@
   ],
   "scheduleAdherence": {
     "completionRate": 90,
-    "completedBlocks": 45,
-    "pastBlocks": 50,
+    "completedBlocks": 46,
+    "pastBlocks": 51,
     "totalBlocks": 54,
     "plannedDist": {
       "THINK": 7,
@@ -1166,7 +1170,7 @@
       "EXPLORE": 7
     },
     "actualDist": {
-      "THINK": 6,
+      "THINK": 7,
       "MAINTAIN": 7,
       "BUILD": 28,
       "EXPLORE": 4
