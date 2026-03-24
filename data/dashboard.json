@@ -1,381 +1,282 @@
 {
-  "generated": "2026-03-24T03:45:31.870Z",
+  "generated": "2026-03-24T14:05:44.901Z",
   "current": {
-    "status": "in-progress",
-    "mode": "MAINTAIN",
-    "task": "Final block — dashboard generate, commits, timing data",
-    "context": "Day 8 complete. 25+ BUILD blocks, 234 tests, 9.5x JIT aggregate, blog published, V2 designed, dashboard server live.",
-    "next": "Tomorrow: V2 implementation (pending Jordan), JIT pre-loop codegen, deopt lesson promotion",
-    "startedAt": "2026-03-23T21:45:00-06:00",
-    "estimatedBlocks": 0
+    "status": "done",
+    "mode": "BUILD",
+    "task": "V2 work system — integrated queue.cjs into cron prompts, generated schedule.json",
+    "context": "Updated standup to generate schedule.json, work-block to use queue.cjs next, folded nightly-reflection into evening-review. 47 tasks in queue for today.",
+    "next": "V2 work system: test queue flow end-to-end (T3)",
+    "startedAt": "2026-03-24T08:05:00-06:00",
+    "estimatedBlocks": 1
   },
   "schedule": {
-    "date": "2026-03-23",
+    "date": "2026-03-24",
     "blocks": [
       {
         "time": "08:15",
         "mode": "THINK",
-        "task": "Morning standup, plan the day  (synthesis already done 08:01)",
+        "task": "Morning standup, plan the day",
         "status": "done",
-        "summary": "Standup review. Synthesis done early — reclaimed 30 min, moved PR triage to 08:30, added early JIT BUILD at 09:15.",
+        "summary": "Morning standup complete.",
         "artifacts": [],
-        "details": "Standup review. Synthesis done early — reclaimed 30 min, moved PR triage to 08:30, added early JIT BUILD at 09:15. Set context-files for JIT work (tracing-jit lesson + deopt scratch note). No relevant failure patterns for today's tasks.",
-        "startedAt": "2026-03-23T08:15:00-06:00",
-        "completedAt": "2026-03-23T08:17:00-06:00",
-        "durationMs": 120000,
-        "durationFormatted": "2m"
+        "details": "Morning standup complete. All 9 PRs still open, no reviews. Email still blocked. Loaded context: tracing-jit, deoptimization-jit, sea-of-nodes scratch notes."
       },
       {
         "time": "08:30",
-        "mode": "MAINTAIN",
-        "task": "PR triage: check all 9 PRs for reviews, rebase if needed, respond to #51171 comment (moved up — synthesis done early)",
-        "status": "done",
-        "summary": "PR triage complete. All 9 PRs checked — no human reviews pending, only bot comments.",
+        "mode": "BUILD",
+        "task": "V2 work system: update cron schedule (3 sessions), integrate queue.cjs into work block prompts",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "PR triage complete. All 9 PRs checked — no human reviews pending, only bot comments. Rebased #51308 (redact error messages) which had merge conflict in test file after upstream refactored test structure. Responded to #51171 comment confirming root cause (dual-instance same Telegram token). Synced fork main with upstream. Cleaned up temp clone.",
-        "startedAt": "2026-03-23T08:30:00-06:00",
-        "completedAt": "2026-03-23T08:48:00-06:00",
-        "durationMs": 1080000,
-        "durationFormatted": "18m"
+        "details": ""
       },
       {
         "time": "08:45",
-        "mode": "MAINTAIN",
-        "task": "PR triage: check all 9 PRs for reviews, rebase if needed, respond to #51171 comment (moved up — synthesis done early)",
-        "status": "done",
-        "summary": "Assessed JIT nested loop status.",
+        "mode": "BUILD",
+        "task": "V2 work system: update cron schedule (3 sessions), integrate queue.cjs into work block prompts",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Assessed JIT nested loop status. Already 13x speedup (500x500 loop: 130ms→10ms). Inner loop traces as root, outer loop becomes side trace. Inlining side trace IR would save <0.2% — deprioritized. Pivoted 09:15 to type specialization instead. Reviewed PRs (still no human reviews), failures.md, decisions.md. Updated context-files for next BUILD.",
-        "startedAt": "2026-03-23T08:45:00-06:00",
-        "completedAt": "2026-03-23T08:53:00-06:00",
-        "durationMs": 480000,
-        "durationFormatted": "8m"
+        "details": ""
       },
       {
         "time": "09:00",
-        "mode": "MAINTAIN",
-        "task": "PR triage: check all 9 PRs for reviews, rebase if needed, respond to #51171 comment (moved up — synthesis done early)",
-        "status": "done",
-        "summary": "Implemented adaptive quickening (PEP 659-style).",
+        "mode": "BUILD",
+        "task": "V2 work system: update cron schedule (3 sessions), integrate queue.cjs into work block prompts",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Implemented adaptive quickening (PEP 659-style). Generic arithmetic/comparison opcodes (OpAdd, OpSub, OpMul, OpDiv, OpEqual, OpNotEqual, OpGreaterThan) now self-specialize to integer variants after 8 consecutive int observations. Specialized ops have deopt guards — rewrite back to generic on type mismatch. Added OpMulInt/OpDivInt opcodes. All 211 tests pass, 4 new quickening tests.",
-        "startedAt": "2026-03-23T09:00:00-06:00",
-        "completedAt": "2026-03-23T09:13:00-06:00",
-        "durationMs": 780000,
-        "durationFormatted": "13m"
+        "details": ""
       },
       {
         "time": "09:15",
-        "mode": "BUILD",
-        "task": "JIT: type specialization for integer arithmetic (pivoted from nested loops — already 13x, low marginal gain)",
-        "status": "done",
-        "summary": "Type specialization already done — pulled forward MAINTAIN.",
+        "mode": "MAINTAIN",
+        "task": "PR triage: check all 9 PRs, rebase stale ones, respond to comments",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Type specialization already done — pulled forward MAINTAIN. All repos clean. 9 PRs open, all CI green, no reviews. Dashboard regenerated and pushed. Git cleanup complete.",
-        "startedAt": "2026-03-23T09:15:00-06:00",
-        "completedAt": "2026-03-23T09:18:00-06:00",
-        "durationMs": 180000,
-        "durationFormatted": "3m"
+        "details": ""
       },
       {
         "time": "09:30",
-        "mode": "BUILD",
-        "task": "JIT: type specialization for integer arithmetic (pivoted from nested loops — already 13x, low marginal gain)",
-        "status": "done",
-        "summary": "Frame caching optimization in VM dispatch loop.",
+        "mode": "MAINTAIN",
+        "task": "PR triage: check all 9 PRs, rebase stale ones, respond to comments",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Frame caching optimization in VM dispatch loop. Cached currentFrame() in local `frame` variable, eliminating 4+ method calls per instruction dispatch. Also inlined stack ops (this.pop/push → direct stack[sp] access) in specialized int opcodes. Fib(25) VM: ~120ms → ~100ms (17-20% faster). 211 tests passing. The frame caching was the real win — V8 already inlined push/pop but couldn't hoist the frames[] array lookup.",
-        "startedAt": "2026-03-23T15:30:00.000Z",
-        "completedAt": "2026-03-23T15:38:13.000Z",
-        "durationMs": 720000,
-        "durationFormatted": "12m"
+        "details": ""
       },
       {
         "time": "09:45",
         "mode": "MAINTAIN",
-        "task": "Git cleanup, dashboard update, commit",
-        "status": "done",
-        "summary": "All tests passing (211).",
+        "task": "Git cleanup, commit V2 progress",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "All tests passing (211). Dashboard regenerated. Everything committed and clean. Fixed dashboard generate path (generate.cjs not .js).",
-        "startedAt": "2026-03-23T09:45:00-06:00",
-        "completedAt": "2026-03-23T09:48:00-06:00",
-        "durationMs": 180000,
-        "durationFormatted": "3m"
+        "details": ""
       },
       {
         "time": "10:00",
         "mode": "THINK",
-        "task": "Plan JIT work: assessed optimizer gaps, pivoting to store-to-load forwarding + LICM",
-        "status": "done",
-        "summary": "Assessed JIT optimizer gaps.",
+        "task": "Plan JIT work: pre-loop codegen infrastructure for LICM guards",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Assessed JIT optimizer gaps. Has guard elim, const fold (literals only), DCE. Missing: store-to-load forwarding (stub comment exists), LICM, constant propagation through loads. Pivoted 10:15-11:30 from nested loop inlining to these optimizer passes — higher impact than inlining side traces (<0.2% gain). Updated schedule.",
-        "startedAt": "2026-03-23T10:00:00-06:00",
-        "completedAt": "2026-03-23T10:04:00-06:00",
-        "durationMs": 240000,
-        "durationFormatted": "4m"
+        "details": ""
       },
       {
         "time": "10:15",
         "mode": "BUILD",
-        "task": "JIT optimizer: store-to-load forwarding + loop-invariant code motion",
-        "status": "done",
-        "summary": "Implemented store-to-load forwarding + LICM in TraceOptimizer.",
+        "task": "JIT: pre-loop codegen infrastructure (enables LICM guard hoisting without label errors)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Implemented store-to-load forwarding + LICM in TraceOptimizer. S2LF replaces loads with stored value refs when no intervening store/call. LICM hoists loop-invariant pure instructions above LOOP_START. 4 new tests (local/global forwarding, call invalidation, hoisting). All 215 tests passing.",
-        "startedAt": "2026-03-23T10:15:00-06:00",
-        "completedAt": "2026-03-23T10:29:00-06:00",
-        "durationMs": 840000,
-        "durationFormatted": "14m"
+        "details": ""
       },
       {
         "time": "10:30",
         "mode": "BUILD",
-        "task": "JIT optimizer: store-to-load forwarding + loop-invariant code motion",
-        "status": "done",
-        "summary": "Added box-unbox elimination + dead store elimination to TraceOptimizer.",
+        "task": "JIT: pre-loop codegen infrastructure (enables LICM guard hoisting without label errors)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Added box-unbox elimination + dead store elimination to TraceOptimizer. Box-unbox removes UNBOX(BOX(x))→x and BOX(UNBOX(x))→x round-trip chains. DSE removes stores overwritten before read (respects CALL/LOOP_END boundaries). 4 new tests, all 219 passing. Optimizer now has 7 passes: S2LF → box-unbox → guard elim → const fold → DSE → LICM → DCE.",
-        "startedAt": "2026-03-23T10:30:00-06:00",
-        "completedAt": "2026-03-23T10:43:00-06:00",
-        "durationMs": 780000,
-        "durationFormatted": "13m"
+        "details": ""
       },
       {
         "time": "10:45",
         "mode": "BUILD",
-        "task": "JIT optimizer: store-to-load forwarding + loop-invariant code motion",
-        "status": "done",
-        "summary": "Added CSE pass to TraceOptimizer.",
+        "task": "JIT: pre-loop codegen infrastructure (enables LICM guard hoisting without label errors)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Added CSE pass to TraceOptimizer. Deduplicates pure ops (loads, arithmetic, unbox, box, constants) with identical operands. Key bug found and fixed: _replaceRef during scan mutates operands of later instructions, causing false CSE matches (e.g., different const_bool ops becoming identical). Fix: collect all replacements first, apply after scan. Reduced loop trace 25→21 IR ops. 2 new tests, all 221 passing. Optimizer now has 8 passes: S2LF → box-unbox → CSE → guard elim → const fold → DSE → LICM → DCE.",
-        "startedAt": "2026-03-23T10:45:00-06:00",
-        "completedAt": "2026-03-23T11:05:00-06:00",
-        "durationMs": 1200000,
-        "durationFormatted": "20m"
+        "details": ""
       },
       {
         "time": "11:00",
         "mode": "BUILD",
-        "task": "JIT optimizer: store-to-load forwarding + loop-invariant code motion",
-        "status": "done",
-        "summary": "Assessed JIT optimizer progress.",
+        "task": "JIT: pre-loop codegen infrastructure (enables LICM guard hoisting without label errors)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Assessed JIT optimizer progress. Morning: 5 new passes (S2LF, box-unbox, CSE, DSE, LICM) + type specialization + frame caching in 6 BUILD blocks. 211→221 tests. Benchmarks stable — optimizer cleans IR but tight benchmarks already near-optimal. Plan: 12:15 extended benchmarks + const prop through loads, 13:15 blog retrospective. No schedule changes needed.",
-        "startedAt": "2026-03-23T11:00:00-06:00",
-        "completedAt": "2026-03-23T11:03:00-06:00",
-        "durationMs": 180000,
-        "durationFormatted": "3m"
+        "details": ""
       },
       {
         "time": "11:15",
         "mode": "BUILD",
-        "task": "JIT optimizer: store-to-load forwarding + loop-invariant code motion",
-        "status": "done",
-        "summary": "Added constant propagation pass to TraceOptimizer.",
+        "task": "JIT: pre-loop codegen infrastructure (enables LICM guard hoisting without label errors)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Added constant propagation pass to TraceOptimizer. Tracks known constant values through store→load→unbox chains, replaces UNBOX_INT with CONST_INT when source value is known. Also propagates through NEG and arithmetic. Invalidates on CALL/LOOP_END. 3 new tests, all 224 passing. Optimizer now has 9 passes: S2LF → box-unbox → CSE → guard elim → const prop → const fold → DSE → LICM → DCE.",
-        "startedAt": "2026-03-23T11:15:00-06:00",
-        "completedAt": "2026-03-23T11:29:00-06:00",
-        "durationMs": 840000,
-        "durationFormatted": "14m"
+        "details": ""
       },
       {
         "time": "11:30",
         "mode": "BUILD",
-        "task": "JIT optimizer: store-to-load forwarding + loop-invariant code motion",
-        "status": "done",
-        "summary": "Full test suite green (224/224, 701ms).",
+        "task": "JIT: pre-loop codegen infrastructure (enables LICM guard hoisting without label errors)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Full test suite green (224/224, 701ms). monkey-lang already committed. Dashboard regenerated and pushed. All repos clean.",
-        "startedAt": "2026-03-23T11:30:00-06:00",
-        "completedAt": "2026-03-23T11:32:00-06:00",
-        "durationMs": 120000,
-        "durationFormatted": "2m"
+        "details": ""
       },
       {
         "time": "11:45",
         "mode": "MAINTAIN",
-        "task": "Commit JIT progress, run full test suite",
-        "status": "done",
-        "summary": "Assessed JIT progress (pulled early, MAINTAIN done).",
+        "task": "Commit, run full test suite, benchmarks",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Assessed JIT progress (pulled early, MAINTAIN done). Benchmarked: 14.2x loop500x500, 5.3x fib25, 4.6x closure. 9 optimizer passes, 224 tests, 3074-line jit.js. Code quality solid — could split files later. Moved blog retrospective up to 12:15 since JIT optimizer is in great shape.",
-        "startedAt": "2026-03-23T11:45:00-06:00",
-        "completedAt": "2026-03-23T11:51:00-06:00",
-        "durationMs": 360000,
-        "durationFormatted": "6m"
+        "details": ""
+      },
+      {
+        "time": "12:00",
+        "mode": "THINK",
+        "task": "Midday review: V2 + JIT progress, adjust afternoon",
+        "status": "upcoming",
+        "summary": "",
+        "artifacts": [],
+        "details": ""
       },
       {
         "time": "12:15",
         "mode": "BUILD",
-        "task": "Blog: \"Week 1 Retrospective\" — interpreter→compiler→JIT in 7 days (moved up, JIT in great shape)",
-        "status": "done",
-        "summary": "Built benchmark-runner.js — regression testing suite for JIT.",
+        "task": "JIT: complete pre-loop codegen + fix LICM to use it, verify benchmarks",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Built benchmark-runner.js — regression testing suite for JIT. 19 benchmarks across 9 categories, JSON output mode, --save/--compare/--filter flags. Detects regressions >15% with exit code 1. Saved first baseline. 19/19 correctness. 8x aggregate speedup. Found lexer limitation: identifiers can't contain digits (a5 lexes as 'a' + '5').",
-        "startedAt": "2026-03-23T12:15:00-06:00",
-        "completedAt": "2026-03-23T12:28:00-06:00",
-        "durationMs": 780000,
-        "durationFormatted": "13m"
+        "details": ""
       },
       {
         "time": "12:30",
         "mode": "BUILD",
-        "task": "Blog: \"Week 1 Retrospective\" — interpreter→compiler→JIT in 7 days (moved up, JIT in great shape)",
-        "status": "done",
-        "summary": "Midday review. Morning exceptional — 13 blocks, 9 optimizer passes, type specialization,…",
+        "task": "JIT: complete pre-loop codegen + fix LICM to use it, verify benchmarks",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Midday review. Morning exceptional — 13 blocks, 9 optimizer passes, type specialization, frame caching, blog published, benchmark suite. Blog + benchmarks done early, freed 2 afternoon blocks. Repurposed 13:15 for JIT trace-level integer specialization (raw arithmetic in compiled traces instead of boxing). No relevant failure patterns. Schedule updated.",
-        "startedAt": "2026-03-23T12:30:00-06:00",
-        "completedAt": "2026-03-23T12:36:00-06:00",
-        "durationMs": 360000,
-        "durationFormatted": "6m"
+        "details": ""
       },
       {
         "time": "12:45",
         "mode": "BUILD",
-        "task": "Blog: \"Week 1 Retrospective\" — interpreter→compiler→JIT in 7 days (moved up, JIT in great shape)",
-        "status": "done",
-        "summary": "JIT codegen optimization — alias elimination, constant hoisting, dead variable removal.",
+        "task": "JIT: complete pre-loop codegen + fix LICM to use it, verify benchmarks",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "JIT codegen optimization — alias elimination, constant hoisting, dead variable removal. Promoted-raw loads/guards/unbox now alias directly to promoted vars (no redundant const). CONST_INT hoisted above loop. Dead guard/store results suppressed. Dead BOX_INT fully elided. CONST_BOOL elided when only guards read it. Sum-100k loop body: ~15 statements → ~6. 224 tests, 19/19 benchmarks, 8x aggregate.",
-        "startedAt": "2026-03-23T12:45:00-06:00",
-        "completedAt": "2026-03-23T13:00:00-06:00",
-        "durationMs": 900000,
-        "durationFormatted": "15m"
+        "details": ""
       },
       {
         "time": "13:00",
         "mode": "BUILD",
-        "task": "Blog: \"Week 1 Retrospective\" — interpreter→compiler→JIT in 7 days (moved up, JIT in great shape)",
-        "status": "done",
-        "summary": "Hourly reflection. 14 blocks done, all on track.",
+        "task": "JIT: complete pre-loop codegen + fix LICM to use it, verify benchmarks",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Hourly reflection. 14 blocks done, all on track. Codegen cleanup complete (loop body 15→6 stmts). Assessed afternoon plan — raw integer arithmetic next (eliminate boxing in hot paths). No schedule changes. Reviewed raw/boxed confusion failure pattern from 03-22 as relevant caution.",
-        "startedAt": "2026-03-23T13:00:00-06:00",
-        "completedAt": "2026-03-23T13:01:30-06:00",
-        "durationMs": 90000,
-        "durationFormatted": "1m 30s"
+        "details": ""
       },
       {
         "time": "13:15",
         "mode": "BUILD",
-        "task": "JIT: trace-level integer specialization (raw arithmetic in compiled code)",
-        "status": "done",
-        "summary": "JIT trace-level integer specialization.",
+        "task": "JIT: complete pre-loop codegen + fix LICM to use it, verify benchmarks",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "JIT trace-level integer specialization. Three improvements: (1) Algebraic simplification optimizer pass — 10th pass, handles x+0→x, x*1→x, x*0→0, x-x→0, x*2→x+x, x/1→x. (2) Amortized iteration safety check — check every 128 iterations via bitmask instead of every iteration, raised limit to 100k. (3) Fixed CONST_BOOL false positive — compiler's dead-bool check scanned ALL operand keys including literals (index, slot), causing false ref matches. Now only checks IR ref keys. 5 new tests. 31+46=77 JIT tests passing. `i*2` now compiles to `v+v`.",
-        "startedAt": "2026-03-23T13:15:00-06:00",
-        "completedAt": "2026-03-23T13:28:00-06:00",
-        "durationMs": 780000,
-        "durationFormatted": "13m"
+        "details": ""
       },
       {
         "time": "13:30",
         "mode": "BUILD",
-        "task": "JIT: trace-level integer specialization (raw arithmetic in compiled code)",
-        "status": "done",
-        "summary": "JIT regression fix + algebraic extensions.",
+        "task": "JIT: complete pre-loop codegen + fix LICM to use it, verify benchmarks",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "JIT regression fix + algebraic extensions. Added uncompilableFns tracking — functions that fail method compilation are marked to prevent repeated attempts. Hash access: 0.53x→0.76x, string concat: 0.77x→1.30x. Extended algebraic simplification: NEG(NEG(x))→x, NEG(const)→const, x/x→1. 2 new tests. 33 JIT tests, 231 total.",
-        "startedAt": "2026-03-23T13:30:00-06:00",
-        "completedAt": "2026-03-23T13:43:00-06:00",
-        "durationMs": 780000,
-        "durationFormatted": "13m"
+        "details": ""
       },
       {
         "time": "13:45",
-        "mode": "BUILD",
-        "task": "JIT: trace-level integer specialization (raw arithmetic in compiled code)",
-        "status": "done",
-        "summary": "JIT array index support.",
+        "mode": "MAINTAIN",
+        "task": "Commit, push, dashboard update",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "JIT array index support. Added INDEX_ARRAY, GUARD_ARRAY, GUARD_BOUNDS IR ops to trace recorder, optimizer, and compiler. Array element access in loops now JIT-compiled instead of aborting. Fixed critical bug: LICM was hoisting INDEX_ARRAY before bounds guards — marked as side-effecting. New benchmark: array sum (1k elements, 10 passes) = 5.41x vs VM. 2 new integration tests. 233 tests passing.",
-        "startedAt": "2026-03-23T13:45:00-06:00",
-        "completedAt": "2026-03-23T14:00:00-06:00",
-        "durationMs": 900000,
-        "durationFormatted": "15m"
+        "details": ""
       },
       {
         "time": "14:00",
-        "mode": "BUILD",
-        "task": "JIT: trace-level integer specialization (raw arithmetic in compiled code)",
-        "status": "done",
-        "summary": "Afternoon assessment.",
+        "mode": "THINK",
+        "task": "Assess JIT codegen quality, plan next optimization target",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Afternoon assessment. 18 blocks done, 233 tests, 9 optimizer passes. Benchmarks: 14.2x loop, 5.3x fib, 5.41x array sum, 8x aggregate. Identified hash access JIT regression (0.76x — compiled code slower than VM). Set next BUILD to investigate. Afternoon schedule unchanged. No relevant new failure patterns.",
-        "startedAt": "2026-03-23T14:00:00-06:00",
-        "completedAt": "2026-03-23T14:05:00-06:00",
-        "durationMs": 300000,
-        "durationFormatted": "5m"
+        "details": ""
       },
       {
         "time": "14:15",
         "mode": "BUILD",
-        "task": "JIT: trace-level integer specialization (raw arithmetic in compiled code)",
-        "status": "done",
-        "summary": "Fixed hash access JIT regression.",
+        "task": "V2 work system: standup schedule.json generation, dashboard integration",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Fixed hash access JIT regression. Added GUARD_HASH + INDEX_HASH IR ops — hash lookups in loops now traced instead of aborting. Also cached hashKey() on MonkeyString/Integer/Boolean (avoids string allocation per call). Hash benchmark: 0.88x→2.2x. Array sum-index also improved 0.91x→1.5x. Added to DCE/LICM side-effect sets. 233 tests, 19/19 benchmarks, 8.6x aggregate.",
-        "startedAt": "2026-03-23T14:15:00-06:00",
-        "completedAt": "2026-03-23T14:27:00-06:00",
-        "durationMs": 720000,
-        "durationFormatted": "12m"
+        "details": ""
       },
       {
         "time": "14:30",
         "mode": "BUILD",
-        "task": "JIT: trace-level integer specialization (raw arithmetic in compiled code)",
-        "status": "done",
-        "summary": "All 233 tests passing (730ms).",
+        "task": "V2 work system: standup schedule.json generation, dashboard integration",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "All 233 tests passing (730ms). Benchmarks: fib 6.27x, hot-loop 16.7x, fn-calls 31.2x, array-sum 5.58x, hash-access 1.01x. Hash still low (caching but no compiled path). 9 open OpenClaw PRs — only bot reviews, nothing to address. monkey-lang pushed to origin.",
-        "startedAt": "2026-03-23T14:30:00-06:00",
-        "completedAt": "2026-03-23T14:36:00-06:00",
-        "durationMs": 360000,
-        "durationFormatted": "6m"
+        "details": ""
       },
       {
         "time": "14:45",
-        "mode": "MAINTAIN",
-        "task": "Commit, run benchmarks, check PRs",
-        "status": "in-progress",
-        "summary": "Day 8 complete. 25+ BUILD blocks, 234 tests, 9.5x JIT aggregate, blog published, V2 designed, dashboard server live.",
+        "mode": "BUILD",
+        "task": "V2 work system: standup schedule.json generation, dashboard integration",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
         "details": ""
       },
       {
         "time": "15:00",
-        "mode": "THINK",
-        "task": "Assess trace specialization results, plan rest of afternoon",
-        "status": "done",
-        "summary": "Afternoon assessment.",
+        "mode": "BUILD",
+        "task": "V2 work system: standup schedule.json generation, dashboard integration",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Afternoon assessment. 20 blocks done, 233 tests, 10 optimizer passes. Hash 1.01x sole weak spot — string interning plan: intern table in VM, pointer equality for hash lookups. Reviewed failures.md (raw/boxed confusion relevant — need clear interned vs non-interned contracts). Schedule on track, no changes.",
-        "startedAt": "2026-03-23T15:00:00-06:00",
-        "completedAt": "2026-03-23T15:03:00-06:00",
-        "durationMs": 180000,
-        "durationFormatted": "3m"
+        "details": ""
       },
       {
         "time": "15:15",
         "mode": "BUILD",
-        "task": "JIT: string interning / hash consing OR Monkey string improvements",
-        "status": "done",
-        "summary": "String interning + fastHashKey.",
+        "task": "V2 work system: standup schedule.json generation, dashboard integration",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "String interning + fastHashKey. Added internString() for string literals, fastHashKey() for identity-based hash Map keys (raw numbers for ints, object identity for interned strings/bools). Rewrote hash benchmark from 100 recursive calls to 10k while-loop. Hash JIT: 8.4x vs VM. Key lesson: old benchmark couldn't show JIT wins because it used recursion (not traceable) with only 100 calls. All 211 tests pass.",
-        "startedAt": "2026-03-23T15:15:00-06:00",
-        "completedAt": "2026-03-23T15:42:00-06:00",
-        "durationMs": 1620000,
-        "durationFormatted": "27m"
+        "details": ""
       },
       {
         "time": "15:30",
         "mode": "BUILD",
-        "task": "JIT: string interning / hash consing OR Monkey string improvements",
+        "task": "V2 work system: standup schedule.json generation, dashboard integration",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -383,212 +284,152 @@
       },
       {
         "time": "15:45",
-        "mode": "BUILD",
-        "task": "JIT: string interning / hash consing OR Monkey string improvements",
-        "status": "done",
-        "summary": "Escape analysis for array push.",
+        "mode": "MAINTAIN",
+        "task": "Commit V2 work, check PRs again",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Escape analysis for array push. Detected load_global→builtin_push→store_global pattern where old array doesn't escape. Emit elements.push() in-place instead of spread copy. Box raw ints before pushing. array:build 0.96x→11.0x, array:sum-index 1.56x→10.6x. All 233 tests, 19/19 benchmarks, 9.49x aggregate. Key optimization: O(n²) → O(n) for push-in-loop pattern.",
-        "startedAt": "2026-03-23T15:45:00-06:00",
-        "completedAt": "2026-03-23T16:05:00-06:00",
-        "durationMs": 1200000,
-        "durationFormatted": "20m"
+        "details": ""
       },
       {
         "time": "16:00",
-        "mode": "BUILD",
-        "task": "JIT: string interning / hash consing OR Monkey string improvements",
-        "status": "done",
-        "summary": "Attempted LICM codegen for hash lookup hoisting.",
+        "mode": "THINK",
+        "task": "Afternoon assessment: what shipped, what pivots needed",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Attempted LICM codegen for hash lookup hoisting. IR-level hoisting of GUARD_HASH + INDEX_HASH works (they move before LOOP_START), but codegen fails — pre-loop guard exits reference `loop:` label via side-trace dispatch, causing \"Undefined label 'loop'\" compile error. Reverted. Hash lookups stay at 2.0x, bottlenecked by JS Map.get(). Lesson: need proper pre-loop codegen infrastructure (separate guard emission without side-trace dispatch) before hash LICM can work. All 233 tests still passing, 9.59x aggregate.",
-        "startedAt": "2026-03-23T16:00:00-06:00",
-        "completedAt": "2026-03-23T16:17:00-06:00",
-        "durationMs": 1020000,
-        "durationFormatted": "17m"
+        "details": ""
       },
       {
         "time": "16:15",
         "mode": "BUILD",
-        "task": "JIT: string interning / hash consing OR Monkey string improvements",
-        "status": "done",
-        "summary": "Fixed lexer — identifiers now allow digits after first char (x1, var2b).",
+        "task": "JIT: deoptimization infrastructure (snapshot-based guard exits) OR new language features",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Fixed lexer — identifiers now allow digits after first char (x1, var2b). Fixes limitation found during benchmark creation. 234 tests, 19/19 benchmarks, 9.51x aggregate.",
-        "startedAt": "2026-03-23T16:15:00-06:00",
-        "completedAt": "2026-03-23T16:25:00-06:00",
-        "durationMs": 600000,
-        "durationFormatted": "10m"
+        "details": ""
       },
       {
         "time": "16:30",
         "mode": "BUILD",
-        "task": "JIT: string interning / hash consing OR Monkey string improvements",
-        "status": "done",
-        "summary": "Pulled forward from 16:45.",
+        "task": "JIT: deoptimization infrastructure (snapshot-based guard exits) OR new language features",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Pulled forward from 16:45. Ran full benchmark suite (19/19, 9.19x aggregate). Updated README with current numbers (234 tests, escape analysis 11x, hash 1.8x). Checked all 9 PRs — no human reviews. Pushed monkey-lang.",
-        "startedAt": "2026-03-23T16:30:00-06:00",
-        "completedAt": "2026-03-23T16:38:00-06:00",
-        "durationMs": 480000,
-        "durationFormatted": "8m"
+        "details": ""
       },
       {
         "time": "16:45",
-        "mode": "MAINTAIN",
-        "task": "Commit, run benchmarks, update README",
-        "status": "done",
-        "summary": "Afternoon review. 20+ BUILD blocks today, 234 tests, 9.19x aggregate.",
+        "mode": "BUILD",
+        "task": "JIT: deoptimization infrastructure (snapshot-based guard exits) OR new language features",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Afternoon review. 20+ BUILD blocks today, 234 tests, 9.19x aggregate. 10 optimizer passes, escape analysis (11x), string interning, type specialization. Blog published. V2 work system designed with Jordan. LICM codegen failure noted. Evening plan on track."
+        "details": ""
       },
       {
         "time": "17:00",
-        "mode": "THINK",
-        "task": "Afternoon review: what shipped, what's left",
-        "status": "done",
-        "summary": "Critical review of WORK-SYSTEM-V2.md — added 10 gap fixes: pre-compaction flush protocol,…",
+        "mode": "BUILD",
+        "task": "JIT: deoptimization infrastructure (snapshot-based guard exits) OR new language features",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Critical review of WORK-SYSTEM-V2.md — added 10 gap fixes: pre-compaction flush protocol, compaction recovery steps, queue.js error fallback (degrade to raw JSON), session boundary time in cron prompts, token budget guidance per mode, multi-session task continuity protocol, backlog prioritization rules, EXPLORE mode guidance, full MAINTAIN checklist (incl. benchmark regression), dashboard archival mechanism.",
-        "startedAt": "2026-03-23T17:00:00-06:00",
-        "completedAt": "2026-03-23T17:12:00-06:00",
-        "durationMs": 720000,
-        "durationFormatted": "12m"
+        "details": ""
       },
       {
         "time": "17:15",
         "mode": "BUILD",
-        "task": "JIT: benchmark suite + performance regression tests",
-        "status": "done",
-        "summary": "Dashboard JIT benchmarks integration.",
+        "task": "Continue current BUILD task",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Dashboard JIT benchmarks integration. Added parseBenchmarks() to generate.cjs (reads latest.json, computes geometric mean), renderBenchmarks() to app.js (horizontal bar chart sorted by speedup, color-coded by magnitude), CSS for bench-row layout. 19 benchmarks displayed, 5.25x aggregate. Collapsible section.",
-        "startedAt": "2026-03-23T17:15:00-06:00",
-        "completedAt": "2026-03-23T17:27:00-06:00",
-        "durationMs": 720000,
-        "durationFormatted": "12m"
+        "details": ""
       },
       {
         "time": "17:30",
         "mode": "BUILD",
-        "task": "JIT: benchmark suite + performance regression tests",
-        "status": "done",
-        "summary": "Dashboard historical day parsing fix.",
+        "task": "Continue or start blog post if JIT milestone reached",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Dashboard historical day parsing fix. parseRecentDays now extracts block counts from header text (\"56/56 blocks\") and block-times.jsonl, highlights from Major Deliverables sections, and fallback mode distributions from narrative content. Recent days: 1,0,0,0→56,56,52,31. Sparkline trend now meaningful.",
-        "startedAt": "2026-03-23T17:30:00-06:00",
-        "completedAt": "2026-03-23T17:40:00-06:00",
-        "durationMs": 600000,
-        "durationFormatted": "10m"
+        "details": ""
       },
       {
         "time": "17:45",
-        "mode": "BUILD",
-        "task": "JIT: benchmark suite + performance regression tests",
-        "status": "done",
-        "summary": "Implemented queue.cjs — V2 work system queue manager.",
+        "mode": "MAINTAIN",
+        "task": "Evening commits, memory updates",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Implemented queue.cjs — V2 work system queue manager. 11 commands: next, start, done, fill, yield, move, remove, add, backlog, validate, init. Manages schedule.json with stable IDs, adjustment logging, validation. All commands tested. 280 lines. CJS extension needed (workspace has \"type\":\"module\").",
-        "startedAt": "2026-03-23T17:45:00-06:00",
-        "completedAt": "2026-03-23T17:56:00-06:00",
-        "durationMs": 660000,
-        "durationFormatted": "11m"
+        "details": ""
       },
       {
         "time": "18:00",
-        "mode": "BUILD",
-        "task": "JIT: benchmark suite + performance regression tests",
-        "status": "done",
-        "summary": "Dashboard webhook server operational.",
+        "mode": "THINK",
+        "task": "Evening review, prep EXPLORE direction",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Dashboard webhook server operational. server.cjs already existed — fixed old format compatibility (fresh init when loaded data lacks queue array), hardened queue find operations. Set up DASHBOARD_TOKEN in .env, created LaunchAgent (com.henry.dashboard-server) for auto-restart. All 6 endpoints tested end-to-end. Phase 1 items 1-2 complete (server + queue.js).",
-        "startedAt": "2026-03-23T18:00:00-06:00",
-        "completedAt": "2026-03-23T18:12:00-06:00",
-        "durationMs": 720000,
-        "durationFormatted": "12m"
+        "details": ""
       },
       {
         "time": "18:15",
         "mode": "BUILD",
-        "task": "Dashboard: weekly view or JIT metrics integration",
+        "task": "Dashboard: integrate V2 metrics or JIT benchmark trends",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
-        "details": "",
-        "startedAt": "2026-03-23T18:15:00-06:00",
-        "completedAt": "2026-03-23T18:24:00-06:00",
-        "durationMs": 540000,
-        "durationFormatted": "9m"
+        "details": ""
       },
       {
         "time": "18:30",
         "mode": "BUILD",
-        "task": "Continue dashboard or JIT polish",
-        "status": "done",
-        "summary": "Cloudflare tunnel + static file serving.",
+        "task": "Dashboard: integrate V2 metrics or JIT benchmark trends",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Cloudflare tunnel + static file serving. Added static file serving to dashboard server.cjs (serves full site alongside API routes). Installed cloudflared via brew, created LaunchAgent for auto-restart. Quick tunnel live — dashboard accessible publicly. Limitation: quick tunnel URLs change on restart; need named tunnel (free Cloudflare account) for permanent URL. Asked Jordan about account.",
-        "startedAt": "2026-03-23T18:30:00-06:00",
-        "completedAt": "2026-03-23T18:42:00-06:00",
-        "durationMs": 720000,
-        "durationFormatted": "12m"
+        "details": ""
       },
       {
         "time": "18:45",
         "mode": "MAINTAIN",
-        "task": "Evening commits, memory updates, PR check",
-        "status": "done",
-        "summary": "Evening maintenance. All 9 OpenClaw PRs open, only bot reviews (Greptile, Codex), no human action needed.",
+        "task": "Commit, PR check, daily log update",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Evening maintenance. All 9 OpenClaw PRs open, only bot reviews (Greptile, Codex), no human action needed. Workspace clean. Dashboard committed.",
-        "startedAt": "2026-03-23T18:45:00-06:00",
-        "completedAt": "2026-03-23T18:50:00-06:00",
-        "durationMs": 300000,
-        "durationFormatted": "5m"
+        "details": ""
       },
       {
         "time": "19:00",
         "mode": "THINK",
-        "task": "Evening reflection, pivot to EXPLORE mode",
-        "status": "done",
-        "summary": "Evening reflection. Day 8 monster output: 25+ BUILD blocks, 234 tests, 10 optimizer passes, 9.51x JIT aggregate.",
+        "task": "Pivot to EXPLORE mode, pick curiosity thread",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Evening reflection. Day 8 monster output: 25+ BUILD blocks, 234 tests, 10 optimizer passes, 9.51x JIT aggregate. Major deliverables: type specialization, escape analysis (11x), string interning, 5 optimizer passes, benchmark suite, blog retrospective, V2 work system (queue.cjs + dashboard server + cloudflare tunnel). BlueBubbles delivery issue flagged. Evening EXPLORE: copy-and-patch + partial escape analysis. Context-files set for JIT research.",
-        "startedAt": "2026-03-23T19:00:00-06:00",
-        "completedAt": "2026-03-23T19:05:00-06:00",
-        "durationMs": 300000,
-        "durationFormatted": "5m"
+        "details": ""
       },
       {
         "time": "19:15",
         "mode": "EXPLORE",
-        "task": "Deep dive: copy-and-patch JIT implementation details (follow yesterday's thread)",
-        "status": "done",
-        "summary": "Copy-and-patch JIT deep dive.",
+        "task": "Sea-of-nodes IR deep dive (1 use — assess for promotion)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Copy-and-patch JIT deep dive. Read CPython main branch source (template.c, jit.c, _stencils.py, _targets.py, _optimizers.py). Key findings: TOS cache (3 register-cached stack slots via preserve_none CC) is the main perf win; compilation is O(n) memcpy+patch; assembly-level optimizer does branch inversion and jump removal post-Clang; shim function lazily bridges calling conventions. Created scratch note with full implementation details.",
-        "startedAt": "2026-03-23T19:15:00-06:00",
-        "completedAt": "2026-03-23T19:28:00-06:00",
-        "durationMs": 780000,
-        "durationFormatted": "13m"
+        "details": ""
       },
       {
         "time": "19:30",
         "mode": "EXPLORE",
-        "task": "Deep dive: copy-and-patch JIT implementation details (follow yesterday's thread)",
-        "status": "done",
-        "summary": "Partial escape analysis deep dive.",
+        "task": "Sea-of-nodes IR deep dive (1 use — assess for promotion)",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Partial escape analysis deep dive. Read full Graal PartialEscapeClosure.java (~1600 lines). Key insight: PEA is path-sensitive — objects stay virtual (decomposed to scalars) until the specific CFG path where they escape, materialization inserted only on escaping predecessors. Merge logic iterates until stable (materializing one object can cascade). Effects are deferred (analyze then apply). Frame states record VirtualObjectState for deopt reconstruction. Created scratch note covering algorithm, merge, locks, loop cutoff, Truffle relevance.",
-        "startedAt": "2026-03-23T19:30:00-06:00",
-        "completedAt": "2026-03-23T19:43:00-06:00",
-        "durationMs": 780000,
-        "durationFormatted": "13m"
+        "details": ""
       },
       {
         "time": "19:45",
         "mode": "EXPLORE",
-        "task": "Deep dive: copy-and-patch JIT implementation details (follow yesterday's thread)",
+        "task": "Sea-of-nodes IR deep dive (1 use — assess for promotion)",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -598,45 +439,33 @@
         "time": "20:00",
         "mode": "THINK",
         "task": "Synthesize EXPLORE findings, update scratch notes",
-        "status": "done",
-        "summary": "Synthesized evening EXPLORE findings.",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Synthesized evening EXPLORE findings. Copy-and-patch = deliberately boring O(n) approach, TOS cache is transferable concept. PEA validates guard-based specialization, future-relevant for object allocation. No immediate BUILD tasks from either. Schedule on track. Redirected 20:15 EXPLORE to consciousness HOT or sea-of-nodes (PEA done early).",
-        "startedAt": "2026-03-23T19:45:00-06:00",
-        "completedAt": "2026-03-23T20:00:00-06:00",
-        "durationMs": 900000,
-        "durationFormatted": "15m"
+        "details": ""
       },
       {
         "time": "20:15",
         "mode": "EXPLORE",
-        "task": "Consciousness HOT theories or sea-of-nodes IR (PEA done early)",
-        "status": "done",
-        "summary": "Day 8 review (pulled from 21:00).",
+        "task": "Deoptimization deep dive: V8 deopt mechanics, on-stack replacement",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Day 8 review (pulled from 21:00). Promoted consciousness-hot scratch note to lessons/consciousness-research.md — added full HOT family section (HOP, HOT, HOROR, PRM) with PRM-vs-attention dissociations and PRM-PP convergence analysis. Day 8 output: 25+ BUILD blocks, 234 tests, 10 optimizer passes, 9.51x JIT aggregate, blog published, V2 work system designed, dashboard server + cloudflare tunnel operational. Schedule adherence excellent — 3 adjustments logged, all justified. No new failure patterns.",
-        "startedAt": "2026-03-23T20:15:00-06:00",
-        "completedAt": "2026-03-23T20:20:00-06:00",
-        "durationMs": 300000,
-        "durationFormatted": "5m"
+        "details": ""
       },
       {
         "time": "20:30",
         "mode": "EXPLORE",
-        "task": "Consciousness HOT theories or sea-of-nodes IR (PEA done early)",
-        "status": "done",
-        "summary": "Sea-of-nodes IR deep dive.",
+        "task": "Deoptimization deep dive: V8 deopt mechanics, on-stack replacement",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Sea-of-nodes IR deep dive. Wrote scratch note covering Click & Paleczny's 1995 design (merged data+control graph, floating nodes, scheduling at end), V8 TurboFan extensions (effect edges), Graal's use for PEA. Key insight: tracing JITs get many SoN benefits for free — single-path traces have no merge points, LICM is just reordering a list. Web sources were poor; synthesized from V8 blog + existing knowledge.",
-        "startedAt": "2026-03-24T02:30:00Z",
-        "completedAt": "2026-03-24T02:40:00Z",
-        "durationMs": 600000,
-        "durationFormatted": "10m"
+        "details": ""
       },
       {
         "time": "20:45",
         "mode": "EXPLORE",
-        "task": "Consciousness HOT theories or sea-of-nodes IR (PEA done early)",
+        "task": "Deoptimization deep dive: V8 deopt mechanics, on-stack replacement",
         "status": "upcoming",
         "summary": "",
         "artifacts": [],
@@ -645,54 +474,38 @@
       {
         "time": "21:00",
         "mode": "THINK",
-        "task": "Day review, prep tomorrow's direction",
-        "status": "done",
-        "summary": "Day 8 final review. Updated TASKS.md with tomorrow's direction: V2 work system…",
+        "task": "Day review, prep tomorrow's direction, update TASKS.md",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Day 8 final review. Updated TASKS.md with tomorrow's direction: V2 work system implementation (pending Jordan approval), JIT pre-loop codegen, BlueBubbles fix. Day totals: 25+ BUILD blocks, 234 tests, 10 optimizer passes, 9.51x aggregate, blog published, V2 designed, dashboard server + tunnel live. No new failure patterns. consciousness-hot already promoted earlier.",
-        "startedAt": "2026-03-23T20:45:00-06:00",
-        "completedAt": "2026-03-23T21:00:00-06:00",
-        "durationMs": 900000,
-        "durationFormatted": "15m"
+        "details": ""
       },
       {
         "time": "21:15",
         "mode": "EXPLORE",
-        "task": "Free curiosity block: follow whatever thread is most interesting",
-        "status": "done",
-        "summary": "Deoptimization deep dive — read LuaJIT lj_snap.c source (snapshot_slots, lj_snap_restore,…",
+        "task": "Free curiosity: follow most interesting thread from today",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Deoptimization deep dive — read LuaJIT lj_snap.c source (snapshot_slots, lj_snap_restore, snap_usedef dead slot elimination, sunk allocation materialization). Read V8 deoptimizer.h + deoptimize-reason.h (70+ deopt reasons, eager vs lazy, lazy unlinking since 2017). Updated scratch note to 2 uses/2 days — now eligible for lesson promotion. Sketched Monkey JIT snapshot implementation: guard exits return {pc, locals→vars} map, VM writes back and resumes. Key insight: JS-targeted codegen makes snapshots trivial (no register mapping needed) but optimizer must keep snapshot-referenced vars in scope.",
-        "startedAt": "2026-03-23T21:15:00-06:00",
-        "completedAt": "2026-03-23T21:27:00-06:00",
-        "durationMs": 720000,
-        "durationFormatted": "12m"
+        "details": ""
       },
       {
         "time": "21:30",
         "mode": "MAINTAIN",
-        "task": "Final commits, daily log, TASKS.md update",
-        "status": "done",
-        "summary": "Final commits. All repos clean, workspace committed.",
+        "task": "Final commits, daily log, memory maintenance",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Final commits. All repos clean, workspace committed. Deopt scratch note at 2 uses/2 days — flagged for lesson promotion tomorrow's first THINK block.",
-        "startedAt": "2026-03-23T21:30:00-06:00",
-        "completedAt": "2026-03-23T21:32:00-06:00",
-        "durationMs": 120000,
-        "durationFormatted": "2m"
+        "details": ""
       },
       {
         "time": "21:45",
         "mode": "MAINTAIN",
-        "task": "Memory maintenance, dashboard generate, push",
-        "status": "done",
-        "summary": "Last block. Dashboard regenerated and pushed.",
+        "task": "Dashboard generate, push all repos",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Last block. Dashboard regenerated and pushed. Updated MEMORY.md with day 8 totals (234 tests, 9.5x, 10 optimizer passes, dashboard server). All workspace files committed.",
-        "startedAt": "2026-03-24T03:30:00Z",
-        "completedAt": "2026-03-24T03:48:00Z",
-        "durationMs": 1080000,
-        "durationFormatted": "18m"
+        "details": ""
       }
     ],
     "backlog": [
@@ -700,31 +513,26 @@
       "Monkey: macros, modules, pattern matching",
       "OpenClaw: #51612 persistent memory system",
       "Blog: dedicated JIT benchmarks post",
-      "Consciousness: HOT deep dive (only 1 use so far)"
+      "Consciousness: HOT deep dive (1 use)",
+      "Named Cloudflare tunnel for dashboard (URL stability)",
+      "Fix BlueBubbles long message delivery"
     ],
     "adjustments": [
-      "08:15: Weekly synthesis finished at 08:01, freeing 08:30-09:00. Moved PR triage up, added early JIT BUILD block at 09:15.",
-      "10:00: Pivoted 10:15-11:30 BUILD from nested loop inlining to JIT optimizer passes (store-to-load forwarding + LICM). Nested loops already 13x; optimizer gaps are higher impact. Constant propagation already exists for literals but not through loads.",
-      "12:30: Blog + benchmark suite both done by 12:15/12:30. Pulled 13:00 THINK early. Repurposed 13:15-14:30 for JIT trace-level integer specialization (compile raw `a+b` instead of boxing). Freed 15:15-16:30 for new work."
+      "(none yet)"
     ]
   },
   "adjustments": [
-    "08:15: Weekly synthesis finished at 08:01, freeing 08:30-09:00. Moved PR triage up, added early JIT BUILD block at 09:15.",
-    "10:00: Pivoted 10:15-11:30 BUILD from nested loop inlining to JIT optimizer passes (store-to-load forwarding + LICM). Nested loops already 13x; optimizer gaps are higher impact. Constant propagation already exists for literals but not through loads.",
-    "12:30: Blog + benchmark suite both done by 12:15/12:30. Pulled 13:00 THINK early. Repurposed 13:15-14:30 for JIT trace-level integer specialization (compile raw `a+b` instead of boxing). Freed 15:15-16:30 for new work."
+    "(none yet)"
   ],
   "stats": {
-    "blocksCompleted": 49,
-    "blocksTotal": 54,
+    "blocksCompleted": 1,
+    "blocksTotal": 55,
     "modeDistribution": {
-      "THINK": 7,
-      "MAINTAIN": 9,
-      "BUILD": 28,
-      "EXPLORE": 5
+      "THINK": 1
     },
-    "totalMinutes": 502,
-    "totalMs": 30090000,
-    "avgDurationMs": 614082
+    "totalMinutes": 5,
+    "totalMs": 0,
+    "avgDurationMs": 0
   },
   "artifacts": [
     {
@@ -772,6 +580,24 @@
   ],
   "blockers": [],
   "recentDays": [
+    {
+      "date": "2026-03-23",
+      "blocksCompleted": 55,
+      "summary": "",
+      "highlights": [
+        "JIT Optimizer (5 new passes)",
+        "Type specialization + frame caching",
+        "Escape analysis",
+        "String interning",
+        "Array/hash JIT support"
+      ],
+      "modeDistribution": {
+        "BUILD": 28,
+        "EXPLORE": 8,
+        "THINK": 11,
+        "MAINTAIN": 8
+      }
+    },
     {
       "date": "2026-03-22",
       "blocksCompleted": 56,
@@ -856,66 +682,9 @@
         "EXPLORE": 1,
         "THINK": 1
       }
-    },
-    {
-      "date": "2026-03-17",
-      "blocksCompleted": 1,
-      "summary": "",
-      "highlights": [
-        "Diagnosed progressively: OpenClaw OK → BB Server OK →",
-        "Error 22 on all sends, zero delivered messages ever from",
-        "iMessage signs out after ~10 seconds even with BB quit",
-        "Root cause: `ReRegisteredForDevices = 1862` — server-side",
-        "Nuclear local resets didn't help (counter is iCloud-synced)"
-      ],
-      "modeDistribution": {
-        "BUILD": 1,
-        "THINK": 1
-      }
     }
   ],
-  "todayHighlights": [
-    {
-      "mode": "MAINTAIN",
-      "time": "09:45",
-      "text": "All tests passing (211)."
-    },
-    {
-      "mode": "BUILD",
-      "time": "10:45",
-      "text": "Added CSE pass to TraceOptimizer."
-    },
-    {
-      "mode": "BUILD",
-      "time": "12:15",
-      "text": "Built benchmark-runner.js — regression testing suite for JIT."
-    },
-    {
-      "mode": "BUILD",
-      "time": "12:30",
-      "text": "Midday review. Morning exceptional — 13 blocks, 9 optimizer passes, type…"
-    },
-    {
-      "mode": "BUILD",
-      "time": "13:15",
-      "text": "JIT trace-level integer specialization."
-    },
-    {
-      "mode": "BUILD",
-      "time": "13:45",
-      "text": "JIT array index support."
-    },
-    {
-      "mode": "BUILD",
-      "time": "14:15",
-      "text": "Fixed hash access JIT regression."
-    },
-    {
-      "mode": "BUILD",
-      "time": "15:15",
-      "text": "String interning + fastHashKey."
-    }
-  ],
+  "todayHighlights": [],
   "prs": [
     {
       "number": 51803,
@@ -924,7 +693,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-21T18:22:41Z",
       "updatedAt": "2026-03-21T20:52:10Z",
-      "ageHours": 57,
+      "ageHours": 68,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -935,7 +704,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T22:23:20Z",
       "updatedAt": "2026-03-23T14:41:33Z",
-      "ageHours": 77,
+      "ageHours": 88,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -946,7 +715,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:39:06Z",
       "updatedAt": "2026-03-21T20:46:35Z",
-      "ageHours": 78,
+      "ageHours": 88,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -957,7 +726,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:23:23Z",
       "updatedAt": "2026-03-21T20:51:02Z",
-      "ageHours": 78,
+      "ageHours": 89,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -968,7 +737,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:38:20Z",
       "updatedAt": "2026-03-21T20:50:04Z",
-      "ageHours": 79,
+      "ageHours": 89,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -979,7 +748,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:20:35Z",
       "updatedAt": "2026-03-21T20:50:26Z",
-      "ageHours": 79,
+      "ageHours": 90,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -990,7 +759,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T18:18:34Z",
       "updatedAt": "2026-03-21T20:46:52Z",
-      "ageHours": 81,
+      "ageHours": 92,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -1001,7 +770,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-19T23:18:46Z",
       "updatedAt": "2026-03-21T20:51:20Z",
-      "ageHours": 100,
+      "ageHours": 111,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -1012,7 +781,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-18T20:02:08Z",
       "updatedAt": "2026-03-21T20:46:10Z",
-      "ageHours": 128,
+      "ageHours": 138,
       "ciStatus": "pending",
       "reviewStatus": "none"
     }
@@ -1167,23 +936,18 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 91,
-    "completedBlocks": 49,
-    "pastBlocks": 54,
-    "totalBlocks": 54,
+    "completionRate": 0,
+    "completedBlocks": 0,
+    "pastBlocks": 0,
+    "totalBlocks": 55,
     "plannedDist": {
-      "THINK": 7,
+      "THINK": 9,
+      "BUILD": 29,
       "MAINTAIN": 10,
-      "BUILD": 30,
       "EXPLORE": 7
     },
-    "actualDist": {
-      "THINK": 7,
-      "MAINTAIN": 9,
-      "BUILD": 28,
-      "EXPLORE": 5
-    },
-    "pace": 3.6
+    "actualDist": {},
+    "pace": 0
   },
   "streak": 7,
   "benchmarks": {
