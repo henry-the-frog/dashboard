@@ -440,10 +440,11 @@ test('yield without --at fails', () => {
 });
 
 test('yield logs adjustment', () => {
+  // Uses state from the self-contained yield-then-next test above
   const data = loadSchedule();
   const yieldAdj = data.adjustments.find(a => a.message.includes('Yield'));
   assert(yieldAdj, 'should log yield adjustment');
-  assert(yieldAdj.message.includes('API is down'));
+  assert(yieldAdj.message.includes('Missing dep'));
 });
 
 // --- move ---
