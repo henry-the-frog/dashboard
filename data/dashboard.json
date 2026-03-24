@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-24T14:33:16.598Z",
+  "generated": "2026-03-24T14:52:52.640Z",
   "current": {
-    "status": "in-progress",
-    "mode": "MAINTAIN",
-    "task": "T6 — Git cleanup, commit V2 progress",
-    "context": "PR triage done, committing workspace changes",
+    "status": "done",
+    "mode": "BUILD",
+    "task": "T8 — JIT pre-loop codegen infrastructure",
+    "context": "Implemented _inLoop flag, pre-loop guard exits, LICM guard hoisting. 9 instructions hoisted in hash benchmark. 234 tests pass.",
     "next": "next from queue",
-    "startedAt": "2026-03-24T08:32:00-06:00",
+    "startedAt": "2026-03-24T08:55:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -42,10 +42,14 @@
         "time": "08:45",
         "mode": "BUILD",
         "task": "V2 work system: update cron schedule (3 sessions), integrate queue.cjs into work block prompts",
-        "status": "in-progress",
-        "summary": "PR triage done, committing workspace changes",
+        "status": "done",
+        "summary": "Implemented pre-loop codegen — _inLoop flag, LOOP_START emits loop label during IR…",
         "artifacts": [],
-        "details": ""
+        "details": "Implemented pre-loop codegen — _inLoop flag, LOOP_START emits loop label during IR iteration, simplified pre-loop guard exits, LICM now hoists guards. Hash benchmark: 9 instructions hoisted (3 GUARD_HASH). 234 tests pass, no regressions.",
+        "startedAt": "2026-03-24T14:45:00Z",
+        "completedAt": "2026-03-24T14:55:00Z",
+        "durationMs": 600000,
+        "durationFormatted": "10m"
       },
       {
         "time": "09:00",
@@ -533,14 +537,14 @@
     "(none yet)"
   ],
   "stats": {
-    "blocksCompleted": 2,
+    "blocksCompleted": 3,
     "blocksTotal": 55,
     "modeDistribution": {
       "THINK": 1,
-      "BUILD": 1
+      "BUILD": 2
     },
-    "totalMinutes": 20,
-    "totalMs": 1200000,
+    "totalMinutes": 30,
+    "totalMs": 1800000,
     "avgDurationMs": 600000
   },
   "artifacts": [
@@ -701,8 +705,8 @@
       "url": "https://github.com/openclaw/openclaw/pull/51803",
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-21T18:22:41Z",
-      "updatedAt": "2026-03-24T14:32:30Z",
-      "ageHours": 68,
+      "updatedAt": "2026-03-24T14:38:34Z",
+      "ageHours": 69,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -757,7 +761,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:20:35Z",
       "updatedAt": "2026-03-21T20:50:26Z",
-      "ageHours": 90,
+      "ageHours": 91,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -768,7 +772,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T18:18:34Z",
       "updatedAt": "2026-03-21T20:46:52Z",
-      "ageHours": 92,
+      "ageHours": 93,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -779,7 +783,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-19T23:18:46Z",
       "updatedAt": "2026-03-21T20:51:20Z",
-      "ageHours": 111,
+      "ageHours": 112,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -946,8 +950,8 @@
   ],
   "scheduleAdherence": {
     "completionRate": 100,
-    "completedBlocks": 2,
-    "pastBlocks": 2,
+    "completedBlocks": 3,
+    "pastBlocks": 3,
     "totalBlocks": 55,
     "plannedDist": {
       "THINK": 9,
@@ -957,9 +961,9 @@
     },
     "actualDist": {
       "THINK": 1,
-      "BUILD": 1
+      "BUILD": 2
     },
-    "pace": 6.7
+    "pace": 4.9
   },
   "streak": 7,
   "benchmarks": {
