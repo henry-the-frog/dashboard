@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-24T02:16:52.493Z",
+  "generated": "2026-03-24T02:32:15.441Z",
   "current": {
     "status": "done",
-    "mode": "THINK",
-    "task": "Day review, promote consciousness-hot to lessons",
-    "context": "Promoted consciousness-hot to lessons/consciousness-research.md (full HOT family section + PRM-attention-PP convergence). Day 8 reviewed — monster output day. Next blocks: free EXPLORE then final MAINTAIN.",
-    "next": "21:15 EXPLORE — Free curiosity block, then 21:30-21:45 MAINTAIN",
-    "startedAt": "2026-03-23T20:20:00-06:00",
+    "mode": "EXPLORE",
+    "task": "Sea-of-nodes IR deep dive",
+    "context": "Wrote scratch note covering SoN core concepts, V8 TurboFan extensions, comparison to tracing JIT, connection to PEA. Web sources were poor (CSS dumps) — synthesized from V8 blog + existing knowledge.",
+    "next": "21:15 EXPLORE — Free curiosity, then 21:30-21:45 MAINTAIN",
+    "startedAt": "2026-03-23T20:40:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -624,10 +624,14 @@
         "time": "20:30",
         "mode": "EXPLORE",
         "task": "Consciousness HOT theories or sea-of-nodes IR (PEA done early)",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Sea-of-nodes IR deep dive.",
         "artifacts": [],
-        "details": ""
+        "details": "Sea-of-nodes IR deep dive. Wrote scratch note covering Click & Paleczny's 1995 design (merged data+control graph, floating nodes, scheduling at end), V8 TurboFan extensions (effect edges), Graal's use for PEA. Key insight: tracing JITs get many SoN benefits for free — single-path traces have no merge points, LICM is just reordering a list. Web sources were poor; synthesized from V8 blog + existing knowledge.",
+        "startedAt": "2026-03-24T02:30:00Z",
+        "completedAt": "2026-03-24T02:40:00Z",
+        "durationMs": 600000,
+        "durationFormatted": "10m"
       },
       {
         "time": "20:45",
@@ -694,17 +698,17 @@
     "12:30: Blog + benchmark suite both done by 12:15/12:30. Pulled 13:00 THINK early. Repurposed 13:15-14:30 for JIT trace-level integer specialization (compile raw `a+b` instead of boxing). Freed 15:15-16:30 for new work."
   ],
   "stats": {
-    "blocksCompleted": 44,
+    "blocksCompleted": 45,
     "blocksTotal": 54,
     "modeDistribution": {
       "THINK": 6,
       "MAINTAIN": 7,
       "BUILD": 28,
-      "EXPLORE": 3
+      "EXPLORE": 4
     },
-    "totalMinutes": 445,
-    "totalMs": 26670000,
-    "avgDurationMs": 606136
+    "totalMinutes": 455,
+    "totalMs": 27270000,
+    "avgDurationMs": 606000
   },
   "artifacts": [
     {
@@ -992,7 +996,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-18T20:02:08Z",
       "updatedAt": "2026-03-21T20:46:10Z",
-      "ageHours": 126,
+      "ageHours": 127,
       "ciStatus": "pending",
       "reviewStatus": "none"
     }
@@ -1148,8 +1152,8 @@
   ],
   "scheduleAdherence": {
     "completionRate": 92,
-    "completedBlocks": 44,
-    "pastBlocks": 48,
+    "completedBlocks": 45,
+    "pastBlocks": 49,
     "totalBlocks": 54,
     "plannedDist": {
       "THINK": 7,
@@ -1161,7 +1165,7 @@
       "THINK": 6,
       "MAINTAIN": 7,
       "BUILD": 28,
-      "EXPLORE": 3
+      "EXPLORE": 4
     },
     "pace": 3.7
   },
