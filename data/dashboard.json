@@ -1,13 +1,13 @@
 {
-  "generated": "2026-03-24T00:17:05.260Z",
+  "generated": "2026-03-24T00:17:56.737Z",
   "current": {
-    "status": "in-progress",
+    "status": "done",
     "mode": "BUILD",
-    "task": "Dashboard: weekly view with 7-day stats, trends, and patterns",
-    "context": "Server running (localhost:3000). Frontend fetches from data/dashboard.json. recentDays array has 7 days of history with blocksCompleted, highlights, modeDistribution. Benchmarks section already works. Adding a proper weekly summary view.",
+    "task": "Dashboard: weekly summary view with stacked bar chart and mode breakdown",
+    "context": "Added weekly-summary-section to dashboard with aggregate stats (total blocks, hours, avg/day, active days, best day), stacked mode bar chart per day, and weekly mode breakdown with percentages/hours. Responsive, collapsible, integrated with existing recentDays data.",
     "next": "V2: Cloudflare tunnel setup OR update frontend to fetch from API",
-    "startedAt": "2026-03-23T18:16:00-06:00",
-    "estimatedBlocks": 2
+    "startedAt": "2026-03-23T18:24:00-06:00",
+    "estimatedBlocks": 0
   },
   "schedule": {
     "date": "2026-03-23",
@@ -341,8 +341,8 @@
         "time": "14:45",
         "mode": "MAINTAIN",
         "task": "Commit, run benchmarks, check PRs",
-        "status": "in-progress",
-        "summary": "Server running (localhost:3000). Frontend fetches from data/dashboard.json. recentDays array has 7 days of history with blocksCompleted, highlights, modeDistribution. Benchmarks section already works. Adding a proper weekly summary view.",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
         "details": ""
       },
@@ -511,10 +511,14 @@
         "time": "18:15",
         "mode": "BUILD",
         "task": "Dashboard: weekly view or JIT metrics integration",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Dashboard weekly summary view.",
         "artifacts": [],
-        "details": ""
+        "details": "Dashboard weekly summary view. Added weekly-summary-section with aggregate stats (total blocks, hours, avg/day, active days, best day), stacked mode bar chart per day, and mode breakdown with percentages. Responsive, collapsible. Pushed to GitHub Pages.",
+        "startedAt": "2026-03-23T18:15:00-06:00",
+        "completedAt": "2026-03-23T18:24:00-06:00",
+        "durationMs": 540000,
+        "durationFormatted": "9m"
       },
       {
         "time": "18:30",
@@ -662,16 +666,16 @@
     "12:30: Blog + benchmark suite both done by 12:15/12:30. Pulled 13:00 THINK early. Repurposed 13:15-14:30 for JIT trace-level integer specialization (compile raw `a+b` instead of boxing). Freed 15:15-16:30 for new work."
   ],
   "stats": {
-    "blocksCompleted": 37,
+    "blocksCompleted": 38,
     "blocksTotal": 54,
     "modeDistribution": {
       "THINK": 4,
       "MAINTAIN": 6,
-      "BUILD": 27
+      "BUILD": 28
     },
-    "totalMinutes": 377,
-    "totalMs": 22590000,
-    "avgDurationMs": 610541
+    "totalMinutes": 386,
+    "totalMs": 23130000,
+    "avgDurationMs": 608684
   },
   "artifacts": [
     {
@@ -1114,8 +1118,8 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 93,
-    "completedBlocks": 37,
+    "completionRate": 95,
+    "completedBlocks": 38,
     "pastBlocks": 40,
     "totalBlocks": 54,
     "plannedDist": {
@@ -1127,9 +1131,9 @@
     "actualDist": {
       "THINK": 4,
       "MAINTAIN": 6,
-      "BUILD": 27
+      "BUILD": 28
     },
-    "pace": 3.7
+    "pace": 3.8
   },
   "streak": 7,
   "benchmarks": {
