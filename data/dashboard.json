@@ -1,13 +1,13 @@
 {
-  "generated": "2026-03-24T00:03:40.430Z",
+  "generated": "2026-03-24T00:17:05.260Z",
   "current": {
-    "status": "done",
+    "status": "in-progress",
     "mode": "BUILD",
-    "task": "V2: Dashboard webhook server setup",
-    "context": "server.cjs tested and running via LaunchAgent (com.henry.dashboard-server). All 6 endpoints working. DASHBOARD_TOKEN in ~/.openclaw/.env. Fixed old format compatibility (fresh init when no queue array). Next Phase 1 items: Cloudflare tunnel, update frontend to fetch from API, cron prompt templates.",
-    "next": "V2: Cloudflare tunnel setup OR update dashboard frontend for live API",
-    "startedAt": "2026-03-23T18:12:00-06:00",
-    "estimatedBlocks": 1
+    "task": "Dashboard: weekly view with 7-day stats, trends, and patterns",
+    "context": "Server running (localhost:3000). Frontend fetches from data/dashboard.json. recentDays array has 7 days of history with blocksCompleted, highlights, modeDistribution. Benchmarks section already works. Adding a proper weekly summary view.",
+    "next": "V2: Cloudflare tunnel setup OR update frontend to fetch from API",
+    "startedAt": "2026-03-23T18:16:00-06:00",
+    "estimatedBlocks": 2
   },
   "schedule": {
     "date": "2026-03-23",
@@ -341,8 +341,8 @@
         "time": "14:45",
         "mode": "MAINTAIN",
         "task": "Commit, run benchmarks, check PRs",
-        "status": "upcoming",
-        "summary": "",
+        "status": "in-progress",
+        "summary": "Server running (localhost:3000). Frontend fetches from data/dashboard.json. recentDays array has 7 days of history with blocksCompleted, highlights, modeDistribution. Benchmarks section already works. Adding a proper weekly summary view.",
         "artifacts": [],
         "details": ""
       },
@@ -893,7 +893,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:39:06Z",
       "updatedAt": "2026-03-21T20:46:35Z",
-      "ageHours": 74,
+      "ageHours": 75,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -915,7 +915,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:38:20Z",
       "updatedAt": "2026-03-21T20:50:04Z",
-      "ageHours": 75,
+      "ageHours": 76,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -1114,9 +1114,9 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 95,
+    "completionRate": 93,
     "completedBlocks": 37,
-    "pastBlocks": 39,
+    "pastBlocks": 40,
     "totalBlocks": 54,
     "plannedDist": {
       "THINK": 7,
@@ -1129,7 +1129,7 @@
       "MAINTAIN": 6,
       "BUILD": 27
     },
-    "pace": 3.8
+    "pace": 3.7
   },
   "streak": 7,
   "benchmarks": {

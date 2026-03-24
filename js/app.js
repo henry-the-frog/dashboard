@@ -550,6 +550,96 @@
     }).join('');
   }
 
+  function renderWeeklySummary(recentDays, todayStats) {
+    const section = $('#weeklySummarySection');
+    const statsEl = $('#weeklyStats');
+    const chartEl = $('#weeklyChart');
+    const modeEl = $('#weeklyModeBreakdown');
+    if (!section || !recentDays || recentDays.length === 0) return;
+    section.style.display = '';
+
+    // Build days array (oldest first), include today
+    const days = [...recentDays].reverse();
+    const todayDate = new Date().toISOString().slice(0, 10);
+    const todayBlocks = todayStats?.blocksCompleted || 0;
+    const todayDist = todayStats?.modeDistribution || {};
+
+    // Add today if not already in recentDays
+    if (!days.find(d => d.date === todayDate)) {
+      days.push({ date: todayDate, blocksCompleted: todayBlocks, modeDistribution: todayDist, highlights: [] });
+    } else {
+      // Update today's entry with live stats
+      const todayEntry = days.find(d => d.date === todayDate);
+      if (todayEntry) {
+        todayEntry.blocksCompleted = todayBlocks;
+        todayEntry.modeDistribution = todayDist;
+      }
+    }
+
+    // Aggregate stats
+    const totalBlocks = days.reduce((s, d) => s + (d.blocksCompleted || 0), 0);
+    const activeDays = days.filter(d => d.blocksCompleted > 0).length;
+    const avgBlocks = activeDays > 0 ? Math.round(totalBlocks / activeDays) : 0;
+    const maxBlocks = Math.max(...days.map(d => d.blocksCompleted || 0));
+
+    // Aggregate mode distribution
+    const totalModes = {};
+    const modes = ['BUILD', 'THINK', 'EXPLORE', 'MAINTAIN'];
+    for (const day of days) {
+      const dist = day.modeDistribution || {};
+      for (const m of modes) {
+        totalModes[m] = (totalModes[m] || 0) + (dist[m] || 0);
+      }
+    }
+    const modeTotal = Object.values(totalModes).reduce((a, b) => a + b, 0);
+
+    // Total hours (15 min per block)
+    const totalHours = (totalBlocks * 15 / 60).toFixed(1);
+
+    // Stats row
+    statsEl.innerHTML = `
+      <div class="weekly-stat"><span class="weekly-stat-value">${totalBlocks}</span><span class="weekly-stat-label">blocks</span></div>
+      <div class="weekly-stat"><span class="weekly-stat-value">${totalHours}h</span><span class="weekly-stat-label">total time</span></div>
+      <div class="weekly-stat"><span class="weekly-stat-value">${avgBlocks}</span><span class="weekly-stat-label">avg/day</span></div>
+      <div class="weekly-stat"><span class="weekly-stat-value">${activeDays}</span><span class="weekly-stat-label">active days</span></div>
+      <div class="weekly-stat"><span class="weekly-stat-value">${maxBlocks}</span><span class="weekly-stat-label">best day</span></div>
+    `;
+
+    // Bar chart (stacked by mode)
+    const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const chartMax = Math.max(maxBlocks, 1);
+
+    chartEl.innerHTML = days.map(day => {
+      const d = new Date(day.date + 'T12:00:00');
+      const dayName = dayNames[d.getDay()];
+      const isToday = day.date === todayDate;
+      const dist = day.modeDistribution || {};
+      const total = day.blocksCompleted || 0;
+      const totalHeight = (total / chartMax) * 80; // max 80px
+
+      const segments = modes.filter(m => dist[m] > 0).map(m => {
+        const h = totalHeight > 0 ? (dist[m] / total) * totalHeight : 0;
+        return `<div class="weekly-bar-segment mode-${m.toLowerCase()}" style="height:${h.toFixed(1)}px" title="${m}: ${dist[m]}"></div>`;
+      }).join('');
+
+      return `<div class="weekly-bar-group">
+        <span class="weekly-bar-count">${total || ''}</span>
+        <div class="weekly-bar-stack" style="height:${totalHeight.toFixed(1)}px">${segments}</div>
+        <span class="weekly-bar-label ${isToday ? 'is-today' : ''}">${dayName}</span>
+      </div>`;
+    }).join('');
+
+    // Mode breakdown
+    modeEl.innerHTML = modes.filter(m => totalModes[m] > 0).map(m => {
+      const pct = modeTotal > 0 ? Math.round((totalModes[m] / modeTotal) * 100) : 0;
+      const hours = (totalModes[m] * 15 / 60).toFixed(1);
+      return `<div class="weekly-mode-item">
+        <span class="weekly-mode-dot mode-${m.toLowerCase()}"></span>
+        ${MODE_ICONS[m]} <span class="weekly-mode-value">${totalModes[m]}</span> ${m.toLowerCase()} <span class="weekly-mode-pct">(${pct}% · ${hours}h)</span>
+      </div>`;
+    }).join('');
+  }
+
   function renderRecentDays(recentDays) {
     const section = $('#recentDaysSection');
     const list = $('#recentDaysList');
@@ -756,6 +846,7 @@
     renderArtifacts(data.artifacts);
     renderAdjustments(data.adjustments);
     renderRecentDays(data.recentDays);
+    renderWeeklySummary(data.recentDays, data.stats);
     renderPRs(data.prs);
     renderBlogPosts(data.blogPosts);
     renderBacklog(data.schedule);
@@ -924,7 +1015,7 @@
   // --- Collapsible Sections ---
   function initCollapsible() {
     const sections = [
-      'highlightsSection', 'durationChartSection', 'adjustmentsSection',
+      'weeklySummarySection', 'highlightsSection', 'durationChartSection', 'adjustmentsSection',
       'recentDaysSection', 'blogSection', 'prsSection', 'backlogSection', 'artifactsSection',
       'benchmarksSection'
     ];
