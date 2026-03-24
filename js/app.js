@@ -1144,6 +1144,7 @@
     let bar = document.getElementById('workdayProgress');
     if (!bar) {
       const container = document.createElement('div');
+      container.id = 'workdayProgress';
       container.className = 'workday-progress-section';
       container.innerHTML = `
         <div class="workday-progress-track">
