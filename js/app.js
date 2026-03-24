@@ -3,7 +3,9 @@
   'use strict';
 
   const DATA_URL = 'data/dashboard.json';
-  const POLL_INTERVAL = 30000;
+  const API_URL = 'https://converter-milton-transcripts-jerry.trycloudflare.com'; // Set to tunnel URL when available, e.g. 'https://xxx.trycloudflare.com'
+  const POLL_INTERVAL = 10000; // 10s when API is live
+  const POLL_INTERVAL_STATIC = 30000; // 30s for static fallback
   const POLL_INTERVAL_HIDDEN = 120000;
   const MAX_BACKOFF = 300000;
 
@@ -916,26 +918,114 @@
 
   // --- Polling with Visibility API + Backoff ---
 
+  let apiAvailable = false;
+
+  // Transform API server format to the format the dashboard renderer expects
+  function transformApiData(api) {
+    const queue = api.queue || [];
+    const done = queue.filter(t => t.status === 'done');
+    const blocked = queue.filter(t => t.status === 'blocked');
+    const inProgress = queue.find(t => t.status === 'in-progress');
+
+    // Build mode distribution
+    const modeDist = {};
+    for (const t of queue) {
+      modeDist[t.mode] = (modeDist[t.mode] || 0) + 1;
+    }
+
+    // Build blocks array from queue (renderer expects this)
+    const blocks = queue.map((t, i) => ({
+      time: t.started ? new Date(t.started).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }) : `#${i + 1}`,
+      mode: t.mode,
+      task: t.task || t.goal || '(placeholder)',
+      status: t.status,
+      summary: t.summary || '',
+      duration: t.duration_ms ? Math.round(t.duration_ms / 60000) + ' min' : '',
+      artifacts: [],
+    }));
+
+    // Current task
+    const current = inProgress ? {
+      mode: inProgress.mode,
+      task: inProgress.task || inProgress.goal || '(in progress)',
+      status: 'in-progress',
+      context: '',
+      next: (() => {
+        const idx = queue.indexOf(inProgress);
+        const next = queue.slice(idx + 1).find(t => t.status === 'upcoming');
+        return next ? `${next.mode}: ${next.task || next.goal || 'placeholder'}` : '';
+      })(),
+    } : (done.length > 0 ? {
+      mode: done[done.length - 1].mode,
+      task: done[done.length - 1].task || done[done.length - 1].goal || '',
+      status: 'done',
+      context: '',
+      next: (() => {
+        const next = queue.find(t => t.status === 'upcoming');
+        return next ? `${next.mode}: ${next.task || next.goal || 'placeholder'}` : '';
+      })(),
+    } : { mode: 'THINK', task: 'No tasks yet', status: 'idle', context: '', next: '' });
+
+    return {
+      date: api.date,
+      current,
+      stats: {
+        blocksCompleted: done.length,
+        blocksTotal: queue.length,
+        modeDistribution: modeDist,
+        blocksYielded: blocked.length,
+      },
+      schedule: { blocks },
+      blocks,
+      adjustments: api.adjustments || [],
+      backlog: api.backlog || [],
+      updated_at: api.updated_at,
+    };
+  }
+
   async function fetchData() {
     try {
-      const res = await fetch(DATA_URL + '?t=' + Date.now());
-      if (!res.ok) throw new Error(res.status);
-      const text = await res.text();
+      let text;
+
+      // Try API first if configured
+      if (API_URL) {
+        try {
+          const apiRes = await fetch(API_URL + '/api/dashboard', { signal: AbortSignal.timeout(5000) });
+          if (apiRes.ok) {
+            text = await apiRes.text();
+            apiAvailable = true;
+          }
+        } catch (apiErr) {
+          apiAvailable = false;
+        }
+      }
+
+      // Fall back to static file
+      if (!text) {
+        const res = await fetch(DATA_URL + '?t=' + Date.now());
+        if (!res.ok) throw new Error(res.status);
+        text = await res.text();
+      }
+
       const hash = simpleHash(text);
 
       // Skip re-render if nothing changed
       if (hash === lastDataHash) {
-        $('#pollStatus').className = 'poll-status';
+        $('#pollStatus').className = 'poll-status' + (apiAvailable ? ' live' : '');
         $('#pollStatus').textContent = '●';
         return;
       }
 
       lastDataHash = hash;
-      const data = JSON.parse(text);
+      let data = JSON.parse(text);
+      // Transform if from API (has queue array at top level, no blocks array)
+      if (data.queue && !data.blocks) {
+        data = transformApiData(data);
+      }
       currentData = data;
       renderAll(data);
       errorCount = 0;
-      $('#pollStatus').className = 'poll-status';
+      $('#pollStatus').className = 'poll-status' + (apiAvailable ? ' live' : '');
       $('#pollStatus').textContent = '●';
     } catch (err) {
       console.warn('Poll failed:', err);
@@ -947,8 +1037,8 @@
 
   function getInterval() {
     if (document.hidden) return POLL_INTERVAL_HIDDEN;
-    if (errorCount > 0) return Math.min(POLL_INTERVAL * Math.pow(2, errorCount), MAX_BACKOFF);
-    return POLL_INTERVAL;
+    if (errorCount > 0) return Math.min(POLL_INTERVAL_STATIC * Math.pow(2, errorCount), MAX_BACKOFF);
+    return apiAvailable ? POLL_INTERVAL : POLL_INTERVAL_STATIC;
   }
 
   function schedulePoll() {
