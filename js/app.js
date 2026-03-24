@@ -244,7 +244,7 @@
       legend.innerHTML = '';
       return;
     }
-    const modes = ['BUILD', 'THINK', 'EXPLORE', 'MAINTAIN'];
+    const modes = ['BUILD', 'THINK', 'PLAN', 'EXPLORE', 'MAINTAIN'];
     bar.innerHTML = modes
       .filter(m => dist[m] > 0)
       .map(m => {
@@ -436,7 +436,7 @@
       else section.prepend(el);
     }
 
-    const modes = ['BUILD', 'THINK', 'EXPLORE', 'MAINTAIN'];
+    const modes = ['BUILD', 'THINK', 'PLAN', 'EXPLORE', 'MAINTAIN'];
     const planned = adherence.plannedDist;
     const actual = adherence.actualDist;
     const maxVal = Math.max(...modes.map(m => Math.max(planned[m] || 0, actual[m] || 0)), 1);
@@ -588,7 +588,7 @@
 
     // Aggregate mode distribution
     const totalModes = {};
-    const modes = ['BUILD', 'THINK', 'EXPLORE', 'MAINTAIN'];
+    const modes = ['BUILD', 'THINK', 'PLAN', 'EXPLORE', 'MAINTAIN'];
     for (const day of days) {
       const dist = day.modeDistribution || {};
       for (const m of modes) {
@@ -672,7 +672,7 @@
         // Mini mode bar
         const dist = day.modeDistribution || {};
         const modeTotal = Object.values(dist).reduce((a, b) => a + b, 0);
-        const modes = ['BUILD', 'THINK', 'EXPLORE', 'MAINTAIN'];
+        const modes = ['BUILD', 'THINK', 'PLAN', 'EXPLORE', 'MAINTAIN'];
         const miniBar = modeTotal > 0
           ? `<div class="mini-mode-bar">${modes.filter(m => dist[m] > 0).map(m => {
               const pct = ((dist[m] / modeTotal) * 100).toFixed(1);
