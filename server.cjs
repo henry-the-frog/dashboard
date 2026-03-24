@@ -189,6 +189,29 @@ const server = http.createServer(async (req, res) => {
       return json(res, 200, { ok: true, uptime: process.uptime() });
     }
 
+    // --- Static file serving (fallback) ---
+    const STATIC_ROOT = __dirname;
+    const MIME_TYPES = {
+      '.html': 'text/html', '.css': 'text/css', '.js': 'application/javascript',
+      '.json': 'application/json', '.png': 'image/png', '.svg': 'image/svg+xml',
+      '.ico': 'image/x-icon', '.woff2': 'font/woff2', '.woff': 'font/woff',
+    };
+
+    let filePath = path.join(STATIC_ROOT, pathname === '/' ? 'index.html' : pathname);
+    // Prevent directory traversal
+    if (!filePath.startsWith(STATIC_ROOT)) return json(res, 403, { error: 'forbidden' });
+
+    if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
+      const ext = path.extname(filePath);
+      const mime = MIME_TYPES[ext] || 'application/octet-stream';
+      res.writeHead(200, {
+        'Content-Type': mime,
+        'Cache-Control': ext === '.html' ? 'no-cache' : 'public, max-age=300',
+      });
+      fs.createReadStream(filePath).pipe(res);
+      return;
+    }
+
     json(res, 404, { error: 'not found' });
   } catch (e) {
     console.error('Error:', e.message);

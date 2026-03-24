@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-24T00:17:56.737Z",
+  "generated": "2026-03-24T00:34:18.153Z",
   "current": {
     "status": "done",
     "mode": "BUILD",
-    "task": "Dashboard: weekly summary view with stacked bar chart and mode breakdown",
-    "context": "Added weekly-summary-section to dashboard with aggregate stats (total blocks, hours, avg/day, active days, best day), stacked mode bar chart per day, and weekly mode breakdown with percentages/hours. Responsive, collapsible, integrated with existing recentDays data.",
-    "next": "V2: Cloudflare tunnel setup OR update frontend to fetch from API",
-    "startedAt": "2026-03-23T18:24:00-06:00",
+    "task": "Dashboard: Cloudflare tunnel + static file serving",
+    "context": "Added static file serving to server.cjs (serves index.html, JS, CSS, data alongside API). Installed cloudflared, created LaunchAgent. Quick tunnel live at prefers-forecasts-asian-magical.trycloudflare.com. Limitation: URL changes on restart — need named tunnel (Cloudflare account) for permanent URL.",
+    "next": "18:45 MAINTAIN — evening commits, memory updates, PR check",
+    "startedAt": "2026-03-23T18:42:00-06:00",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -511,10 +511,10 @@
         "time": "18:15",
         "mode": "BUILD",
         "task": "Dashboard: weekly view or JIT metrics integration",
-        "status": "done",
-        "summary": "Dashboard weekly summary view.",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Dashboard weekly summary view. Added weekly-summary-section with aggregate stats (total blocks, hours, avg/day, active days, best day), stacked mode bar chart per day, and mode breakdown with percentages. Responsive, collapsible. Pushed to GitHub Pages.",
+        "details": "",
         "startedAt": "2026-03-23T18:15:00-06:00",
         "completedAt": "2026-03-23T18:24:00-06:00",
         "durationMs": 540000,
@@ -524,10 +524,14 @@
         "time": "18:30",
         "mode": "BUILD",
         "task": "Continue dashboard or JIT polish",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Cloudflare tunnel + static file serving.",
         "artifacts": [],
-        "details": ""
+        "details": "Cloudflare tunnel + static file serving. Added static file serving to dashboard server.cjs (serves full site alongside API routes). Installed cloudflared via brew, created LaunchAgent for auto-restart. Quick tunnel live — dashboard accessible publicly. Limitation: quick tunnel URLs change on restart; need named tunnel (free Cloudflare account) for permanent URL. Asked Jordan about account.",
+        "startedAt": "2026-03-23T18:30:00-06:00",
+        "completedAt": "2026-03-23T18:42:00-06:00",
+        "durationMs": 720000,
+        "durationFormatted": "12m"
       },
       {
         "time": "18:45",
@@ -673,9 +677,9 @@
       "MAINTAIN": 6,
       "BUILD": 28
     },
-    "totalMinutes": 386,
-    "totalMs": 23130000,
-    "avgDurationMs": 608684
+    "totalMinutes": 389,
+    "totalMs": 23310000,
+    "avgDurationMs": 613421
   },
   "artifacts": [
     {
@@ -963,7 +967,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-18T20:02:08Z",
       "updatedAt": "2026-03-21T20:46:10Z",
-      "ageHours": 124,
+      "ageHours": 125,
       "ciStatus": "pending",
       "reviewStatus": "none"
     }
@@ -1118,9 +1122,9 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 95,
+    "completionRate": 93,
     "completedBlocks": 38,
-    "pastBlocks": 40,
+    "pastBlocks": 41,
     "totalBlocks": 54,
     "plannedDist": {
       "THINK": 7,
@@ -1133,7 +1137,7 @@
       "MAINTAIN": 6,
       "BUILD": 28
     },
-    "pace": 3.8
+    "pace": 3.7
   },
   "streak": 7,
   "benchmarks": {
