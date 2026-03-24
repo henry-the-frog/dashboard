@@ -12,6 +12,7 @@
 
   --mode-build: #d29922;
   --mode-think: #bc8cff;
+  --mode-plan: #f97583;
   --mode-explore: #58a6ff;
   --mode-maintain: #3fb950;
 
@@ -182,7 +183,7 @@ body {
 .mode-dot.mode-think { background: var(--mode-think); }
 .mode-dot.mode-explore { background: var(--mode-explore); }
 .mode-dot.mode-maintain { background: var(--mode-maintain); }
-
+.mode-dot.mode-plan { background: var(--mode-plan); }
 /* === Timeline === */
 .timeline {
   padding: var(--space-md);
@@ -244,7 +245,7 @@ body {
 .block-dot.mode-think { background: var(--mode-think); }
 .block-dot.mode-explore { background: var(--mode-explore); }
 .block-dot.mode-maintain { background: var(--mode-maintain); }
-
+.block-dot.mode-plan { background: var(--mode-plan); }
 .block.done .block-dot { opacity: 0.7; }
 .block.upcoming .block-dot { opacity: 0.35; }
 .block.in-progress .block-dot {

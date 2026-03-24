@@ -12,6 +12,7 @@
   const MODE_ICONS = {
     BUILD: '🔨',
     THINK: '🧠',
+    PLAN: '📋',
     EXPLORE: '🔍',
     MAINTAIN: '🔧',
   };
@@ -19,6 +20,7 @@
   const MODE_CLASS = {
     BUILD: 'mode-build',
     THINK: 'mode-think',
+    PLAN: 'mode-plan',
     EXPLORE: 'mode-explore',
     MAINTAIN: 'mode-maintain',
   };
