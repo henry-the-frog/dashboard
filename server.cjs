@@ -14,13 +14,23 @@ const HISTORY_DIR = path.join(DATA_DIR, 'history');
 fs.mkdirSync(HISTORY_DIR, { recursive: true });
 
 // --- In-memory state ---
-let dashboard = loadFromDisk() || {
+const DEFAULT_STATE = {
   date: new Date().toISOString().slice(0, 10),
   queue: [],
   current: null,
   stats: { completed: 0, yielded: 0, skipped: 0, total_duration_ms: 0 },
   updated_at: new Date().toISOString()
 };
+
+const loaded = loadFromDisk();
+let dashboard;
+if (loaded && Array.isArray(loaded.queue)) {
+  // V2 format — use as-is
+  dashboard = { ...DEFAULT_STATE, ...loaded };
+} else {
+  // Old format or no data — start fresh
+  dashboard = { ...DEFAULT_STATE };
+}
 
 function loadFromDisk() {
   const f = path.join(DATA_DIR, 'dashboard.json');
@@ -111,12 +121,12 @@ const server = http.createServer(async (req, res) => {
       if (body.action === 'start') {
         dashboard.current = body.task || null;
         // Update queue task status
-        if (body.task?.id) {
+        if (body.task?.id && Array.isArray(dashboard.queue)) {
           const t = dashboard.queue.find(t => t.id === body.task.id);
           if (t) { t.status = 'in-progress'; t.started = new Date().toISOString(); }
         }
       } else if (body.action === 'complete') {
-        if (body.task?.id) {
+        if (body.task?.id && Array.isArray(dashboard.queue)) {
           const t = dashboard.queue.find(t => t.id === body.task.id);
           if (t) {
             t.status = 'done';
@@ -169,13 +179,7 @@ const server = http.createServer(async (req, res) => {
     if (req.method === 'POST' && pathname === '/api/archive-day') {
       if (!checkAuth(req)) return json(res, 401, { error: 'unauthorized' });
       archiveDay(dashboard.date);
-      dashboard = {
-        date: new Date().toISOString().slice(0, 10),
-        queue: [],
-        current: null,
-        stats: { completed: 0, yielded: 0, skipped: 0, total_duration_ms: 0 },
-        updated_at: new Date().toISOString()
-      };
+      dashboard = { ...DEFAULT_STATE, date: new Date().toISOString().slice(0, 10), updated_at: new Date().toISOString() };
       saveToDisk();
       return json(res, 200, { ok: true });
     }
