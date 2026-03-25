@@ -925,18 +925,19 @@
   // Transform API server format to the format the dashboard renderer expects
   function transformApiData(api) {
     const queue = api.queue || [];
-    const done = queue.filter(t => t.status === 'done');
-    const blocked = queue.filter(t => t.status === 'blocked');
-    const inProgress = queue.find(t => t.status === 'in-progress');
+    const active = queue.filter(t => t.status !== 'skipped');
+    const done = active.filter(t => t.status === 'done');
+    const blocked = active.filter(t => t.status === 'blocked');
+    const inProgress = active.find(t => t.status === 'in-progress');
 
-    // Build mode distribution
+    // Build mode distribution (exclude skipped)
     const modeDist = {};
-    for (const t of queue) {
+    for (const t of active) {
       modeDist[t.mode] = (modeDist[t.mode] || 0) + 1;
     }
 
     // Build blocks array from queue (renderer expects this)
-    const blocks = queue.map((t, i) => ({
+    const blocks = queue.filter(t => t.status !== 'skipped').map((t, i) => ({
       time: t.started ? new Date(t.started).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }) : `#${i + 1}`,
       mode: t.mode,
       task: t.task || t.goal || '(placeholder)',
