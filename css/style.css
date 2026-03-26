@@ -591,6 +591,19 @@ body {
   vertical-align: middle;
 }
 
+.block-duration {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  margin-left: var(--space-sm);
+  font-variant-numeric: tabular-nums;
+  vertical-align: middle;
+}
+
 /* === Footer === */
 footer {
   position: fixed;

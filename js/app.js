@@ -173,7 +173,7 @@
             <div class="block-time">${esc(block.time)}</div>
             <div class="block-dot ${modeClass}"></div>
             <div class="block-content">
-              <div class="block-title">${statusLabel} ${esc(block.task)}</div>
+              <div class="block-title">${statusLabel} ${esc(block.task)}${block.status === 'done' && block.durationFormatted ? ` <span class="block-duration">${esc(block.durationFormatted)}</span>` : ''}</div>
               ${block.summary ? `<div class="block-status">${esc(block.summary)}</div>` : ''}
               ${artifactsHTML ? `<div class="block-artifacts">${artifactsHTML}</div>` : ''}
             </div>
@@ -839,26 +839,31 @@
   }
 
   function renderAll(data) {
-    renderBanner(data.current);
-    renderStats(data.stats);
-    renderHeatmap(data.schedule);
-    renderModeBar(data.stats);
-    renderHighlights(data.todayHighlights);
-    renderDurationChart(data.schedule);
-    renderNextUp(data.schedule);
-    renderTimeline(data.schedule);
-    renderArtifacts(data.artifacts);
-    renderAdjustments(data.adjustments);
-    renderRecentDays(data.recentDays);
-    renderWeeklySummary(data.recentDays, data.stats);
-    renderPRs(data.prs);
-    renderBlogPosts(data.blogPosts);
-    renderBacklog(data.schedule);
-    renderBenchmarks(data.benchmarks);
-    renderScheduleAdherence(data.scheduleAdherence);
-    renderStreak(data.streak);
-    renderTrendSparkline(data.recentDays, data.stats?.blocksCompleted || 0);
-    $('#lastUpdated').textContent = new Date(data.generated).toLocaleTimeString();
+    const renders = [
+      ['banner', () => renderBanner(data.current)],
+      ['stats', () => renderStats(data.stats)],
+      ['heatmap', () => renderHeatmap(data.schedule)],
+      ['modeBar', () => renderModeBar(data.stats)],
+      ['highlights', () => renderHighlights(data.todayHighlights)],
+      ['durationChart', () => renderDurationChart(data.schedule)],
+      ['nextUp', () => renderNextUp(data.schedule)],
+      ['timeline', () => renderTimeline(data.schedule)],
+      ['artifacts', () => renderArtifacts(data.artifacts)],
+      ['adjustments', () => renderAdjustments(data.adjustments)],
+      ['recentDays', () => renderRecentDays(data.recentDays)],
+      ['weeklySummary', () => renderWeeklySummary(data.recentDays, data.stats)],
+      ['prs', () => renderPRs(data.prs)],
+      ['blogPosts', () => renderBlogPosts(data.blogPosts)],
+      ['backlog', () => renderBacklog(data.schedule)],
+      ['benchmarks', () => renderBenchmarks(data.benchmarks)],
+      ['adherence', () => renderScheduleAdherence(data.scheduleAdherence)],
+      ['streak', () => renderStreak(data.streak)],
+      ['sparkline', () => renderTrendSparkline(data.recentDays, data.stats?.blocksCompleted || 0)],
+    ];
+    for (const [name, fn] of renders) {
+      try { fn(); } catch (e) { console.error(`renderAll: ${name} failed:`, e); }
+    }
+    try { $('#lastUpdated').textContent = new Date(data.generated).toLocaleTimeString(); } catch {}
 
     // Re-open detail if one was selected
     if (selectedBlockIndex >= 0) {
@@ -943,7 +948,9 @@
       task: t.task || t.goal || '(placeholder)',
       status: t.status,
       summary: t.summary || '',
-      duration: t.duration_ms ? Math.round(t.duration_ms / 60000) + ' min' : '',
+      durationMs: t.duration_ms || 0,
+      durationFormatted: t.duration_ms ? (t.duration_ms >= 60000 ? Math.round(t.duration_ms / 60000) + 'm' : Math.round(t.duration_ms / 1000) + 's') : '',
+      startedAt: t.started || null,
       artifacts: [],
     }));
 
@@ -978,11 +985,22 @@
         modeDistribution: modeDist,
         blocksYielded: blocked.length,
       },
-      schedule: { blocks },
+      schedule: { blocks, backlog: api.backlog || [] },
       blocks,
       adjustments: api.adjustments || [],
       backlog: api.backlog || [],
       updated_at: api.updated_at,
+      generated: api._richGenerated || api.updated_at,
+      // Rich data from generate.cjs (passed through from server)
+      artifacts: api.artifacts || [],
+      benchmarks: api.benchmarks || null,
+      blogPosts: api.blogPosts || [],
+      prs: api.prs || [],
+      recentDays: api.recentDays || [],
+      streak: api.streak || 0,
+      scheduleAdherence: api.scheduleAdherence || null,
+      todayHighlights: api.todayHighlights || [],
+      blockers: api.blockers || [],
     };
   }
 
@@ -1026,6 +1044,15 @@
         data = transformApiData(data);
       }
       currentData = data;
+      // Temporary debug banner (visible on mobile)
+      let dbg = document.getElementById('debugBanner');
+      if (!dbg) {
+        dbg = document.createElement('div');
+        dbg.id = 'debugBanner';
+        dbg.style.cssText = 'background:#1a1a2e;color:#0f0;font-family:monospace;font-size:11px;padding:8px;margin:8px;border-radius:6px;border:1px solid #333;white-space:pre-wrap;';
+        document.body.prepend(dbg);
+      }
+      dbg.textContent = `🔍 Debug: blogs=${data.blogPosts?.length||0} prs=${data.prs?.length||0} artifacts=${data.artifacts?.length||0} benchmarks=${data.benchmarks?.results?.length||0} recentDays=${data.recentDays?.length||0} blocks=${data.schedule?.blocks?.length||0} keys=[${Object.keys(data).join(',')}]`;
       renderAll(data);
       errorCount = 0;
       $('#pollStatus').className = 'poll-status' + (apiAvailable ? ' live' : '');
@@ -1206,11 +1233,11 @@
     const blockEl = timeline.querySelector(`.block[data-index="${activeIdx}"]`);
     if (!blockEl) return;
 
-    // Calculate elapsed from block time (today's date + block.time)
+    // Calculate elapsed from startedAt ISO string
     const now = new Date();
-    const [h, m] = block.time.split(':').map(Number);
-    const blockStart = new Date(now);
-    blockStart.setHours(h, m, 0, 0);
+    if (!block.startedAt) return;
+    const blockStart = new Date(block.startedAt);
+    if (isNaN(blockStart.getTime())) return;
     const elapsed = Math.max(0, Math.floor((now - blockStart) / 1000));
     const elMin = Math.floor(elapsed / 60);
     const elSec = elapsed % 60;

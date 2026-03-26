@@ -141,10 +141,22 @@ commands.start = (args) => {
   const id = args['--task'];
   if (!id) { console.error('Usage: queue.js start --task T3'); process.exit(1); }
   const task = findTask(data, id);
+  const taskIdx = data.queue.indexOf(task);
+
+  // Guard: check if there's an earlier upcoming task that should run first
+  const firstUpcoming = data.queue.findIndex(t => t.status === 'upcoming');
+  if (firstUpcoming !== -1 && firstUpcoming < taskIdx) {
+    const earlier = data.queue[firstUpcoming];
+    console.error(`WARNING: Skipping ahead! ${earlier.id} (${earlier.mode}) is earlier in the queue and still upcoming. Use 'node queue.cjs next' to get the correct next task.`);
+    // Still allow it but warn loudly — the session should re-check
+    console.log(JSON.stringify({ ok: true, task, warning: `${earlier.id} is earlier and upcoming — did you mean to start that instead?` }));
+  } else {
+    console.log(JSON.stringify({ ok: true, task }));
+  }
+
   task.status = 'in-progress';
   task.started = now();
   save(data);
-  console.log(JSON.stringify({ ok: true, task }));
 };
 
 commands.done = (args) => {
