@@ -153,7 +153,7 @@ const server = http.createServer(async (req, res) => {
       if (!checkAuth(req)) return json(res, 401, { error: 'unauthorized' });
       const { execSync } = require('child_process');
       try {
-        execSync('node generate.cjs', { cwd: __dirname, timeout: 30000, stdio: 'pipe' });
+        execSync('/usr/local/bin/node generate.cjs', { cwd: __dirname, timeout: 30000, stdio: 'pipe' });
         // Copy rich keys from dashboard.json to rich.json
         const dashFile = path.join(DATA_DIR, 'dashboard.json');
         if (fs.existsSync(dashFile)) {
