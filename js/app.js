@@ -3,7 +3,7 @@
   'use strict';
 
   const DATA_URL = 'data/dashboard.json';
-  const API_URL = 'https://converter-milton-transcripts-jerry.trycloudflare.com'; // Set to tunnel URL when available, e.g. 'https://xxx.trycloudflare.com'
+  const API_URL = 'https://lawyer-servers-technology-continually.trycloudflare.com'
   const POLL_INTERVAL = 10000; // 10s when API is live
   const POLL_INTERVAL_STATIC = 30000; // 30s for static fallback
   const POLL_INTERVAL_HIDDEN = 120000;
