@@ -396,81 +396,49 @@
     }).join('');
   }
 
-  function renderScheduleAdherence(adherence) {
-    const stat = $('#adherenceStat');
-    const val = $('#adherenceValue');
-    if (!stat || !val || !adherence) return;
-    if (adherence.pastBlocks < 3) {
-      stat.style.display = 'none';
+  function renderSessionInfo(data) {
+    const stat = $('#sessionStat');
+    const val = $('#sessionValue');
+    const label = $('#sessionLabel');
+    if (!stat || !val) return;
+
+    // Determine active session from current time
+    const now = new Date();
+    const h = now.getHours(), m = now.getMinutes();
+    const mins = h * 60 + m;
+    const sessions = [
+      { name: 'A', start: 8*60+15, end: 14*60+15 },
+      { name: 'B', start: 14*60+15, end: 20*60+15 },
+      { name: 'C', start: 20*60+15, end: 22*60+15 },
+    ];
+    const active = sessions.find(s => mins >= s.start && mins < s.end);
+    if (!active) {
+      stat.style.display = '';
+      val.textContent = '💤';
+      if (label) label.textContent = 'offline';
       return;
     }
+
+    const remMins = active.end - mins;
+    const remH = Math.floor(remMins / 60);
+    const remM = remMins % 60;
+    const timeStr = remH > 0 ? `${remH}h ${remM}m` : `${remM}m`;
+
     stat.style.display = '';
-    val.textContent = adherence.completionRate + '%';
-    val.className = 'stat-value ' + (adherence.completionRate >= 70 ? 'adherence-high' : adherence.completionRate >= 40 ? 'adherence-mid' : 'adherence-low');
+    val.textContent = timeStr;
+    if (label) label.textContent = `session ${active.name}`;
 
     // Pace stat
     const paceStat = $('#paceStat');
     const paceVal = $('#paceValue');
-    if (paceStat && paceVal && adherence.pace > 0) {
-      paceStat.style.display = '';
-      paceVal.textContent = adherence.pace;
+    if (paceStat && paceVal && data.stats) {
+      const elapsed = mins - active.start;
+      if (elapsed > 0 && data.stats.blocksCompleted > 0) {
+        const pace = (data.stats.blocksCompleted / (elapsed / 60)).toFixed(1);
+        paceStat.style.display = '';
+        paceVal.textContent = pace;
+      }
     }
-
-    // Mode adherence comparison (planned vs actual)
-    renderModeAdherence(adherence);
-  }
-
-  function renderModeAdherence(adherence) {
-    const section = $('#adjustmentsSection');
-    if (!section || !adherence?.plannedDist || !adherence?.actualDist) return;
-
-    // Find or create mode adherence element
-    let el = document.getElementById('modeAdherence');
-    if (!el) {
-      el = document.createElement('div');
-      el.id = 'modeAdherence';
-      el.className = 'mode-adherence';
-      // Insert before adjustments list
-      const h2 = section.querySelector('h2');
-      if (h2) h2.insertAdjacentElement('afterend', el);
-      else section.prepend(el);
-    }
-
-    const modes = ['BUILD', 'THINK', 'PLAN', 'EXPLORE', 'MAINTAIN'];
-    const planned = adherence.plannedDist;
-    const actual = adherence.actualDist;
-    const maxVal = Math.max(...modes.map(m => Math.max(planned[m] || 0, actual[m] || 0)), 1);
-
-    el.innerHTML = `<div class="mode-adherence-title">Planned vs Actual</div>` +
-      modes.filter(m => (planned[m] || 0) + (actual[m] || 0) > 0).map(m => {
-        const p = planned[m] || 0;
-        const a = actual[m] || 0;
-        const pPct = (p / maxVal * 100).toFixed(0);
-        const aPct = (a / maxVal * 100).toFixed(0);
-        const delta = a - p;
-        const deltaStr = delta > 0 ? `+${delta}` : delta < 0 ? `${delta}` : '=';
-        const deltaClass = delta > 0 ? 'delta-over' : delta < 0 ? 'delta-under' : 'delta-match';
-        return `<div class="mode-adherence-row">
-          <span class="mode-adherence-label">${MODE_ICONS[m] || ''}</span>
-          <div class="mode-adherence-bars">
-            <div class="mode-adherence-bar planned" style="width:${pPct}%"><span>${p}</span></div>
-            <div class="mode-adherence-bar actual mode-${m.toLowerCase()}" style="width:${aPct}%"><span>${a}</span></div>
-          </div>
-          <span class="mode-adherence-delta ${deltaClass}">${deltaStr}</span>
-        </div>`;
-      }).join('');
-  }
-
-  function renderStreak(streak) {
-    const stat = $('#streakStat');
-    const val = $('#streakValue');
-    if (!stat || !val) return;
-    if (!streak || streak < 1) {
-      stat.style.display = 'none';
-      return;
-    }
-    stat.style.display = '';
-    val.textContent = streak + 'd';
   }
 
   function renderTrendSparkline(recentDays, todayBlocks) {
@@ -856,8 +824,7 @@
       ['blogPosts', () => renderBlogPosts(data.blogPosts)],
       ['backlog', () => renderBacklog(data.schedule)],
       ['benchmarks', () => renderBenchmarks(data.benchmarks)],
-      ['adherence', () => renderScheduleAdherence(data.scheduleAdherence)],
-      ['streak', () => renderStreak(data.streak)],
+      ['session', () => renderSessionInfo(data)],
       ['sparkline', () => renderTrendSparkline(data.recentDays, data.stats?.blocksCompleted || 0)],
     ];
     for (const [name, fn] of renders) {
@@ -1044,15 +1011,9 @@
         data = transformApiData(data);
       }
       currentData = data;
-      // Temporary debug banner (visible on mobile)
-      let dbg = document.getElementById('debugBanner');
-      if (!dbg) {
-        dbg = document.createElement('div');
-        dbg.id = 'debugBanner';
-        dbg.style.cssText = 'background:#1a1a2e;color:#0f0;font-family:monospace;font-size:11px;padding:8px;margin:8px;border-radius:6px;border:1px solid #333;white-space:pre-wrap;';
-        document.body.prepend(dbg);
-      }
-      dbg.textContent = `🔍 Debug: blogs=${data.blogPosts?.length||0} prs=${data.prs?.length||0} artifacts=${data.artifacts?.length||0} benchmarks=${data.benchmarks?.results?.length||0} recentDays=${data.recentDays?.length||0} blocks=${data.schedule?.blocks?.length||0} keys=[${Object.keys(data).join(',')}]`;
+      // Remove legacy debug banner if present
+      const dbg = document.getElementById('debugBanner');
+      if (dbg) dbg.remove();
       renderAll(data);
       errorCount = 0;
       $('#pollStatus').className = 'poll-status' + (apiAvailable ? ' live' : '');
