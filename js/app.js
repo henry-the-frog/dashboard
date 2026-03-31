@@ -560,13 +560,9 @@
     }
     const modeTotal = Object.values(totalModes).reduce((a, b) => a + b, 0);
 
-    // Total hours (15 min per block)
-    const totalHours = (totalBlocks * 15 / 60).toFixed(1);
-
     // Stats row
     statsEl.innerHTML = `
-      <div class="weekly-stat"><span class="weekly-stat-value">${totalBlocks}</span><span class="weekly-stat-label">blocks</span></div>
-      <div class="weekly-stat"><span class="weekly-stat-value">${totalHours}h</span><span class="weekly-stat-label">total time</span></div>
+      <div class="weekly-stat"><span class="weekly-stat-value">${totalBlocks}</span><span class="weekly-stat-label">tasks</span></div>
       <div class="weekly-stat"><span class="weekly-stat-value">${avgBlocks}</span><span class="weekly-stat-label">avg/day</span></div>
       <div class="weekly-stat"><span class="weekly-stat-value">${activeDays}</span><span class="weekly-stat-label">active days</span></div>
       <div class="weekly-stat"><span class="weekly-stat-value">${maxBlocks}</span><span class="weekly-stat-label">best day</span></div>
@@ -599,10 +595,9 @@
     // Mode breakdown
     modeEl.innerHTML = modes.filter(m => totalModes[m] > 0).map(m => {
       const pct = modeTotal > 0 ? Math.round((totalModes[m] / modeTotal) * 100) : 0;
-      const hours = (totalModes[m] * 15 / 60).toFixed(1);
       return `<div class="weekly-mode-item">
         <span class="weekly-mode-dot mode-${m.toLowerCase()}"></span>
-        ${MODE_ICONS[m]} <span class="weekly-mode-value">${totalModes[m]}</span> ${m.toLowerCase()} <span class="weekly-mode-pct">(${pct}% · ${hours}h)</span>
+        ${MODE_ICONS[m]} <span class="weekly-mode-value">${totalModes[m]}</span> ${m.toLowerCase()} <span class="weekly-mode-pct">(${pct}%)</span>
       </div>`;
     }).join('');
   }
