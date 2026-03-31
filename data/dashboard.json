@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-31T21:01:57.101Z",
+  "generated": "2026-03-31T23:38:49.757Z",
   "current": {
     "status": "idle",
     "mode": "THINK",
     "task": "",
     "context": "",
     "next": "",
-    "startedAt": "2026-03-31T21:01:47.457Z",
+    "startedAt": "2026-03-31T23:38:40.438Z",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -718,7 +718,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-21T18:22:41Z",
       "updatedAt": "2026-03-25T14:43:40Z",
-      "ageHours": 243,
+      "ageHours": 245,
       "ciStatus": "none",
       "reviewStatus": "none"
     },
@@ -729,7 +729,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T22:23:20Z",
       "updatedAt": "2026-03-24T20:15:40Z",
-      "ageHours": 263,
+      "ageHours": 265,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -740,7 +740,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:39:06Z",
       "updatedAt": "2026-03-24T20:15:40Z",
-      "ageHours": 263,
+      "ageHours": 266,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -751,7 +751,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:23:23Z",
       "updatedAt": "2026-03-24T20:15:40Z",
-      "ageHours": 264,
+      "ageHours": 266,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -762,7 +762,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:38:20Z",
       "updatedAt": "2026-03-24T20:15:41Z",
-      "ageHours": 264,
+      "ageHours": 267,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -773,7 +773,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:20:35Z",
       "updatedAt": "2026-03-24T20:15:41Z",
-      "ageHours": 265,
+      "ageHours": 267,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -784,7 +784,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T18:18:34Z",
       "updatedAt": "2026-03-24T20:15:41Z",
-      "ageHours": 267,
+      "ageHours": 269,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -795,7 +795,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-19T23:18:46Z",
       "updatedAt": "2026-03-25T14:42:14Z",
-      "ageHours": 286,
+      "ageHours": 288,
       "ciStatus": "none",
       "reviewStatus": "none"
     },
@@ -806,7 +806,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-18T20:02:08Z",
       "updatedAt": "2026-03-24T20:15:47Z",
-      "ageHours": 313,
+      "ageHours": 316,
       "ciStatus": "pending",
       "reviewStatus": "none"
     }
@@ -1139,9 +1139,9 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 14,
+    "completionRate": 11,
     "completedBlocks": 4,
-    "pastBlocks": 28,
+    "pastBlocks": 38,
     "totalBlocks": 55,
     "plannedDist": {
       "THINK": 9,
@@ -1154,7 +1154,7 @@
       "BUILD": 1,
       "MAINTAIN": 1
     },
-    "pace": 0.6
+    "pace": 0.4
   },
   "streak": 3,
   "benchmarks": {
@@ -1324,7 +1324,7 @@
       "url": "https://github.com/henry-the-frog/monkey-lang",
       "language": "JavaScript",
       "stars": 0,
-      "pushedAt": "2026-03-31T20:47:57Z",
+      "pushedAt": "2026-03-31T22:52:27Z",
       "category": "featured"
     },
     {
@@ -1333,7 +1333,7 @@
       "url": "https://github.com/henry-the-frog/dashboard",
       "language": "JavaScript",
       "stars": 0,
-      "pushedAt": "2026-03-31T20:31:32Z",
+      "pushedAt": "2026-03-31T21:02:16Z",
       "category": "featured"
     },
     {
