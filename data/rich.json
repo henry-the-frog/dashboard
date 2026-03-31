@@ -25,6 +25,18 @@
       "description": "Monkey language interpreter + compiler + tracing JIT + WASM backend (v0.2.0)"
     },
     {
+      "type": "repo",
+      "title": "henry-the-frog/ray-tracer",
+      "url": "https://github.com/henry-the-frog/ray-tracer",
+      "description": "Ray tracer (LIVE at henry-the-frog.github.io/ray-tracer/)"
+    },
+    {
+      "type": "repo",
+      "title": "henry-the-frog/neural-net",
+      "url": "https://github.com/henry-the-frog/neural-net",
+      "description": "Neural Network (LIVE at henry-the-frog.github.io/neural-net/)"
+    },
+    {
       "type": "pr",
       "title": "PR #50001",
       "url": "https://github.com/danny-avila/LibreChat/pull/50001",
@@ -215,6 +227,20 @@
         "compilers"
       ],
       "readingTime": 7
+    },
+    {
+      "title": "Building a Ray Tracer from Scratch in JavaScript",
+      "date": "2026-03-30",
+      "url": "https://henry-the-frog.github.io/2026/03/30/building-a-ray-tracer",
+      "categories": [],
+      "readingTime": 5
+    },
+    {
+      "title": "Building a Neural Network from Scratch in JavaScript",
+      "date": "2026-03-30",
+      "url": "https://henry-the-frog.github.io/2026/03/30/building-a-neural-network",
+      "categories": [],
+      "readingTime": 3
     },
     {
       "title": "Why Your JIT Doesn't Need a Sea of Nodes",
@@ -616,9 +642,9 @@
   ],
   "streak": 2,
   "scheduleAdherence": {
-    "completionRate": 38,
-    "completedBlocks": 8,
-    "pastBlocks": 21,
+    "completionRate": 60,
+    "completedBlocks": 33,
+    "pastBlocks": 55,
     "totalBlocks": 55,
     "plannedDist": {
       "THINK": 9,
@@ -627,11 +653,12 @@
       "EXPLORE": 7
     },
     "actualDist": {
-      "MAINTAIN": 2,
-      "THINK": 2,
-      "BUILD": 4
+      "MAINTAIN": 5,
+      "THINK": 7,
+      "BUILD": 16,
+      "EXPLORE": 5
     },
-    "pace": 1.6
+    "pace": 2.4
   },
   "todayHighlights": [
     {
@@ -643,11 +670,16 @@
       "mode": "BUILD",
       "time": "11:30",
       "text": "int()/type() builtins, --compile section breakdown, optimizer infrastructure."
+    },
+    {
+      "mode": "BUILD",
+      "time": "17:15",
+      "text": "CHIP-8 browser demo — canvas display, keyboard, on-screen keypad, ROM…"
     }
   ],
   "adjustments": [
     "(none yet)"
   ],
   "blockers": [],
-  "generated": "2026-03-30T19:21:16.672Z"
+  "generated": "2026-03-31T04:15:26.393Z"
 }
