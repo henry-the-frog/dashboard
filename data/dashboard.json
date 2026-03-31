@@ -1,12 +1,12 @@
 {
-  "generated": "2026-03-31T15:46:25.744Z",
+  "generated": "2026-03-31T16:11:22.094Z",
   "current": {
     "status": "idle",
     "mode": "THINK",
     "task": "",
     "context": "",
     "next": "",
-    "startedAt": "2026-03-31T15:46:14.519Z",
+    "startedAt": "2026-03-31T16:11:09.219Z",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -79,10 +79,10 @@
         "time": "10:00",
         "mode": "THINK",
         "task": "Plan JIT work: pre-loop codegen infrastructure for LICM guards",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Myers diff — shortest edit script, unified diff format, edit distance.",
         "artifacts": [],
-        "details": ""
+        "details": "Myers diff — shortest edit script, unified diff format, edit distance. 19 tests. Published."
       },
       {
         "time": "10:15",
@@ -525,14 +525,14 @@
     "(none yet)"
   ],
   "stats": {
-    "blocksCompleted": 3,
+    "blocksCompleted": 4,
     "blocksTotal": 55,
     "modeDistribution": {
-      "THINK": 1,
+      "THINK": 2,
       "BUILD": 1,
       "MAINTAIN": 1
     },
-    "totalMinutes": 15,
+    "totalMinutes": 20,
     "totalMs": 0,
     "avgDurationMs": 0
   },
@@ -703,6 +703,11 @@
       "mode": "MAINTAIN",
       "time": "09:45",
       "text": "Stack-based VM — 30+ opcodes, functions, recursive fib(10)=55, disassembler."
+    },
+    {
+      "mode": "THINK",
+      "time": "10:00",
+      "text": "Myers diff — shortest edit script, unified diff format, edit distance."
     }
   ],
   "prs": [
@@ -713,7 +718,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-21T18:22:41Z",
       "updatedAt": "2026-03-25T14:43:40Z",
-      "ageHours": 237,
+      "ageHours": 238,
       "ciStatus": "none",
       "reviewStatus": "none"
     },
@@ -724,7 +729,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T22:23:20Z",
       "updatedAt": "2026-03-24T20:15:40Z",
-      "ageHours": 257,
+      "ageHours": 258,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -735,7 +740,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:39:06Z",
       "updatedAt": "2026-03-24T20:15:40Z",
-      "ageHours": 258,
+      "ageHours": 259,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -746,7 +751,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:23:23Z",
       "updatedAt": "2026-03-24T20:15:40Z",
-      "ageHours": 258,
+      "ageHours": 259,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -757,7 +762,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:38:20Z",
       "updatedAt": "2026-03-24T20:15:41Z",
-      "ageHours": 259,
+      "ageHours": 260,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -768,7 +773,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:20:35Z",
       "updatedAt": "2026-03-24T20:15:41Z",
-      "ageHours": 259,
+      "ageHours": 260,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -779,7 +784,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T18:18:34Z",
       "updatedAt": "2026-03-24T20:15:41Z",
-      "ageHours": 261,
+      "ageHours": 262,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -790,7 +795,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-19T23:18:46Z",
       "updatedAt": "2026-03-25T14:42:14Z",
-      "ageHours": 280,
+      "ageHours": 281,
       "ciStatus": "none",
       "reviewStatus": "none"
     },
@@ -1134,9 +1139,9 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 43,
-    "completedBlocks": 3,
-    "pastBlocks": 7,
+    "completionRate": 50,
+    "completedBlocks": 4,
+    "pastBlocks": 8,
     "totalBlocks": 55,
     "plannedDist": {
       "THINK": 9,
@@ -1145,11 +1150,11 @@
       "EXPLORE": 7
     },
     "actualDist": {
-      "THINK": 1,
+      "THINK": 2,
       "BUILD": 1,
       "MAINTAIN": 1
     },
-    "pace": 2
+    "pace": 2.1
   },
   "streak": 3,
   "benchmarks": {
@@ -1319,7 +1324,7 @@
       "url": "https://github.com/henry-the-frog/monkey-lang",
       "language": "JavaScript",
       "stars": 0,
-      "pushedAt": "2026-03-31T15:46:04Z",
+      "pushedAt": "2026-03-31T16:11:01Z",
       "category": "featured"
     },
     {
@@ -1328,7 +1333,7 @@
       "url": "https://github.com/henry-the-frog/dashboard",
       "language": "JavaScript",
       "stars": 0,
-      "pushedAt": "2026-03-31T15:21:32Z",
+      "pushedAt": "2026-03-31T15:46:45Z",
       "category": "featured"
     },
     {
@@ -1429,6 +1434,15 @@
       "stars": 0,
       "pushedAt": "2026-03-30T22:33:44Z",
       "category": "visual"
+    },
+    {
+      "name": "type-infer",
+      "description": "Hindley-Milner type inference (Algorithm W). Let-polymorphism, unification, occurs check.",
+      "url": "https://github.com/henry-the-frog/type-infer",
+      "language": "JavaScript",
+      "stars": 0,
+      "pushedAt": "2026-03-31T16:05:27Z",
+      "category": "language"
     },
     {
       "name": "tiny-vm",
@@ -1717,6 +1731,51 @@
       "stars": 0,
       "pushedAt": "2026-03-30T23:29:27Z",
       "category": "data-structure"
+    },
+    {
+      "name": "lru-cache",
+      "description": "LRU Cache from scratch — O(1) get/set, doubly-linked list, eviction callbacks, resize",
+      "url": "https://github.com/henry-the-frog/lru-cache",
+      "language": "JavaScript",
+      "stars": 0,
+      "pushedAt": "2026-03-31T16:02:31Z",
+      "category": "utility"
+    },
+    {
+      "name": "diff",
+      "description": "Myers diff algorithm from scratch — array/line/char diff, unified format, edit distance",
+      "url": "https://github.com/henry-the-frog/diff",
+      "language": "JavaScript",
+      "stars": 0,
+      "pushedAt": "2026-03-31T16:00:00Z",
+      "category": "utility"
+    },
+    {
+      "name": "test-framework",
+      "description": "Tiny test framework from scratch — describe/it/assert, hooks, nested suites, self-testing",
+      "url": "https://github.com/henry-the-frog/test-framework",
+      "language": "JavaScript",
+      "stars": 0,
+      "pushedAt": "2026-03-31T15:54:39Z",
+      "category": "utility"
+    },
+    {
+      "name": "event-loop",
+      "description": "Custom event loop: microtasks, macrotasks, timers, LoopPromise. Educational implementation.",
+      "url": "https://github.com/henry-the-frog/event-loop",
+      "language": "JavaScript",
+      "stars": 0,
+      "pushedAt": "2026-03-31T15:51:59Z",
+      "category": "utility"
+    },
+    {
+      "name": "reactive",
+      "description": "Reactive state management: signals, computed, effects, batch, store. Zero dependencies.",
+      "url": "https://github.com/henry-the-frog/reactive",
+      "language": "JavaScript",
+      "stars": 0,
+      "pushedAt": "2026-03-31T15:49:27Z",
+      "category": "utility"
     },
     {
       "name": "vm",
@@ -2385,15 +2444,6 @@
       "category": "utility"
     },
     {
-      "name": "test-framework",
-      "description": "Tiny test framework from scratch — describe/it/assert, hooks, nested suites, self-testing",
-      "url": "https://github.com/henry-the-frog/test-framework",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T00:06:55Z",
-      "category": "utility"
-    },
-    {
       "name": "color",
       "description": "Color utilities from scratch — hex/rgb/hsl, manipulation, contrast ratio, palettes",
       "url": "https://github.com/henry-the-frog/color",
@@ -2493,15 +2543,6 @@
       "category": "utility"
     },
     {
-      "name": "diff",
-      "description": "Myers diff algorithm from scratch — array/line/char diff, unified format, edit distance",
-      "url": "https://github.com/henry-the-frog/diff",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-30T23:27:47Z",
-      "category": "utility"
-    },
-    {
       "name": "template-engine",
       "description": "Template engine from scratch — Mustache-like syntax, if/each/unless/with, partials, filters",
       "url": "https://github.com/henry-the-frog/template-engine",
@@ -2517,15 +2558,6 @@
       "language": "JavaScript",
       "stars": 0,
       "pushedAt": "2026-03-30T23:23:09Z",
-      "category": "utility"
-    },
-    {
-      "name": "lru-cache",
-      "description": "LRU Cache from scratch — O(1) get/set, doubly-linked list, eviction callbacks, resize",
-      "url": "https://github.com/henry-the-frog/lru-cache",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-30T23:20:39Z",
       "category": "utility"
     },
     {
