@@ -131,11 +131,8 @@
     }
     const blocks = currentData.schedule.blocks;
     const remaining = blocks.filter(b => b.status === 'upcoming' || b.status === 'in-progress').length;
-    const hrs = Math.floor((remaining * 15) / 60);
-    const mins = (remaining * 15) % 60;
-    const label = hrs > 0 ? `${hrs}h ${mins}m` : `${mins}m`;
     if (el) {
-      el.textContent = label;
+      el.textContent = `${remaining} left`;
     }
   }
 
@@ -146,14 +143,13 @@
 
   function renderTimeline(schedule) {
     if (!schedule || !schedule.blocks) return;
-    const nowStr = getCurrentTimeStr();
     let nowInserted = false;
 
     timeline.innerHTML = schedule.blocks
       .map((block, i) => {
-        // Insert "now" marker before the first block that's after current time and not done
+        // Insert "now" marker before the first in-progress or upcoming task
         let nowMarker = '';
-        if (!nowInserted && block.time >= nowStr && (block.status === 'upcoming' || block.status === 'in-progress')) {
+        if (!nowInserted && (block.status === 'in-progress' || block.status === 'upcoming')) {
           nowInserted = true;
           nowMarker = `<div class="now-marker"><span class="now-label">now</span><div class="now-line"></div></div>`;
         }
@@ -210,9 +206,8 @@
     const list = $('#nextUpList');
     if (!section || !list || !schedule?.blocks) return;
 
-    const nowStr = getCurrentTimeStr();
     const upcoming = schedule.blocks.filter(b =>
-      (b.status === 'upcoming' || b.status === 'in-progress') && b.time >= nowStr
+      (b.status === 'upcoming' || b.status === 'in-progress')
     ).slice(0, 4);
 
     if (upcoming.length === 0) {
@@ -223,7 +218,7 @@
 
     list.innerHTML = upcoming.map((block, i) => {
       const modeClass = `mode-${block.mode.toLowerCase()}`;
-      const label = i === 0 ? 'Now' : block.time;
+      const label = i === 0 && block.status === 'in-progress' ? 'Now' : (block.id || block.time);
       return `
         <div class="next-up-card">
           <div class="next-up-time">${esc(label)}</div>
@@ -909,17 +904,26 @@
     }
 
     // Build blocks array from queue (renderer expects this)
-    const blocks = queue.filter(t => t.status !== 'skipped').map((t, i) => ({
-      time: t.started ? new Date(t.started).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }) : `#${i + 1}`,
-      mode: t.mode,
-      task: t.task || t.goal || '(placeholder)',
-      status: t.status,
-      summary: t.summary || '',
-      durationMs: t.duration_ms || 0,
-      durationFormatted: t.duration_ms ? (t.duration_ms >= 60000 ? Math.round(t.duration_ms / 60000) + 'm' : Math.round(t.duration_ms / 1000) + 's') : '',
-      startedAt: t.started || null,
-      artifacts: [],
-    }));
+    const blocks = queue.filter(t => t.status !== 'skipped').map((t, i) => {
+      let timeLabel;
+      if (t.started) {
+        timeLabel = new Date(t.started).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+      } else {
+        timeLabel = t.id || `#${i + 1}`;
+      }
+      return {
+        time: timeLabel,
+        id: t.id,
+        mode: t.mode,
+        task: t.task || t.goal || '(placeholder)',
+        status: t.status,
+        summary: t.summary || '',
+        durationMs: t.duration_ms || 0,
+        durationFormatted: t.duration_ms ? (t.duration_ms >= 60000 ? Math.round(t.duration_ms / 60000) + 'm' : Math.round(t.duration_ms / 1000) + 's') : '',
+        startedAt: t.started || null,
+        artifacts: [],
+      };
+    });
 
     // Current task
     const current = inProgress ? {
