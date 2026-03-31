@@ -1845,3 +1845,133 @@ footer {
 .poll-status.live {
   color: #22c55e;
 }
+
+/* === Projects Section === */
+.projects-section {
+  padding: var(--space-lg) var(--space-md);
+}
+
+.projects-section h2 {
+  font-size: 1rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-md);
+}
+
+.projects-filter {
+  display: flex;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-md);
+}
+
+.projects-filter-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.projects-filter-btn:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.projects-filter-btn.active {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-sm);
+  max-height: 500px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.project-card {
+  display: block;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-sm) var(--space-md);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.15s, background 0.15s, transform 0.1s;
+}
+
+.project-card:hover {
+  border-color: var(--accent);
+  background: var(--bg-hover);
+  transform: translateY(-1px);
+}
+
+.project-card.proj-cat-featured {
+  border-left: 3px solid var(--mode-build);
+}
+
+.project-card.proj-cat-visual {
+  border-left: 3px solid var(--mode-explore);
+}
+
+.project-card.proj-cat-language {
+  border-left: 3px solid var(--mode-think);
+}
+
+.project-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-desc {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4;
+}
+
+.project-meta {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  align-items: center;
+}
+
+.project-lang {
+  background: var(--bg);
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+.project-stars {
+  color: var(--mode-build);
+}
+
+@media (min-width: 768px) {
+  .projects-section { max-width: 640px; margin: 0 auto; }
+}
+
+@media (min-width: 1024px) {
+  .projects-section { grid-column: 1 / -1; }
+  .projects-grid { max-height: 600px; }
+}

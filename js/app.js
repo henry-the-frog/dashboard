@@ -801,6 +801,72 @@
     meta.innerHTML = `<span>${benchmarks.count} benchmarks</span><span>commit ${esc(benchmarks.gitHash || '?')}</span>${ts ? `<span>${ts}</span>` : ''}`;
   }
 
+  let projectsFilterState = 'all';
+
+  function renderProjects(projects) {
+    const section = $('#projectsSection');
+    const grid = $('#projectsGrid');
+    const filterEl = $('#projectsFilter');
+    if (!section || !grid) return;
+    if (!projects || projects.length === 0) {
+      section.style.display = 'none';
+      return;
+    }
+    section.style.display = '';
+
+    // Count by category
+    const cats = {};
+    for (const p of projects) {
+      cats[p.category] = (cats[p.category] || 0) + 1;
+    }
+
+    const catLabels = {
+      all: `All (${projects.length})`,
+      featured: `⭐ Featured (${cats.featured || 0})`,
+      visual: `🎨 Visual (${cats.visual || 0})`,
+      language: `💬 Languages (${cats.language || 0})`,
+      parser: `📄 Parsers (${cats.parser || 0})`,
+      'data-structure': `🏗 Data Structures (${cats['data-structure'] || 0})`,
+      utility: `🔧 Utilities (${cats.utility || 0})`,
+    };
+
+    // Update section header with count
+    section.querySelector('h2').innerHTML = `📦 Projects <span class="section-count">${projects.length} repos</span>`;
+
+    // Render filter buttons
+    if (filterEl) {
+      filterEl.innerHTML = Object.entries(catLabels)
+        .filter(([k]) => k === 'all' || (cats[k] || 0) > 0)
+        .map(([k, label]) =>
+          `<button class="projects-filter-btn${projectsFilterState === k ? ' active' : ''}" data-cat="${k}">${label}</button>`
+        ).join('');
+
+      filterEl.onclick = (e) => {
+        const btn = e.target.closest('.projects-filter-btn');
+        if (!btn) return;
+        projectsFilterState = btn.dataset.cat;
+        renderProjects(projects);
+      };
+    }
+
+    const filtered = projectsFilterState === 'all' ? projects : projects.filter(p => p.category === projectsFilterState);
+
+    grid.innerHTML = filtered.map(p => {
+      const age = Math.round((Date.now() - new Date(p.pushedAt).getTime()) / 86400000);
+      const ageStr = age === 0 ? 'today' : age === 1 ? '1d ago' : `${age}d ago`;
+      const catClass = `proj-cat-${p.category}`;
+      return `<a class="project-card ${catClass}" href="${esc(p.url)}" target="_blank">
+        <div class="project-name">${esc(p.name)}</div>
+        <div class="project-desc">${esc(p.description || '—')}</div>
+        <div class="project-meta">
+          ${p.language ? `<span class="project-lang">${esc(p.language)}</span>` : ''}
+          <span class="project-age">${ageStr}</span>
+          ${p.stars > 0 ? `<span class="project-stars">⭐ ${p.stars}</span>` : ''}
+        </div>
+      </a>`;
+    }).join('');
+  }
+
   function renderAll(data) {
     const renders = [
       ['banner', () => renderBanner(data.current)],
@@ -819,6 +885,7 @@
       ['blogPosts', () => renderBlogPosts(data.blogPosts)],
       ['backlog', () => renderBacklog(data.schedule)],
       ['benchmarks', () => renderBenchmarks(data.benchmarks)],
+      ['projects', () => renderProjects(data.projects)],
       ['session', () => renderSessionInfo(data)],
       ['sparkline', () => renderTrendSparkline(data.recentDays, data.stats?.blocksCompleted || 0)],
     ];
@@ -972,6 +1039,7 @@
       scheduleAdherence: api.scheduleAdherence || null,
       todayHighlights: api.todayHighlights || [],
       blockers: api.blockers || [],
+      projects: api.projects || [],
     };
   }
 
@@ -1102,7 +1170,7 @@
     const sections = [
       'weeklySummarySection', 'highlightsSection', 'durationChartSection', 'adjustmentsSection',
       'recentDaysSection', 'blogSection', 'prsSection', 'backlogSection', 'artifactsSection',
-      'benchmarksSection'
+      'benchmarksSection', 'projectsSection'
     ];
     for (const id of sections) {
       const section = document.getElementById(id);

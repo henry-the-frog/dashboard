@@ -50,7 +50,7 @@ function readSchedule() {
 // --- Read rich data from generate.cjs output (dashboard.json) ---
 // These sections are refreshed periodically by MAINTAIN tasks running generate.cjs
 const RICH_KEYS = ['artifacts', 'benchmarks', 'blogPosts', 'prs', 'recentDays',
-  'streak', 'scheduleAdherence', 'todayHighlights', 'adjustments', 'blockers'];
+  'streak', 'scheduleAdherence', 'todayHighlights', 'adjustments', 'blockers', 'projects'];
 
 function readRichData() {
   const f = path.join(DATA_DIR, 'rich.json');

@@ -370,6 +370,53 @@ function computeStreak(recentDays) {
   return streak;
 }
 
+function fetchProjects() {
+  if (process.env.SKIP_GH === '1') return [];
+  const { execSync } = require('child_process');
+  try {
+    const raw = execSync(
+      'gh repo list henry-the-frog --limit 200 --json name,description,url,pushedAt,primaryLanguage,stargazerCount,isPrivate',
+      { encoding: 'utf8', timeout: 30000, stdio: ['pipe', 'pipe', 'pipe'] }
+    );
+    const repos = JSON.parse(raw).filter(r => !r.isPrivate);
+
+    // Categorize projects
+    const featured = new Set(['monkey-lang', 'ray-tracer', 'neural-net', 'chip8', 'dashboard', 'henry-the-frog.github.io', 'openclaw', 'webread']);
+    const vizNames = new Set(['sorting-viz', 'game-of-life', 'fractals', 'pathfinding', 'physics']);
+    const langNames = new Set(['lisp', 'brainfuck', 'tiny-vm', 'forth', 'prolog', 'lambda', 'pratt', 'type-infer', 'type-checker', 'proof-assistant', 'lisp-v2', 'datalog', 'sat', 'nfa-regex']);
+    const dsNames = new Set(['linked-list', 'bst', 'trie', 'graph', 'bloom-filter', 'heap', 'hash-map', 'skip-list', 'ring-buffer', 'deque', 'union-find', 'bitset', 'fenwick', 'interval-tree', 'kd-tree', 'rope', 'btree', 'rbtree', 'arena']);
+
+    return repos.map(r => {
+      let category = 'utility';
+      if (featured.has(r.name)) category = 'featured';
+      else if (vizNames.has(r.name)) category = 'visual';
+      else if (langNames.has(r.name)) category = 'language';
+      else if (dsNames.has(r.name)) category = 'data-structure';
+      else if (/parser|regex|json|csv|toml|yaml|ini|css-parser|markdown|sexpr|elf|xml|xpath/.test(r.name)) category = 'parser';
+
+      return {
+        name: r.name,
+        description: r.description || '',
+        url: r.url,
+        language: r.primaryLanguage?.name || null,
+        stars: r.stargazerCount || 0,
+        pushedAt: r.pushedAt,
+        category,
+      };
+    }).sort((a, b) => {
+      // Featured first, then by push date
+      const catOrder = { featured: 0, visual: 1, language: 2, parser: 3, 'data-structure': 4, utility: 5 };
+      const ca = catOrder[a.category] ?? 5;
+      const cb = catOrder[b.category] ?? 5;
+      if (ca !== cb) return ca - cb;
+      return new Date(b.pushedAt) - new Date(a.pushedAt);
+    });
+  } catch (e) {
+    console.warn('⚠️  Failed to fetch projects:', e.message);
+    return [];
+  }
+}
+
 function parseBlogPosts() {
   const blogDir = process.env.BLOG_DIR || path.resolve(WORKSPACE, '..', '..', 'Projects', 'henry-the-frog.github.io', '_posts');
   const posts = [];
@@ -778,6 +825,9 @@ function generate() {
   // Parse JIT benchmarks
   const benchmarks = parseBenchmarks();
 
+  // Fetch projects from GitHub
+  const projects = fetchProjects();
+
   const dashboard = {
     generated: new Date().toISOString(),
     current,
@@ -793,6 +843,7 @@ function generate() {
     scheduleAdherence,
     streak,
     benchmarks,
+    projects,
   };
 
   // Ensure output directory exists
