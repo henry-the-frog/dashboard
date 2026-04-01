@@ -774,6 +774,164 @@ function parseBenchmarks() {
   } catch { return null; }
 }
 
+function computeVitalStats(projects, blogPosts, recentDays, streak) {
+  // Count total tests across known projects
+  const testCounts = {};
+  const projectDirs = [
+    { name: 'monkey-lang', dir: 'projects/monkey-lang' },
+    { name: 'ray-tracer', dir: 'projects/ray-tracer' },
+    { name: 'neural-net', dir: 'projects/neural-net' },
+    { name: 'physics', dir: 'projects/physics' },
+  ];
+  let totalTests = 0;
+  for (const p of projectDirs) {
+    const count = countTestsInProject(path.resolve(WORKSPACE, p.dir));
+    testCounts[p.name] = count;
+    totalTests += count;
+  }
+
+  // Count all repos
+  const totalRepos = projects.length;
+
+  // Total blog posts
+  const totalBlogPosts = blogPosts.length;
+
+  // Total tasks completed this week
+  const totalTasksWeek = recentDays.reduce((s, d) => s + (d.blocksCompleted || 0), 0);
+
+  // Days active
+  const daysActive = recentDays.filter(d => d.blocksCompleted > 0).length;
+
+  return {
+    totalTests,
+    testCounts,
+    totalRepos,
+    totalBlogPosts,
+    streak,
+    totalTasksWeek,
+    daysActive,
+  };
+}
+
+function countTestsInProject(projectDir) {
+  const { execSync } = require('child_process');
+  try {
+    // Run tests with --test reporter to count
+    const result = execSync('node --test 2>&1 || true', {
+      cwd: projectDir,
+      encoding: 'utf8',
+      timeout: 30000,
+      stdio: ['pipe', 'pipe', 'pipe'],
+    });
+    // Parse "# tests N" or "tests N" from TAP output
+    const testsMatch = result.match(/# tests (\d+)/);
+    if (testsMatch) return parseInt(testsMatch[1], 10);
+    // Fallback: count "ok" lines
+    const okLines = (result.match(/^ok \d+/gm) || []).length;
+    if (okLines > 0) return okLines;
+    // Fallback: count test files and estimate
+    return 0;
+  } catch {
+    // If tests fail, still try to parse output
+    return 0;
+  }
+}
+
+function computeProjectDepth() {
+  const projects = [
+    {
+      name: 'monkey-lang',
+      dir: 'projects/monkey-lang',
+      icon: '🐒',
+      description: 'Language interpreter, compiler, tracing JIT, WASM backend',
+    },
+    {
+      name: 'ray-tracer',
+      dir: 'projects/ray-tracer',
+      icon: '🌈',
+      description: 'Pure JS ray tracer with BVH, volumes, textures',
+    },
+    {
+      name: 'neural-net',
+      dir: 'projects/neural-net',
+      icon: '🧠',
+      description: 'Neural network library with RNN/LSTM/GAN',
+    },
+    {
+      name: 'physics',
+      dir: 'projects/physics',
+      icon: '⚛️',
+      description: '2D physics engine with SAT collision, constraints',
+    },
+  ];
+
+  return projects.map(p => {
+    const dir = path.resolve(WORKSPACE, p.dir);
+    const info = getProjectInfo(dir);
+    return {
+      ...p,
+      ...info,
+      url: `https://github.com/henry-the-frog/${p.name}`,
+      demoUrl: `https://henry-the-frog.github.io/${p.name}/`,
+    };
+  });
+}
+
+function getProjectInfo(dir) {
+  const fs = require('fs');
+  try {
+    // Count test files
+    const testCount = countTestsInProject(dir);
+
+    // Count source files
+    let srcFiles = 0;
+    let srcLines = 0;
+    const countDir = (d) => {
+      try {
+        for (const f of fs.readdirSync(d)) {
+          const fp = path.join(d, f);
+          const st = fs.statSync(fp);
+          if (st.isDirectory() && !f.startsWith('.') && f !== 'node_modules') {
+            countDir(fp);
+          } else if (f.endsWith('.js') || f.endsWith('.mjs')) {
+            srcFiles++;
+            try { srcLines += fs.readFileSync(fp, 'utf8').split('\n').length; } catch {}
+          }
+        }
+      } catch {}
+    };
+    countDir(dir);
+
+    // Read README for feature count
+    let features = [];
+    try {
+      const readme = fs.readFileSync(path.join(dir, 'README.md'), 'utf8');
+      // Count feature bullet points
+      const featureSection = readme.match(/## Features?\n([\s\S]*?)(?=\n## |\n$)/);
+      if (featureSection) {
+        features = (featureSection[1].match(/^[-*]\s+/gm) || []);
+      }
+    } catch {}
+
+    // Get last commit date
+    let lastCommit = null;
+    try {
+      const { execSync } = require('child_process');
+      lastCommit = execSync('git log -1 --format=%ci 2>/dev/null', { cwd: dir, encoding: 'utf8' }).trim();
+    } catch {}
+
+    return {
+      tests: testCount,
+      srcFiles,
+      srcLines,
+      featureCount: features.length,
+      lastCommit,
+    };
+  } catch {
+    return { tests: 0, srcFiles: 0, srcLines: 0, featureCount: 0, lastCommit: null };
+  }
+}
+
 // --- Main ---
 function generate() {
   const currentText = readFile('CURRENT.md');
@@ -828,6 +986,12 @@ function generate() {
   // Fetch projects from GitHub
   const projects = fetchProjects();
 
+  // Compute vital stats (aggregate numbers across all projects)
+  const vitalStats = computeVitalStats(projects, blogPosts, recentDays, streak);
+
+  // Compute project depth cards for featured projects
+  const projectDepth = computeProjectDepth();
+
   const dashboard = {
     generated: new Date().toISOString(),
     current,
@@ -844,6 +1008,8 @@ function generate() {
     streak,
     benchmarks,
     projects,
+    vitalStats,
+    projectDepth,
   };
 
   // Ensure output directory exists

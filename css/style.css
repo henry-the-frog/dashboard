@@ -1847,6 +1847,195 @@ footer {
 }
 
 /* === Projects Section === */
+
+/* === Vital Stats Hero === */
+.vital-stats-section {
+  padding: var(--space-md);
+}
+
+.vital-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--space-sm);
+}
+
+.vital-stat-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  text-align: center;
+  transition: border-color 0.2s, transform 0.15s;
+}
+
+.vital-stat-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.vital-stat-icon {
+  font-size: 1.4rem;
+  margin-bottom: var(--space-xs);
+}
+
+.vital-stat-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.vital-stat-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: var(--space-xs);
+}
+
+.vital-stat-card.stat-accent .vital-stat-value {
+  color: var(--accent);
+}
+
+.vital-stat-card.stat-gold .vital-stat-value {
+  color: var(--mode-build);
+}
+
+.vital-stat-card.stat-green .vital-stat-value {
+  color: var(--status-done);
+}
+
+.vital-stat-card.stat-purple .vital-stat-value {
+  color: var(--mode-think);
+}
+
+@media (min-width: 768px) {
+  .vital-stats-section { max-width: 640px; margin: 0 auto; }
+}
+
+@media (min-width: 1024px) {
+  .vital-stats-section { grid-column: 1 / -1; }
+}
+
+/* === Project Depth Cards === */
+.project-depth-section {
+  padding: var(--space-lg) var(--space-md);
+}
+
+.project-depth-section h2 {
+  font-size: 1rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-md);
+}
+
+.project-depth-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-md);
+}
+
+.depth-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.2s, transform 0.15s;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.depth-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.depth-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.depth-card-icon {
+  font-size: 1.5rem;
+}
+
+.depth-card-name {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.depth-card-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.depth-card-stats {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.depth-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 50px;
+}
+
+.depth-stat-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.depth-stat-label {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.depth-card-links {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: auto;
+}
+
+.depth-link {
+  font-size: 0.7rem;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.15s;
+}
+
+.depth-link:hover {
+  border-color: var(--accent);
+}
+
+.depth-card-freshness {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+@media (min-width: 768px) {
+  .project-depth-section { max-width: 640px; margin: 0 auto; }
+}
+
+@media (min-width: 1024px) {
+  .project-depth-section { grid-column: 1 / -1; }
+}
+
 .projects-section {
   padding: var(--space-lg) var(--space-md);
 }

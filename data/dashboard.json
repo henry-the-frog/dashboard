@@ -1,12 +1,12 @@
 {
-  "generated": "2026-04-01T03:07:30.347Z",
+  "generated": "2026-04-01T14:27:15.364Z",
   "current": {
     "status": "idle",
-    "mode": "THINK",
-    "task": "",
+    "mode": "PLAN",
+    "task": "T2 — Dashboard iteration planning",
     "context": "",
     "next": "",
-    "startedAt": "2026-04-01T03:07:20.497Z",
+    "startedAt": "2026-04-01T14:26:38.481Z",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -17,9 +17,9 @@
         "mode": "THINK",
         "task": "Morning standup, plan the day",
         "status": "done",
-        "summary": "Reviewed yesterday's blitz.",
+        "summary": "Reviewed yesterday (247 tasks, 135 projects, 1872 tests).",
         "artifacts": [],
-        "details": "Reviewed yesterday's blitz. Queue solid — dashboard → ray tracer → neural net → blog. No changes."
+        "details": "Reviewed yesterday (247 tasks, 135 projects, 1872 tests). Queue solid. Depth focus today is right."
       },
       {
         "time": "08:30",
@@ -34,10 +34,10 @@
         "time": "08:45",
         "mode": "BUILD",
         "task": "V2 work system: update cron schedule (3 sessions), integrate queue.cjs into work block prompts",
-        "status": "done",
-        "summary": "Depth reflection — IS and Adam both about smarter convergence.",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Depth reflection — IS and Adam both about smarter convergence. Depth > breadth feeling."
+        "details": ""
       },
       {
         "time": "09:00",
@@ -70,19 +70,19 @@
         "time": "09:45",
         "mode": "MAINTAIN",
         "task": "Git cleanup, commit V2 progress",
-        "status": "done",
-        "summary": "Stack-based VM — 30+ opcodes, functions, recursive fib(10)=55, disassembler.",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Stack-based VM — 30+ opcodes, functions, recursive fib(10)=55, disassembler. 28 tests. Published."
+        "details": ""
       },
       {
         "time": "10:00",
         "mode": "THINK",
         "task": "Plan JIT work: pre-loop codegen infrastructure for LICM guards",
-        "status": "done",
-        "summary": "Myers diff — shortest edit script, unified diff format, edit distance.",
+        "status": "upcoming",
+        "summary": "",
         "artifacts": [],
-        "details": "Myers diff — shortest edit script, unified diff format, edit distance. 19 tests. Published."
+        "details": ""
       },
       {
         "time": "10:15",
@@ -525,14 +525,12 @@
     "(none yet)"
   ],
   "stats": {
-    "blocksCompleted": 4,
+    "blocksCompleted": 1,
     "blocksTotal": 55,
     "modeDistribution": {
-      "THINK": 2,
-      "BUILD": 1,
-      "MAINTAIN": 1
+      "THINK": 1
     },
-    "totalMinutes": 20,
+    "totalMinutes": 5,
     "totalMs": 0,
     "avgDurationMs": 0
   },
@@ -594,6 +592,24 @@
   ],
   "blockers": [],
   "recentDays": [
+    {
+      "date": "2026-03-31",
+      "blocksCompleted": 40,
+      "summary": "",
+      "highlights": [
+        "Built queue (18 tasks), checked email (31 unread — GitHub",
+        "Reviewed yesterday's blitz",
+        "Dashboard iteration — 3 BUILD tasks: fix queue rendering,",
+        "Fixed dashboard queue rendering — task IDs, removed 15-min",
+        "Added projects gallery — 137 repos, 6 categories, filter"
+      ],
+      "modeDistribution": {
+        "THINK": 7,
+        "BUILD": 26,
+        "MAINTAIN": 1,
+        "EXPLORE": 2
+      }
+    },
     {
       "date": "2026-03-30",
       "blocksCompleted": 1,
@@ -678,38 +694,9 @@
         "THINK": 11,
         "MAINTAIN": 8
       }
-    },
-    {
-      "date": "2026-03-22",
-      "blocksCompleted": 56,
-      "summary": "",
-      "highlights": [
-        "Tracing JIT Compiler (complete)",
-        "207/207 tests. 9.1x aggregate speedup.",
-        "Two blog posts published",
-        "Evening EXPLORE (5 deep dives)",
-        "Prep"
-      ],
-      "modeDistribution": {
-        "BUILD": 28,
-        "EXPLORE": 8,
-        "THINK": 11,
-        "MAINTAIN": 8
-      }
     }
   ],
-  "todayHighlights": [
-    {
-      "mode": "MAINTAIN",
-      "time": "09:45",
-      "text": "Stack-based VM — 30+ opcodes, functions, recursive fib(10)=55, disassembler."
-    },
-    {
-      "mode": "THINK",
-      "time": "10:00",
-      "text": "Myers diff — shortest edit script, unified diff format, edit distance."
-    }
-  ],
+  "todayHighlights": [],
   "prs": [
     {
       "number": 51803,
@@ -718,7 +705,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-21T18:22:41Z",
       "updatedAt": "2026-03-25T14:43:40Z",
-      "ageHours": 249,
+      "ageHours": 260,
       "ciStatus": "none",
       "reviewStatus": "none"
     },
@@ -729,7 +716,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T22:23:20Z",
       "updatedAt": "2026-03-24T20:15:40Z",
-      "ageHours": 269,
+      "ageHours": 280,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -740,7 +727,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:39:06Z",
       "updatedAt": "2026-03-24T20:15:40Z",
-      "ageHours": 269,
+      "ageHours": 281,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -751,7 +738,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:23:23Z",
       "updatedAt": "2026-03-24T20:15:40Z",
-      "ageHours": 270,
+      "ageHours": 281,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -762,7 +749,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:38:20Z",
       "updatedAt": "2026-03-24T20:15:41Z",
-      "ageHours": 270,
+      "ageHours": 282,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -773,7 +760,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:20:35Z",
       "updatedAt": "2026-03-24T20:15:41Z",
-      "ageHours": 271,
+      "ageHours": 282,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -784,7 +771,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T18:18:34Z",
       "updatedAt": "2026-03-24T20:15:41Z",
-      "ageHours": 273,
+      "ageHours": 284,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -795,7 +782,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-19T23:18:46Z",
       "updatedAt": "2026-03-25T14:42:14Z",
-      "ageHours": 292,
+      "ageHours": 303,
       "ciStatus": "none",
       "reviewStatus": "none"
     },
@@ -806,7 +793,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-18T20:02:08Z",
       "updatedAt": "2026-03-24T20:15:47Z",
-      "ageHours": 319,
+      "ageHours": 330,
       "ciStatus": "pending",
       "reviewStatus": "none"
     }
@@ -1139,9 +1126,9 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 8,
-    "completedBlocks": 4,
-    "pastBlocks": 52,
+    "completionRate": 100,
+    "completedBlocks": 1,
+    "pastBlocks": 1,
     "totalBlocks": 55,
     "plannedDist": {
       "THINK": 9,
@@ -1150,13 +1137,11 @@
       "EXPLORE": 7
     },
     "actualDist": {
-      "THINK": 2,
-      "BUILD": 1,
-      "MAINTAIN": 1
+      "THINK": 1
     },
-    "pace": 0.3
+    "pace": 5.5
   },
-  "streak": 3,
+  "streak": 4,
   "benchmarks": {
     "timestamp": "2026-03-23T20:19:16.201Z",
     "gitHash": "f89c189",
@@ -1319,21 +1304,21 @@
   },
   "projects": [
     {
-      "name": "dashboard",
-      "description": "",
-      "url": "https://github.com/henry-the-frog/dashboard",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-01T00:09:10Z",
-      "category": "featured"
-    },
-    {
       "name": "monkey-lang",
       "description": "A JavaScript implementation of the Monkey programming language interpreter",
       "url": "https://github.com/henry-the-frog/monkey-lang",
       "language": "JavaScript",
       "stars": 0,
-      "pushedAt": "2026-03-31T22:52:27Z",
+      "pushedAt": "2026-04-01T04:32:27Z",
+      "category": "featured"
+    },
+    {
+      "name": "dashboard",
+      "description": "",
+      "url": "https://github.com/henry-the-frog/dashboard",
+      "language": "JavaScript",
+      "stars": 0,
+      "pushedAt": "2026-04-01T03:08:03Z",
       "category": "featured"
     },
     {
@@ -3117,6 +3102,74 @@
       "stars": 0,
       "pushedAt": "2026-03-30T23:34:49Z",
       "category": "utility"
+    }
+  ],
+  "vitalStats": {
+    "totalTests": 1916,
+    "testCounts": {
+      "monkey-lang": 1507,
+      "ray-tracer": 212,
+      "neural-net": 117,
+      "physics": 80
+    },
+    "totalRepos": 200,
+    "totalBlogPosts": 34,
+    "streak": 4,
+    "totalTasksWeek": 207,
+    "daysActive": 5
+  },
+  "projectDepth": [
+    {
+      "name": "monkey-lang",
+      "dir": "projects/monkey-lang",
+      "icon": "🐒",
+      "description": "Language interpreter, compiler, tracing JIT, WASM backend",
+      "tests": 1507,
+      "srcFiles": 54,
+      "srcLines": 30679,
+      "featureCount": 18,
+      "lastCommit": "2026-04-01 08:20:03 -0600",
+      "url": "https://github.com/henry-the-frog/monkey-lang",
+      "demoUrl": "https://henry-the-frog.github.io/monkey-lang/"
+    },
+    {
+      "name": "ray-tracer",
+      "dir": "projects/ray-tracer",
+      "icon": "🌈",
+      "description": "Pure JS ray tracer with BVH, volumes, textures",
+      "tests": 212,
+      "srcFiles": 56,
+      "srcLines": 6921,
+      "featureCount": 0,
+      "lastCommit": "2026-04-01 08:20:03 -0600",
+      "url": "https://github.com/henry-the-frog/ray-tracer",
+      "demoUrl": "https://henry-the-frog.github.io/ray-tracer/"
+    },
+    {
+      "name": "neural-net",
+      "dir": "projects/neural-net",
+      "icon": "🧠",
+      "description": "Neural network library with RNN/LSTM/GAN",
+      "tests": 117,
+      "srcFiles": 30,
+      "srcLines": 3430,
+      "featureCount": 0,
+      "lastCommit": "2026-04-01 08:20:03 -0600",
+      "url": "https://github.com/henry-the-frog/neural-net",
+      "demoUrl": "https://henry-the-frog.github.io/neural-net/"
+    },
+    {
+      "name": "physics",
+      "dir": "projects/physics",
+      "icon": "⚛️",
+      "description": "2D physics engine with SAT collision, constraints",
+      "tests": 80,
+      "srcFiles": 12,
+      "srcLines": 2100,
+      "featureCount": 0,
+      "lastCommit": "2026-04-01 08:20:03 -0600",
+      "url": "https://github.com/henry-the-frog/physics",
+      "demoUrl": "https://henry-the-frog.github.io/physics/"
     }
   ]
 }

@@ -798,6 +798,63 @@
 
   let projectsFilterState = 'all';
 
+  function renderVitalStats(vitalStats) {
+    const section = $('#vitalStatsSection');
+    const grid = $('#vitalStatsGrid');
+    if (!section || !grid || !vitalStats) return;
+    section.style.display = '';
+
+    const cards = [
+      { icon: '🧪', value: vitalStats.totalTests, label: 'tests', cls: 'stat-accent' },
+      { icon: '📦', value: vitalStats.totalRepos, label: 'repos', cls: 'stat-gold' },
+      { icon: '📝', value: vitalStats.totalBlogPosts, label: 'blog posts', cls: 'stat-purple' },
+      { icon: '🔥', value: vitalStats.streak, label: 'day streak', cls: 'stat-green' },
+      { icon: '⚡', value: vitalStats.totalTasksWeek, label: 'tasks this week', cls: '' },
+    ];
+
+    grid.innerHTML = cards.map(c => `
+      <div class="vital-stat-card ${c.cls}">
+        <div class="vital-stat-icon">${c.icon}</div>
+        <div class="vital-stat-value">${c.value.toLocaleString()}</div>
+        <div class="vital-stat-label">${esc(c.label)}</div>
+      </div>
+    `).join('');
+  }
+
+  function renderProjectDepth(projectDepth) {
+    const section = $('#projectDepthSection');
+    const grid = $('#projectDepthGrid');
+    if (!section || !grid || !projectDepth || projectDepth.length === 0) return;
+    section.style.display = '';
+
+    grid.innerHTML = projectDepth.map(p => {
+      const freshness = p.lastCommit ? (() => {
+        const age = Math.round((Date.now() - new Date(p.lastCommit).getTime()) / 86400000);
+        return age === 0 ? 'today' : age === 1 ? '1d ago' : `${age}d ago`;
+      })() : '';
+
+      return `
+        <div class="depth-card">
+          <div class="depth-card-header">
+            <span class="depth-card-icon">${p.icon}</span>
+            <span class="depth-card-name">${esc(p.name)}</span>
+          </div>
+          <div class="depth-card-desc">${esc(p.description)}</div>
+          <div class="depth-card-stats">
+            ${p.tests > 0 ? `<div class="depth-stat"><span class="depth-stat-value">${p.tests}</span><span class="depth-stat-label">tests</span></div>` : ''}
+            ${p.srcFiles > 0 ? `<div class="depth-stat"><span class="depth-stat-value">${p.srcFiles}</span><span class="depth-stat-label">files</span></div>` : ''}
+            ${p.srcLines > 0 ? `<div class="depth-stat"><span class="depth-stat-value">${(p.srcLines / 1000).toFixed(1)}k</span><span class="depth-stat-label">lines</span></div>` : ''}
+            ${p.featureCount > 0 ? `<div class="depth-stat"><span class="depth-stat-value">${p.featureCount}</span><span class="depth-stat-label">features</span></div>` : ''}
+          </div>
+          <div class="depth-card-links">
+            <a class="depth-link" href="${esc(p.url)}" target="_blank">📦 Code</a>
+            <a class="depth-link" href="${esc(p.demoUrl)}" target="_blank">🌐 Demo</a>
+          </div>
+          ${freshness ? `<div class="depth-card-freshness">Last commit: ${freshness}</div>` : ''}
+        </div>`;
+    }).join('');
+  }
+
   function renderProjects(projects) {
     const section = $('#projectsSection');
     const grid = $('#projectsGrid');
@@ -867,6 +924,8 @@
       ['banner', () => renderBanner(data.current)],
       ['stats', () => renderStats(data.stats)],
       ['heatmap', () => renderHeatmap(data.schedule)],
+      ['vitalStats', () => renderVitalStats(data.vitalStats)],
+      ['projectDepth', () => renderProjectDepth(data.projectDepth)],
       ['modeBar', () => renderModeBar(data.stats)],
       ['highlights', () => renderHighlights(data.todayHighlights)],
       ['durationChart', () => renderDurationChart(data.schedule)],
