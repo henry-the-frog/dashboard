@@ -1918,6 +1918,77 @@ footer {
   .vital-stats-section { grid-column: 1 / -1; }
 }
 
+/* === Session Health === */
+.session-health-section {
+  padding: var(--space-xs) var(--space-md);
+}
+
+.session-health {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-sm) var(--space-md);
+  flex-wrap: wrap;
+}
+
+.session-health-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.session-health-detail {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.session-health-bar {
+  flex: 1;
+  min-width: 80px;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.session-health-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1s ease;
+}
+
+.session-health-fill.on-track { background: var(--status-done); }
+.session-health-fill.behind { background: var(--mode-build); }
+.session-health-fill.winding-down { background: var(--mode-think); }
+
+.session-health-pace {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.session-health-projected {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .session-health-section { max-width: 640px; margin: 0 auto; }
+}
+
+@media (min-width: 1024px) {
+  .session-health-section { grid-column: 1 / -1; }
+}
+
 /* === Project Depth Cards === */
 .project-depth-section {
   padding: var(--space-lg) var(--space-md);

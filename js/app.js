@@ -821,6 +821,71 @@
     `).join('');
   }
 
+  function renderSessionHealth(data) {
+    const section = $('#sessionHealthSection');
+    const el = $('#sessionHealth');
+    if (!section || !el) return;
+
+    const now = new Date();
+    const h = now.getHours(), m = now.getMinutes();
+    const mins = h * 60 + m;
+    const sessions = [
+      { name: 'A', start: 8*60+15, end: 14*60+15, label: '8:15am–2:15pm' },
+      { name: 'B', start: 14*60+15, end: 20*60+15, label: '2:15pm–8:15pm' },
+      { name: 'C', start: 20*60+15, end: 22*60+15, label: '8:15pm–10:15pm' },
+    ];
+    const active = sessions.find(s => mins >= s.start && mins < s.end);
+    if (!active) {
+      section.style.display = '';
+      el.innerHTML = `<span class="session-health-label">💤 Between sessions</span>`;
+      return;
+    }
+
+    section.style.display = '';
+
+    const elapsed = mins - active.start;
+    const total = active.end - active.start;
+    const remaining = active.end - mins;
+    const pct = Math.round((elapsed / total) * 100);
+
+    const stats = data.stats || {};
+    const completed = stats.blocksCompleted || 0;
+    const tasksTotal = stats.blocksTotal || 0;
+    const tasksLeft = tasksTotal - completed;
+
+    // Pace
+    const pace = elapsed > 0 ? (completed / (elapsed / 60)).toFixed(1) : '—';
+
+    // Projected completion
+    const avgMinsPerTask = completed > 0 ? elapsed / completed : 0;
+    const projectedMinsNeeded = tasksLeft * avgMinsPerTask;
+    const willFinish = projectedMinsNeeded <= remaining;
+
+    // Status
+    let fillClass = 'on-track';
+    let statusEmoji = '🟢';
+    if (remaining <= 15) {
+      fillClass = 'winding-down';
+      statusEmoji = '🌅';
+    } else if (!willFinish && tasksLeft > 0) {
+      fillClass = 'behind';
+      statusEmoji = '🟡';
+    }
+
+    const remH = Math.floor(remaining / 60);
+    const remM = remaining % 60;
+    const remStr = remH > 0 ? `${remH}h ${remM}m` : `${remM}m`;
+
+    el.innerHTML = `
+      <span class="session-health-label">${statusEmoji} Session ${active.name}</span>
+      <span class="session-health-detail">${active.label}</span>
+      <div class="session-health-bar"><div class="session-health-fill ${fillClass}" style="width:${pct}%"></div></div>
+      <span class="session-health-detail">${remStr} left</span>
+      <span class="session-health-pace">${pace} tasks/hr</span>
+      ${tasksLeft > 0 ? `<span class="session-health-projected">${tasksLeft} tasks remaining${willFinish ? ' ✓' : ''}</span>` : '<span class="session-health-projected">Queue done ✓</span>'}
+    `;
+  }
+
   function renderProjectDepth(projectDepth) {
     const section = $('#projectDepthSection');
     const grid = $('#projectDepthGrid');
@@ -925,6 +990,7 @@
       ['stats', () => renderStats(data.stats)],
       ['heatmap', () => renderHeatmap(data.schedule)],
       ['vitalStats', () => renderVitalStats(data.vitalStats)],
+      ['sessionHealth', () => renderSessionHealth(data)],
       ['projectDepth', () => renderProjectDepth(data.projectDepth)],
       ['modeBar', () => renderModeBar(data.stats)],
       ['highlights', () => renderHighlights(data.todayHighlights)],
@@ -1349,5 +1415,8 @@
 
     // Update workday progress
     renderWorkdayProgress();
+
+    // Update session health
+    try { renderSessionHealth(currentData); } catch {}
   }
 })();
