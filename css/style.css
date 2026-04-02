@@ -1910,6 +1910,28 @@ footer {
   color: var(--mode-think);
 }
 
+.vital-stat-card.stat-breakdown {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+}
+.test-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-sm);
+  font-size: 0.8rem;
+}
+.test-breakdown-item {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2px 8px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
 @media (min-width: 768px) {
   .vital-stats-section { max-width: 640px; margin: 0 auto; }
 }

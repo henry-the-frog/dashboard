@@ -802,6 +802,7 @@
     const section = $('#vitalStatsSection');
     const grid = $('#vitalStatsGrid');
     if (!section || !grid || !vitalStats) return;
+    if (!vitalStats.totalTests && !vitalStats.totalRepos) return;
     section.style.display = '';
 
     const cards = [
@@ -812,13 +813,27 @@
       { icon: '⚡', value: vitalStats.totalTasksWeek, label: 'tasks this week', cls: '' },
     ];
 
+    // Test count breakdown by project
+    const testCounts = vitalStats.testCounts || {};
+    const breakdownHTML = Object.entries(testCounts)
+      .filter(([, v]) => v > 0)
+      .sort((a, b) => b[1] - a[1])
+      .map(([name, count]) => `<span class="test-breakdown-item">${esc(name)}: ${count.toLocaleString()}</span>`)
+      .join('');
+
     grid.innerHTML = cards.map(c => `
       <div class="vital-stat-card ${c.cls}">
         <div class="vital-stat-icon">${c.icon}</div>
         <div class="vital-stat-value">${c.value.toLocaleString()}</div>
         <div class="vital-stat-label">${esc(c.label)}</div>
       </div>
-    `).join('');
+    `).join('') + (breakdownHTML ? `
+      <div class="vital-stat-card stat-breakdown">
+        <div class="vital-stat-icon">📊</div>
+        <div class="vital-stat-label">Test Breakdown</div>
+        <div class="test-breakdown">${breakdownHTML}</div>
+      </div>
+    ` : '');
   }
 
   function renderSessionHealth(data) {

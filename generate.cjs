@@ -782,6 +782,7 @@ function computeVitalStats(projects, blogPosts, recentDays, streak) {
     { name: 'ray-tracer', dir: 'projects/ray-tracer' },
     { name: 'neural-net', dir: 'projects/neural-net' },
     { name: 'physics', dir: 'projects/physics' },
+    { name: 'genetic-art', dir: 'projects/genetic-art' },
   ];
   let totalTests = 0;
   for (const p of projectDirs) {
@@ -862,6 +863,12 @@ function computeProjectDepth() {
       dir: 'projects/physics',
       icon: '⚛️',
       description: '2D physics engine with SAT collision, constraints',
+    },
+    {
+      name: 'genetic-art',
+      dir: 'projects/genetic-art',
+      icon: '🧬',
+      description: 'Genetic algorithms, neuroevolution, polygon art evolver',
     },
   ];
 
@@ -1017,6 +1024,17 @@ function generate() {
   if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
 
   fs.writeFileSync(OUTPUT, JSON.stringify(dashboard, null, 2));
+
+  // Also write rich.json so the server API serves vitalStats, projectDepth, etc.
+  const RICH_KEYS = ['artifacts', 'benchmarks', 'blogPosts', 'prs', 'recentDays',
+    'streak', 'scheduleAdherence', 'todayHighlights', 'adjustments', 'blockers', 'projects',
+    'vitalStats', 'projectDepth'];
+  const rich = {};
+  for (const key of RICH_KEYS) {
+    if (dashboard[key] !== undefined) rich[key] = dashboard[key];
+  }
+  rich.generated = dashboard.generated;
+  fs.writeFileSync(path.join(path.dirname(OUTPUT), 'rich.json'), JSON.stringify(rich, null, 2));
   
   // Auto-validate: warn about format issues during normal generation
   const warnings = [];
