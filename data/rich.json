@@ -573,7 +573,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-21T18:22:41Z",
       "updatedAt": "2026-03-25T14:43:40Z",
-      "ageHours": 284,
+      "ageHours": 307,
       "ciStatus": "none",
       "reviewStatus": "none"
     },
@@ -584,7 +584,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T22:23:20Z",
       "updatedAt": "2026-03-24T20:15:40Z",
-      "ageHours": 304,
+      "ageHours": 327,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -595,7 +595,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:39:06Z",
       "updatedAt": "2026-03-24T20:15:40Z",
-      "ageHours": 305,
+      "ageHours": 327,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -606,7 +606,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:23:23Z",
       "updatedAt": "2026-03-24T20:15:40Z",
-      "ageHours": 305,
+      "ageHours": 328,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -617,7 +617,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:38:20Z",
       "updatedAt": "2026-03-24T20:15:41Z",
-      "ageHours": 306,
+      "ageHours": 328,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -628,7 +628,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:20:35Z",
       "updatedAt": "2026-03-24T20:15:41Z",
-      "ageHours": 306,
+      "ageHours": 329,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -639,7 +639,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T18:18:34Z",
       "updatedAt": "2026-03-24T20:15:41Z",
-      "ageHours": 308,
+      "ageHours": 331,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -650,7 +650,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-19T23:18:46Z",
       "updatedAt": "2026-03-25T14:42:14Z",
-      "ageHours": 327,
+      "ageHours": 350,
       "ciStatus": "none",
       "reviewStatus": "none"
     },
@@ -661,12 +661,30 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-18T20:02:08Z",
       "updatedAt": "2026-03-24T20:15:47Z",
-      "ageHours": 354,
+      "ageHours": 377,
       "ciStatus": "pending",
       "reviewStatus": "none"
     }
   ],
   "recentDays": [
+    {
+      "date": "2026-04-02",
+      "blocksCompleted": 42,
+      "summary": "",
+      "highlights": [
+        "Built 18-task queue",
+        "All CI green (neural-net, ray-tracer, genetic-art)",
+        "Dashboard iteration — 2 BUILD tasks: vital stats fix + test",
+        "Fixed vital stats + project depth rendering — generate.cjs",
+        "Genetic-art in project depth cards verified"
+      ],
+      "modeDistribution": {
+        "THINK": 2,
+        "BUILD": 26,
+        "MAINTAIN": 2,
+        "EXPLORE": 2
+      }
+    },
     {
       "date": "2026-04-01",
       "blocksCompleted": 64,
@@ -751,31 +769,13 @@
         "BUILD": 1,
         "THINK": 1
       }
-    },
-    {
-      "date": "2026-03-24",
-      "blocksCompleted": 54,
-      "summary": "",
-      "highlights": [
-        "Morning standup complete",
-        "V2 work system — updated 3 cron prompts (standup generates",
-        "V2 queue flow — tested next→start→done→next cycle end-to-end",
-        "V2 assessment + PR review",
-        "PR triage — all 9 openclaw PRs checked"
-      ],
-      "modeDistribution": {
-        "THINK": 11,
-        "BUILD": 22,
-        "MAINTAIN": 7,
-        "EXPLORE": 10
-      }
     }
   ],
-  "streak": 5,
+  "streak": 0,
   "scheduleAdherence": {
-    "completionRate": 100,
-    "completedBlocks": 1,
-    "pastBlocks": 1,
+    "completionRate": 0,
+    "completedBlocks": 0,
+    "pastBlocks": 0,
     "totalBlocks": 55,
     "plannedDist": {
       "THINK": 9,
@@ -783,10 +783,8 @@
       "MAINTAIN": 10,
       "EXPLORE": 7
     },
-    "actualDist": {
-      "THINK": 1
-    },
-    "pace": 6
+    "actualDist": {},
+    "pace": 0
   },
   "todayHighlights": [],
   "adjustments": [
@@ -795,12 +793,21 @@
   "blockers": [],
   "projects": [
     {
-      "name": "ray-tracer",
-      "description": "A ray tracer built from scratch in JavaScript — spheres, reflections, refractions, and more",
-      "url": "https://github.com/henry-the-frog/ray-tracer",
+      "name": "monkey-lang",
+      "description": "A JavaScript implementation of the Monkey programming language interpreter",
+      "url": "https://github.com/henry-the-frog/monkey-lang",
       "language": "JavaScript",
       "stars": 0,
-      "pushedAt": "2026-04-02T13:36:40Z",
+      "pushedAt": "2026-04-03T04:25:13Z",
+      "category": "featured"
+    },
+    {
+      "name": "dashboard",
+      "description": "",
+      "url": "https://github.com/henry-the-frog/dashboard",
+      "language": "JavaScript",
+      "stars": 0,
+      "pushedAt": "2026-04-02T17:56:14Z",
       "category": "featured"
     },
     {
@@ -809,16 +816,16 @@
       "url": "https://github.com/henry-the-frog/neural-net",
       "language": "JavaScript",
       "stars": 0,
-      "pushedAt": "2026-04-02T13:05:20Z",
+      "pushedAt": "2026-04-02T17:56:04Z",
       "category": "featured"
     },
     {
-      "name": "monkey-lang",
-      "description": "A JavaScript implementation of the Monkey programming language interpreter",
-      "url": "https://github.com/henry-the-frog/monkey-lang",
+      "name": "ray-tracer",
+      "description": "A ray tracer built from scratch in JavaScript — spheres, reflections, refractions, and more",
+      "url": "https://github.com/henry-the-frog/ray-tracer",
       "language": "JavaScript",
       "stars": 0,
-      "pushedAt": "2026-04-02T04:23:11Z",
+      "pushedAt": "2026-04-02T17:56:02Z",
       "category": "featured"
     },
     {
@@ -831,21 +838,12 @@
       "category": "featured"
     },
     {
-      "name": "dashboard",
-      "description": "",
-      "url": "https://github.com/henry-the-frog/dashboard",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-01T14:34:02Z",
-      "category": "featured"
-    },
-    {
       "name": "physics",
       "description": "2D particle physics engine — Verlet integration, cloth simulation, collisions",
       "url": "https://github.com/henry-the-frog/physics",
       "language": "JavaScript",
       "stars": 0,
-      "pushedAt": "2026-03-31T15:16:17Z",
+      "pushedAt": "2026-04-02T16:16:33Z",
       "category": "visual"
     },
     {
@@ -1173,30 +1171,12 @@
       "category": "data-structure"
     },
     {
-      "name": "genetic-art",
-      "description": "Genetic algorithm library + polygon art evolver, built from scratch in JavaScript",
-      "url": "https://github.com/henry-the-frog/genetic-art",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-02T03:27:09Z",
-      "category": "utility"
-    },
-    {
-      "name": "physics-engine",
-      "description": "2D physics engine with SAT collision, spatial hash broadphase, constraints — interactive web demo",
-      "url": "https://github.com/henry-the-frog/physics-engine",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-02T02:28:04Z",
-      "category": "utility"
-    },
-    {
       "name": "fractal-explorer",
       "description": "Interactive fractal explorer: Mandelbrot, Julia sets, Burning Ship, Tricorn. Zoom, color schemes, save.",
       "url": "https://github.com/henry-the-frog/fractal-explorer",
       "language": "HTML",
       "stars": 0,
-      "pushedAt": "2026-04-02T00:02:08Z",
+      "pushedAt": "2026-04-02T17:56:21Z",
       "category": "utility"
     },
     {
@@ -1205,7 +1185,7 @@
       "url": "https://github.com/henry-the-frog/cellular-automata",
       "language": "HTML",
       "stars": 0,
-      "pushedAt": "2026-04-01T23:17:44Z",
+      "pushedAt": "2026-04-02T17:56:19Z",
       "category": "utility"
     },
     {
@@ -1214,7 +1194,25 @@
       "url": "https://github.com/henry-the-frog/particle-life",
       "language": "HTML",
       "stars": 0,
-      "pushedAt": "2026-04-01T22:50:35Z",
+      "pushedAt": "2026-04-02T17:56:16Z",
+      "category": "utility"
+    },
+    {
+      "name": "genetic-art",
+      "description": "Genetic algorithm library + polygon art evolver, built from scratch in JavaScript",
+      "url": "https://github.com/henry-the-frog/genetic-art",
+      "language": "JavaScript",
+      "stars": 0,
+      "pushedAt": "2026-04-02T17:56:12Z",
+      "category": "utility"
+    },
+    {
+      "name": "physics-engine",
+      "description": "2D physics engine with SAT collision, spatial hash broadphase, constraints — interactive web demo",
+      "url": "https://github.com/henry-the-frog/physics-engine",
+      "language": "JavaScript",
+      "stars": 0,
+      "pushedAt": "2026-04-02T17:56:09Z",
       "category": "utility"
     },
     {
@@ -2596,18 +2594,18 @@
     }
   ],
   "vitalStats": {
-    "totalTests": 2303,
+    "totalTests": 2529,
     "testCounts": {
       "monkey-lang": 1540,
-      "ray-tracer": 254,
-      "neural-net": 276,
-      "physics": 126,
-      "genetic-art": 107
+      "ray-tracer": 274,
+      "neural-net": 412,
+      "physics": 151,
+      "genetic-art": 152
     },
     "totalRepos": 200,
     "totalBlogPosts": 35,
-    "streak": 5,
-    "totalTasksWeek": 216,
+    "streak": 0,
+    "totalTasksWeek": 204,
     "daysActive": 5
   },
   "projectDepth": [
@@ -2620,7 +2618,7 @@
       "srcFiles": 57,
       "srcLines": 31415,
       "featureCount": 18,
-      "lastCommit": "2026-04-02 08:18:36 -0600",
+      "lastCommit": "2026-04-02 22:24:42 -0600",
       "url": "https://github.com/henry-the-frog/monkey-lang",
       "demoUrl": "https://henry-the-frog.github.io/monkey-lang/"
     },
@@ -2629,11 +2627,11 @@
       "dir": "projects/ray-tracer",
       "icon": "🌈",
       "description": "Pure JS ray tracer with BVH, volumes, textures",
-      "tests": 254,
-      "srcFiles": 60,
-      "srcLines": 8110,
+      "tests": 274,
+      "srcFiles": 63,
+      "srcLines": 8666,
       "featureCount": 0,
-      "lastCommit": "2026-04-02 08:18:36 -0600",
+      "lastCommit": "2026-04-02 22:24:42 -0600",
       "url": "https://github.com/henry-the-frog/ray-tracer",
       "demoUrl": "https://henry-the-frog.github.io/ray-tracer/"
     },
@@ -2642,11 +2640,11 @@
       "dir": "projects/neural-net",
       "icon": "🧠",
       "description": "Neural network library with RNN/LSTM/GAN",
-      "tests": 276,
-      "srcFiles": 54,
-      "srcLines": 8763,
+      "tests": 412,
+      "srcFiles": 74,
+      "srcLines": 13390,
       "featureCount": 0,
-      "lastCommit": "2026-04-02 08:18:36 -0600",
+      "lastCommit": "2026-04-02 22:24:42 -0600",
       "url": "https://github.com/henry-the-frog/neural-net",
       "demoUrl": "https://henry-the-frog.github.io/neural-net/"
     },
@@ -2655,11 +2653,11 @@
       "dir": "projects/physics",
       "icon": "⚛️",
       "description": "2D physics engine with SAT collision, constraints",
-      "tests": 126,
-      "srcFiles": 14,
-      "srcLines": 3059,
+      "tests": 151,
+      "srcFiles": 16,
+      "srcLines": 3796,
       "featureCount": 0,
-      "lastCommit": "2026-04-02 08:18:36 -0600",
+      "lastCommit": "2026-04-02 22:24:42 -0600",
       "url": "https://github.com/henry-the-frog/physics",
       "demoUrl": "https://henry-the-frog.github.io/physics/"
     },
@@ -2668,14 +2666,14 @@
       "dir": "projects/genetic-art",
       "icon": "🧬",
       "description": "Genetic algorithms, neuroevolution, polygon art evolver",
-      "tests": 107,
-      "srcFiles": 16,
-      "srcLines": 3029,
+      "tests": 152,
+      "srcFiles": 22,
+      "srcLines": 4563,
       "featureCount": 21,
-      "lastCommit": "2026-04-02 08:18:36 -0600",
+      "lastCommit": "2026-04-02 22:24:42 -0600",
       "url": "https://github.com/henry-the-frog/genetic-art",
       "demoUrl": "https://henry-the-frog.github.io/genetic-art/"
     }
   ],
-  "generated": "2026-04-02T14:26:16.792Z"
+  "generated": "2026-04-03T13:08:51.479Z"
 }
