@@ -1,12 +1,12 @@
 {
-  "generated": "2026-04-03T20:56:27.962Z",
+  "generated": "2026-04-03T20:58:17.927Z",
   "current": {
     "status": "idle",
     "mode": "THINK",
     "task": "Session B direction",
     "context": "",
     "next": "",
-    "startedAt": "2026-04-03T20:55:11.635Z",
+    "startedAt": "2026-04-03T20:57:02.734Z",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -1401,6 +1401,15 @@
   },
   "projects": [
     {
+      "name": "dashboard",
+      "description": "",
+      "url": "https://github.com/henry-the-frog/dashboard",
+      "language": "JavaScript",
+      "stars": 0,
+      "pushedAt": "2026-04-03T20:56:45Z",
+      "category": "featured"
+    },
+    {
       "name": "monkey-lang",
       "description": "A JavaScript implementation of the Monkey programming language interpreter",
       "url": "https://github.com/henry-the-frog/monkey-lang",
@@ -1416,15 +1425,6 @@
       "language": "JavaScript",
       "stars": 0,
       "pushedAt": "2026-04-03T18:32:28Z",
-      "category": "featured"
-    },
-    {
-      "name": "dashboard",
-      "description": "",
-      "url": "https://github.com/henry-the-frog/dashboard",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-03T13:09:25Z",
       "category": "featured"
     },
     {
