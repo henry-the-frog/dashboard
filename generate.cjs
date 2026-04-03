@@ -783,6 +783,9 @@ function computeVitalStats(projects, blogPosts, recentDays, streak) {
     { name: 'neural-net', dir: 'projects/neural-net' },
     { name: 'physics', dir: 'projects/physics' },
     { name: 'genetic-art', dir: 'projects/genetic-art' },
+    { name: 'prolog', dir: 'projects/prolog' },
+    { name: 'minikanren', dir: 'projects/minikanren' },
+    { name: 'boids', dir: 'projects/boids' },
   ];
   let totalTests = 0;
   for (const p of projectDirs) {
@@ -869,6 +872,24 @@ function computeProjectDepth() {
       dir: 'projects/genetic-art',
       icon: '🧬',
       description: 'Genetic algorithms, neuroevolution, polygon art evolver',
+    },
+    {
+      name: 'prolog',
+      dir: 'projects/prolog',
+      icon: '🔮',
+      description: 'Prolog interpreter — unification, backtracking, 40+ builtins',
+    },
+    {
+      name: 'minikanren',
+      dir: 'projects/minikanren',
+      icon: '🧩',
+      description: 'miniKanren relational logic programming — interleaving search',
+    },
+    {
+      name: 'boids',
+      dir: 'projects/boids',
+      icon: '🐦',
+      description: 'Boids flocking simulation — emergent behavior from simple rules',
     },
   ];
 
