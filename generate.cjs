@@ -792,6 +792,7 @@ function computeVitalStats(projects, blogPosts, recentDays, streak) {
     { name: 'smt-solver', dir: 'projects/smt-solver' },
     { name: 'type-inference', dir: 'projects/type-inference' },
     { name: 'csp-solver', dir: 'projects/csp-solver' },
+    { name: 'bytecode-vm', dir: 'projects/bytecode-vm' },
   ];
   let totalTests = 0;
   for (const p of projectDirs) {
@@ -938,6 +939,12 @@ function computeProjectDepth() {
       dir: 'projects/csp-solver',
       icon: '🧩',
       description: 'CSP solver — AC-3, backtracking, Sudoku, N-Queens, graph coloring',
+    },
+    {
+      name: 'bytecode-vm',
+      dir: 'projects/bytecode-vm',
+      icon: '⚙️',
+      description: 'Stack-based bytecode VM — compiler, closures, call frames',
     },
   ];
 
