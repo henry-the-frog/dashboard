@@ -795,6 +795,7 @@ function computeVitalStats(projects, blogPosts, recentDays, streak) {
     { name: 'bytecode-vm', dir: 'projects/bytecode-vm' },
     { name: 'actor-model', dir: 'projects/actor-model' },
     { name: 'parser-combinators', dir: 'projects/parser-combinators' },
+    { name: 'btree', dir: 'projects/btree' },
   ];
   let totalTests = 0;
   for (const p of projectDirs) {
@@ -959,6 +960,12 @@ function computeProjectDepth() {
       dir: 'projects/parser-combinators',
       icon: '📝',
       description: 'Parser combinators — functional parsing library with JSON parser',
+    },
+    {
+      name: 'btree',
+      dir: 'projects/btree',
+      icon: '🌳',
+      description: 'B-Tree — self-balancing tree with range queries and ordered iteration',
     },
   ];
 
