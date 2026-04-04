@@ -796,6 +796,8 @@ function computeVitalStats(projects, blogPosts, recentDays, streak) {
     { name: 'actor-model', dir: 'projects/actor-model' },
     { name: 'parser-combinators', dir: 'projects/parser-combinators' },
     { name: 'btree', dir: 'projects/btree' },
+    { name: 'lisp', dir: 'projects/lisp' },
+    { name: 'probabilistic-ds', dir: 'projects/probabilistic-ds' },
   ];
   let totalTests = 0;
   for (const p of projectDirs) {
@@ -966,6 +968,18 @@ function computeProjectDepth() {
       dir: 'projects/btree',
       icon: '🌳',
       description: 'B-Tree — self-balancing tree with range queries and ordered iteration',
+    },
+    {
+      name: 'lisp',
+      dir: 'projects/lisp',
+      icon: '🔮',
+      description: 'Lisp interpreter — Scheme-like with closures, TCO, standard library',
+    },
+    {
+      name: 'probabilistic-ds',
+      dir: 'projects/probabilistic-ds',
+      icon: '🎲',
+      description: 'Probabilistic data structures — Bloom filter, Count-Min Sketch, HyperLogLog',
     },
   ];
 
