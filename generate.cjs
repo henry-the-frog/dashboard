@@ -790,6 +790,7 @@ function computeVitalStats(projects, blogPosts, recentDays, streak) {
     { name: 'regex-engine', dir: 'projects/regex-engine' },
     { name: 'gc-simulator', dir: 'projects/gc-simulator' },
     { name: 'smt-solver', dir: 'projects/smt-solver' },
+    { name: 'type-inference', dir: 'projects/type-inference' },
   ];
   let totalTests = 0;
   for (const p of projectDirs) {
@@ -924,6 +925,12 @@ function computeProjectDepth() {
       dir: 'projects/smt-solver',
       icon: '🧩',
       description: 'SMT solver — DPLL(T) with EUF theory, congruence closure',
+    },
+    {
+      name: 'type-inference',
+      dir: 'projects/type-inference',
+      icon: '🔤',
+      description: 'Hindley-Milner type inference — Algorithm W, ADTs, pattern matching',
     },
   ];
 

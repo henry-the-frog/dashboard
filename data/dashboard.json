@@ -1,12 +1,12 @@
 {
-  "generated": "2026-04-04T15:50:56.315Z",
+  "generated": "2026-04-04T15:59:30.259Z",
   "current": {
     "status": "idle",
     "mode": "BUILD",
     "task": "Generating new work — continuing depth projects",
     "context": "",
     "next": "",
-    "startedAt": "2026-04-04T15:50:45.364Z",
+    "startedAt": "2026-04-04T15:59:19.956Z",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -721,7 +721,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-21T18:22:41Z",
       "updatedAt": "2026-03-25T14:43:40Z",
-      "ageHours": 333,
+      "ageHours": 334,
       "ciStatus": "none",
       "reviewStatus": "none"
     },
@@ -732,7 +732,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T22:23:20Z",
       "updatedAt": "2026-03-24T20:15:40Z",
-      "ageHours": 353,
+      "ageHours": 354,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -754,7 +754,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:23:23Z",
       "updatedAt": "2026-03-24T20:15:40Z",
-      "ageHours": 354,
+      "ageHours": 355,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -1212,7 +1212,7 @@
       "BUILD": 1,
       "MAINTAIN": 2
     },
-    "pace": 2.5
+    "pace": 2.3
   },
   "streak": 7,
   "benchmarks": {
@@ -1382,7 +1382,7 @@
       "url": "https://github.com/henry-the-frog/monkey-lang",
       "language": "JavaScript",
       "stars": 0,
-      "pushedAt": "2026-04-04T15:50:22Z",
+      "pushedAt": "2026-04-04T15:59:13Z",
       "category": "featured"
     },
     {
@@ -1391,7 +1391,7 @@
       "url": "https://github.com/henry-the-frog/dashboard",
       "language": "JavaScript",
       "stars": 0,
-      "pushedAt": "2026-04-04T15:40:37Z",
+      "pushedAt": "2026-04-04T15:50:58Z",
       "category": "featured"
     },
     {
@@ -3178,7 +3178,7 @@
     }
   ],
   "vitalStats": {
-    "totalTests": 3387,
+    "totalTests": 3441,
     "testCounts": {
       "monkey-lang": 1474,
       "ray-tracer": 262,
@@ -3191,7 +3191,8 @@
       "sat": 56,
       "regex-engine": 397,
       "gc-simulator": 82,
-      "smt-solver": 85
+      "smt-solver": 85,
+      "type-inference": 54
     },
     "totalRepos": 200,
     "totalBlogPosts": 39,
@@ -3209,7 +3210,7 @@
       "srcFiles": 57,
       "srcLines": 31415,
       "featureCount": 18,
-      "lastCommit": "2026-04-04 09:50:20 -0600",
+      "lastCommit": "2026-04-04 09:59:10 -0600",
       "url": "https://github.com/henry-the-frog/monkey-lang",
       "demoUrl": "https://henry-the-frog.github.io/monkey-lang/"
     },
@@ -3222,7 +3223,7 @@
       "srcFiles": 63,
       "srcLines": 8666,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 09:50:20 -0600",
+      "lastCommit": "2026-04-04 09:59:10 -0600",
       "url": "https://github.com/henry-the-frog/ray-tracer",
       "demoUrl": "https://henry-the-frog.github.io/ray-tracer/"
     },
@@ -3235,7 +3236,7 @@
       "srcFiles": 74,
       "srcLines": 13390,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 09:50:20 -0600",
+      "lastCommit": "2026-04-04 09:59:10 -0600",
       "url": "https://github.com/henry-the-frog/neural-net",
       "demoUrl": "https://henry-the-frog.github.io/neural-net/"
     },
@@ -3248,7 +3249,7 @@
       "srcFiles": 16,
       "srcLines": 3796,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 09:50:20 -0600",
+      "lastCommit": "2026-04-04 09:59:10 -0600",
       "url": "https://github.com/henry-the-frog/physics",
       "demoUrl": "https://henry-the-frog.github.io/physics/"
     },
@@ -3261,7 +3262,7 @@
       "srcFiles": 22,
       "srcLines": 4563,
       "featureCount": 21,
-      "lastCommit": "2026-04-04 09:50:20 -0600",
+      "lastCommit": "2026-04-04 09:59:10 -0600",
       "url": "https://github.com/henry-the-frog/genetic-art",
       "demoUrl": "https://henry-the-frog.github.io/genetic-art/"
     },
@@ -3274,7 +3275,7 @@
       "srcFiles": 10,
       "srcLines": 3865,
       "featureCount": 10,
-      "lastCommit": "2026-04-04 09:50:20 -0600",
+      "lastCommit": "2026-04-04 09:59:10 -0600",
       "url": "https://github.com/henry-the-frog/prolog",
       "demoUrl": "https://henry-the-frog.github.io/prolog/"
     },
@@ -3287,7 +3288,7 @@
       "srcFiles": 5,
       "srcLines": 1378,
       "featureCount": 7,
-      "lastCommit": "2026-04-04 09:50:20 -0600",
+      "lastCommit": "2026-04-04 09:59:10 -0600",
       "url": "https://github.com/henry-the-frog/minikanren",
       "demoUrl": "https://henry-the-frog.github.io/minikanren/"
     },
@@ -3300,7 +3301,7 @@
       "srcFiles": 9,
       "srcLines": 1011,
       "featureCount": 7,
-      "lastCommit": "2026-04-04 09:50:20 -0600",
+      "lastCommit": "2026-04-04 09:59:10 -0600",
       "url": "https://github.com/henry-the-frog/boids",
       "demoUrl": "https://henry-the-frog.github.io/boids/"
     },
@@ -3313,7 +3314,7 @@
       "srcFiles": 3,
       "srcLines": 1342,
       "featureCount": 11,
-      "lastCommit": "2026-04-04 09:50:20 -0600",
+      "lastCommit": "2026-04-04 09:59:10 -0600",
       "url": "https://github.com/henry-the-frog/sat",
       "demoUrl": "https://henry-the-frog.github.io/sat/"
     },
@@ -3326,7 +3327,7 @@
       "srcFiles": 3,
       "srcLines": 2518,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 09:50:20 -0600",
+      "lastCommit": "2026-04-04 09:59:10 -0600",
       "url": "https://github.com/henry-the-frog/regex-engine",
       "demoUrl": "https://henry-the-frog.github.io/regex-engine/"
     },
@@ -3339,7 +3340,7 @@
       "srcFiles": 9,
       "srcLines": 2351,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 09:50:20 -0600",
+      "lastCommit": "2026-04-04 09:59:10 -0600",
       "url": "https://github.com/henry-the-frog/gc-simulator",
       "demoUrl": "https://henry-the-frog.github.io/gc-simulator/"
     },
@@ -3352,9 +3353,22 @@
       "srcFiles": 9,
       "srcLines": 2354,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 09:50:20 -0600",
+      "lastCommit": "2026-04-04 09:59:10 -0600",
       "url": "https://github.com/henry-the-frog/smt-solver",
       "demoUrl": "https://henry-the-frog.github.io/smt-solver/"
+    },
+    {
+      "name": "type-inference",
+      "dir": "projects/type-inference",
+      "icon": "🔤",
+      "description": "Hindley-Milner type inference — Algorithm W, ADTs, pattern matching",
+      "tests": 54,
+      "srcFiles": 2,
+      "srcLines": 1001,
+      "featureCount": 8,
+      "lastCommit": "2026-04-04 09:59:10 -0600",
+      "url": "https://github.com/henry-the-frog/type-inference",
+      "demoUrl": "https://henry-the-frog.github.io/type-inference/"
     }
   ]
 }
