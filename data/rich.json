@@ -830,9 +830,9 @@
   ],
   "streak": 7,
   "scheduleAdherence": {
-    "completionRate": 28,
-    "completedBlocks": 9,
-    "pastBlocks": 32,
+    "completionRate": 30,
+    "completedBlocks": 10,
+    "pastBlocks": 33,
     "totalBlocks": 55,
     "plannedDist": {
       "THINK": 9,
@@ -842,10 +842,10 @@
     },
     "actualDist": {
       "THINK": 1,
-      "BUILD": 5,
+      "BUILD": 6,
       "MAINTAIN": 3
     },
-    "pace": 1.1
+    "pace": 1.2
   },
   "todayHighlights": [
     {
@@ -865,7 +865,7 @@
       "url": "https://github.com/henry-the-frog/monkey-lang",
       "language": "JavaScript",
       "stars": 0,
-      "pushedAt": "2026-04-04T22:11:20Z",
+      "pushedAt": "2026-04-04T22:20:11Z",
       "category": "featured"
     },
     {
@@ -874,7 +874,7 @@
       "url": "https://github.com/henry-the-frog/dashboard",
       "language": "JavaScript",
       "stars": 0,
-      "pushedAt": "2026-04-04T22:00:45Z",
+      "pushedAt": "2026-04-04T22:11:33Z",
       "category": "featured"
     },
     {
@@ -957,6 +957,15 @@
       "stars": 0,
       "pushedAt": "2026-03-31T00:35:34Z",
       "category": "language"
+    },
+    {
+      "name": "jsonpath",
+      "description": "JSONPath query engine from scratch — filters, wildcards, recursive descent, 24 tests",
+      "url": "https://github.com/henry-the-frog/jsonpath",
+      "language": null,
+      "stars": 0,
+      "pushedAt": "2026-04-04T22:18:06Z",
+      "category": "parser"
     },
     {
       "name": "json-patch",
@@ -1236,6 +1245,24 @@
       "stars": 0,
       "pushedAt": "2026-03-31T00:46:32Z",
       "category": "data-structure"
+    },
+    {
+      "name": "probabilistic-ds",
+      "description": "Bloom filter, Count-Min Sketch, HyperLogLog — 20 tests",
+      "url": "https://github.com/henry-the-frog/probabilistic-ds",
+      "language": "JavaScript",
+      "stars": 0,
+      "pushedAt": "2026-04-04T22:19:54Z",
+      "category": "utility"
+    },
+    {
+      "name": "dns-resolver",
+      "description": "DNS resolver from scratch — packet parsing, query building, caching, 16 tests",
+      "url": "https://github.com/henry-the-frog/dns-resolver",
+      "language": "JavaScript",
+      "stars": 0,
+      "pushedAt": "2026-04-04T22:16:26Z",
+      "category": "utility"
     },
     {
       "name": "tiny-git",
@@ -2631,37 +2658,10 @@
       "stars": 0,
       "pushedAt": "2026-03-31T00:14:05Z",
       "category": "utility"
-    },
-    {
-      "name": "timing",
-      "description": "Debounce/throttle/timing utilities from scratch — cancel, flush, timeout, measure",
-      "url": "https://github.com/henry-the-frog/timing",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T00:11:43Z",
-      "category": "utility"
-    },
-    {
-      "name": "base64",
-      "description": "Base64 encoder/decoder from scratch — standard + URL-safe, binary support",
-      "url": "https://github.com/henry-the-frog/base64",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T00:10:05Z",
-      "category": "utility"
-    },
-    {
-      "name": "uuid",
-      "description": "UUID generator from scratch — v4 (random), v7 (time-ordered), parse, validate",
-      "url": "https://github.com/henry-the-frog/uuid",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T00:08:45Z",
-      "category": "utility"
     }
   ],
   "vitalStats": {
-    "totalTests": 3956,
+    "totalTests": 3974,
     "testCounts": {
       "monkey-lang": 1474,
       "ray-tracer": 262,
@@ -2682,7 +2682,7 @@
       "parser-combinators": 36,
       "btree": 27,
       "lisp": 108,
-      "probabilistic-ds": 19,
+      "probabilistic-ds": 37,
       "graph-algorithms": 25,
       "sql-engine": 43
     },
@@ -2702,7 +2702,7 @@
       "srcFiles": 57,
       "srcLines": 31415,
       "featureCount": 18,
-      "lastCommit": "2026-04-04 16:10:14 -0600",
+      "lastCommit": "2026-04-04 16:20:08 -0600",
       "url": "https://github.com/henry-the-frog/monkey-lang",
       "demoUrl": "https://henry-the-frog.github.io/monkey-lang/"
     },
@@ -2715,7 +2715,7 @@
       "srcFiles": 63,
       "srcLines": 8666,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 16:10:14 -0600",
+      "lastCommit": "2026-04-04 16:20:08 -0600",
       "url": "https://github.com/henry-the-frog/ray-tracer",
       "demoUrl": "https://henry-the-frog.github.io/ray-tracer/"
     },
@@ -2728,7 +2728,7 @@
       "srcFiles": 75,
       "srcLines": 13940,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 16:10:14 -0600",
+      "lastCommit": "2026-04-04 16:20:08 -0600",
       "url": "https://github.com/henry-the-frog/neural-net",
       "demoUrl": "https://henry-the-frog.github.io/neural-net/"
     },
@@ -2741,7 +2741,7 @@
       "srcFiles": 16,
       "srcLines": 3796,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 16:10:14 -0600",
+      "lastCommit": "2026-04-04 16:20:08 -0600",
       "url": "https://github.com/henry-the-frog/physics",
       "demoUrl": "https://henry-the-frog.github.io/physics/"
     },
@@ -2754,7 +2754,7 @@
       "srcFiles": 22,
       "srcLines": 4563,
       "featureCount": 21,
-      "lastCommit": "2026-04-04 16:10:14 -0600",
+      "lastCommit": "2026-04-04 16:20:08 -0600",
       "url": "https://github.com/henry-the-frog/genetic-art",
       "demoUrl": "https://henry-the-frog.github.io/genetic-art/"
     },
@@ -2767,7 +2767,7 @@
       "srcFiles": 10,
       "srcLines": 3865,
       "featureCount": 10,
-      "lastCommit": "2026-04-04 16:10:14 -0600",
+      "lastCommit": "2026-04-04 16:20:08 -0600",
       "url": "https://github.com/henry-the-frog/prolog",
       "demoUrl": "https://henry-the-frog.github.io/prolog/"
     },
@@ -2780,7 +2780,7 @@
       "srcFiles": 5,
       "srcLines": 1378,
       "featureCount": 7,
-      "lastCommit": "2026-04-04 16:10:14 -0600",
+      "lastCommit": "2026-04-04 16:20:08 -0600",
       "url": "https://github.com/henry-the-frog/minikanren",
       "demoUrl": "https://henry-the-frog.github.io/minikanren/"
     },
@@ -2793,7 +2793,7 @@
       "srcFiles": 9,
       "srcLines": 1011,
       "featureCount": 7,
-      "lastCommit": "2026-04-04 16:10:14 -0600",
+      "lastCommit": "2026-04-04 16:20:08 -0600",
       "url": "https://github.com/henry-the-frog/boids",
       "demoUrl": "https://henry-the-frog.github.io/boids/"
     },
@@ -2806,7 +2806,7 @@
       "srcFiles": 5,
       "srcLines": 1563,
       "featureCount": 11,
-      "lastCommit": "2026-04-04 16:10:14 -0600",
+      "lastCommit": "2026-04-04 16:20:08 -0600",
       "url": "https://github.com/henry-the-frog/sat",
       "demoUrl": "https://henry-the-frog.github.io/sat/"
     },
@@ -2819,7 +2819,7 @@
       "srcFiles": 3,
       "srcLines": 2518,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 16:10:14 -0600",
+      "lastCommit": "2026-04-04 16:20:08 -0600",
       "url": "https://github.com/henry-the-frog/regex-engine",
       "demoUrl": "https://henry-the-frog.github.io/regex-engine/"
     },
@@ -2832,7 +2832,7 @@
       "srcFiles": 9,
       "srcLines": 2351,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 16:10:14 -0600",
+      "lastCommit": "2026-04-04 16:20:08 -0600",
       "url": "https://github.com/henry-the-frog/gc-simulator",
       "demoUrl": "https://henry-the-frog.github.io/gc-simulator/"
     },
@@ -2845,7 +2845,7 @@
       "srcFiles": 9,
       "srcLines": 2354,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 16:10:14 -0600",
+      "lastCommit": "2026-04-04 16:20:08 -0600",
       "url": "https://github.com/henry-the-frog/smt-solver",
       "demoUrl": "https://henry-the-frog.github.io/smt-solver/"
     },
@@ -2858,7 +2858,7 @@
       "srcFiles": 9,
       "srcLines": 3602,
       "featureCount": 8,
-      "lastCommit": "2026-04-04 16:10:14 -0600",
+      "lastCommit": "2026-04-04 16:20:08 -0600",
       "url": "https://github.com/henry-the-frog/type-inference",
       "demoUrl": "https://henry-the-frog.github.io/type-inference/"
     },
@@ -2871,7 +2871,7 @@
       "srcFiles": 2,
       "srcLines": 624,
       "featureCount": 4,
-      "lastCommit": "2026-04-04 16:10:14 -0600",
+      "lastCommit": "2026-04-04 16:20:08 -0600",
       "url": "https://github.com/henry-the-frog/csp-solver",
       "demoUrl": "https://henry-the-frog.github.io/csp-solver/"
     },
@@ -2884,7 +2884,7 @@
       "srcFiles": 2,
       "srcLines": 616,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 16:10:14 -0600",
+      "lastCommit": "2026-04-04 16:20:08 -0600",
       "url": "https://github.com/henry-the-frog/bytecode-vm",
       "demoUrl": "https://henry-the-frog.github.io/bytecode-vm/"
     },
@@ -2897,7 +2897,7 @@
       "srcFiles": 2,
       "srcLines": 548,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 16:10:14 -0600",
+      "lastCommit": "2026-04-04 16:20:08 -0600",
       "url": "https://github.com/henry-the-frog/actor-model",
       "demoUrl": "https://henry-the-frog.github.io/actor-model/"
     },
@@ -2910,7 +2910,7 @@
       "srcFiles": 2,
       "srcLines": 462,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 16:10:14 -0600",
+      "lastCommit": "2026-04-04 16:20:08 -0600",
       "url": "https://github.com/henry-the-frog/parser-combinators",
       "demoUrl": "https://henry-the-frog.github.io/parser-combinators/"
     },
@@ -2923,7 +2923,7 @@
       "srcFiles": 2,
       "srcLines": 592,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 16:10:14 -0600",
+      "lastCommit": "2026-04-04 16:20:08 -0600",
       "url": "https://github.com/henry-the-frog/btree",
       "demoUrl": "https://henry-the-frog.github.io/btree/"
     },
@@ -2936,7 +2936,7 @@
       "srcFiles": 7,
       "srcLines": 1912,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 16:10:14 -0600",
+      "lastCommit": "2026-04-04 16:20:08 -0600",
       "url": "https://github.com/henry-the-frog/lisp",
       "demoUrl": "https://henry-the-frog.github.io/lisp/"
     },
@@ -2945,11 +2945,11 @@
       "dir": "projects/probabilistic-ds",
       "icon": "🎲",
       "description": "Probabilistic data structures — Bloom filter, Count-Min Sketch, HyperLogLog",
-      "tests": 19,
-      "srcFiles": 2,
-      "srcLines": 384,
+      "tests": 37,
+      "srcFiles": 4,
+      "srcLines": 714,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 16:10:14 -0600",
+      "lastCommit": "2026-04-04 16:19:49 -0600",
       "url": "https://github.com/henry-the-frog/probabilistic-ds",
       "demoUrl": "https://henry-the-frog.github.io/probabilistic-ds/"
     },
@@ -2962,7 +2962,7 @@
       "srcFiles": 2,
       "srcLines": 562,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 16:10:14 -0600",
+      "lastCommit": "2026-04-04 16:20:08 -0600",
       "url": "https://github.com/henry-the-frog/graph-algorithms",
       "demoUrl": "https://henry-the-frog.github.io/graph-algorithms/"
     },
@@ -2975,10 +2975,10 @@
       "srcFiles": 3,
       "srcLines": 1182,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 16:10:14 -0600",
+      "lastCommit": "2026-04-04 16:20:08 -0600",
       "url": "https://github.com/henry-the-frog/sql-engine",
       "demoUrl": "https://henry-the-frog.github.io/sql-engine/"
     }
   ],
-  "generated": "2026-04-04T22:11:30.231Z"
+  "generated": "2026-04-04T22:20:29.096Z"
 }
