@@ -1,12 +1,12 @@
 {
-  "generated": "2026-04-04T20:46:32.504Z",
+  "generated": "2026-04-04T21:04:11.130Z",
   "current": {
     "status": "idle",
     "mode": "THINK",
     "task": "",
     "context": "",
     "next": "",
-    "startedAt": "2026-04-04T20:46:21.944Z",
+    "startedAt": "2026-04-04T21:04:00.262Z",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -259,10 +259,10 @@
         "time": "15:00",
         "mode": "BUILD",
         "task": "V2 work system: standup schedule.json generation, dashboard integration",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "Chess search — alpha-beta, iterative deepening, quiescence, TT, move ordering.",
         "artifacts": [],
-        "details": ""
+        "details": "Chess search — alpha-beta, iterative deepening, quiescence, TT, move ordering. Eval with PST. 44 total tests."
       },
       {
         "time": "15:15",
@@ -525,14 +525,14 @@
     "(none yet)"
   ],
   "stats": {
-    "blocksCompleted": 8,
+    "blocksCompleted": 9,
     "blocksTotal": 55,
     "modeDistribution": {
       "THINK": 1,
-      "BUILD": 4,
+      "BUILD": 5,
       "MAINTAIN": 3
     },
-    "totalMinutes": 40,
+    "totalMinutes": 45,
     "totalMs": 0,
     "avgDurationMs": 0
   },
@@ -727,7 +727,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-21T18:22:41Z",
       "updatedAt": "2026-03-25T14:43:40Z",
-      "ageHours": 338,
+      "ageHours": 339,
       "ciStatus": "none",
       "reviewStatus": "none"
     },
@@ -738,7 +738,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T22:23:20Z",
       "updatedAt": "2026-03-24T20:15:40Z",
-      "ageHours": 358,
+      "ageHours": 359,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -760,7 +760,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T21:23:23Z",
       "updatedAt": "2026-03-24T20:15:40Z",
-      "ageHours": 359,
+      "ageHours": 360,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -782,7 +782,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T20:20:35Z",
       "updatedAt": "2026-03-24T20:15:41Z",
-      "ageHours": 360,
+      "ageHours": 361,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -793,7 +793,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-20T18:18:34Z",
       "updatedAt": "2026-03-24T20:15:41Z",
-      "ageHours": 362,
+      "ageHours": 363,
       "ciStatus": "pending",
       "reviewStatus": "none"
     },
@@ -804,7 +804,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-19T23:18:46Z",
       "updatedAt": "2026-03-25T14:42:14Z",
-      "ageHours": 381,
+      "ageHours": 382,
       "ciStatus": "none",
       "reviewStatus": "none"
     },
@@ -1214,9 +1214,9 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 30,
-    "completedBlocks": 8,
-    "pastBlocks": 27,
+    "completionRate": 32,
+    "completedBlocks": 9,
+    "pastBlocks": 28,
     "totalBlocks": 55,
     "plannedDist": {
       "THINK": 9,
@@ -1226,10 +1226,10 @@
     },
     "actualDist": {
       "THINK": 1,
-      "BUILD": 4,
+      "BUILD": 5,
       "MAINTAIN": 3
     },
-    "pace": 1.2
+    "pace": 1.3
   },
   "streak": 7,
   "benchmarks": {
@@ -1399,7 +1399,7 @@
       "url": "https://github.com/henry-the-frog/monkey-lang",
       "language": "JavaScript",
       "stars": 0,
-      "pushedAt": "2026-04-04T20:46:11Z",
+      "pushedAt": "2026-04-04T21:04:01Z",
       "category": "featured"
     },
     {
@@ -1408,7 +1408,7 @@
       "url": "https://github.com/henry-the-frog/dashboard",
       "language": "JavaScript",
       "stars": 0,
-      "pushedAt": "2026-04-04T19:43:21Z",
+      "pushedAt": "2026-04-04T20:46:50Z",
       "category": "featured"
     },
     {
@@ -1772,12 +1772,21 @@
       "category": "data-structure"
     },
     {
+      "name": "chess-engine",
+      "description": "Chess engine with bitboards, alpha-beta search, quiescence, TT, and UCI protocol — 44 tests",
+      "url": "https://github.com/henry-the-frog/chess-engine",
+      "language": "JavaScript",
+      "stars": 0,
+      "pushedAt": "2026-04-04T21:02:23Z",
+      "category": "utility"
+    },
+    {
       "name": "wasm-interpreter",
       "description": "WebAssembly interpreter from scratch — binary decoder + stack machine, 78 tests",
       "url": "https://github.com/henry-the-frog/wasm-interpreter",
       "language": "JavaScript",
       "stars": 0,
-      "pushedAt": "2026-04-04T20:45:41Z",
+      "pushedAt": "2026-04-04T20:54:18Z",
       "category": "utility"
     },
     {
@@ -3183,15 +3192,6 @@
       "stars": 0,
       "pushedAt": "2026-03-30T23:57:52Z",
       "category": "utility"
-    },
-    {
-      "name": "rate-limiter",
-      "description": "Rate limiter from scratch — token bucket, sliding window, fixed window, per-key limiting",
-      "url": "https://github.com/henry-the-frog/rate-limiter",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-30T23:56:13Z",
-      "category": "utility"
     }
   ],
   "vitalStats": {
@@ -3236,7 +3236,7 @@
       "srcFiles": 57,
       "srcLines": 31415,
       "featureCount": 18,
-      "lastCommit": "2026-04-04 14:45:52 -0600",
+      "lastCommit": "2026-04-04 15:02:36 -0600",
       "url": "https://github.com/henry-the-frog/monkey-lang",
       "demoUrl": "https://henry-the-frog.github.io/monkey-lang/"
     },
@@ -3249,7 +3249,7 @@
       "srcFiles": 63,
       "srcLines": 8666,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 14:45:52 -0600",
+      "lastCommit": "2026-04-04 15:02:36 -0600",
       "url": "https://github.com/henry-the-frog/ray-tracer",
       "demoUrl": "https://henry-the-frog.github.io/ray-tracer/"
     },
@@ -3262,7 +3262,7 @@
       "srcFiles": 75,
       "srcLines": 13877,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 14:45:52 -0600",
+      "lastCommit": "2026-04-04 15:02:36 -0600",
       "url": "https://github.com/henry-the-frog/neural-net",
       "demoUrl": "https://henry-the-frog.github.io/neural-net/"
     },
@@ -3275,7 +3275,7 @@
       "srcFiles": 16,
       "srcLines": 3796,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 14:45:52 -0600",
+      "lastCommit": "2026-04-04 15:02:36 -0600",
       "url": "https://github.com/henry-the-frog/physics",
       "demoUrl": "https://henry-the-frog.github.io/physics/"
     },
@@ -3288,7 +3288,7 @@
       "srcFiles": 22,
       "srcLines": 4563,
       "featureCount": 21,
-      "lastCommit": "2026-04-04 14:45:52 -0600",
+      "lastCommit": "2026-04-04 15:02:36 -0600",
       "url": "https://github.com/henry-the-frog/genetic-art",
       "demoUrl": "https://henry-the-frog.github.io/genetic-art/"
     },
@@ -3301,7 +3301,7 @@
       "srcFiles": 10,
       "srcLines": 3865,
       "featureCount": 10,
-      "lastCommit": "2026-04-04 14:45:52 -0600",
+      "lastCommit": "2026-04-04 15:02:36 -0600",
       "url": "https://github.com/henry-the-frog/prolog",
       "demoUrl": "https://henry-the-frog.github.io/prolog/"
     },
@@ -3314,7 +3314,7 @@
       "srcFiles": 5,
       "srcLines": 1378,
       "featureCount": 7,
-      "lastCommit": "2026-04-04 14:45:52 -0600",
+      "lastCommit": "2026-04-04 15:02:36 -0600",
       "url": "https://github.com/henry-the-frog/minikanren",
       "demoUrl": "https://henry-the-frog.github.io/minikanren/"
     },
@@ -3327,7 +3327,7 @@
       "srcFiles": 9,
       "srcLines": 1011,
       "featureCount": 7,
-      "lastCommit": "2026-04-04 14:45:52 -0600",
+      "lastCommit": "2026-04-04 15:02:36 -0600",
       "url": "https://github.com/henry-the-frog/boids",
       "demoUrl": "https://henry-the-frog.github.io/boids/"
     },
@@ -3340,7 +3340,7 @@
       "srcFiles": 5,
       "srcLines": 1563,
       "featureCount": 11,
-      "lastCommit": "2026-04-04 14:45:52 -0600",
+      "lastCommit": "2026-04-04 15:02:36 -0600",
       "url": "https://github.com/henry-the-frog/sat",
       "demoUrl": "https://henry-the-frog.github.io/sat/"
     },
@@ -3353,7 +3353,7 @@
       "srcFiles": 3,
       "srcLines": 2518,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 14:45:52 -0600",
+      "lastCommit": "2026-04-04 15:02:36 -0600",
       "url": "https://github.com/henry-the-frog/regex-engine",
       "demoUrl": "https://henry-the-frog.github.io/regex-engine/"
     },
@@ -3366,7 +3366,7 @@
       "srcFiles": 9,
       "srcLines": 2351,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 14:45:52 -0600",
+      "lastCommit": "2026-04-04 15:02:36 -0600",
       "url": "https://github.com/henry-the-frog/gc-simulator",
       "demoUrl": "https://henry-the-frog.github.io/gc-simulator/"
     },
@@ -3379,7 +3379,7 @@
       "srcFiles": 9,
       "srcLines": 2354,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 14:45:52 -0600",
+      "lastCommit": "2026-04-04 15:02:36 -0600",
       "url": "https://github.com/henry-the-frog/smt-solver",
       "demoUrl": "https://henry-the-frog.github.io/smt-solver/"
     },
@@ -3392,7 +3392,7 @@
       "srcFiles": 9,
       "srcLines": 3602,
       "featureCount": 8,
-      "lastCommit": "2026-04-04 14:45:52 -0600",
+      "lastCommit": "2026-04-04 15:02:36 -0600",
       "url": "https://github.com/henry-the-frog/type-inference",
       "demoUrl": "https://henry-the-frog.github.io/type-inference/"
     },
@@ -3405,7 +3405,7 @@
       "srcFiles": 2,
       "srcLines": 624,
       "featureCount": 4,
-      "lastCommit": "2026-04-04 14:45:52 -0600",
+      "lastCommit": "2026-04-04 15:02:36 -0600",
       "url": "https://github.com/henry-the-frog/csp-solver",
       "demoUrl": "https://henry-the-frog.github.io/csp-solver/"
     },
@@ -3418,7 +3418,7 @@
       "srcFiles": 2,
       "srcLines": 616,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 14:45:52 -0600",
+      "lastCommit": "2026-04-04 15:02:36 -0600",
       "url": "https://github.com/henry-the-frog/bytecode-vm",
       "demoUrl": "https://henry-the-frog.github.io/bytecode-vm/"
     },
@@ -3431,7 +3431,7 @@
       "srcFiles": 2,
       "srcLines": 548,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 14:45:52 -0600",
+      "lastCommit": "2026-04-04 15:02:36 -0600",
       "url": "https://github.com/henry-the-frog/actor-model",
       "demoUrl": "https://henry-the-frog.github.io/actor-model/"
     },
@@ -3444,7 +3444,7 @@
       "srcFiles": 2,
       "srcLines": 462,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 14:45:52 -0600",
+      "lastCommit": "2026-04-04 15:02:36 -0600",
       "url": "https://github.com/henry-the-frog/parser-combinators",
       "demoUrl": "https://henry-the-frog.github.io/parser-combinators/"
     },
@@ -3457,7 +3457,7 @@
       "srcFiles": 2,
       "srcLines": 592,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 14:45:52 -0600",
+      "lastCommit": "2026-04-04 15:02:36 -0600",
       "url": "https://github.com/henry-the-frog/btree",
       "demoUrl": "https://henry-the-frog.github.io/btree/"
     },
@@ -3470,7 +3470,7 @@
       "srcFiles": 7,
       "srcLines": 1912,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 14:45:52 -0600",
+      "lastCommit": "2026-04-04 15:02:36 -0600",
       "url": "https://github.com/henry-the-frog/lisp",
       "demoUrl": "https://henry-the-frog.github.io/lisp/"
     },
@@ -3483,7 +3483,7 @@
       "srcFiles": 2,
       "srcLines": 384,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 14:45:52 -0600",
+      "lastCommit": "2026-04-04 15:02:36 -0600",
       "url": "https://github.com/henry-the-frog/probabilistic-ds",
       "demoUrl": "https://henry-the-frog.github.io/probabilistic-ds/"
     },
@@ -3496,7 +3496,7 @@
       "srcFiles": 2,
       "srcLines": 562,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 14:45:52 -0600",
+      "lastCommit": "2026-04-04 15:02:36 -0600",
       "url": "https://github.com/henry-the-frog/graph-algorithms",
       "demoUrl": "https://henry-the-frog.github.io/graph-algorithms/"
     },
@@ -3509,7 +3509,7 @@
       "srcFiles": 3,
       "srcLines": 1182,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 14:45:52 -0600",
+      "lastCommit": "2026-04-04 15:02:36 -0600",
       "url": "https://github.com/henry-the-frog/sql-engine",
       "demoUrl": "https://henry-the-frog.github.io/sql-engine/"
     }
