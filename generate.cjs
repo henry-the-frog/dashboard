@@ -799,6 +799,7 @@ function computeVitalStats(projects, blogPosts, recentDays, streak) {
     { name: 'lisp', dir: 'projects/lisp' },
     { name: 'probabilistic-ds', dir: 'projects/probabilistic-ds' },
     { name: 'graph-algorithms', dir: 'projects/graph-algorithms' },
+    { name: 'sql-engine', dir: 'projects/sql-engine' },
   ];
   let totalTests = 0;
   for (const p of projectDirs) {
@@ -987,6 +988,12 @@ function computeProjectDepth() {
       dir: 'projects/graph-algorithms',
       icon: '🔗',
       description: 'Graph algorithms — Dijkstra, Bellman-Ford, Kruskal, SCC, toposort',
+    },
+    {
+      name: 'sql-engine',
+      dir: 'projects/sql-engine',
+      icon: '🗃️',
+      description: 'SQL engine — in-memory database with CRUD, JOIN, GROUP BY, aggregates',
     },
   ];
 
