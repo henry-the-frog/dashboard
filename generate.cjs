@@ -786,6 +786,9 @@ function computeVitalStats(projects, blogPosts, recentDays, streak) {
     { name: 'prolog', dir: 'projects/prolog' },
     { name: 'minikanren', dir: 'projects/minikanren' },
     { name: 'boids', dir: 'projects/boids' },
+    { name: 'sat', dir: 'projects/sat' },
+    { name: 'regex-engine', dir: 'projects/regex-engine' },
+    { name: 'gc-simulator', dir: 'projects/gc-simulator' },
   ];
   let totalTests = 0;
   for (const p of projectDirs) {
@@ -818,25 +821,31 @@ function computeVitalStats(projects, blogPosts, recentDays, streak) {
 }
 
 function countTestsInProject(projectDir) {
-  const { execSync } = require('child_process');
+  // Count test assertions by scanning test files (fast, no subprocess)
   try {
-    // Run tests with --test reporter to count
-    const result = execSync('node --test 2>&1 || true', {
-      cwd: projectDir,
-      encoding: 'utf8',
-      timeout: 30000,
-      stdio: ['pipe', 'pipe', 'pipe'],
-    });
-    // Parse "# tests N" or "tests N" from TAP output
-    const testsMatch = result.match(/# tests (\d+)/);
-    if (testsMatch) return parseInt(testsMatch[1], 10);
-    // Fallback: count "ok" lines
-    const okLines = (result.match(/^ok \d+/gm) || []).length;
-    if (okLines > 0) return okLines;
-    // Fallback: count test files and estimate
-    return 0;
+    let count = 0;
+    const scanDir = (d) => {
+      try {
+        for (const f of fs.readdirSync(d)) {
+          const fp = path.join(d, f);
+          const st = fs.statSync(fp);
+          if (st.isDirectory() && !f.startsWith('.') && f !== 'node_modules') {
+            scanDir(fp);
+          } else if (f.endsWith('.test.js') || f.endsWith('.test.mjs') || f.endsWith('_test.js')) {
+            try {
+              const text = fs.readFileSync(fp, 'utf8');
+              // Count it() / test() calls and assert lines
+              const itCalls = (text.match(/\b(?:it|test)\s*\(/g) || []).length;
+              const asserts = (text.match(/\b(?:assert|strictEqual|deepEqual|throws|ok)\s*[.(]/g) || []).length;
+              count += itCalls || Math.ceil(asserts / 2) || 1;
+            } catch {}
+          }
+        }
+      } catch {}
+    };
+    scanDir(projectDir);
+    return count;
   } catch {
-    // If tests fail, still try to parse output
     return 0;
   }
 }
@@ -890,6 +899,24 @@ function computeProjectDepth() {
       dir: 'projects/boids',
       icon: '🐦',
       description: 'Boids flocking simulation — emergent behavior from simple rules',
+    },
+    {
+      name: 'sat',
+      dir: 'projects/sat',
+      icon: '🧮',
+      description: 'CDCL SAT solver — clause learning, VSIDS, watched literals',
+    },
+    {
+      name: 'regex-engine',
+      dir: 'projects/regex-engine',
+      icon: '🔍',
+      description: 'Regex engine — Thompson NFA construction, character classes',
+    },
+    {
+      name: 'gc-simulator',
+      dir: 'projects/gc-simulator',
+      icon: '♻️',
+      description: 'Garbage collector simulator — Cheney semi-space copying GC',
     },
   ];
 
@@ -945,7 +972,7 @@ function getProjectInfo(dir) {
     let lastCommit = null;
     try {
       const { execSync } = require('child_process');
-      lastCommit = execSync('git log -1 --format=%ci 2>/dev/null', { cwd: dir, encoding: 'utf8' }).trim();
+      lastCommit = execSync('git log -1 --format=%ci 2>/dev/null', { cwd: dir, encoding: 'utf8', timeout: 5000 }).trim();
     } catch {}
 
     return {
