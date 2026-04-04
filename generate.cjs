@@ -793,6 +793,8 @@ function computeVitalStats(projects, blogPosts, recentDays, streak) {
     { name: 'type-inference', dir: 'projects/type-inference' },
     { name: 'csp-solver', dir: 'projects/csp-solver' },
     { name: 'bytecode-vm', dir: 'projects/bytecode-vm' },
+    { name: 'actor-model', dir: 'projects/actor-model' },
+    { name: 'parser-combinators', dir: 'projects/parser-combinators' },
   ];
   let totalTests = 0;
   for (const p of projectDirs) {
@@ -945,6 +947,18 @@ function computeProjectDepth() {
       dir: 'projects/bytecode-vm',
       icon: '⚙️',
       description: 'Stack-based bytecode VM — compiler, closures, call frames',
+    },
+    {
+      name: 'actor-model',
+      dir: 'projects/actor-model',
+      icon: '📬',
+      description: 'Actor model — Erlang-inspired message passing, supervision, ask/tell',
+    },
+    {
+      name: 'parser-combinators',
+      dir: 'projects/parser-combinators',
+      icon: '📝',
+      description: 'Parser combinators — functional parsing library with JSON parser',
     },
   ];
 
