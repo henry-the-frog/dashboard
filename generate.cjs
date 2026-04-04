@@ -791,6 +791,7 @@ function computeVitalStats(projects, blogPosts, recentDays, streak) {
     { name: 'gc-simulator', dir: 'projects/gc-simulator' },
     { name: 'smt-solver', dir: 'projects/smt-solver' },
     { name: 'type-inference', dir: 'projects/type-inference' },
+    { name: 'csp-solver', dir: 'projects/csp-solver' },
   ];
   let totalTests = 0;
   for (const p of projectDirs) {
@@ -931,6 +932,12 @@ function computeProjectDepth() {
       dir: 'projects/type-inference',
       icon: '🔤',
       description: 'Hindley-Milner type inference — Algorithm W, ADTs, pattern matching',
+    },
+    {
+      name: 'csp-solver',
+      dir: 'projects/csp-solver',
+      icon: '🧩',
+      description: 'CSP solver — AC-3, backtracking, Sudoku, N-Queens, graph coloring',
     },
   ];
 
