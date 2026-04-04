@@ -789,6 +789,7 @@ function computeVitalStats(projects, blogPosts, recentDays, streak) {
     { name: 'sat', dir: 'projects/sat' },
     { name: 'regex-engine', dir: 'projects/regex-engine' },
     { name: 'gc-simulator', dir: 'projects/gc-simulator' },
+    { name: 'smt-solver', dir: 'projects/smt-solver' },
   ];
   let totalTests = 0;
   for (const p of projectDirs) {
@@ -917,6 +918,12 @@ function computeProjectDepth() {
       dir: 'projects/gc-simulator',
       icon: '♻️',
       description: 'Garbage collector simulator — Cheney semi-space copying GC',
+    },
+    {
+      name: 'smt-solver',
+      dir: 'projects/smt-solver',
+      icon: '🧩',
+      description: 'SMT solver — DPLL(T) with EUF theory, congruence closure',
     },
   ];
 
