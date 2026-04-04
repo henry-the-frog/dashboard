@@ -798,6 +798,7 @@ function computeVitalStats(projects, blogPosts, recentDays, streak) {
     { name: 'btree', dir: 'projects/btree' },
     { name: 'lisp', dir: 'projects/lisp' },
     { name: 'probabilistic-ds', dir: 'projects/probabilistic-ds' },
+    { name: 'graph-algorithms', dir: 'projects/graph-algorithms' },
   ];
   let totalTests = 0;
   for (const p of projectDirs) {
@@ -980,6 +981,12 @@ function computeProjectDepth() {
       dir: 'projects/probabilistic-ds',
       icon: '🎲',
       description: 'Probabilistic data structures — Bloom filter, Count-Min Sketch, HyperLogLog',
+    },
+    {
+      name: 'graph-algorithms',
+      dir: 'projects/graph-algorithms',
+      icon: '🔗',
+      description: 'Graph algorithms — Dijkstra, Bellman-Ford, Kruskal, SCC, toposort',
     },
   ];
 

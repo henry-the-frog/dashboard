@@ -705,7 +705,7 @@
       "repo": "openclaw/openclaw",
       "createdAt": "2026-03-18T20:02:08Z",
       "updatedAt": "2026-03-24T20:15:47Z",
-      "ageHours": 404,
+      "ageHours": 405,
       "ciStatus": "pending",
       "reviewStatus": "none"
     }
@@ -819,9 +819,9 @@
   ],
   "streak": 7,
   "scheduleAdherence": {
-    "completionRate": 44,
+    "completionRate": 40,
     "completedBlocks": 4,
-    "pastBlocks": 9,
+    "pastBlocks": 10,
     "totalBlocks": 55,
     "plannedDist": {
       "THINK": 9,
@@ -848,7 +848,7 @@
       "url": "https://github.com/henry-the-frog/monkey-lang",
       "language": "JavaScript",
       "stars": 0,
-      "pushedAt": "2026-04-04T16:29:32Z",
+      "pushedAt": "2026-04-04T16:32:04Z",
       "category": "featured"
     },
     {
@@ -857,7 +857,7 @@
       "url": "https://github.com/henry-the-frog/dashboard",
       "language": "JavaScript",
       "stars": 0,
-      "pushedAt": "2026-04-04T16:23:06Z",
+      "pushedAt": "2026-04-04T16:29:52Z",
       "category": "featured"
     },
     {
@@ -2644,7 +2644,7 @@
     }
   ],
   "vitalStats": {
-    "totalTests": 3681,
+    "totalTests": 3706,
     "testCounts": {
       "monkey-lang": 1474,
       "ray-tracer": 262,
@@ -2665,7 +2665,8 @@
       "parser-combinators": 36,
       "btree": 27,
       "lisp": 56,
-      "probabilistic-ds": 19
+      "probabilistic-ds": 19,
+      "graph-algorithms": 25
     },
     "totalRepos": 200,
     "totalBlogPosts": 39,
@@ -2683,7 +2684,7 @@
       "srcFiles": 57,
       "srcLines": 31415,
       "featureCount": 18,
-      "lastCommit": "2026-04-04 10:29:30 -0600",
+      "lastCommit": "2026-04-04 10:32:01 -0600",
       "url": "https://github.com/henry-the-frog/monkey-lang",
       "demoUrl": "https://henry-the-frog.github.io/monkey-lang/"
     },
@@ -2696,7 +2697,7 @@
       "srcFiles": 63,
       "srcLines": 8666,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 10:29:30 -0600",
+      "lastCommit": "2026-04-04 10:32:01 -0600",
       "url": "https://github.com/henry-the-frog/ray-tracer",
       "demoUrl": "https://henry-the-frog.github.io/ray-tracer/"
     },
@@ -2709,7 +2710,7 @@
       "srcFiles": 74,
       "srcLines": 13390,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 10:29:30 -0600",
+      "lastCommit": "2026-04-04 10:32:01 -0600",
       "url": "https://github.com/henry-the-frog/neural-net",
       "demoUrl": "https://henry-the-frog.github.io/neural-net/"
     },
@@ -2722,7 +2723,7 @@
       "srcFiles": 16,
       "srcLines": 3796,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 10:29:30 -0600",
+      "lastCommit": "2026-04-04 10:32:01 -0600",
       "url": "https://github.com/henry-the-frog/physics",
       "demoUrl": "https://henry-the-frog.github.io/physics/"
     },
@@ -2735,7 +2736,7 @@
       "srcFiles": 22,
       "srcLines": 4563,
       "featureCount": 21,
-      "lastCommit": "2026-04-04 10:29:30 -0600",
+      "lastCommit": "2026-04-04 10:32:01 -0600",
       "url": "https://github.com/henry-the-frog/genetic-art",
       "demoUrl": "https://henry-the-frog.github.io/genetic-art/"
     },
@@ -2748,7 +2749,7 @@
       "srcFiles": 10,
       "srcLines": 3865,
       "featureCount": 10,
-      "lastCommit": "2026-04-04 10:29:30 -0600",
+      "lastCommit": "2026-04-04 10:32:01 -0600",
       "url": "https://github.com/henry-the-frog/prolog",
       "demoUrl": "https://henry-the-frog.github.io/prolog/"
     },
@@ -2761,7 +2762,7 @@
       "srcFiles": 5,
       "srcLines": 1378,
       "featureCount": 7,
-      "lastCommit": "2026-04-04 10:29:30 -0600",
+      "lastCommit": "2026-04-04 10:32:01 -0600",
       "url": "https://github.com/henry-the-frog/minikanren",
       "demoUrl": "https://henry-the-frog.github.io/minikanren/"
     },
@@ -2774,7 +2775,7 @@
       "srcFiles": 9,
       "srcLines": 1011,
       "featureCount": 7,
-      "lastCommit": "2026-04-04 10:29:30 -0600",
+      "lastCommit": "2026-04-04 10:32:01 -0600",
       "url": "https://github.com/henry-the-frog/boids",
       "demoUrl": "https://henry-the-frog.github.io/boids/"
     },
@@ -2787,7 +2788,7 @@
       "srcFiles": 3,
       "srcLines": 1342,
       "featureCount": 11,
-      "lastCommit": "2026-04-04 10:29:30 -0600",
+      "lastCommit": "2026-04-04 10:32:01 -0600",
       "url": "https://github.com/henry-the-frog/sat",
       "demoUrl": "https://henry-the-frog.github.io/sat/"
     },
@@ -2800,7 +2801,7 @@
       "srcFiles": 3,
       "srcLines": 2518,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 10:29:30 -0600",
+      "lastCommit": "2026-04-04 10:32:01 -0600",
       "url": "https://github.com/henry-the-frog/regex-engine",
       "demoUrl": "https://henry-the-frog.github.io/regex-engine/"
     },
@@ -2813,7 +2814,7 @@
       "srcFiles": 9,
       "srcLines": 2351,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 10:29:30 -0600",
+      "lastCommit": "2026-04-04 10:32:01 -0600",
       "url": "https://github.com/henry-the-frog/gc-simulator",
       "demoUrl": "https://henry-the-frog.github.io/gc-simulator/"
     },
@@ -2826,7 +2827,7 @@
       "srcFiles": 9,
       "srcLines": 2354,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 10:29:30 -0600",
+      "lastCommit": "2026-04-04 10:32:01 -0600",
       "url": "https://github.com/henry-the-frog/smt-solver",
       "demoUrl": "https://henry-the-frog.github.io/smt-solver/"
     },
@@ -2839,7 +2840,7 @@
       "srcFiles": 4,
       "srcLines": 1509,
       "featureCount": 8,
-      "lastCommit": "2026-04-04 10:29:30 -0600",
+      "lastCommit": "2026-04-04 10:32:01 -0600",
       "url": "https://github.com/henry-the-frog/type-inference",
       "demoUrl": "https://henry-the-frog.github.io/type-inference/"
     },
@@ -2852,7 +2853,7 @@
       "srcFiles": 2,
       "srcLines": 624,
       "featureCount": 4,
-      "lastCommit": "2026-04-04 10:29:30 -0600",
+      "lastCommit": "2026-04-04 10:32:01 -0600",
       "url": "https://github.com/henry-the-frog/csp-solver",
       "demoUrl": "https://henry-the-frog.github.io/csp-solver/"
     },
@@ -2865,7 +2866,7 @@
       "srcFiles": 2,
       "srcLines": 616,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 10:29:30 -0600",
+      "lastCommit": "2026-04-04 10:32:01 -0600",
       "url": "https://github.com/henry-the-frog/bytecode-vm",
       "demoUrl": "https://henry-the-frog.github.io/bytecode-vm/"
     },
@@ -2878,7 +2879,7 @@
       "srcFiles": 2,
       "srcLines": 548,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 10:29:30 -0600",
+      "lastCommit": "2026-04-04 10:32:01 -0600",
       "url": "https://github.com/henry-the-frog/actor-model",
       "demoUrl": "https://henry-the-frog.github.io/actor-model/"
     },
@@ -2891,7 +2892,7 @@
       "srcFiles": 2,
       "srcLines": 462,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 10:29:30 -0600",
+      "lastCommit": "2026-04-04 10:32:01 -0600",
       "url": "https://github.com/henry-the-frog/parser-combinators",
       "demoUrl": "https://henry-the-frog.github.io/parser-combinators/"
     },
@@ -2904,7 +2905,7 @@
       "srcFiles": 2,
       "srcLines": 592,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 10:29:30 -0600",
+      "lastCommit": "2026-04-04 10:32:01 -0600",
       "url": "https://github.com/henry-the-frog/btree",
       "demoUrl": "https://henry-the-frog.github.io/btree/"
     },
@@ -2917,7 +2918,7 @@
       "srcFiles": 3,
       "srcLines": 1098,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 10:29:30 -0600",
+      "lastCommit": "2026-04-04 10:32:01 -0600",
       "url": "https://github.com/henry-the-frog/lisp",
       "demoUrl": "https://henry-the-frog.github.io/lisp/"
     },
@@ -2930,10 +2931,23 @@
       "srcFiles": 2,
       "srcLines": 384,
       "featureCount": 0,
-      "lastCommit": "2026-04-04 10:29:30 -0600",
+      "lastCommit": "2026-04-04 10:32:01 -0600",
       "url": "https://github.com/henry-the-frog/probabilistic-ds",
       "demoUrl": "https://henry-the-frog.github.io/probabilistic-ds/"
+    },
+    {
+      "name": "graph-algorithms",
+      "dir": "projects/graph-algorithms",
+      "icon": "🔗",
+      "description": "Graph algorithms — Dijkstra, Bellman-Ford, Kruskal, SCC, toposort",
+      "tests": 25,
+      "srcFiles": 2,
+      "srcLines": 562,
+      "featureCount": 0,
+      "lastCommit": "2026-04-04 10:32:01 -0600",
+      "url": "https://github.com/henry-the-frog/graph-algorithms",
+      "demoUrl": "https://henry-the-frog.github.io/graph-algorithms/"
     }
   ],
-  "generated": "2026-04-04T16:29:50.150Z"
+  "generated": "2026-04-04T16:32:43.505Z"
 }
