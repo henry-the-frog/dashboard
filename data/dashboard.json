@@ -1,12 +1,12 @@
 {
-  "generated": "2026-04-05T15:21:09.234Z",
+  "generated": "2026-04-05T15:35:21.870Z",
   "current": {
     "status": "done",
     "mode": "BUILD",
-    "task": "HenryDB DISTINCT",
+    "task": "HenryDB UPDATE with expressions",
     "context": "",
     "next": "",
-    "startedAt": "2026-04-05T15:20:53.508Z",
+    "startedAt": "2026-04-05T15:35:06.691Z",
     "estimatedBlocks": 0
   },
   "schedule": {
@@ -61,10 +61,10 @@
         "time": "09:30",
         "mode": "MAINTAIN",
         "task": "PR triage: check all 9 PRs, rebase stale ones, respond to comments",
-        "status": "upcoming",
-        "summary": "",
+        "status": "done",
+        "summary": "HenryDB INSERT INTO ...",
         "artifacts": [],
-        "details": ""
+        "details": "HenryDB INSERT INTO ... SELECT, INSERT from CTE. 6 new tests → 353 total."
       },
       {
         "time": "09:45",
@@ -525,13 +525,14 @@
     "(none yet)"
   ],
   "stats": {
-    "blocksCompleted": 2,
+    "blocksCompleted": 3,
     "blocksTotal": 55,
     "modeDistribution": {
       "THINK": 1,
-      "BUILD": 1
+      "BUILD": 1,
+      "MAINTAIN": 1
     },
-    "totalMinutes": 10,
+    "totalMinutes": 15,
     "totalMs": 0,
     "avgDurationMs": 0
   },
@@ -1127,9 +1128,9 @@
     }
   ],
   "scheduleAdherence": {
-    "completionRate": 40,
-    "completedBlocks": 2,
-    "pastBlocks": 5,
+    "completionRate": 50,
+    "completedBlocks": 3,
+    "pastBlocks": 6,
     "totalBlocks": 55,
     "plannedDist": {
       "THINK": 9,
@@ -1139,9 +1140,10 @@
     },
     "actualDist": {
       "THINK": 1,
-      "BUILD": 1
+      "BUILD": 1,
+      "MAINTAIN": 1
     },
-    "pace": 1.8
+    "pace": 2.3
   },
   "streak": 7,
   "benchmarks": {
@@ -1306,7 +1308,7 @@
   },
   "projects": [],
   "vitalStats": {
-    "totalTests": 9415,
+    "totalTests": 9450,
     "testCounts": {
       "actor": 8,
       "actor-model": 17,
@@ -1403,7 +1405,7 @@
       "hash-map": 16,
       "heap": 11,
       "henry-redis": 55,
-      "henrydb": 326,
+      "henrydb": 361,
       "http-framework": 15,
       "http-server": 55,
       "huffman": 10,
@@ -1578,7 +1580,7 @@
       "srcFiles": 57,
       "srcLines": 31415,
       "featureCount": 18,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/monkey-lang",
       "demoUrl": "https://henry-the-frog.github.io/monkey-lang/"
     },
@@ -1592,7 +1594,7 @@
       "srcFiles": 75,
       "srcLines": 14126,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/neural-net",
       "demoUrl": "https://henry-the-frog.github.io/neural-net/"
     },
@@ -1602,11 +1604,11 @@
       "icon": "🗄️",
       "description": "A SQL database engine built from scratch in JavaScript, featuring a full query pipeline from tokeniz",
       "category": "systems",
-      "tests": 326,
-      "srcFiles": 24,
-      "srcLines": 5565,
+      "tests": 361,
+      "srcFiles": 27,
+      "srcLines": 5978,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:17 -0600",
+      "lastCommit": "2026-04-05 09:34:20 -0600",
       "url": "https://github.com/henry-the-frog/henrydb",
       "demoUrl": "https://henry-the-frog.github.io/henrydb/"
     },
@@ -1620,7 +1622,7 @@
       "srcFiles": 63,
       "srcLines": 8666,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/ray-tracer",
       "demoUrl": "https://henry-the-frog.github.io/ray-tracer/"
     },
@@ -1634,7 +1636,7 @@
       "srcFiles": 9,
       "srcLines": 3602,
       "featureCount": 8,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/type-inference",
       "demoUrl": "https://henry-the-frog.github.io/type-inference/"
     },
@@ -1648,7 +1650,7 @@
       "srcFiles": 10,
       "srcLines": 3865,
       "featureCount": 10,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/prolog",
       "demoUrl": "https://henry-the-frog.github.io/prolog/"
     },
@@ -1676,7 +1678,7 @@
       "srcFiles": 22,
       "srcLines": 4563,
       "featureCount": 21,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/genetic-art",
       "demoUrl": "https://henry-the-frog.github.io/genetic-art/"
     },
@@ -1704,7 +1706,7 @@
       "srcFiles": 5,
       "srcLines": 1378,
       "featureCount": 7,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/minikanren",
       "demoUrl": "https://henry-the-frog.github.io/minikanren/"
     },
@@ -1746,7 +1748,7 @@
       "srcFiles": 9,
       "srcLines": 2354,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/smt-solver",
       "demoUrl": "https://henry-the-frog.github.io/smt-solver/"
     },
@@ -1760,7 +1762,7 @@
       "srcFiles": 4,
       "srcLines": 684,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/json-parser",
       "demoUrl": "https://henry-the-frog.github.io/json-parser/"
     },
@@ -1774,7 +1776,7 @@
       "srcFiles": 9,
       "srcLines": 2351,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/gc-simulator",
       "demoUrl": "https://henry-the-frog.github.io/gc-simulator/"
     },
@@ -1802,7 +1804,7 @@
       "srcFiles": 5,
       "srcLines": 1099,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/promise",
       "demoUrl": "https://henry-the-frog.github.io/promise/"
     },
@@ -1830,7 +1832,7 @@
       "srcFiles": 5,
       "srcLines": 1563,
       "featureCount": 11,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/sat",
       "demoUrl": "https://henry-the-frog.github.io/sat/"
     },
@@ -1858,7 +1860,7 @@
       "srcFiles": 8,
       "srcLines": 1405,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/kv-store",
       "demoUrl": "https://henry-the-frog.github.io/kv-store/"
     },
@@ -1900,7 +1902,7 @@
       "srcFiles": 9,
       "srcLines": 1011,
       "featureCount": 7,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/boids",
       "demoUrl": "https://henry-the-frog.github.io/boids/"
     },
@@ -2152,7 +2154,7 @@
       "srcFiles": 3,
       "srcLines": 1182,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/sql-engine",
       "demoUrl": "https://henry-the-frog.github.io/sql-engine/"
     },
@@ -2166,7 +2168,7 @@
       "srcFiles": 4,
       "srcLines": 704,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/lru-cache",
       "demoUrl": "https://henry-the-frog.github.io/lru-cache/"
     },
@@ -2236,7 +2238,7 @@
       "srcFiles": 3,
       "srcLines": 733,
       "featureCount": 8,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/chip8",
       "demoUrl": "https://henry-the-frog.github.io/chip8/"
     },
@@ -2320,7 +2322,7 @@
       "srcFiles": 4,
       "srcLines": 659,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/event-emitter",
       "demoUrl": "https://henry-the-frog.github.io/event-emitter/"
     },
@@ -2334,7 +2336,7 @@
       "srcFiles": 2,
       "srcLines": 195,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/regex-builder",
       "demoUrl": "https://henry-the-frog.github.io/regex-builder/"
     },
@@ -2362,7 +2364,7 @@
       "srcFiles": 4,
       "srcLines": 103,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/option",
       "demoUrl": "https://henry-the-frog.github.io/option/"
     },
@@ -2390,7 +2392,7 @@
       "srcFiles": 2,
       "srcLines": 677,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/type-infer",
       "demoUrl": "https://henry-the-frog.github.io/type-infer/"
     },
@@ -2404,7 +2406,7 @@
       "srcFiles": 2,
       "srcLines": 462,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/parser-combinators",
       "demoUrl": "https://henry-the-frog.github.io/parser-combinators/"
     },
@@ -2530,7 +2532,7 @@
       "srcFiles": 2,
       "srcLines": 331,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/nfa-regex",
       "demoUrl": "https://henry-the-frog.github.io/nfa-regex/"
     },
@@ -2558,7 +2560,7 @@
       "srcFiles": 3,
       "srcLines": 145,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/itertools",
       "demoUrl": "https://henry-the-frog.github.io/itertools/"
     },
@@ -2670,7 +2672,7 @@
       "srcFiles": 2,
       "srcLines": 616,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/bytecode-vm",
       "demoUrl": "https://henry-the-frog.github.io/bytecode-vm/"
     },
@@ -2754,7 +2756,7 @@
       "srcFiles": 4,
       "srcLines": 655,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/pubsub",
       "demoUrl": "https://henry-the-frog.github.io/pubsub/"
     },
@@ -2768,7 +2770,7 @@
       "srcFiles": 2,
       "srcLines": 674,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/ray-marcher",
       "demoUrl": "https://henry-the-frog.github.io/ray-marcher/"
     },
@@ -2782,7 +2784,7 @@
       "srcFiles": 4,
       "srcLines": 503,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/trie",
       "demoUrl": "https://henry-the-frog.github.io/trie/"
     },
@@ -2810,7 +2812,7 @@
       "srcFiles": 3,
       "srcLines": 421,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/schema",
       "demoUrl": "https://henry-the-frog.github.io/schema/"
     },
@@ -2852,7 +2854,7 @@
       "srcFiles": 3,
       "srcLines": 127,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/assert",
       "demoUrl": "https://henry-the-frog.github.io/assert/"
     },
@@ -2866,7 +2868,7 @@
       "srcFiles": 2,
       "srcLines": 167,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/binary-search",
       "demoUrl": "https://henry-the-frog.github.io/binary-search/"
     },
@@ -2880,7 +2882,7 @@
       "srcFiles": 2,
       "srcLines": 592,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/btree",
       "demoUrl": "https://henry-the-frog.github.io/btree/"
     },
@@ -2908,7 +2910,7 @@
       "srcFiles": 2,
       "srcLines": 473,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/cellular-automata",
       "demoUrl": "https://henry-the-frog.github.io/cellular-automata/"
     },
@@ -2922,7 +2924,7 @@
       "srcFiles": 2,
       "srcLines": 493,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/compiler",
       "demoUrl": "https://henry-the-frog.github.io/compiler/"
     },
@@ -2950,7 +2952,7 @@
       "srcFiles": 4,
       "srcLines": 464,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/rate-limiter",
       "demoUrl": "https://henry-the-frog.github.io/rate-limiter/"
     },
@@ -2964,7 +2966,7 @@
       "srcFiles": 2,
       "srcLines": 691,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/type-checker",
       "demoUrl": "https://henry-the-frog.github.io/type-checker/"
     },
@@ -2978,7 +2980,7 @@
       "srcFiles": 4,
       "srcLines": 473,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/astar",
       "demoUrl": "https://henry-the-frog.github.io/astar/"
     },
@@ -3076,7 +3078,7 @@
       "srcFiles": 4,
       "srcLines": 426,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/router",
       "demoUrl": "https://henry-the-frog.github.io/router/"
     },
@@ -3090,7 +3092,7 @@
       "srcFiles": 2,
       "srcLines": 463,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/virtual-dom",
       "demoUrl": "https://henry-the-frog.github.io/virtual-dom/"
     },
@@ -3146,7 +3148,7 @@
       "srcFiles": 3,
       "srcLines": 345,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/graph-db",
       "demoUrl": "https://henry-the-frog.github.io/graph-db/"
     },
@@ -3174,7 +3176,7 @@
       "srcFiles": 3,
       "srcLines": 118,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/printf",
       "demoUrl": "https://henry-the-frog.github.io/printf/"
     },
@@ -3244,7 +3246,7 @@
       "srcFiles": 2,
       "srcLines": 609,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/proof-assistant",
       "demoUrl": "https://henry-the-frog.github.io/proof-assistant/"
     },
@@ -3258,7 +3260,7 @@
       "srcFiles": 2,
       "srcLines": 528,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/red-black-tree",
       "demoUrl": "https://henry-the-frog.github.io/red-black-tree/"
     },
@@ -3286,7 +3288,7 @@
       "srcFiles": 4,
       "srcLines": 683,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/automaton",
       "demoUrl": "https://henry-the-frog.github.io/automaton/"
     },
@@ -3314,7 +3316,7 @@
       "srcFiles": 3,
       "srcLines": 264,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/markdown-parser",
       "demoUrl": "https://henry-the-frog.github.io/markdown-parser/"
     },
@@ -3328,7 +3330,7 @@
       "srcFiles": 4,
       "srcLines": 260,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/money",
       "demoUrl": "https://henry-the-frog.github.io/money/"
     },
@@ -3342,7 +3344,7 @@
       "srcFiles": 3,
       "srcLines": 137,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/rpn",
       "demoUrl": "https://henry-the-frog.github.io/rpn/"
     },
@@ -3356,7 +3358,7 @@
       "srcFiles": 3,
       "srcLines": 39,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/validate",
       "demoUrl": "https://henry-the-frog.github.io/validate/"
     },
@@ -3384,7 +3386,7 @@
       "srcFiles": 3,
       "srcLines": 22,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/coerce",
       "demoUrl": "https://henry-the-frog.github.io/coerce/"
     },
@@ -3398,7 +3400,7 @@
       "srcFiles": 2,
       "srcLines": 319,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/crdt",
       "demoUrl": "https://henry-the-frog.github.io/crdt/"
     },
@@ -3426,7 +3428,7 @@
       "srcFiles": 4,
       "srcLines": 328,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/interval-tree",
       "demoUrl": "https://henry-the-frog.github.io/interval-tree/"
     },
@@ -3454,7 +3456,7 @@
       "srcFiles": 2,
       "srcLines": 505,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/raft",
       "demoUrl": "https://henry-the-frog.github.io/raft/"
     },
@@ -3468,7 +3470,7 @@
       "srcFiles": 2,
       "srcLines": 274,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/rope",
       "demoUrl": "https://henry-the-frog.github.io/rope/"
     },
@@ -3482,7 +3484,7 @@
       "srcFiles": 4,
       "srcLines": 415,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/scheduler",
       "demoUrl": "https://henry-the-frog.github.io/scheduler/"
     },
@@ -3510,7 +3512,7 @@
       "srcFiles": 4,
       "srcLines": 288,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/union-find",
       "demoUrl": "https://henry-the-frog.github.io/union-find/"
     },
@@ -3524,7 +3526,7 @@
       "srcFiles": 3,
       "srcLines": 115,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/calc",
       "demoUrl": "https://henry-the-frog.github.io/calc/"
     },
@@ -3538,7 +3540,7 @@
       "srcFiles": 2,
       "srcLines": 624,
       "featureCount": 4,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/csp-solver",
       "demoUrl": "https://henry-the-frog.github.io/csp-solver/"
     },
@@ -3552,7 +3554,7 @@
       "srcFiles": 3,
       "srcLines": 90,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/path",
       "demoUrl": "https://henry-the-frog.github.io/path/"
     },
@@ -3566,7 +3568,7 @@
       "srcFiles": 2,
       "srcLines": 253,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/repl",
       "demoUrl": "https://henry-the-frog.github.io/repl/"
     },
@@ -3580,7 +3582,7 @@
       "srcFiles": 2,
       "srcLines": 318,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/skiplist",
       "demoUrl": "https://henry-the-frog.github.io/skiplist/"
     },
@@ -3594,7 +3596,7 @@
       "srcFiles": 2,
       "srcLines": 548,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/actor-model",
       "demoUrl": "https://henry-the-frog.github.io/actor-model/"
     },
@@ -3608,7 +3610,7 @@
       "srcFiles": 3,
       "srcLines": 131,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/base64",
       "demoUrl": "https://henry-the-frog.github.io/base64/"
     },
@@ -3650,7 +3652,7 @@
       "srcFiles": 3,
       "srcLines": 274,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/di",
       "demoUrl": "https://henry-the-frog.github.io/di/"
     },
@@ -3664,7 +3666,7 @@
       "srcFiles": 3,
       "srcLines": 234,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/hash-map",
       "demoUrl": "https://henry-the-frog.github.io/hash-map/"
     },
@@ -3692,7 +3694,7 @@
       "srcFiles": 3,
       "srcLines": 146,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/parser-combinator",
       "demoUrl": "https://henry-the-frog.github.io/parser-combinator/"
     },
@@ -3720,7 +3722,7 @@
       "srcFiles": 3,
       "srcLines": 251,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/tiny-vm",
       "demoUrl": "https://henry-the-frog.github.io/tiny-vm/"
     },
@@ -3734,7 +3736,7 @@
       "srcFiles": 2,
       "srcLines": 293,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/datalog",
       "demoUrl": "https://henry-the-frog.github.io/datalog/"
     },
@@ -3748,7 +3750,7 @@
       "srcFiles": 3,
       "srcLines": 31,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/either",
       "demoUrl": "https://henry-the-frog.github.io/either/"
     },
@@ -3762,7 +3764,7 @@
       "srcFiles": 3,
       "srcLines": 298,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/graph",
       "demoUrl": "https://henry-the-frog.github.io/graph/"
     },
@@ -3776,7 +3778,7 @@
       "srcFiles": 2,
       "srcLines": 400,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/http-framework",
       "demoUrl": "https://henry-the-frog.github.io/http-framework/"
     },
@@ -3818,7 +3820,7 @@
       "srcFiles": 2,
       "srcLines": 253,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/string-template",
       "demoUrl": "https://henry-the-frog.github.io/string-template/"
     },
@@ -3832,7 +3834,7 @@
       "srcFiles": 3,
       "srcLines": 113,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/bitset",
       "demoUrl": "https://henry-the-frog.github.io/bitset/"
     },
@@ -3846,7 +3848,7 @@
       "srcFiles": 2,
       "srcLines": 166,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/clamped",
       "demoUrl": "https://henry-the-frog.github.io/clamped/"
     },
@@ -3860,7 +3862,7 @@
       "srcFiles": 3,
       "srcLines": 108,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/compose",
       "demoUrl": "https://henry-the-frog.github.io/compose/"
     },
@@ -3874,7 +3876,7 @@
       "srcFiles": 3,
       "srcLines": 113,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/deep",
       "demoUrl": "https://henry-the-frog.github.io/deep/"
     },
@@ -3888,7 +3890,7 @@
       "srcFiles": 3,
       "srcLines": 124,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/fuzzy",
       "demoUrl": "https://henry-the-frog.github.io/fuzzy/"
     },
@@ -3902,7 +3904,7 @@
       "srcFiles": 3,
       "srcLines": 171,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/linked-list",
       "demoUrl": "https://henry-the-frog.github.io/linked-list/"
     },
@@ -3916,7 +3918,7 @@
       "srcFiles": 2,
       "srcLines": 221,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/merkle-tree",
       "demoUrl": "https://henry-the-frog.github.io/merkle-tree/"
     },
@@ -3930,7 +3932,7 @@
       "srcFiles": 3,
       "srcLines": 30,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/numfmt",
       "demoUrl": "https://henry-the-frog.github.io/numfmt/"
     },
@@ -3944,7 +3946,7 @@
       "srcFiles": 3,
       "srcLines": 130,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/toml",
       "demoUrl": "https://henry-the-frog.github.io/toml/"
     },
@@ -3958,7 +3960,7 @@
       "srcFiles": 2,
       "srcLines": 371,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/bloom-clock",
       "demoUrl": "https://henry-the-frog.github.io/bloom-clock/"
     },
@@ -3972,7 +3974,7 @@
       "srcFiles": 2,
       "srcLines": 248,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/minimax",
       "demoUrl": "https://henry-the-frog.github.io/minimax/"
     },
@@ -3986,7 +3988,7 @@
       "srcFiles": 2,
       "srcLines": 246,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/peg",
       "demoUrl": "https://henry-the-frog.github.io/peg/"
     },
@@ -4000,7 +4002,7 @@
       "srcFiles": 2,
       "srcLines": 229,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/pipe",
       "demoUrl": "https://henry-the-frog.github.io/pipe/"
     },
@@ -4028,7 +4030,7 @@
       "srcFiles": 3,
       "srcLines": 49,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/range",
       "demoUrl": "https://henry-the-frog.github.io/range/"
     },
@@ -4042,7 +4044,7 @@
       "srcFiles": 2,
       "srcLines": 252,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/reactive",
       "demoUrl": "https://henry-the-frog.github.io/reactive/"
     },
@@ -4056,7 +4058,7 @@
       "srcFiles": 3,
       "srcLines": 99,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/rle",
       "demoUrl": "https://henry-the-frog.github.io/rle/"
     },
@@ -4070,7 +4072,7 @@
       "srcFiles": 2,
       "srcLines": 318,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/sql-parser",
       "demoUrl": "https://henry-the-frog.github.io/sql-parser/"
     },
@@ -4084,7 +4086,7 @@
       "srcFiles": 2,
       "srcLines": 246,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/arena",
       "demoUrl": "https://henry-the-frog.github.io/arena/"
     },
@@ -4098,7 +4100,7 @@
       "srcFiles": 2,
       "srcLines": 546,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/constraint-solver",
       "demoUrl": "https://henry-the-frog.github.io/constraint-solver/"
     },
@@ -4112,7 +4114,7 @@
       "srcFiles": 3,
       "srcLines": 203,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/css-parser",
       "demoUrl": "https://henry-the-frog.github.io/css-parser/"
     },
@@ -4140,7 +4142,7 @@
       "srcFiles": 3,
       "srcLines": 74,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/dotenv",
       "demoUrl": "https://henry-the-frog.github.io/dotenv/"
     },
@@ -4154,7 +4156,7 @@
       "srcFiles": 3,
       "srcLines": 51,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/duration",
       "demoUrl": "https://henry-the-frog.github.io/duration/"
     },
@@ -4168,7 +4170,7 @@
       "srcFiles": 3,
       "srcLines": 142,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/ini-parser",
       "demoUrl": "https://henry-the-frog.github.io/ini-parser/"
     },
@@ -4182,7 +4184,7 @@
       "srcFiles": 2,
       "srcLines": 257,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/interpreter",
       "demoUrl": "https://henry-the-frog.github.io/interpreter/"
     },
@@ -4196,7 +4198,7 @@
       "srcFiles": 2,
       "srcLines": 238,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/kdtree",
       "demoUrl": "https://henry-the-frog.github.io/kdtree/"
     },
@@ -4210,7 +4212,7 @@
       "srcFiles": 2,
       "srcLines": 251,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/pratt",
       "demoUrl": "https://henry-the-frog.github.io/pratt/"
     },
@@ -4224,7 +4226,7 @@
       "srcFiles": 3,
       "srcLines": 19,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/string-sim",
       "demoUrl": "https://henry-the-frog.github.io/string-sim/"
     },
@@ -4238,7 +4240,7 @@
       "srcFiles": 3,
       "srcLines": 268,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/task-queue",
       "demoUrl": "https://henry-the-frog.github.io/task-queue/"
     },
@@ -4266,7 +4268,7 @@
       "srcFiles": 3,
       "srcLines": 164,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/brainfuck",
       "demoUrl": "https://henry-the-frog.github.io/brainfuck/"
     },
@@ -4280,7 +4282,7 @@
       "srcFiles": 3,
       "srcLines": 30,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/chunk",
       "demoUrl": "https://henry-the-frog.github.io/chunk/"
     },
@@ -4294,7 +4296,7 @@
       "srcFiles": 2,
       "srcLines": 236,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/event-loop",
       "demoUrl": "https://henry-the-frog.github.io/event-loop/"
     },
@@ -4308,7 +4310,7 @@
       "srcFiles": 3,
       "srcLines": 176,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/heap",
       "demoUrl": "https://henry-the-frog.github.io/heap/"
     },
@@ -4322,7 +4324,7 @@
       "srcFiles": 2,
       "srcLines": 336,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/lambda",
       "demoUrl": "https://henry-the-frog.github.io/lambda/"
     },
@@ -4336,7 +4338,7 @@
       "srcFiles": 3,
       "srcLines": 29,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/object-path",
       "demoUrl": "https://henry-the-frog.github.io/object-path/"
     },
@@ -4350,7 +4352,7 @@
       "srcFiles": 4,
       "srcLines": 249,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/pool",
       "demoUrl": "https://henry-the-frog.github.io/pool/"
     },
@@ -4364,7 +4366,7 @@
       "srcFiles": 3,
       "srcLines": 156,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/query-builder",
       "demoUrl": "https://henry-the-frog.github.io/query-builder/"
     },
@@ -4378,7 +4380,7 @@
       "srcFiles": 3,
       "srcLines": 96,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/ring-buffer",
       "demoUrl": "https://henry-the-frog.github.io/ring-buffer/"
     },
@@ -4392,7 +4394,7 @@
       "srcFiles": 2,
       "srcLines": 199,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/task-runner",
       "demoUrl": "https://henry-the-frog.github.io/task-runner/"
     },
@@ -4406,7 +4408,7 @@
       "srcFiles": 2,
       "srcLines": 291,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/tensor",
       "demoUrl": "https://henry-the-frog.github.io/tensor/"
     },
@@ -4420,7 +4422,7 @@
       "srcFiles": 3,
       "srcLines": 59,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/args",
       "demoUrl": "https://henry-the-frog.github.io/args/"
     },
@@ -4434,7 +4436,7 @@
       "srcFiles": 3,
       "srcLines": 41,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/bytes",
       "demoUrl": "https://henry-the-frog.github.io/bytes/"
     },
@@ -4448,7 +4450,7 @@
       "srcFiles": 3,
       "srcLines": 25,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/cipher",
       "demoUrl": "https://henry-the-frog.github.io/cipher/"
     },
@@ -4462,7 +4464,7 @@
       "srcFiles": 3,
       "srcLines": 131,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/huffman",
       "demoUrl": "https://henry-the-frog.github.io/huffman/"
     },
@@ -4476,7 +4478,7 @@
       "srcFiles": 2,
       "srcLines": 190,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/lz77",
       "demoUrl": "https://henry-the-frog.github.io/lz77/"
     },
@@ -4490,7 +4492,7 @@
       "srcFiles": 2,
       "srcLines": 290,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/xpath",
       "demoUrl": "https://henry-the-frog.github.io/xpath/"
     },
@@ -4504,7 +4506,7 @@
       "srcFiles": 3,
       "srcLines": 170,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/bloom-filter",
       "demoUrl": "https://henry-the-frog.github.io/bloom-filter/"
     },
@@ -4518,7 +4520,7 @@
       "srcFiles": 3,
       "srcLines": 29,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/case-convert",
       "demoUrl": "https://henry-the-frog.github.io/case-convert/"
     },
@@ -4532,7 +4534,7 @@
       "srcFiles": 3,
       "srcLines": 43,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/date-fmt",
       "demoUrl": "https://henry-the-frog.github.io/date-fmt/"
     },
@@ -4546,7 +4548,7 @@
       "srcFiles": 3,
       "srcLines": 176,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/elf-parser",
       "demoUrl": "https://henry-the-frog.github.io/elf-parser/"
     },
@@ -4560,7 +4562,7 @@
       "srcFiles": 2,
       "srcLines": 209,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/kd-tree",
       "demoUrl": "https://henry-the-frog.github.io/kd-tree/"
     },
@@ -4574,7 +4576,7 @@
       "srcFiles": 3,
       "srcLines": 30,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/pad",
       "demoUrl": "https://henry-the-frog.github.io/pad/"
     },
@@ -4588,7 +4590,7 @@
       "srcFiles": 3,
       "srcLines": 24,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/pluralize",
       "demoUrl": "https://henry-the-frog.github.io/pluralize/"
     },
@@ -4602,7 +4604,7 @@
       "srcFiles": 3,
       "srcLines": 44,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/prng",
       "demoUrl": "https://henry-the-frog.github.io/prng/"
     },
@@ -4616,7 +4618,7 @@
       "srcFiles": 3,
       "srcLines": 32,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/set-ops",
       "demoUrl": "https://henry-the-frog.github.io/set-ops/"
     },
@@ -4630,7 +4632,7 @@
       "srcFiles": 3,
       "srcLines": 154,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/skip-list",
       "demoUrl": "https://henry-the-frog.github.io/skip-list/"
     },
@@ -4644,7 +4646,7 @@
       "srcFiles": 3,
       "srcLines": 43,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/stack",
       "demoUrl": "https://henry-the-frog.github.io/stack/"
     },
@@ -4658,7 +4660,7 @@
       "srcFiles": 3,
       "srcLines": 154,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/store",
       "demoUrl": "https://henry-the-frog.github.io/store/"
     },
@@ -4672,7 +4674,7 @@
       "srcFiles": 3,
       "srcLines": 147,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/toposort",
       "demoUrl": "https://henry-the-frog.github.io/toposort/"
     },
@@ -4686,7 +4688,7 @@
       "srcFiles": 3,
       "srcLines": 191,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/undo-redo",
       "demoUrl": "https://henry-the-frog.github.io/undo-redo/"
     },
@@ -4700,7 +4702,7 @@
       "srcFiles": 2,
       "srcLines": 220,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/actor",
       "demoUrl": "https://henry-the-frog.github.io/actor/"
     },
@@ -4714,7 +4716,7 @@
       "srcFiles": 3,
       "srcLines": 29,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/counter",
       "demoUrl": "https://henry-the-frog.github.io/counter/"
     },
@@ -4728,7 +4730,7 @@
       "srcFiles": 3,
       "srcLines": 62,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/crc32",
       "demoUrl": "https://henry-the-frog.github.io/crc32/"
     },
@@ -4742,7 +4744,7 @@
       "srcFiles": 3,
       "srcLines": 77,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/dep-resolver",
       "demoUrl": "https://henry-the-frog.github.io/dep-resolver/"
     },
@@ -4756,7 +4758,7 @@
       "srcFiles": 3,
       "srcLines": 118,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/deque",
       "demoUrl": "https://henry-the-frog.github.io/deque/"
     },
@@ -4770,7 +4772,7 @@
       "srcFiles": 3,
       "srcLines": 25,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/escape",
       "demoUrl": "https://henry-the-frog.github.io/escape/"
     },
@@ -4784,7 +4786,7 @@
       "srcFiles": 3,
       "srcLines": 79,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/fenwick",
       "demoUrl": "https://henry-the-frog.github.io/fenwick/"
     },
@@ -4798,7 +4800,7 @@
       "srcFiles": 2,
       "srcLines": 245,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/fst",
       "demoUrl": "https://henry-the-frog.github.io/fst/"
     },
@@ -4812,7 +4814,7 @@
       "srcFiles": 2,
       "srcLines": 260,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/genetic",
       "demoUrl": "https://henry-the-frog.github.io/genetic/"
     },
@@ -4826,7 +4828,7 @@
       "srcFiles": 3,
       "srcLines": 54,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/gradient",
       "demoUrl": "https://henry-the-frog.github.io/gradient/"
     },
@@ -4840,7 +4842,7 @@
       "srcFiles": 3,
       "srcLines": 46,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/lru-ttl",
       "demoUrl": "https://henry-the-frog.github.io/lru-ttl/"
     },
@@ -4854,7 +4856,7 @@
       "srcFiles": 2,
       "srcLines": 176,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/markov",
       "demoUrl": "https://henry-the-frog.github.io/markov/"
     },
@@ -4868,7 +4870,7 @@
       "srcFiles": 3,
       "srcLines": 22,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/mime",
       "demoUrl": "https://henry-the-frog.github.io/mime/"
     },
@@ -4882,7 +4884,7 @@
       "srcFiles": 2,
       "srcLines": 237,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/rbtree",
       "demoUrl": "https://henry-the-frog.github.io/rbtree/"
     },
@@ -4896,7 +4898,7 @@
       "srcFiles": 3,
       "srcLines": 176,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/semaphore",
       "demoUrl": "https://henry-the-frog.github.io/semaphore/"
     },
@@ -4910,7 +4912,7 @@
       "srcFiles": 3,
       "srcLines": 23,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/slug",
       "demoUrl": "https://henry-the-frog.github.io/slug/"
     },
@@ -4924,7 +4926,7 @@
       "srcFiles": 3,
       "srcLines": 154,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/timing",
       "demoUrl": "https://henry-the-frog.github.io/timing/"
     },
@@ -4938,7 +4940,7 @@
       "srcFiles": 2,
       "srcLines": 116,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/debounce",
       "demoUrl": "https://henry-the-frog.github.io/debounce/"
     },
@@ -4952,7 +4954,7 @@
       "srcFiles": 2,
       "srcLines": 222,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/wav",
       "demoUrl": "https://henry-the-frog.github.io/wav/"
     },
@@ -4966,7 +4968,7 @@
       "srcFiles": 3,
       "srcLines": 32,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/bimap",
       "demoUrl": "https://henry-the-frog.github.io/bimap/"
     },
@@ -4980,7 +4982,7 @@
       "srcFiles": 3,
       "srcLines": 24,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/event-bus",
       "demoUrl": "https://henry-the-frog.github.io/event-bus/"
     },
@@ -4994,7 +4996,7 @@
       "srcFiles": 3,
       "srcLines": 29,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/multimap",
       "demoUrl": "https://henry-the-frog.github.io/multimap/"
     },
@@ -5008,7 +5010,7 @@
       "srcFiles": 3,
       "srcLines": 32,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/ordered-map",
       "demoUrl": "https://henry-the-frog.github.io/ordered-map/"
     },
@@ -5022,7 +5024,7 @@
       "srcFiles": 3,
       "srcLines": 75,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/sha256",
       "demoUrl": "https://henry-the-frog.github.io/sha256/"
     },
@@ -5036,7 +5038,7 @@
       "srcFiles": 3,
       "srcLines": 73,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/tokenizer",
       "demoUrl": "https://henry-the-frog.github.io/tokenizer/"
     },
@@ -5050,7 +5052,7 @@
       "srcFiles": 3,
       "srcLines": 17,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/morse",
       "demoUrl": "https://henry-the-frog.github.io/morse/"
     },
@@ -5064,7 +5066,7 @@
       "srcFiles": 3,
       "srcLines": 14,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/percent-encode",
       "demoUrl": "https://henry-the-frog.github.io/percent-encode/"
     },
@@ -5078,7 +5080,7 @@
       "srcFiles": 3,
       "srcLines": 35,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/table",
       "demoUrl": "https://henry-the-frog.github.io/table/"
     },
@@ -5092,7 +5094,7 @@
       "srcFiles": 1,
       "srcLines": 14249,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 09:20:38 -0600",
+      "lastCommit": "2026-04-05 09:34:55 -0600",
       "url": "https://github.com/henry-the-frog/playground",
       "demoUrl": "https://henry-the-frog.github.io/playground/"
     }
