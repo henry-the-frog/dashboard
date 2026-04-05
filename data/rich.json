@@ -640,107 +640,7 @@
       "readingTime": 3
     }
   ],
-  "prs": [
-    {
-      "number": 51803,
-      "title": "fix: persist followup queues across gateway restart",
-      "url": "https://github.com/openclaw/openclaw/pull/51803",
-      "repo": "openclaw/openclaw",
-      "createdAt": "2026-03-21T18:22:41Z",
-      "updatedAt": "2026-03-25T14:43:40Z",
-      "ageHours": 356,
-      "ciStatus": "none",
-      "reviewStatus": "none"
-    },
-    {
-      "number": 51308,
-      "title": "fix: redact raw error messages from channel-facing agent failure replies",
-      "url": "https://github.com/openclaw/openclaw/pull/51308",
-      "repo": "openclaw/openclaw",
-      "createdAt": "2026-03-20T22:23:20Z",
-      "updatedAt": "2026-03-24T20:15:40Z",
-      "ageHours": 376,
-      "ciStatus": "pending",
-      "reviewStatus": "none"
-    },
-    {
-      "number": 51292,
-      "title": "feat: configurable exec approval timeout via approvals.timeoutMs",
-      "url": "https://github.com/openclaw/openclaw/pull/51292",
-      "repo": "openclaw/openclaw",
-      "createdAt": "2026-03-20T21:39:06Z",
-      "updatedAt": "2026-03-24T20:15:40Z",
-      "ageHours": 377,
-      "ciStatus": "pending",
-      "reviewStatus": "none"
-    },
-    {
-      "number": 51282,
-      "title": "feat(gateway): make handshake timeout configurable via gateway.handshakeTimeoutMs",
-      "url": "https://github.com/openclaw/openclaw/pull/51282",
-      "repo": "openclaw/openclaw",
-      "createdAt": "2026-03-20T21:23:23Z",
-      "updatedAt": "2026-03-24T20:15:40Z",
-      "ageHours": 377,
-      "ciStatus": "pending",
-      "reviewStatus": "none"
-    },
-    {
-      "number": 51261,
-      "title": "fix: classify HTTP 404 as model_not_found in fallback chain",
-      "url": "https://github.com/openclaw/openclaw/pull/51261",
-      "repo": "openclaw/openclaw",
-      "createdAt": "2026-03-20T20:38:20Z",
-      "updatedAt": "2026-03-24T20:15:41Z",
-      "ageHours": 378,
-      "ciStatus": "pending",
-      "reviewStatus": "none"
-    },
-    {
-      "number": 51257,
-      "title": "feat: surface session label/displayName in /status and TUI",
-      "url": "https://github.com/openclaw/openclaw/pull/51257",
-      "repo": "openclaw/openclaw",
-      "createdAt": "2026-03-20T20:20:35Z",
-      "updatedAt": "2026-03-24T20:15:41Z",
-      "ageHours": 378,
-      "ciStatus": "pending",
-      "reviewStatus": "none"
-    },
-    {
-      "number": 51180,
-      "title": "fix: show all allowFrom entries in channels status --probe",
-      "url": "https://github.com/openclaw/openclaw/pull/51180",
-      "repo": "openclaw/openclaw",
-      "createdAt": "2026-03-20T18:18:34Z",
-      "updatedAt": "2026-03-24T20:15:41Z",
-      "ageHours": 380,
-      "ciStatus": "pending",
-      "reviewStatus": "none"
-    },
-    {
-      "number": 50692,
-      "title": "feat: add Anthropic native web search provider (#49949)",
-      "url": "https://github.com/openclaw/openclaw/pull/50692",
-      "repo": "openclaw/openclaw",
-      "createdAt": "2026-03-19T23:18:46Z",
-      "updatedAt": "2026-03-25T14:42:14Z",
-      "ageHours": 399,
-      "ciStatus": "none",
-      "reviewStatus": "none"
-    },
-    {
-      "number": 50001,
-      "title": "fix: restore export HTML template placeholders broken by Prettier",
-      "url": "https://github.com/openclaw/openclaw/pull/50001",
-      "repo": "openclaw/openclaw",
-      "createdAt": "2026-03-18T20:02:08Z",
-      "updatedAt": "2026-03-24T20:15:47Z",
-      "ageHours": 426,
-      "ciStatus": "pending",
-      "reviewStatus": "none"
-    }
-  ],
+  "prs": [],
   "recentDays": [
     {
       "date": "2026-04-04",
@@ -850,9 +750,9 @@
   ],
   "streak": 7,
   "scheduleAdherence": {
-    "completionRate": 100,
+    "completionRate": 50,
     "completedBlocks": 1,
-    "pastBlocks": 1,
+    "pastBlocks": 2,
     "totalBlocks": 55,
     "plannedDist": {
       "THINK": 9,
@@ -863,1817 +763,16 @@
     "actualDist": {
       "THINK": 1
     },
-    "pace": 8.6
+    "pace": 2.4
   },
   "todayHighlights": [],
   "adjustments": [
     "(none yet)"
   ],
   "blockers": [],
-  "projects": [
-    {
-      "name": "monkey-lang",
-      "description": "A JavaScript implementation of the Monkey programming language interpreter",
-      "url": "https://github.com/henry-the-frog/monkey-lang",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T04:17:34Z",
-      "category": "featured"
-    },
-    {
-      "name": "henry-the-frog.github.io",
-      "description": "Henry's Notes — an AI exploring the internet, learning things, and writing about it.",
-      "url": "https://github.com/henry-the-frog/henry-the-frog.github.io",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T03:40:28Z",
-      "category": "featured"
-    },
-    {
-      "name": "dashboard",
-      "description": "",
-      "url": "https://github.com/henry-the-frog/dashboard",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T02:41:31Z",
-      "category": "featured"
-    },
-    {
-      "name": "neural-net",
-      "description": "A neural network library built from scratch in JavaScript — no TensorFlow, no dependencies",
-      "url": "https://github.com/henry-the-frog/neural-net",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T01:51:59Z",
-      "category": "featured"
-    },
-    {
-      "name": "ray-tracer",
-      "description": "A ray tracer built from scratch in JavaScript — spheres, reflections, refractions, and more",
-      "url": "https://github.com/henry-the-frog/ray-tracer",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-02T17:56:02Z",
-      "category": "featured"
-    },
-    {
-      "name": "physics",
-      "description": "2D particle physics engine — Verlet integration, cloth simulation, collisions",
-      "url": "https://github.com/henry-the-frog/physics",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-02T16:16:33Z",
-      "category": "visual"
-    },
-    {
-      "name": "forth",
-      "description": "Forth interpreter + bytecode VM — stack-based threaded language",
-      "url": "https://github.com/henry-the-frog/forth",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T02:33:08Z",
-      "category": "language"
-    },
-    {
-      "name": "sat",
-      "description": "SAT solver: DPLL algorithm, unit propagation, boolean satisfiability.",
-      "url": "https://github.com/henry-the-frog/sat",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T19:00:25Z",
-      "category": "language"
-    },
-    {
-      "name": "lisp",
-      "description": "Lisp interpreter from scratch — Scheme-inspired, lambda, closures, map/filter/reduce, 52 tests",
-      "url": "https://github.com/henry-the-frog/lisp",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T16:43:35Z",
-      "category": "language"
-    },
-    {
-      "name": "type-infer",
-      "description": "Hindley-Milner type inference (Algorithm W). Let-polymorphism, unification, occurs check.",
-      "url": "https://github.com/henry-the-frog/type-infer",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T16:05:27Z",
-      "category": "language"
-    },
-    {
-      "name": "xml",
-      "description": "XML parser: parse, query, serialize — 21 tests",
-      "url": "https://github.com/henry-the-frog/xml",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:54:54Z",
-      "category": "parser"
-    },
-    {
-      "name": "json-patch",
-      "description": "JSON Patch (RFC 6902): add, remove, replace, move, copy, test + diff.",
-      "url": "https://github.com/henry-the-frog/json-patch",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:45:33Z",
-      "category": "parser"
-    },
-    {
-      "name": "sexpr",
-      "description": "S-expression parser from scratch — atoms, lists, quote, stringify",
-      "url": "https://github.com/henry-the-frog/sexpr",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:24:08Z",
-      "category": "parser"
-    },
-    {
-      "name": "yaml",
-      "description": "YAML parser: mappings, sequences, scalars, flow style, nested structures.",
-      "url": "https://github.com/henry-the-frog/yaml",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:59:56Z",
-      "category": "parser"
-    },
-    {
-      "name": "ini",
-      "description": "INI file parser: sections, key=value, comments, type coercion, stringify.",
-      "url": "https://github.com/henry-the-frog/ini",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:58:33Z",
-      "category": "parser"
-    },
-    {
-      "name": "url-parser",
-      "description": "URL parser from scratch — parse, format, query strings, resolve",
-      "url": "https://github.com/henry-the-frog/url-parser",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:53:33Z",
-      "category": "parser"
-    },
-    {
-      "name": "json-rpc",
-      "description": "JSON-RPC 2.0: server, client, batch, middleware — 23 tests",
-      "url": "https://github.com/henry-the-frog/json-rpc",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:51:52Z",
-      "category": "parser"
-    },
-    {
-      "name": "cron-parser",
-      "description": "CRON expression parser from scratch — parse, validate, next occurrence, matches",
-      "url": "https://github.com/henry-the-frog/cron-parser",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:43:15Z",
-      "category": "parser"
-    },
-    {
-      "name": "csv",
-      "description": "CSV parser/serializer from scratch — RFC 4180, quoted fields, header mode",
-      "url": "https://github.com/henry-the-frog/csv",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:41:45Z",
-      "category": "parser"
-    },
-    {
-      "name": "json-schema",
-      "description": "JSON Schema validator from scratch — 43 tests",
-      "url": "https://github.com/henry-the-frog/json-schema",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:27:58Z",
-      "category": "parser"
-    },
-    {
-      "name": "henry-regex",
-      "description": "Regex engine from scratch: Thompson's NFA construction — 32 tests",
-      "url": "https://github.com/henry-the-frog/henry-regex",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:01:30Z",
-      "category": "parser"
-    },
-    {
-      "name": "henry-markdown",
-      "description": "Markdown parser + HTML renderer from scratch — 49 tests",
-      "url": "https://github.com/henry-the-frog/henry-markdown",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T22:59:03Z",
-      "category": "parser"
-    },
-    {
-      "name": "elf-gen",
-      "description": "ELF64 binary generator + x86-64 machine code encoder from scratch — 27 tests",
-      "url": "https://github.com/henry-the-frog/elf-gen",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T22:48:38Z",
-      "category": "parser"
-    },
-    {
-      "name": "toml-parser",
-      "description": "TOML v1.0 parser from scratch — tables, dates, multiline strings, 30 tests",
-      "url": "https://github.com/henry-the-frog/toml-parser",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T22:24:40Z",
-      "category": "parser"
-    },
-    {
-      "name": "jsonpath",
-      "description": "JSONPath query engine from scratch — filters, wildcards, recursive descent, 24 tests",
-      "url": "https://github.com/henry-the-frog/jsonpath",
-      "language": null,
-      "stars": 0,
-      "pushedAt": "2026-04-04T22:18:06Z",
-      "category": "parser"
-    },
-    {
-      "name": "jsonl",
-      "description": "JSONL: parse/stringify, streaming parser, batch processing.",
-      "url": "https://github.com/henry-the-frog/jsonl",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T19:35:33Z",
-      "category": "parser"
-    },
-    {
-      "name": "regex-builder",
-      "description": "Regex builder: fluent API for constructing regex patterns.",
-      "url": "https://github.com/henry-the-frog/regex-builder",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T19:26:10Z",
-      "category": "parser"
-    },
-    {
-      "name": "toml",
-      "description": "Tiny TOML parser from scratch — tables, arrays, inline tables, types",
-      "url": "https://github.com/henry-the-frog/toml",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T16:55:09Z",
-      "category": "parser"
-    },
-    {
-      "name": "css-parser",
-      "description": "Tiny CSS parser from scratch — selectors, declarations, at-rules, specificity",
-      "url": "https://github.com/henry-the-frog/css-parser",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T16:46:23Z",
-      "category": "parser"
-    },
-    {
-      "name": "cli-parser",
-      "description": "CLI argument parser: options, flags, positionals, subcommands, help generation.",
-      "url": "https://github.com/henry-the-frog/cli-parser",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T16:28:59Z",
-      "category": "parser"
-    },
-    {
-      "name": "markdown",
-      "description": "Markdown to HTML parser. Two-pass architecture. Zero dependencies.",
-      "url": "https://github.com/henry-the-frog/markdown",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T15:36:12Z",
-      "category": "parser"
-    },
-    {
-      "name": "regex",
-      "description": "Regex engine from scratch. Thompson NFA construction. Zero dependencies.",
-      "url": "https://github.com/henry-the-frog/regex",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T15:24:28Z",
-      "category": "parser"
-    },
-    {
-      "name": "bst",
-      "description": "AVL tree from scratch — self-balancing BST, O(log n) operations, range queries, floor/ceil",
-      "url": "https://github.com/henry-the-frog/bst",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:13:57Z",
-      "category": "data-structure"
-    },
-    {
-      "name": "union-find",
-      "description": "Union-Find (Disjoint Set) from scratch — path compression, union by rank",
-      "url": "https://github.com/henry-the-frog/union-find",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:55:20Z",
-      "category": "data-structure"
-    },
-    {
-      "name": "interval-tree",
-      "description": "Interval tree from scratch — augmented BST, overlap search",
-      "url": "https://github.com/henry-the-frog/interval-tree",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:51:02Z",
-      "category": "data-structure"
-    },
-    {
-      "name": "rope",
-      "description": "Rope data structure: efficient string concatenation, insert, delete, substring.",
-      "url": "https://github.com/henry-the-frog/rope",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:37:10Z",
-      "category": "data-structure"
-    },
-    {
-      "name": "bitset",
-      "description": "Dense BitSet from scratch — set ops, popcount, iterator",
-      "url": "https://github.com/henry-the-frog/bitset",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:35:22Z",
-      "category": "data-structure"
-    },
-    {
-      "name": "bloom-filter",
-      "description": "Bloom filter from scratch — probabilistic set membership, FNV-1a hashing, optimal sizing",
-      "url": "https://github.com/henry-the-frog/bloom-filter",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T16:36:54Z",
-      "category": "data-structure"
-    },
-    {
-      "name": "trie",
-      "description": "Trie (prefix tree) from scratch — autocomplete, prefix search, longest common prefix",
-      "url": "https://github.com/henry-the-frog/trie",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T16:34:27Z",
-      "category": "data-structure"
-    },
-    {
-      "name": "graph",
-      "description": "Graph data structure from scratch — BFS, DFS, Dijkstra, topological sort, cycle detection",
-      "url": "https://github.com/henry-the-frog/graph",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T16:33:16Z",
-      "category": "data-structure"
-    },
-    {
-      "name": "heap",
-      "description": "Binary heap and priority queue from scratch — MinHeap, MaxHeap, custom comparators, heapify",
-      "url": "https://github.com/henry-the-frog/heap",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T16:31:48Z",
-      "category": "data-structure"
-    },
-    {
-      "name": "linked-list",
-      "description": "Singly and doubly linked list from scratch — full API, 28 tests",
-      "url": "https://github.com/henry-the-frog/linked-list",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T16:30:37Z",
-      "category": "data-structure"
-    },
-    {
-      "name": "btree",
-      "description": "B-tree key-value store. Insert, search, delete, range queries in O(log n). Zero dependencies.",
-      "url": "https://github.com/henry-the-frog/btree",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T15:20:10Z",
-      "category": "data-structure"
-    },
-    {
-      "name": "cellular",
-      "description": "Cellular Automata — 1D Elementary + 2D Game of Life, interactive demo",
-      "url": "https://github.com/henry-the-frog/cellular",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T02:40:11Z",
-      "category": "utility"
-    },
-    {
-      "name": "lsystem",
-      "description": "L-System Explorer — string rewriting, turtle graphics, 12 fractal presets",
-      "url": "https://github.com/henry-the-frog/lsystem",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T02:36:41Z",
-      "category": "utility"
-    },
-    {
-      "name": "arrays",
-      "description": "Array utils: chunk, unique, zip, set ops, groupBy, sortBy — 21 tests",
-      "url": "https://github.com/henry-the-frog/arrays",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T01:07:16Z",
-      "category": "utility"
-    },
-    {
-      "name": "objects",
-      "description": "Object utils: deepClone, deepEqual, pick, omit, flatten, groupBy — 32 tests",
-      "url": "https://github.com/henry-the-frog/objects",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T01:06:02Z",
-      "category": "utility"
-    },
-    {
-      "name": "cli",
-      "description": "CLI argument parser: flags, options, aliases, subcommands — 17 tests",
-      "url": "https://github.com/henry-the-frog/cli",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T01:00:28Z",
-      "category": "utility"
-    },
-    {
-      "name": "websocket",
-      "description": "WebSocket protocol: frames, masking, fragmentation, handshake — 12 tests",
-      "url": "https://github.com/henry-the-frog/websocket",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:57:46Z",
-      "category": "utility"
-    },
-    {
-      "name": "immutable",
-      "description": "Immutable collections: List, Map, Set. All operations return new instances.",
-      "url": "https://github.com/henry-the-frog/immutable",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:56:25Z",
-      "category": "utility"
-    },
-    {
-      "name": "middleware",
-      "description": "Tiny middleware engine from scratch — Koa-style onion model",
-      "url": "https://github.com/henry-the-frog/middleware",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:52:22Z",
-      "category": "utility"
-    },
-    {
-      "name": "promise-pool",
-      "description": "Promise pool: mapLimit, waterfall, timeout, retry — 13 tests",
-      "url": "https://github.com/henry-the-frog/promise-pool",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:51:00Z",
-      "category": "utility"
-    },
-    {
-      "name": "retry",
-      "description": "Retry with backoff from scratch — exponential, linear, jitter, conditional retry",
-      "url": "https://github.com/henry-the-frog/retry",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:49:21Z",
-      "category": "utility"
-    },
-    {
-      "name": "observable",
-      "description": "Observable/RxJS-lite from scratch — reactive streams, 10 operators, pipe, merge, combineLatest",
-      "url": "https://github.com/henry-the-frog/observable",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:47:46Z",
-      "category": "utility"
-    },
-    {
-      "name": "circuit-breaker",
-      "description": "Circuit breaker from scratch — closed/open/half-open state machine",
-      "url": "https://github.com/henry-the-frog/circuit-breaker",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:43:47Z",
-      "category": "utility"
-    },
-    {
-      "name": "result",
-      "description": "Result type from scratch — Rust-inspired Ok/Err, map, andThen, match",
-      "url": "https://github.com/henry-the-frog/result",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:42:06Z",
-      "category": "utility"
-    },
-    {
-      "name": "lazy",
-      "description": "Lazy iterables: generators, combinators, terminal ops, pipe — 32 tests",
-      "url": "https://github.com/henry-the-frog/lazy",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:40:22Z",
-      "category": "utility"
-    },
-    {
-      "name": "config",
-      "description": "Config manager: layers, deep merge, validate, watch — 24 tests",
-      "url": "https://github.com/henry-the-frog/config",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:38:45Z",
-      "category": "utility"
-    },
-    {
-      "name": "datetime",
-      "description": "DateTime library: parse, format, add/subtract, diff, relative time, comparison.",
-      "url": "https://github.com/henry-the-frog/datetime",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:37:11Z",
-      "category": "utility"
-    },
-    {
-      "name": "strings",
-      "description": "String utils: case conversion, slugify, truncate, wordWrap, HTML escape.",
-      "url": "https://github.com/henry-the-frog/strings",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:34:58Z",
-      "category": "utility"
-    },
-    {
-      "name": "math",
-      "description": "Math utilities from scratch — 19 functions, statistics, number theory",
-      "url": "https://github.com/henry-the-frog/math",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:32:37Z",
-      "category": "utility"
-    },
-    {
-      "name": "bits",
-      "description": "Bit manipulation utilities — popcount, power-of-2, hamming distance, branchless ops",
-      "url": "https://github.com/henry-the-frog/bits",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:30:39Z",
-      "category": "utility"
-    },
-    {
-      "name": "ecs",
-      "description": "Entity Component System from scratch — data-oriented game engine architecture",
-      "url": "https://github.com/henry-the-frog/ecs",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:28:54Z",
-      "category": "utility"
-    },
-    {
-      "name": "glob",
-      "description": "Glob pattern matcher from scratch — *, ?, **, character classes, dotfiles",
-      "url": "https://github.com/henry-the-frog/glob",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:27:20Z",
-      "category": "utility"
-    },
-    {
-      "name": "msgpack",
-      "description": "MessagePack encoder/decoder: integers, strings, arrays, maps — 30 tests",
-      "url": "https://github.com/henry-the-frog/msgpack",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:25:43Z",
-      "category": "utility"
-    },
-    {
-      "name": "cbor",
-      "description": "CBOR encoder/decoder: integers, strings, arrays, maps, floats — 28 tests",
-      "url": "https://github.com/henry-the-frog/cbor",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:22:29Z",
-      "category": "utility"
-    },
-    {
-      "name": "jwt",
-      "description": "JWT: sign/verify/decode, HS256, claims, expiry, tamper detection — 16 tests",
-      "url": "https://github.com/henry-the-frog/jwt",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:20:51Z",
-      "category": "utility"
-    },
-    {
-      "name": "uuid",
-      "description": "UUID generator from scratch — v4 (random), v7 (time-ordered), parse, validate",
-      "url": "https://github.com/henry-the-frog/uuid",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:19:32Z",
-      "category": "utility"
-    },
-    {
-      "name": "asn1",
-      "description": "ASN.1 DER encoder/decoder: INTEGER, BOOLEAN, strings, OID, SEQUENCE — 23 tests",
-      "url": "https://github.com/henry-the-frog/asn1",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:17:58Z",
-      "category": "utility"
-    },
-    {
-      "name": "blockchain",
-      "description": "Tiny blockchain: proof-of-work, transactions, mining, chain validation.",
-      "url": "https://github.com/henry-the-frog/blockchain",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:15:31Z",
-      "category": "utility"
-    },
-    {
-      "name": "ratelimit",
-      "description": "Rate limiter: token bucket, sliding window, leaky bucket, keyed — 15 tests",
-      "url": "https://github.com/henry-the-frog/ratelimit",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:12:19Z",
-      "category": "utility"
-    },
-    {
-      "name": "color",
-      "description": "Color utilities from scratch — hex/rgb/hsl, manipulation, contrast ratio, palettes",
-      "url": "https://github.com/henry-the-frog/color",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:10:45Z",
-      "category": "utility"
-    },
-    {
-      "name": "taskrunner",
-      "description": "Task runner: dependencies, groups, caching, dry-run — 16 tests",
-      "url": "https://github.com/henry-the-frog/taskrunner",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:09:12Z",
-      "category": "utility"
-    },
-    {
-      "name": "message-queue",
-      "description": "Message queue: pub/sub, topic wildcards, consumer groups, DLQ — 15 tests",
-      "url": "https://github.com/henry-the-frog/message-queue",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:07:28Z",
-      "category": "utility"
-    },
-    {
-      "name": "automata",
-      "description": "Finite automata: Thompson NFA, NFA→DFA subset construction, regex compiler — 18 tests",
-      "url": "https://github.com/henry-the-frog/automata",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:05:34Z",
-      "category": "utility"
-    },
-    {
-      "name": "matrix",
-      "description": "Matrix math library from scratch — Float64Array, multiply, determinant, transpose",
-      "url": "https://github.com/henry-the-frog/matrix",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:04:09Z",
-      "category": "utility"
-    },
-    {
-      "name": "sorting",
-      "description": "Sorting algorithms: bubble, insertion, selection, merge, quick, counting, radix.",
-      "url": "https://github.com/henry-the-frog/sorting",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:02:36Z",
-      "category": "utility"
-    },
-    {
-      "name": "data-structures",
-      "description": "Data structures: linked lists, stack, queue, deque, trie, LRU, ring buffer — 29 tests",
-      "url": "https://github.com/henry-the-frog/data-structures",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-05T00:01:24Z",
-      "category": "utility"
-    },
-    {
-      "name": "parsec",
-      "description": "Parser combinators: str, regex, seq, alt, many, map, lazy. Build parsers by composition.",
-      "url": "https://github.com/henry-the-frog/parsec",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:57:15Z",
-      "category": "utility"
-    },
-    {
-      "name": "validator",
-      "description": "Schema validation: Zod-like API, nested objects, transforms — 38 tests",
-      "url": "https://github.com/henry-the-frog/validator",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:54:59Z",
-      "category": "utility"
-    },
-    {
-      "name": "signals",
-      "description": "Reactive signals from scratch — createSignal, createEffect, createComputed, batch (Solid.js-inspired)",
-      "url": "https://github.com/henry-the-frog/signals",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:50:29Z",
-      "category": "utility"
-    },
-    {
-      "name": "encoding",
-      "description": "Encoding library: base64, hex, percent-encoding, ROT13, Caesar cipher.",
-      "url": "https://github.com/henry-the-frog/encoding",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:49:12Z",
-      "category": "utility"
-    },
-    {
-      "name": "emitter",
-      "description": "Event emitter: on/off/once, wildcards, patterns, async, pipe.",
-      "url": "https://github.com/henry-the-frog/emitter",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:47:46Z",
-      "category": "utility"
-    },
-    {
-      "name": "diff",
-      "description": "Myers diff algorithm from scratch — array/line/char diff, unified format, edit distance",
-      "url": "https://github.com/henry-the-frog/diff",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:46:26Z",
-      "category": "utility"
-    },
-    {
-      "name": "semver",
-      "description": "semver from scratch",
-      "url": "https://github.com/henry-the-frog/semver",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:44:51Z",
-      "category": "utility"
-    },
-    {
-      "name": "web-framework",
-      "description": "Tiny web framework: Express-like routing, middleware, JSON parsing, error handling.",
-      "url": "https://github.com/henry-the-frog/web-framework",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:40:10Z",
-      "category": "utility"
-    },
-    {
-      "name": "image-proc",
-      "description": "Image processing: filters, blur, edge detection, transforms — 28 tests",
-      "url": "https://github.com/henry-the-frog/image-proc",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:37:29Z",
-      "category": "utility"
-    },
-    {
-      "name": "job-queue",
-      "description": "Job queue: priority heap, retries, dead letter queue, rate limiting — 23 tests",
-      "url": "https://github.com/henry-the-frog/job-queue",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:35:32Z",
-      "category": "utility"
-    },
-    {
-      "name": "di-container",
-      "description": "Dependency injection container: lifetimes, factories, tagged bindings — 23 tests",
-      "url": "https://github.com/henry-the-frog/di-container",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:33:58Z",
-      "category": "utility"
-    },
-    {
-      "name": "henry-orm",
-      "description": "ORM from scratch: model definition, CRUD, query builder, relationships, migrations — 24 tests",
-      "url": "https://github.com/henry-the-frog/henry-orm",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:29:48Z",
-      "category": "utility"
-    },
-    {
-      "name": "graph-algorithms",
-      "description": "Graph algorithms: Dijkstra, A*, Bellman-Ford, Floyd-Warshall, topo sort, Tarjan SCC, MST, max flow — 43 tests",
-      "url": "https://github.com/henry-the-frog/graph-algorithms",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:24:17Z",
-      "category": "utility"
-    },
-    {
-      "name": "fft",
-      "description": "FFT and signal processing from scratch: Cooley-Tukey, convolution, spectrogram — 24 tests",
-      "url": "https://github.com/henry-the-frog/fft",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:22:04Z",
-      "category": "utility"
-    },
-    {
-      "name": "henry-physics",
-      "description": "2D physics engine from scratch — 32 tests",
-      "url": "https://github.com/henry-the-frog/henry-physics",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:19:42Z",
-      "category": "utility"
-    },
-    {
-      "name": "henry-crypto",
-      "description": "SHA-256, HMAC-SHA256, AES-128 ECB from scratch — verified against NIST — 20 tests",
-      "url": "https://github.com/henry-the-frog/henry-crypto",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:16:49Z",
-      "category": "utility"
-    },
-    {
-      "name": "compression",
-      "description": "Compression algorithms: Huffman, LZ77, RLE, DEFLATE-like — 22 tests",
-      "url": "https://github.com/henry-the-frog/compression",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:14:25Z",
-      "category": "utility"
-    },
-    {
-      "name": "henry-vdom",
-      "description": "Virtual DOM from scratch — 30 tests",
-      "url": "https://github.com/henry-the-frog/henry-vdom",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:12:28Z",
-      "category": "utility"
-    },
-    {
-      "name": "henry-lisp",
-      "description": "Lisp interpreter from scratch — 47 tests",
-      "url": "https://github.com/henry-the-frog/henry-lisp",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:10:16Z",
-      "category": "utility"
-    },
-    {
-      "name": "henry-gc",
-      "description": "Garbage collector implementations from scratch — 23 tests",
-      "url": "https://github.com/henry-the-frog/henry-gc",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T23:06:19Z",
-      "category": "utility"
-    },
-    {
-      "name": "henry-redis",
-      "description": "Redis-like in-memory data store: strings, lists, sets, sorted sets, hashes, pub/sub, RESP — 55 tests",
-      "url": "https://github.com/henry-the-frog/henry-redis",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T22:56:31Z",
-      "category": "utility"
-    },
-    {
-      "name": "bittorrent",
-      "description": "BitTorrent protocol from scratch: bencode, peer wire protocol, piece manager, swarm — 34 tests",
-      "url": "https://github.com/henry-the-frog/bittorrent",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T22:53:51Z",
-      "category": "utility"
-    },
-    {
-      "name": "tiny-os",
-      "description": "Tiny OS kernel simulation: memory manager, process scheduler, VFS, shell — 40 tests",
-      "url": "https://github.com/henry-the-frog/tiny-os",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T22:51:02Z",
-      "category": "utility"
-    },
-    {
-      "name": "tcp-ip",
-      "description": "TCP/IP protocol stack from scratch: Ethernet, IPv4, ICMP, TCP state machine — 22 tests",
-      "url": "https://github.com/henry-the-frog/tcp-ip",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T22:46:25Z",
-      "category": "utility"
-    },
-    {
-      "name": "compiler-backend",
-      "description": "Compiler backend from scratch: SSA IR, register allocation, x86-64 codegen — 58 tests",
-      "url": "https://github.com/henry-the-frog/compiler-backend",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T22:43:05Z",
-      "category": "utility"
-    },
-    {
-      "name": "henrydb",
-      "description": "Relational database engine from scratch: pages, B+ tree, SQL parser, query planner, MVCC transactions, WAL — 126 tests",
-      "url": "https://github.com/henry-the-frog/henrydb",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T22:36:49Z",
-      "category": "utility"
-    },
-    {
-      "name": "probabilistic-ds",
-      "description": "Bloom filter, Count-Min Sketch, HyperLogLog — 20 tests",
-      "url": "https://github.com/henry-the-frog/probabilistic-ds",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T22:19:54Z",
-      "category": "utility"
-    },
-    {
-      "name": "dns-resolver",
-      "description": "DNS resolver from scratch — packet parsing, query building, caching, 16 tests",
-      "url": "https://github.com/henry-the-frog/dns-resolver",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T22:16:26Z",
-      "category": "utility"
-    },
-    {
-      "name": "tiny-git",
-      "description": "Git plumbing from scratch — content-addressable objects, refs, diff",
-      "url": "https://github.com/henry-the-frog/tiny-git",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T21:57:41Z",
-      "category": "utility"
-    },
-    {
-      "name": "sdf-renderer",
-      "description": "SDF ray marcher — sphere marching, soft shadows, ambient occlusion, 49 tests",
-      "url": "https://github.com/henry-the-frog/sdf-renderer",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T21:48:39Z",
-      "category": "utility"
-    },
-    {
-      "name": "henry-http",
-      "description": "HTTP/1.1 server from scratch — raw TCP, request parsing, routing, middleware, 52 tests",
-      "url": "https://github.com/henry-the-frog/henry-http",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T21:31:32Z",
-      "category": "utility"
-    },
-    {
-      "name": "chess-engine",
-      "description": "Chess engine with bitboards, alpha-beta search, quiescence, TT, and UCI protocol — 44 tests",
-      "url": "https://github.com/henry-the-frog/chess-engine",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T21:24:21Z",
-      "category": "utility"
-    },
-    {
-      "name": "wasm-interpreter",
-      "description": "WebAssembly interpreter from scratch — binary decoder + stack machine, 78 tests",
-      "url": "https://github.com/henry-the-frog/wasm-interpreter",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-04T21:14:28Z",
-      "category": "utility"
-    },
-    {
-      "name": "fractal-explorer",
-      "description": "Interactive fractal explorer: Mandelbrot, Julia sets, Burning Ship, Tricorn. Zoom, color schemes, save.",
-      "url": "https://github.com/henry-the-frog/fractal-explorer",
-      "language": "HTML",
-      "stars": 0,
-      "pushedAt": "2026-04-02T17:56:21Z",
-      "category": "utility"
-    },
-    {
-      "name": "cellular-automata",
-      "description": "Cellular automata explorer: Game of Life, multi-state, 1D elementary, random rule discovery",
-      "url": "https://github.com/henry-the-frog/cellular-automata",
-      "language": "HTML",
-      "stars": 0,
-      "pushedAt": "2026-04-02T17:56:19Z",
-      "category": "utility"
-    },
-    {
-      "name": "particle-life",
-      "description": "Particle Life simulation — emergent behavior from random attraction/repulsion rules",
-      "url": "https://github.com/henry-the-frog/particle-life",
-      "language": "HTML",
-      "stars": 0,
-      "pushedAt": "2026-04-02T17:56:16Z",
-      "category": "utility"
-    },
-    {
-      "name": "genetic-art",
-      "description": "Genetic algorithm library + polygon art evolver, built from scratch in JavaScript",
-      "url": "https://github.com/henry-the-frog/genetic-art",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-02T17:56:12Z",
-      "category": "utility"
-    },
-    {
-      "name": "physics-engine",
-      "description": "2D physics engine with SAT collision, spatial hash broadphase, constraints — interactive web demo",
-      "url": "https://github.com/henry-the-frog/physics-engine",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-04-02T17:56:09Z",
-      "category": "utility"
-    },
-    {
-      "name": "checksum",
-      "description": "Checksums: CRC32, Adler32, Fletcher16 with verification.",
-      "url": "https://github.com/henry-the-frog/checksum",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T19:58:22Z",
-      "category": "utility"
-    },
-    {
-      "name": "autocomplete",
-      "description": "Autocomplete: trie-based prefix search, fuzzy matching, weighted ranking.",
-      "url": "https://github.com/henry-the-frog/autocomplete",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T19:55:59Z",
-      "category": "utility"
-    },
-    {
-      "name": "event-sourcing",
-      "description": "Event sourcing: event store, aggregates, projections, snapshots.",
-      "url": "https://github.com/henry-the-frog/event-sourcing",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T19:51:43Z",
-      "category": "utility"
-    },
-    {
-      "name": "automaton",
-      "description": "DFA from scratch — run, trace, Hopcroft minimization",
-      "url": "https://github.com/henry-the-frog/automaton",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T19:47:47Z",
-      "category": "utility"
-    },
-    {
-      "name": "depgraph",
-      "description": "Dependency graph: topological sort, cycle detection, resolution.",
-      "url": "https://github.com/henry-the-frog/depgraph",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T19:34:31Z",
-      "category": "utility"
-    },
-    {
-      "name": "i18n",
-      "description": "i18n: message catalog, interpolation, pluralization, locale switching.",
-      "url": "https://github.com/henry-the-frog/i18n",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T19:32:52Z",
-      "category": "utility"
-    },
-    {
-      "name": "paginate",
-      "description": "Pagination: offset, cursor, keyset, Relay-style connection.",
-      "url": "https://github.com/henry-the-frog/paginate",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T19:29:52Z",
-      "category": "utility"
-    },
-    {
-      "name": "setops",
-      "description": "Set operations: union, intersection, difference, power set, cartesian product.",
-      "url": "https://github.com/henry-the-frog/setops",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T19:16:54Z",
-      "category": "utility"
-    },
-    {
-      "name": "rbac",
-      "description": "RBAC: roles, permissions, hierarchy, resource-based access control.",
-      "url": "https://github.com/henry-the-frog/rbac",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T19:15:06Z",
-      "category": "utility"
-    },
-    {
-      "name": "protobuf",
-      "description": "Protocol Buffers: varint encoding, wire format, schema-based encode/decode.",
-      "url": "https://github.com/henry-the-frog/protobuf",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T19:12:52Z",
-      "category": "utility"
-    },
-    {
-      "name": "cache",
-      "description": "Cache: LFU, TTL, Write-Through implementations.",
-      "url": "https://github.com/henry-the-frog/cache",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T19:10:57Z",
-      "category": "utility"
-    },
-    {
-      "name": "baseconv",
-      "description": "Base converter: binary, octal, hex, base36, arbitrary base 2-36.",
-      "url": "https://github.com/henry-the-frog/baseconv",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T19:06:37Z",
-      "category": "utility"
-    },
-    {
-      "name": "graphdb",
-      "description": "Graph database: nodes, edges, labels, traversal, shortest path, pattern matching.",
-      "url": "https://github.com/henry-the-frog/graphdb",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T19:03:32Z",
-      "category": "utility"
-    },
-    {
-      "name": "autograd",
-      "description": "Autograd: automatic differentiation, computational graph, MLP (micrograd-inspired).",
-      "url": "https://github.com/henry-the-frog/autograd",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T18:58:28Z",
-      "category": "utility"
-    },
-    {
-      "name": "tinylang",
-      "description": "Tiny programming language: variables, functions, closures, if/while, recursion.",
-      "url": "https://github.com/henry-the-frog/tinylang",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T18:56:05Z",
-      "category": "utility"
-    },
-    {
-      "name": "sync",
-      "description": "Sync primitives: Mutex, Semaphore, RWLock, Barrier, Latch for async JS.",
-      "url": "https://github.com/henry-the-frog/sync",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T18:53:27Z",
-      "category": "utility"
-    },
-    {
-      "name": "vecdb",
-      "description": "Vector database: cosine/euclidean similarity, KNN search, metadata filtering.",
-      "url": "https://github.com/henry-the-frog/vecdb",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T18:51:44Z",
-      "category": "utility"
-    },
-    {
-      "name": "typechecker",
-      "description": "Type checker: TypeScript-inspired types, union, intersection, structural subtyping.",
-      "url": "https://github.com/henry-the-frog/typechecker",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T18:48:02Z",
-      "category": "utility"
-    },
-    {
-      "name": "algebra",
-      "description": "Symbolic algebra: expression trees, simplification, differentiation, parsing.",
-      "url": "https://github.com/henry-the-frog/algebra",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T18:46:18Z",
-      "category": "utility"
-    },
-    {
-      "name": "geometry",
-      "description": "2D geometry: Point, Line, Circle, Polygon with intersection, area, containment.",
-      "url": "https://github.com/henry-the-frog/geometry",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T18:44:10Z",
-      "category": "utility"
-    },
-    {
-      "name": "statechart",
-      "description": "Hierarchical state charts: guards, actions, history, context.",
-      "url": "https://github.com/henry-the-frog/statechart",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T18:41:44Z",
-      "category": "utility"
-    },
-    {
-      "name": "dsp",
-      "description": "DSP: FFT, IFFT, convolution, window functions, frequency analysis.",
-      "url": "https://github.com/henry-the-frog/dsp",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T18:40:06Z",
-      "category": "utility"
-    },
-    {
-      "name": "compress",
-      "description": "Compression: run-length encoding, LZ77, dictionary coding.",
-      "url": "https://github.com/henry-the-frog/compress",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T18:36:40Z",
-      "category": "utility"
-    },
-    {
-      "name": "raft",
-      "description": "Raft consensus: leader election, log replication, term tracking.",
-      "url": "https://github.com/henry-the-frog/raft",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T18:35:08Z",
-      "category": "utility"
-    },
-    {
-      "name": "crdt",
-      "description": "CRDTs: G-Counter, PN-Counter, LWW-Register, OR-Set with merge.",
-      "url": "https://github.com/henry-the-frog/crdt",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T18:33:24Z",
-      "category": "utility"
-    },
-    {
-      "name": "tcp",
-      "description": "TCP protocol simulation: 3-way handshake, seq/ack, data transfer, state machine.",
-      "url": "https://github.com/henry-the-frog/tcp",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T18:29:26Z",
-      "category": "utility"
-    },
-    {
-      "name": "dns",
-      "description": "DNS packet builder/parser: query builder, name encoding, record types.",
-      "url": "https://github.com/henry-the-frog/dns",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T18:27:41Z",
-      "category": "utility"
-    },
-    {
-      "name": "shell",
-      "description": "Tiny shell: command parsing, pipes, redirects, built-ins, env vars.",
-      "url": "https://github.com/henry-the-frog/shell",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T18:25:22Z",
-      "category": "utility"
-    },
-    {
-      "name": "memfs",
-      "description": "In-memory file system: directories, files, paths, stat, copy, rename.",
-      "url": "https://github.com/henry-the-frog/memfs",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T18:22:49Z",
-      "category": "utility"
-    },
-    {
-      "name": "allocator",
-      "description": "Memory allocator simulation: first-fit, best-fit, pool allocator, coalescing.",
-      "url": "https://github.com/henry-the-frog/allocator",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T18:19:03Z",
-      "category": "utility"
-    },
-    {
-      "name": "gc",
-      "description": "Garbage collector simulation: mark-and-sweep, reference counting.",
-      "url": "https://github.com/henry-the-frog/gc",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T18:17:12Z",
-      "category": "utility"
-    },
-    {
-      "name": "assembler",
-      "description": "Tiny assembler: text assembly to bytecode, labels, disassembler.",
-      "url": "https://github.com/henry-the-frog/assembler",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T18:14:36Z",
-      "category": "utility"
-    },
-    {
-      "name": "pattern-match",
-      "description": "Pattern matching: match expressions, guards, objects, arrays, predicates.",
-      "url": "https://github.com/henry-the-frog/pattern-match",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T18:10:27Z",
-      "category": "utility"
-    },
-    {
-      "name": "tensor",
-      "description": "Tensor library: N-dimensional arrays, matmul, reshape, reductions.",
-      "url": "https://github.com/henry-the-frog/tensor",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T18:08:23Z",
-      "category": "utility"
-    },
-    {
-      "name": "effect",
-      "description": "Effect system: IO monad, Task, pure/impure separation, lazy async.",
-      "url": "https://github.com/henry-the-frog/effect",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T18:06:13Z",
-      "category": "utility"
-    },
-    {
-      "name": "spreadsheet",
-      "description": "Spreadsheet engine: formulas, cell references, SUM/AVG/MIN/MAX, range references.",
-      "url": "https://github.com/henry-the-frog/spreadsheet",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T18:01:31Z",
-      "category": "utility"
-    },
-    {
-      "name": "waldb",
-      "description": "Database with Write-Ahead Log: transactions, checkpoint, recovery.",
-      "url": "https://github.com/henry-the-frog/waldb",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:59:29Z",
-      "category": "utility"
-    },
-    {
-      "name": "ast",
-      "description": "AST toolkit: walk, transform, collect, builder pattern, code generation.",
-      "url": "https://github.com/henry-the-frog/ast",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:57:36Z",
-      "category": "utility"
-    },
-    {
-      "name": "quadtree",
-      "description": "Quadtree: spatial indexing, range query, nearest neighbor search.",
-      "url": "https://github.com/henry-the-frog/quadtree",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:52:54Z",
-      "category": "utility"
-    },
-    {
-      "name": "vdom",
-      "description": "Virtual DOM from scratch — h(), createElement, diff, patch with props and children reconciliation",
-      "url": "https://github.com/henry-the-frog/vdom",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:48:50Z",
-      "category": "utility"
-    },
-    {
-      "name": "skiplist",
-      "description": "Skip list: probabilistic balanced structure, O(log n) insert/search/delete, range queries.",
-      "url": "https://github.com/henry-the-frog/skiplist",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:46:57Z",
-      "category": "utility"
-    },
-    {
-      "name": "broker",
-      "description": "Message broker: pub/sub, queues, request/reply, dead letters.",
-      "url": "https://github.com/henry-the-frog/broker",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:41:13Z",
-      "category": "utility"
-    },
-    {
-      "name": "perceptron",
-      "description": "ML classifiers: Perceptron, Logistic Regression, KNN, feature scaling.",
-      "url": "https://github.com/henry-the-frog/perceptron",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:39:25Z",
-      "category": "utility"
-    },
-    {
-      "name": "migrate",
-      "description": "Schema migration system: up/down, rollback, status, dry-run, history.",
-      "url": "https://github.com/henry-the-frog/migrate",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:33:34Z",
-      "category": "utility"
-    },
-    {
-      "name": "css-in-js",
-      "description": "CSS-in-JS: style objects to CSS, pseudos, media queries, keyframes, themes.",
-      "url": "https://github.com/henry-the-frog/css-in-js",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:32:04Z",
-      "category": "utility"
-    },
-    {
-      "name": "readme-gen",
-      "description": "README.md generator: fluent builder for badges, API docs, sections.",
-      "url": "https://github.com/henry-the-frog/readme-gen",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:30:01Z",
-      "category": "utility"
-    },
-    {
-      "name": "binser",
-      "description": "Binary serialization: type-tagged encoding, varint, compact format.",
-      "url": "https://github.com/henry-the-frog/binser",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:26:42Z",
-      "category": "utility"
-    },
-    {
-      "name": "image",
-      "description": "Image processing: grayscale, blur, sharpen, edge detection, resize, threshold.",
-      "url": "https://github.com/henry-the-frog/image",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:24:14Z",
-      "category": "utility"
-    },
-    {
-      "name": "calc-lang",
-      "description": "Calculator language: variables, functions, conditionals, arithmetic. Tokenizer → parser → evaluator.",
-      "url": "https://github.com/henry-the-frog/calc-lang",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:22:16Z",
-      "category": "utility"
-    },
-    {
-      "name": "sha256",
-      "description": "SHA-256 from scratch in pure JavaScript — passes NIST test vectors",
-      "url": "https://github.com/henry-the-frog/sha256",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:20:16Z",
-      "category": "utility"
-    },
-    {
-      "name": "fp",
-      "description": "FP library: curry, compose, pipe, Maybe/Either monads, collection utils.",
-      "url": "https://github.com/henry-the-frog/fp",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:17:57Z",
-      "category": "utility"
-    },
-    {
-      "name": "deep",
-      "description": "Deep clone/merge/equal/freeze/flatten/unflatten/get/set from scratch",
-      "url": "https://github.com/henry-the-frog/deep",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:12:20Z",
-      "category": "utility"
-    },
-    {
-      "name": "faker",
-      "description": "Random data generator: names, emails, addresses, dates, UUIDs, lorem ipsum.",
-      "url": "https://github.com/henry-the-frog/faker",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:10:37Z",
-      "category": "utility"
-    },
-    {
-      "name": "units",
-      "description": "Unit conversion: length, weight, temperature, time, speed, data, volume, area.",
-      "url": "https://github.com/henry-the-frog/units",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:07:42Z",
-      "category": "utility"
-    },
-    {
-      "name": "orm",
-      "description": "Tiny ORM: define models, CRUD, where queries, hasMany/belongsTo relations.",
-      "url": "https://github.com/henry-the-frog/orm",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:06:24Z",
-      "category": "utility"
-    },
-    {
-      "name": "astar",
-      "description": "A* search from scratch — generic graph search with heuristic, grid helper",
-      "url": "https://github.com/henry-the-frog/astar",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:05:01Z",
-      "category": "utility"
-    },
-    {
-      "name": "game-engine",
-      "description": "Tiny 2D game engine: entities, scenes, game loop, input, collision detection.",
-      "url": "https://github.com/henry-the-frog/game-engine",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T17:01:16Z",
-      "category": "utility"
-    },
-    {
-      "name": "sql",
-      "description": "Tiny in-memory SQL database: CREATE TABLE, INSERT, SELECT, UPDATE, DELETE, JOIN.",
-      "url": "https://github.com/henry-the-frog/sql",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T16:59:41Z",
-      "category": "utility"
-    },
-    {
-      "name": "path",
-      "description": "Tiny posix path utilities from scratch",
-      "url": "https://github.com/henry-the-frog/path",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T16:48:04Z",
-      "category": "utility"
-    },
-    {
-      "name": "hashmap",
-      "description": "Hash map from scratch: hashing, separate chaining, dynamic resizing, iterators.",
-      "url": "https://github.com/henry-the-frog/hashmap",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T16:35:34Z",
-      "category": "utility"
-    },
-    {
-      "name": "fsm",
-      "description": "Finite State Machine: states, transitions, guards, actions, context. Zero dependencies.",
-      "url": "https://github.com/henry-the-frog/fsm",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T16:17:18Z",
-      "category": "utility"
-    },
-    {
-      "name": "query",
-      "description": "In-memory query engine: SELECT, WHERE, ORDER BY, GROUP BY, JOIN, aggregates.",
-      "url": "https://github.com/henry-the-frog/query",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T16:15:18Z",
-      "category": "utility"
-    },
-    {
-      "name": "template",
-      "description": "Template engine: variables, conditionals, loops, filters, partials. Zero dependencies.",
-      "url": "https://github.com/henry-the-frog/template",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T16:13:23Z",
-      "category": "utility"
-    },
-    {
-      "name": "lru-cache",
-      "description": "LRU Cache from scratch — O(1) get/set, doubly-linked list, eviction callbacks, resize",
-      "url": "https://github.com/henry-the-frog/lru-cache",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T16:02:31Z",
-      "category": "utility"
-    },
-    {
-      "name": "test-framework",
-      "description": "Tiny test framework from scratch — describe/it/assert, hooks, nested suites, self-testing",
-      "url": "https://github.com/henry-the-frog/test-framework",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T15:54:39Z",
-      "category": "utility"
-    },
-    {
-      "name": "event-loop",
-      "description": "Custom event loop: microtasks, macrotasks, timers, LoopPromise. Educational implementation.",
-      "url": "https://github.com/henry-the-frog/event-loop",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T15:51:59Z",
-      "category": "utility"
-    },
-    {
-      "name": "reactive",
-      "description": "Reactive state management: signals, computed, effects, batch, store. Zero dependencies.",
-      "url": "https://github.com/henry-the-frog/reactive",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T15:49:27Z",
-      "category": "utility"
-    },
-    {
-      "name": "vm",
-      "description": "Stack-based bytecode virtual machine. Functions, control flow, 30+ opcodes.",
-      "url": "https://github.com/henry-the-frog/vm",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T15:45:27Z",
-      "category": "utility"
-    },
-    {
-      "name": "promise",
-      "description": "Promise/A+ implementation from scratch — then, catch, finally, all, race, any, allSettled",
-      "url": "https://github.com/henry-the-frog/promise",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T15:41:32Z",
-      "category": "utility"
-    },
-    {
-      "name": "http-server",
-      "description": "HTTP/1.1 server from scratch — built on Node.js net module, routing, middleware, path params",
-      "url": "https://github.com/henry-the-frog/http-server",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T15:31:28Z",
-      "category": "utility"
-    },
-    {
-      "name": "bimap",
-      "description": "BiMap from scratch — two-way map, inverse",
-      "url": "https://github.com/henry-the-frog/bimap",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T01:48:52Z",
-      "category": "utility"
-    },
-    {
-      "name": "pad",
-      "description": "String padding/manipulation from scratch — 12 utilities",
-      "url": "https://github.com/henry-the-frog/pad",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T01:47:41Z",
-      "category": "utility"
-    },
-    {
-      "name": "ordered-map",
-      "description": "Ordered map from scratch — insertion order, first/last/at",
-      "url": "https://github.com/henry-the-frog/ordered-map",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T01:46:43Z",
-      "category": "utility"
-    },
-    {
-      "name": "multimap",
-      "description": "Multi-map from scratch — one key, multiple values",
-      "url": "https://github.com/henry-the-frog/multimap",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T01:45:42Z",
-      "category": "utility"
-    },
-    {
-      "name": "cipher",
-      "description": "Cipher utilities from scratch — ROT13, Caesar, Vigenère, XOR, Atbash",
-      "url": "https://github.com/henry-the-frog/cipher",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T01:44:44Z",
-      "category": "utility"
-    },
-    {
-      "name": "morse",
-      "description": "Morse code encoder/decoder from scratch",
-      "url": "https://github.com/henry-the-frog/morse",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T01:43:42Z",
-      "category": "utility"
-    },
-    {
-      "name": "table",
-      "description": "ASCII table formatter from scratch — borders, alignment, padding",
-      "url": "https://github.com/henry-the-frog/table",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T01:42:38Z",
-      "category": "utility"
-    },
-    {
-      "name": "counter",
-      "description": "Counter map from scratch — count occurrences, most/least common",
-      "url": "https://github.com/henry-the-frog/counter",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T01:41:39Z",
-      "category": "utility"
-    },
-    {
-      "name": "escape",
-      "description": "Escape utilities from scratch — HTML, regex, shell, JSON, CSV",
-      "url": "https://github.com/henry-the-frog/escape",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T01:40:37Z",
-      "category": "utility"
-    },
-    {
-      "name": "args",
-      "description": "Args parser from scratch — minimist-like, flags, aliases, defaults",
-      "url": "https://github.com/henry-the-frog/args",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T01:39:22Z",
-      "category": "utility"
-    },
-    {
-      "name": "either",
-      "description": "Either type from scratch — Left/Right, map, flatMap, match",
-      "url": "https://github.com/henry-the-frog/either",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T01:38:16Z",
-      "category": "utility"
-    },
-    {
-      "name": "option",
-      "description": "Option type from scratch — Some/None, map, flatMap, filter, match",
-      "url": "https://github.com/henry-the-frog/option",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T01:36:56Z",
-      "category": "utility"
-    },
-    {
-      "name": "numfmt",
-      "description": "Number formatter from scratch — compact, ordinal, Roman numerals",
-      "url": "https://github.com/henry-the-frog/numfmt",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T01:35:50Z",
-      "category": "utility"
-    },
-    {
-      "name": "chunk",
-      "description": "Array utilities from scratch — chunk, zip, groupBy, partition, windows",
-      "url": "https://github.com/henry-the-frog/chunk",
-      "language": "JavaScript",
-      "stars": 0,
-      "pushedAt": "2026-03-31T01:34:51Z",
-      "category": "utility"
-    }
-  ],
+  "projects": [],
   "vitalStats": {
-    "totalTests": 9185,
+    "totalTests": 9282,
     "testCounts": {
       "actor": 8,
       "actor-model": 17,
@@ -2770,7 +869,7 @@
       "hash-map": 16,
       "heap": 11,
       "henry-redis": 55,
-      "henrydb": 126,
+      "henrydb": 223,
       "http-framework": 15,
       "http-server": 55,
       "huffman": 10,
@@ -2927,7 +1026,7 @@
       "xpath": 10,
       "yaml": 42
     },
-    "totalRepos": 200,
+    "totalRepos": 0,
     "totalProjectCount": 260,
     "totalBlogPosts": 42,
     "streak": 7,
@@ -2945,7 +1044,7 @@
       "srcFiles": 57,
       "srcLines": 31415,
       "featureCount": 18,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/monkey-lang",
       "demoUrl": "https://henry-the-frog.github.io/monkey-lang/"
     },
@@ -2959,7 +1058,7 @@
       "srcFiles": 75,
       "srcLines": 14126,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/neural-net",
       "demoUrl": "https://henry-the-frog.github.io/neural-net/"
     },
@@ -2973,9 +1072,23 @@
       "srcFiles": 63,
       "srcLines": 8666,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/ray-tracer",
       "demoUrl": "https://henry-the-frog.github.io/ray-tracer/"
+    },
+    {
+      "name": "henrydb",
+      "dir": "projects/henrydb",
+      "icon": "🗄️",
+      "description": "A relational database engine built from scratch in JavaScript. No dependencies.",
+      "category": "systems",
+      "tests": 223,
+      "srcFiles": 16,
+      "srcLines": 4111,
+      "featureCount": 25,
+      "lastCommit": "2026-04-05 08:39:27 -0600",
+      "url": "https://github.com/henry-the-frog/henrydb",
+      "demoUrl": "https://henry-the-frog.github.io/henrydb/"
     },
     {
       "name": "type-inference",
@@ -2987,7 +1100,7 @@
       "srcFiles": 9,
       "srcLines": 3602,
       "featureCount": 8,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/type-inference",
       "demoUrl": "https://henry-the-frog.github.io/type-inference/"
     },
@@ -3001,7 +1114,7 @@
       "srcFiles": 10,
       "srcLines": 3865,
       "featureCount": 10,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/prolog",
       "demoUrl": "https://henry-the-frog.github.io/prolog/"
     },
@@ -3029,7 +1142,7 @@
       "srcFiles": 22,
       "srcLines": 4563,
       "featureCount": 21,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/genetic-art",
       "demoUrl": "https://henry-the-frog.github.io/genetic-art/"
     },
@@ -3048,20 +1161,6 @@
       "demoUrl": "https://henry-the-frog.github.io/forth/"
     },
     {
-      "name": "henrydb",
-      "dir": "projects/henrydb",
-      "icon": "🗄️",
-      "description": "A relational database engine built from scratch in JavaScript. No dependencies.",
-      "category": "systems",
-      "tests": 126,
-      "srcFiles": 11,
-      "srcLines": 2699,
-      "featureCount": 25,
-      "lastCommit": "2026-04-04 16:36:44 -0600",
-      "url": "https://github.com/henry-the-frog/henrydb",
-      "demoUrl": "https://henry-the-frog.github.io/henrydb/"
-    },
-    {
       "name": "minikanren",
       "dir": "projects/minikanren",
       "icon": "🧩",
@@ -3071,7 +1170,7 @@
       "srcFiles": 5,
       "srcLines": 1378,
       "featureCount": 7,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/minikanren",
       "demoUrl": "https://henry-the-frog.github.io/minikanren/"
     },
@@ -3099,7 +1198,7 @@
       "srcFiles": 9,
       "srcLines": 2354,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/smt-solver",
       "demoUrl": "https://henry-the-frog.github.io/smt-solver/"
     },
@@ -3113,7 +1212,7 @@
       "srcFiles": 4,
       "srcLines": 684,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/json-parser",
       "demoUrl": "https://henry-the-frog.github.io/json-parser/"
     },
@@ -3127,7 +1226,7 @@
       "srcFiles": 9,
       "srcLines": 2351,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/gc-simulator",
       "demoUrl": "https://henry-the-frog.github.io/gc-simulator/"
     },
@@ -3155,7 +1254,7 @@
       "srcFiles": 5,
       "srcLines": 1099,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/promise",
       "demoUrl": "https://henry-the-frog.github.io/promise/"
     },
@@ -3183,7 +1282,7 @@
       "srcFiles": 5,
       "srcLines": 1563,
       "featureCount": 11,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/sat",
       "demoUrl": "https://henry-the-frog.github.io/sat/"
     },
@@ -3211,7 +1310,7 @@
       "srcFiles": 8,
       "srcLines": 1405,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/kv-store",
       "demoUrl": "https://henry-the-frog.github.io/kv-store/"
     },
@@ -3253,7 +1352,7 @@
       "srcFiles": 9,
       "srcLines": 1011,
       "featureCount": 7,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/boids",
       "demoUrl": "https://henry-the-frog.github.io/boids/"
     },
@@ -3519,7 +1618,7 @@
       "srcFiles": 3,
       "srcLines": 1182,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/sql-engine",
       "demoUrl": "https://henry-the-frog.github.io/sql-engine/"
     },
@@ -3533,7 +1632,7 @@
       "srcFiles": 4,
       "srcLines": 704,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/lru-cache",
       "demoUrl": "https://henry-the-frog.github.io/lru-cache/"
     },
@@ -3603,7 +1702,7 @@
       "srcFiles": 3,
       "srcLines": 733,
       "featureCount": 8,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/chip8",
       "demoUrl": "https://henry-the-frog.github.io/chip8/"
     },
@@ -3687,7 +1786,7 @@
       "srcFiles": 4,
       "srcLines": 659,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/event-emitter",
       "demoUrl": "https://henry-the-frog.github.io/event-emitter/"
     },
@@ -3701,7 +1800,7 @@
       "srcFiles": 2,
       "srcLines": 195,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/regex-builder",
       "demoUrl": "https://henry-the-frog.github.io/regex-builder/"
     },
@@ -3729,7 +1828,7 @@
       "srcFiles": 4,
       "srcLines": 103,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/option",
       "demoUrl": "https://henry-the-frog.github.io/option/"
     },
@@ -3757,7 +1856,7 @@
       "srcFiles": 2,
       "srcLines": 677,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/type-infer",
       "demoUrl": "https://henry-the-frog.github.io/type-infer/"
     },
@@ -3771,7 +1870,7 @@
       "srcFiles": 2,
       "srcLines": 462,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/parser-combinators",
       "demoUrl": "https://henry-the-frog.github.io/parser-combinators/"
     },
@@ -3897,7 +1996,7 @@
       "srcFiles": 2,
       "srcLines": 331,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/nfa-regex",
       "demoUrl": "https://henry-the-frog.github.io/nfa-regex/"
     },
@@ -3925,7 +2024,7 @@
       "srcFiles": 3,
       "srcLines": 145,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/itertools",
       "demoUrl": "https://henry-the-frog.github.io/itertools/"
     },
@@ -4037,7 +2136,7 @@
       "srcFiles": 2,
       "srcLines": 616,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/bytecode-vm",
       "demoUrl": "https://henry-the-frog.github.io/bytecode-vm/"
     },
@@ -4121,7 +2220,7 @@
       "srcFiles": 4,
       "srcLines": 655,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/pubsub",
       "demoUrl": "https://henry-the-frog.github.io/pubsub/"
     },
@@ -4135,7 +2234,7 @@
       "srcFiles": 2,
       "srcLines": 674,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/ray-marcher",
       "demoUrl": "https://henry-the-frog.github.io/ray-marcher/"
     },
@@ -4149,7 +2248,7 @@
       "srcFiles": 4,
       "srcLines": 503,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/trie",
       "demoUrl": "https://henry-the-frog.github.io/trie/"
     },
@@ -4177,7 +2276,7 @@
       "srcFiles": 3,
       "srcLines": 421,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/schema",
       "demoUrl": "https://henry-the-frog.github.io/schema/"
     },
@@ -4219,7 +2318,7 @@
       "srcFiles": 3,
       "srcLines": 127,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/assert",
       "demoUrl": "https://henry-the-frog.github.io/assert/"
     },
@@ -4233,7 +2332,7 @@
       "srcFiles": 2,
       "srcLines": 167,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/binary-search",
       "demoUrl": "https://henry-the-frog.github.io/binary-search/"
     },
@@ -4247,7 +2346,7 @@
       "srcFiles": 2,
       "srcLines": 592,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/btree",
       "demoUrl": "https://henry-the-frog.github.io/btree/"
     },
@@ -4275,7 +2374,7 @@
       "srcFiles": 2,
       "srcLines": 473,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/cellular-automata",
       "demoUrl": "https://henry-the-frog.github.io/cellular-automata/"
     },
@@ -4289,7 +2388,7 @@
       "srcFiles": 2,
       "srcLines": 493,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/compiler",
       "demoUrl": "https://henry-the-frog.github.io/compiler/"
     },
@@ -4317,7 +2416,7 @@
       "srcFiles": 4,
       "srcLines": 464,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/rate-limiter",
       "demoUrl": "https://henry-the-frog.github.io/rate-limiter/"
     },
@@ -4331,7 +2430,7 @@
       "srcFiles": 2,
       "srcLines": 691,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/type-checker",
       "demoUrl": "https://henry-the-frog.github.io/type-checker/"
     },
@@ -4345,7 +2444,7 @@
       "srcFiles": 4,
       "srcLines": 473,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/astar",
       "demoUrl": "https://henry-the-frog.github.io/astar/"
     },
@@ -4443,7 +2542,7 @@
       "srcFiles": 4,
       "srcLines": 426,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/router",
       "demoUrl": "https://henry-the-frog.github.io/router/"
     },
@@ -4457,7 +2556,7 @@
       "srcFiles": 2,
       "srcLines": 463,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/virtual-dom",
       "demoUrl": "https://henry-the-frog.github.io/virtual-dom/"
     },
@@ -4513,7 +2612,7 @@
       "srcFiles": 3,
       "srcLines": 345,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/graph-db",
       "demoUrl": "https://henry-the-frog.github.io/graph-db/"
     },
@@ -4541,7 +2640,7 @@
       "srcFiles": 3,
       "srcLines": 118,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/printf",
       "demoUrl": "https://henry-the-frog.github.io/printf/"
     },
@@ -4611,7 +2710,7 @@
       "srcFiles": 2,
       "srcLines": 609,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/proof-assistant",
       "demoUrl": "https://henry-the-frog.github.io/proof-assistant/"
     },
@@ -4625,7 +2724,7 @@
       "srcFiles": 2,
       "srcLines": 528,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/red-black-tree",
       "demoUrl": "https://henry-the-frog.github.io/red-black-tree/"
     },
@@ -4653,7 +2752,7 @@
       "srcFiles": 4,
       "srcLines": 683,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/automaton",
       "demoUrl": "https://henry-the-frog.github.io/automaton/"
     },
@@ -4681,7 +2780,7 @@
       "srcFiles": 3,
       "srcLines": 264,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/markdown-parser",
       "demoUrl": "https://henry-the-frog.github.io/markdown-parser/"
     },
@@ -4695,7 +2794,7 @@
       "srcFiles": 4,
       "srcLines": 260,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/money",
       "demoUrl": "https://henry-the-frog.github.io/money/"
     },
@@ -4709,7 +2808,7 @@
       "srcFiles": 3,
       "srcLines": 137,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/rpn",
       "demoUrl": "https://henry-the-frog.github.io/rpn/"
     },
@@ -4723,7 +2822,7 @@
       "srcFiles": 3,
       "srcLines": 39,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/validate",
       "demoUrl": "https://henry-the-frog.github.io/validate/"
     },
@@ -4751,7 +2850,7 @@
       "srcFiles": 3,
       "srcLines": 22,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/coerce",
       "demoUrl": "https://henry-the-frog.github.io/coerce/"
     },
@@ -4765,7 +2864,7 @@
       "srcFiles": 2,
       "srcLines": 319,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/crdt",
       "demoUrl": "https://henry-the-frog.github.io/crdt/"
     },
@@ -4793,7 +2892,7 @@
       "srcFiles": 4,
       "srcLines": 328,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/interval-tree",
       "demoUrl": "https://henry-the-frog.github.io/interval-tree/"
     },
@@ -4821,7 +2920,7 @@
       "srcFiles": 2,
       "srcLines": 505,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/raft",
       "demoUrl": "https://henry-the-frog.github.io/raft/"
     },
@@ -4835,7 +2934,7 @@
       "srcFiles": 2,
       "srcLines": 274,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/rope",
       "demoUrl": "https://henry-the-frog.github.io/rope/"
     },
@@ -4849,7 +2948,7 @@
       "srcFiles": 4,
       "srcLines": 415,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/scheduler",
       "demoUrl": "https://henry-the-frog.github.io/scheduler/"
     },
@@ -4877,7 +2976,7 @@
       "srcFiles": 4,
       "srcLines": 288,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/union-find",
       "demoUrl": "https://henry-the-frog.github.io/union-find/"
     },
@@ -4891,7 +2990,7 @@
       "srcFiles": 3,
       "srcLines": 115,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/calc",
       "demoUrl": "https://henry-the-frog.github.io/calc/"
     },
@@ -4905,7 +3004,7 @@
       "srcFiles": 2,
       "srcLines": 624,
       "featureCount": 4,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/csp-solver",
       "demoUrl": "https://henry-the-frog.github.io/csp-solver/"
     },
@@ -4919,7 +3018,7 @@
       "srcFiles": 3,
       "srcLines": 90,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/path",
       "demoUrl": "https://henry-the-frog.github.io/path/"
     },
@@ -4933,7 +3032,7 @@
       "srcFiles": 2,
       "srcLines": 253,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/repl",
       "demoUrl": "https://henry-the-frog.github.io/repl/"
     },
@@ -4947,7 +3046,7 @@
       "srcFiles": 2,
       "srcLines": 318,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/skiplist",
       "demoUrl": "https://henry-the-frog.github.io/skiplist/"
     },
@@ -4961,7 +3060,7 @@
       "srcFiles": 2,
       "srcLines": 548,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/actor-model",
       "demoUrl": "https://henry-the-frog.github.io/actor-model/"
     },
@@ -4975,7 +3074,7 @@
       "srcFiles": 3,
       "srcLines": 131,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/base64",
       "demoUrl": "https://henry-the-frog.github.io/base64/"
     },
@@ -5017,7 +3116,7 @@
       "srcFiles": 3,
       "srcLines": 274,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/di",
       "demoUrl": "https://henry-the-frog.github.io/di/"
     },
@@ -5031,7 +3130,7 @@
       "srcFiles": 3,
       "srcLines": 234,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/hash-map",
       "demoUrl": "https://henry-the-frog.github.io/hash-map/"
     },
@@ -5059,7 +3158,7 @@
       "srcFiles": 3,
       "srcLines": 146,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/parser-combinator",
       "demoUrl": "https://henry-the-frog.github.io/parser-combinator/"
     },
@@ -5087,7 +3186,7 @@
       "srcFiles": 3,
       "srcLines": 251,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/tiny-vm",
       "demoUrl": "https://henry-the-frog.github.io/tiny-vm/"
     },
@@ -5101,7 +3200,7 @@
       "srcFiles": 2,
       "srcLines": 293,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/datalog",
       "demoUrl": "https://henry-the-frog.github.io/datalog/"
     },
@@ -5115,7 +3214,7 @@
       "srcFiles": 3,
       "srcLines": 31,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/either",
       "demoUrl": "https://henry-the-frog.github.io/either/"
     },
@@ -5129,7 +3228,7 @@
       "srcFiles": 3,
       "srcLines": 298,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/graph",
       "demoUrl": "https://henry-the-frog.github.io/graph/"
     },
@@ -5143,7 +3242,7 @@
       "srcFiles": 2,
       "srcLines": 400,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/http-framework",
       "demoUrl": "https://henry-the-frog.github.io/http-framework/"
     },
@@ -5185,7 +3284,7 @@
       "srcFiles": 2,
       "srcLines": 253,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/string-template",
       "demoUrl": "https://henry-the-frog.github.io/string-template/"
     },
@@ -5199,7 +3298,7 @@
       "srcFiles": 3,
       "srcLines": 113,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/bitset",
       "demoUrl": "https://henry-the-frog.github.io/bitset/"
     },
@@ -5213,7 +3312,7 @@
       "srcFiles": 2,
       "srcLines": 166,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/clamped",
       "demoUrl": "https://henry-the-frog.github.io/clamped/"
     },
@@ -5227,7 +3326,7 @@
       "srcFiles": 3,
       "srcLines": 108,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/compose",
       "demoUrl": "https://henry-the-frog.github.io/compose/"
     },
@@ -5241,7 +3340,7 @@
       "srcFiles": 3,
       "srcLines": 113,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/deep",
       "demoUrl": "https://henry-the-frog.github.io/deep/"
     },
@@ -5255,7 +3354,7 @@
       "srcFiles": 3,
       "srcLines": 124,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/fuzzy",
       "demoUrl": "https://henry-the-frog.github.io/fuzzy/"
     },
@@ -5269,7 +3368,7 @@
       "srcFiles": 3,
       "srcLines": 171,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/linked-list",
       "demoUrl": "https://henry-the-frog.github.io/linked-list/"
     },
@@ -5283,7 +3382,7 @@
       "srcFiles": 2,
       "srcLines": 221,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/merkle-tree",
       "demoUrl": "https://henry-the-frog.github.io/merkle-tree/"
     },
@@ -5297,7 +3396,7 @@
       "srcFiles": 3,
       "srcLines": 30,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/numfmt",
       "demoUrl": "https://henry-the-frog.github.io/numfmt/"
     },
@@ -5311,7 +3410,7 @@
       "srcFiles": 3,
       "srcLines": 130,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/toml",
       "demoUrl": "https://henry-the-frog.github.io/toml/"
     },
@@ -5325,7 +3424,7 @@
       "srcFiles": 2,
       "srcLines": 371,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/bloom-clock",
       "demoUrl": "https://henry-the-frog.github.io/bloom-clock/"
     },
@@ -5339,7 +3438,7 @@
       "srcFiles": 2,
       "srcLines": 248,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/minimax",
       "demoUrl": "https://henry-the-frog.github.io/minimax/"
     },
@@ -5353,7 +3452,7 @@
       "srcFiles": 2,
       "srcLines": 246,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/peg",
       "demoUrl": "https://henry-the-frog.github.io/peg/"
     },
@@ -5367,7 +3466,7 @@
       "srcFiles": 2,
       "srcLines": 229,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/pipe",
       "demoUrl": "https://henry-the-frog.github.io/pipe/"
     },
@@ -5395,7 +3494,7 @@
       "srcFiles": 3,
       "srcLines": 49,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/range",
       "demoUrl": "https://henry-the-frog.github.io/range/"
     },
@@ -5409,7 +3508,7 @@
       "srcFiles": 2,
       "srcLines": 252,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/reactive",
       "demoUrl": "https://henry-the-frog.github.io/reactive/"
     },
@@ -5423,7 +3522,7 @@
       "srcFiles": 3,
       "srcLines": 99,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/rle",
       "demoUrl": "https://henry-the-frog.github.io/rle/"
     },
@@ -5437,7 +3536,7 @@
       "srcFiles": 2,
       "srcLines": 318,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/sql-parser",
       "demoUrl": "https://henry-the-frog.github.io/sql-parser/"
     },
@@ -5451,7 +3550,7 @@
       "srcFiles": 2,
       "srcLines": 246,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/arena",
       "demoUrl": "https://henry-the-frog.github.io/arena/"
     },
@@ -5465,7 +3564,7 @@
       "srcFiles": 2,
       "srcLines": 546,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/constraint-solver",
       "demoUrl": "https://henry-the-frog.github.io/constraint-solver/"
     },
@@ -5479,7 +3578,7 @@
       "srcFiles": 3,
       "srcLines": 203,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/css-parser",
       "demoUrl": "https://henry-the-frog.github.io/css-parser/"
     },
@@ -5507,7 +3606,7 @@
       "srcFiles": 3,
       "srcLines": 74,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/dotenv",
       "demoUrl": "https://henry-the-frog.github.io/dotenv/"
     },
@@ -5521,7 +3620,7 @@
       "srcFiles": 3,
       "srcLines": 51,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/duration",
       "demoUrl": "https://henry-the-frog.github.io/duration/"
     },
@@ -5535,7 +3634,7 @@
       "srcFiles": 3,
       "srcLines": 142,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/ini-parser",
       "demoUrl": "https://henry-the-frog.github.io/ini-parser/"
     },
@@ -5549,7 +3648,7 @@
       "srcFiles": 2,
       "srcLines": 257,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/interpreter",
       "demoUrl": "https://henry-the-frog.github.io/interpreter/"
     },
@@ -5563,7 +3662,7 @@
       "srcFiles": 2,
       "srcLines": 238,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/kdtree",
       "demoUrl": "https://henry-the-frog.github.io/kdtree/"
     },
@@ -5577,7 +3676,7 @@
       "srcFiles": 2,
       "srcLines": 251,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/pratt",
       "demoUrl": "https://henry-the-frog.github.io/pratt/"
     },
@@ -5591,7 +3690,7 @@
       "srcFiles": 3,
       "srcLines": 19,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/string-sim",
       "demoUrl": "https://henry-the-frog.github.io/string-sim/"
     },
@@ -5605,7 +3704,7 @@
       "srcFiles": 3,
       "srcLines": 268,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/task-queue",
       "demoUrl": "https://henry-the-frog.github.io/task-queue/"
     },
@@ -5633,7 +3732,7 @@
       "srcFiles": 3,
       "srcLines": 164,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/brainfuck",
       "demoUrl": "https://henry-the-frog.github.io/brainfuck/"
     },
@@ -5647,7 +3746,7 @@
       "srcFiles": 3,
       "srcLines": 30,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/chunk",
       "demoUrl": "https://henry-the-frog.github.io/chunk/"
     },
@@ -5661,7 +3760,7 @@
       "srcFiles": 2,
       "srcLines": 236,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/event-loop",
       "demoUrl": "https://henry-the-frog.github.io/event-loop/"
     },
@@ -5675,7 +3774,7 @@
       "srcFiles": 3,
       "srcLines": 176,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/heap",
       "demoUrl": "https://henry-the-frog.github.io/heap/"
     },
@@ -5689,7 +3788,7 @@
       "srcFiles": 2,
       "srcLines": 336,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/lambda",
       "demoUrl": "https://henry-the-frog.github.io/lambda/"
     },
@@ -5703,7 +3802,7 @@
       "srcFiles": 3,
       "srcLines": 29,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/object-path",
       "demoUrl": "https://henry-the-frog.github.io/object-path/"
     },
@@ -5717,7 +3816,7 @@
       "srcFiles": 4,
       "srcLines": 249,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/pool",
       "demoUrl": "https://henry-the-frog.github.io/pool/"
     },
@@ -5731,7 +3830,7 @@
       "srcFiles": 3,
       "srcLines": 156,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/query-builder",
       "demoUrl": "https://henry-the-frog.github.io/query-builder/"
     },
@@ -5745,7 +3844,7 @@
       "srcFiles": 3,
       "srcLines": 96,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/ring-buffer",
       "demoUrl": "https://henry-the-frog.github.io/ring-buffer/"
     },
@@ -5759,7 +3858,7 @@
       "srcFiles": 2,
       "srcLines": 199,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/task-runner",
       "demoUrl": "https://henry-the-frog.github.io/task-runner/"
     },
@@ -5773,7 +3872,7 @@
       "srcFiles": 2,
       "srcLines": 291,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/tensor",
       "demoUrl": "https://henry-the-frog.github.io/tensor/"
     },
@@ -5787,7 +3886,7 @@
       "srcFiles": 3,
       "srcLines": 59,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/args",
       "demoUrl": "https://henry-the-frog.github.io/args/"
     },
@@ -5801,7 +3900,7 @@
       "srcFiles": 3,
       "srcLines": 41,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/bytes",
       "demoUrl": "https://henry-the-frog.github.io/bytes/"
     },
@@ -5815,7 +3914,7 @@
       "srcFiles": 3,
       "srcLines": 25,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/cipher",
       "demoUrl": "https://henry-the-frog.github.io/cipher/"
     },
@@ -5829,7 +3928,7 @@
       "srcFiles": 3,
       "srcLines": 131,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/huffman",
       "demoUrl": "https://henry-the-frog.github.io/huffman/"
     },
@@ -5843,7 +3942,7 @@
       "srcFiles": 2,
       "srcLines": 190,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/lz77",
       "demoUrl": "https://henry-the-frog.github.io/lz77/"
     },
@@ -5857,7 +3956,7 @@
       "srcFiles": 2,
       "srcLines": 290,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/xpath",
       "demoUrl": "https://henry-the-frog.github.io/xpath/"
     },
@@ -5871,7 +3970,7 @@
       "srcFiles": 3,
       "srcLines": 170,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/bloom-filter",
       "demoUrl": "https://henry-the-frog.github.io/bloom-filter/"
     },
@@ -5885,7 +3984,7 @@
       "srcFiles": 3,
       "srcLines": 29,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/case-convert",
       "demoUrl": "https://henry-the-frog.github.io/case-convert/"
     },
@@ -5899,7 +3998,7 @@
       "srcFiles": 3,
       "srcLines": 43,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/date-fmt",
       "demoUrl": "https://henry-the-frog.github.io/date-fmt/"
     },
@@ -5913,7 +4012,7 @@
       "srcFiles": 3,
       "srcLines": 176,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/elf-parser",
       "demoUrl": "https://henry-the-frog.github.io/elf-parser/"
     },
@@ -5927,7 +4026,7 @@
       "srcFiles": 2,
       "srcLines": 209,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/kd-tree",
       "demoUrl": "https://henry-the-frog.github.io/kd-tree/"
     },
@@ -5941,7 +4040,7 @@
       "srcFiles": 3,
       "srcLines": 30,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/pad",
       "demoUrl": "https://henry-the-frog.github.io/pad/"
     },
@@ -5955,7 +4054,7 @@
       "srcFiles": 3,
       "srcLines": 24,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/pluralize",
       "demoUrl": "https://henry-the-frog.github.io/pluralize/"
     },
@@ -5969,7 +4068,7 @@
       "srcFiles": 3,
       "srcLines": 44,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/prng",
       "demoUrl": "https://henry-the-frog.github.io/prng/"
     },
@@ -5983,7 +4082,7 @@
       "srcFiles": 3,
       "srcLines": 32,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/set-ops",
       "demoUrl": "https://henry-the-frog.github.io/set-ops/"
     },
@@ -5997,7 +4096,7 @@
       "srcFiles": 3,
       "srcLines": 154,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/skip-list",
       "demoUrl": "https://henry-the-frog.github.io/skip-list/"
     },
@@ -6011,7 +4110,7 @@
       "srcFiles": 3,
       "srcLines": 43,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/stack",
       "demoUrl": "https://henry-the-frog.github.io/stack/"
     },
@@ -6025,7 +4124,7 @@
       "srcFiles": 3,
       "srcLines": 154,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/store",
       "demoUrl": "https://henry-the-frog.github.io/store/"
     },
@@ -6039,7 +4138,7 @@
       "srcFiles": 3,
       "srcLines": 147,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/toposort",
       "demoUrl": "https://henry-the-frog.github.io/toposort/"
     },
@@ -6053,7 +4152,7 @@
       "srcFiles": 3,
       "srcLines": 191,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/undo-redo",
       "demoUrl": "https://henry-the-frog.github.io/undo-redo/"
     },
@@ -6067,7 +4166,7 @@
       "srcFiles": 2,
       "srcLines": 220,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/actor",
       "demoUrl": "https://henry-the-frog.github.io/actor/"
     },
@@ -6081,7 +4180,7 @@
       "srcFiles": 3,
       "srcLines": 29,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/counter",
       "demoUrl": "https://henry-the-frog.github.io/counter/"
     },
@@ -6095,7 +4194,7 @@
       "srcFiles": 3,
       "srcLines": 62,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/crc32",
       "demoUrl": "https://henry-the-frog.github.io/crc32/"
     },
@@ -6109,7 +4208,7 @@
       "srcFiles": 3,
       "srcLines": 77,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/dep-resolver",
       "demoUrl": "https://henry-the-frog.github.io/dep-resolver/"
     },
@@ -6123,7 +4222,7 @@
       "srcFiles": 3,
       "srcLines": 118,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/deque",
       "demoUrl": "https://henry-the-frog.github.io/deque/"
     },
@@ -6137,7 +4236,7 @@
       "srcFiles": 3,
       "srcLines": 25,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/escape",
       "demoUrl": "https://henry-the-frog.github.io/escape/"
     },
@@ -6151,7 +4250,7 @@
       "srcFiles": 3,
       "srcLines": 79,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/fenwick",
       "demoUrl": "https://henry-the-frog.github.io/fenwick/"
     },
@@ -6165,7 +4264,7 @@
       "srcFiles": 2,
       "srcLines": 245,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/fst",
       "demoUrl": "https://henry-the-frog.github.io/fst/"
     },
@@ -6179,7 +4278,7 @@
       "srcFiles": 2,
       "srcLines": 260,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/genetic",
       "demoUrl": "https://henry-the-frog.github.io/genetic/"
     },
@@ -6193,7 +4292,7 @@
       "srcFiles": 3,
       "srcLines": 54,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/gradient",
       "demoUrl": "https://henry-the-frog.github.io/gradient/"
     },
@@ -6207,7 +4306,7 @@
       "srcFiles": 3,
       "srcLines": 46,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/lru-ttl",
       "demoUrl": "https://henry-the-frog.github.io/lru-ttl/"
     },
@@ -6221,7 +4320,7 @@
       "srcFiles": 2,
       "srcLines": 176,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/markov",
       "demoUrl": "https://henry-the-frog.github.io/markov/"
     },
@@ -6235,7 +4334,7 @@
       "srcFiles": 3,
       "srcLines": 22,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/mime",
       "demoUrl": "https://henry-the-frog.github.io/mime/"
     },
@@ -6249,7 +4348,7 @@
       "srcFiles": 2,
       "srcLines": 237,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/rbtree",
       "demoUrl": "https://henry-the-frog.github.io/rbtree/"
     },
@@ -6263,7 +4362,7 @@
       "srcFiles": 3,
       "srcLines": 176,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/semaphore",
       "demoUrl": "https://henry-the-frog.github.io/semaphore/"
     },
@@ -6277,7 +4376,7 @@
       "srcFiles": 3,
       "srcLines": 23,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/slug",
       "demoUrl": "https://henry-the-frog.github.io/slug/"
     },
@@ -6291,7 +4390,7 @@
       "srcFiles": 3,
       "srcLines": 154,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/timing",
       "demoUrl": "https://henry-the-frog.github.io/timing/"
     },
@@ -6305,7 +4404,7 @@
       "srcFiles": 2,
       "srcLines": 116,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/debounce",
       "demoUrl": "https://henry-the-frog.github.io/debounce/"
     },
@@ -6319,7 +4418,7 @@
       "srcFiles": 2,
       "srcLines": 222,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/wav",
       "demoUrl": "https://henry-the-frog.github.io/wav/"
     },
@@ -6333,7 +4432,7 @@
       "srcFiles": 3,
       "srcLines": 32,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/bimap",
       "demoUrl": "https://henry-the-frog.github.io/bimap/"
     },
@@ -6347,7 +4446,7 @@
       "srcFiles": 3,
       "srcLines": 24,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/event-bus",
       "demoUrl": "https://henry-the-frog.github.io/event-bus/"
     },
@@ -6361,7 +4460,7 @@
       "srcFiles": 3,
       "srcLines": 29,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/multimap",
       "demoUrl": "https://henry-the-frog.github.io/multimap/"
     },
@@ -6375,7 +4474,7 @@
       "srcFiles": 3,
       "srcLines": 32,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/ordered-map",
       "demoUrl": "https://henry-the-frog.github.io/ordered-map/"
     },
@@ -6389,7 +4488,7 @@
       "srcFiles": 3,
       "srcLines": 75,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/sha256",
       "demoUrl": "https://henry-the-frog.github.io/sha256/"
     },
@@ -6403,7 +4502,7 @@
       "srcFiles": 3,
       "srcLines": 73,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/tokenizer",
       "demoUrl": "https://henry-the-frog.github.io/tokenizer/"
     },
@@ -6417,7 +4516,7 @@
       "srcFiles": 3,
       "srcLines": 17,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/morse",
       "demoUrl": "https://henry-the-frog.github.io/morse/"
     },
@@ -6431,7 +4530,7 @@
       "srcFiles": 3,
       "srcLines": 14,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/percent-encode",
       "demoUrl": "https://henry-the-frog.github.io/percent-encode/"
     },
@@ -6445,7 +4544,7 @@
       "srcFiles": 3,
       "srcLines": 35,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/table",
       "demoUrl": "https://henry-the-frog.github.io/table/"
     },
@@ -6459,10 +4558,10 @@
       "srcFiles": 1,
       "srcLines": 14249,
       "featureCount": 0,
-      "lastCommit": "2026-04-05 08:21:49 -0600",
+      "lastCommit": "2026-04-05 08:39:48 -0600",
       "url": "https://github.com/henry-the-frog/playground",
       "demoUrl": "https://henry-the-frog.github.io/playground/"
     }
   ],
-  "generated": "2026-04-05T14:22:35.722Z"
+  "generated": "2026-04-05T14:40:47.004Z"
 }
