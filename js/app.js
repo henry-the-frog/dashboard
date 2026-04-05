@@ -807,17 +807,18 @@
 
     const cards = [
       { icon: '🧪', value: vitalStats.totalTests, label: 'tests', cls: 'stat-accent' },
-      { icon: '📦', value: vitalStats.totalRepos, label: 'repos', cls: 'stat-gold' },
+      { icon: '📦', value: vitalStats.totalProjectCount || vitalStats.totalRepos, label: 'projects', cls: 'stat-gold' },
       { icon: '📝', value: vitalStats.totalBlogPosts, label: 'blog posts', cls: 'stat-purple' },
       { icon: '🔥', value: vitalStats.streak, label: 'day streak', cls: 'stat-green' },
       { icon: '⚡', value: vitalStats.totalTasksWeek, label: 'tasks this week', cls: '' },
     ];
 
-    // Test count breakdown by project
+    // Test count breakdown by project (top 10)
     const testCounts = vitalStats.testCounts || {};
     const breakdownHTML = Object.entries(testCounts)
       .filter(([, v]) => v > 0)
       .sort((a, b) => b[1] - a[1])
+      .slice(0, 10)
       .map(([name, count]) => `<span class="test-breakdown-item">${esc(name)}: ${count.toLocaleString()}</span>`)
       .join('');
 
@@ -907,32 +908,127 @@
     if (!section || !grid || !projectDepth || projectDepth.length === 0) return;
     section.style.display = '';
 
-    grid.innerHTML = projectDepth.map(p => {
-      const freshness = p.lastCommit ? (() => {
-        const age = Math.round((Date.now() - new Date(p.lastCommit).getTime()) / 86400000);
-        return age === 0 ? 'today' : age === 1 ? '1d ago' : `${age}d ago`;
-      })() : '';
+    // Update heading count
+    const countEl = document.getElementById('projectDepthCount');
+    if (countEl) countEl.textContent = projectDepth.length;
 
-      return `
-        <div class="depth-card">
-          <div class="depth-card-header">
-            <span class="depth-card-icon">${p.icon}</span>
-            <span class="depth-card-name">${esc(p.name)}</span>
-          </div>
-          <div class="depth-card-desc">${esc(p.description)}</div>
-          <div class="depth-card-stats">
-            ${p.tests > 0 ? `<div class="depth-stat"><span class="depth-stat-value">${p.tests}</span><span class="depth-stat-label">tests</span></div>` : ''}
-            ${p.srcFiles > 0 ? `<div class="depth-stat"><span class="depth-stat-value">${p.srcFiles}</span><span class="depth-stat-label">files</span></div>` : ''}
-            ${p.srcLines > 0 ? `<div class="depth-stat"><span class="depth-stat-value">${(p.srcLines / 1000).toFixed(1)}k</span><span class="depth-stat-label">lines</span></div>` : ''}
-            ${p.featureCount > 0 ? `<div class="depth-stat"><span class="depth-stat-value">${p.featureCount}</span><span class="depth-stat-label">features</span></div>` : ''}
-          </div>
-          <div class="depth-card-links">
-            <a class="depth-link" href="${esc(p.url)}" target="_blank">📦 Code</a>
-            <a class="depth-link" href="${esc(p.demoUrl)}" target="_blank">🌐 Demo</a>
-          </div>
-          ${freshness ? `<div class="depth-card-freshness">Last commit: ${freshness}</div>` : ''}
-        </div>`;
-    }).join('');
+    // Category counts
+    const cats = {};
+    for (const p of projectDepth) {
+      cats[p.category] = (cats[p.category] || 0) + 1;
+    }
+
+    const catLabels = {
+      all: `All (${projectDepth.length})`,
+      language: '💬 Languages', compiler: '⚙️ Compilers', solver: '🧮 Solvers',
+      'data-structure': '🌳 Data Structures', algorithm: '📐 Algorithms',
+      parser: '📝 Parsers', systems: '🌐 Systems', visual: '🎨 Visual',
+      ml: '🧠 ML', crypto: '🔐 Crypto', physics: '⚛️ Physics', utility: '🔧 Utility',
+    };
+
+    let activeCategory = 'all';
+    let searchQuery = '';
+    const PAGE_SIZE = 24;
+    let visibleCount = PAGE_SIZE;
+
+    function getFiltered() {
+      return projectDepth.filter(p => {
+        if (activeCategory !== 'all' && p.category !== activeCategory) return false;
+        if (searchQuery && !p.name.toLowerCase().includes(searchQuery) && !(p.description || '').toLowerCase().includes(searchQuery)) return false;
+        return true;
+      });
+    }
+
+    function renderGrid() {
+      const filtered = getFiltered();
+      const showing = filtered.slice(0, visibleCount);
+
+      // Stats summary
+      const totalTests = filtered.reduce((s, p) => s + (p.tests || 0), 0);
+      const totalLines = filtered.reduce((s, p) => s + (p.srcLines || 0), 0);
+
+      let html = `<div class="depth-summary">${filtered.length} projects · ${totalTests.toLocaleString()} tests · ${(totalLines/1000).toFixed(0)}k lines</div>`;
+
+      html += showing.map(p => {
+        const freshness = p.lastCommit ? (() => {
+          const age = Math.round((Date.now() - new Date(p.lastCommit).getTime()) / 86400000);
+          return age === 0 ? 'today' : age === 1 ? '1d ago' : `${age}d ago`;
+        })() : '';
+
+        return `
+          <div class="depth-card depth-cat-${esc(p.category)}">
+            <div class="depth-card-header">
+              <span class="depth-card-icon">${p.icon}</span>
+              <span class="depth-card-name">${esc(p.name)}</span>
+              <span class="depth-card-cat">${esc(p.category)}</span>
+            </div>
+            <div class="depth-card-desc">${esc(p.description)}</div>
+            <div class="depth-card-stats">
+              ${p.tests > 0 ? `<div class="depth-stat"><span class="depth-stat-value">${p.tests}</span><span class="depth-stat-label">tests</span></div>` : ''}
+              ${p.srcFiles > 0 ? `<div class="depth-stat"><span class="depth-stat-value">${p.srcFiles}</span><span class="depth-stat-label">files</span></div>` : ''}
+              ${p.srcLines > 0 ? `<div class="depth-stat"><span class="depth-stat-value">${(p.srcLines / 1000).toFixed(1)}k</span><span class="depth-stat-label">lines</span></div>` : ''}
+            </div>
+            <div class="depth-card-links">
+              <a class="depth-link" href="${esc(p.url)}" target="_blank">📦 Code</a>
+            </div>
+            ${freshness ? `<div class="depth-card-freshness">${freshness}</div>` : ''}
+          </div>`;
+      }).join('');
+
+      if (filtered.length > visibleCount) {
+        html += `<button class="depth-load-more" id="depthLoadMore">Show more (${filtered.length - visibleCount} remaining)</button>`;
+      }
+
+      grid.innerHTML = html;
+
+      const loadMore = document.getElementById('depthLoadMore');
+      if (loadMore) {
+        loadMore.addEventListener('click', () => {
+          visibleCount += PAGE_SIZE;
+          renderGrid();
+        });
+      }
+    }
+
+    // Render filter bar + search
+    const filterHTML = `
+      <div class="depth-controls">
+        <div class="depth-filters">
+          ${Object.entries(catLabels).filter(([k]) => k === 'all' || cats[k]).map(([k, label]) =>
+            `<button class="depth-filter-btn${k === 'all' ? ' active' : ''}" data-cat="${k}">${label}${k !== 'all' && cats[k] ? ` (${cats[k]})` : ''}</button>`
+          ).join('')}
+        </div>
+        <input class="depth-search" type="text" placeholder="Search projects…" id="depthSearch">
+      </div>
+    `;
+
+    // Insert controls before grid
+    const existingControls = section.querySelector('.depth-controls');
+    if (existingControls) existingControls.remove();
+    grid.insertAdjacentHTML('beforebegin', filterHTML);
+
+    // Wire up filter buttons
+    section.querySelectorAll('.depth-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        section.querySelectorAll('.depth-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeCategory = btn.dataset.cat;
+        visibleCount = PAGE_SIZE;
+        renderGrid();
+      });
+    });
+
+    // Wire up search
+    const searchInput = document.getElementById('depthSearch');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value.toLowerCase();
+        visibleCount = PAGE_SIZE;
+        renderGrid();
+      });
+    }
+
+    renderGrid();
   }
 
   function renderProjects(projects) {

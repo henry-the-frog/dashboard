@@ -775,38 +775,24 @@ function parseBenchmarks() {
 }
 
 function computeVitalStats(projects, blogPosts, recentDays, streak) {
-  // Count total tests across known projects
+  // Auto-discover all projects under projects/
+  const projectsDir = path.resolve(WORKSPACE, 'projects');
   const testCounts = {};
-  const projectDirs = [
-    { name: 'monkey-lang', dir: 'projects/monkey-lang' },
-    { name: 'ray-tracer', dir: 'projects/ray-tracer' },
-    { name: 'neural-net', dir: 'projects/neural-net' },
-    { name: 'physics', dir: 'projects/physics' },
-    { name: 'genetic-art', dir: 'projects/genetic-art' },
-    { name: 'prolog', dir: 'projects/prolog' },
-    { name: 'minikanren', dir: 'projects/minikanren' },
-    { name: 'boids', dir: 'projects/boids' },
-    { name: 'sat', dir: 'projects/sat' },
-    { name: 'regex-engine', dir: 'projects/regex-engine' },
-    { name: 'gc-simulator', dir: 'projects/gc-simulator' },
-    { name: 'smt-solver', dir: 'projects/smt-solver' },
-    { name: 'type-inference', dir: 'projects/type-inference' },
-    { name: 'csp-solver', dir: 'projects/csp-solver' },
-    { name: 'bytecode-vm', dir: 'projects/bytecode-vm' },
-    { name: 'actor-model', dir: 'projects/actor-model' },
-    { name: 'parser-combinators', dir: 'projects/parser-combinators' },
-    { name: 'btree', dir: 'projects/btree' },
-    { name: 'lisp', dir: 'projects/lisp' },
-    { name: 'probabilistic-ds', dir: 'projects/probabilistic-ds' },
-    { name: 'graph-algorithms', dir: 'projects/graph-algorithms' },
-    { name: 'sql-engine', dir: 'projects/sql-engine' },
-  ];
   let totalTests = 0;
-  for (const p of projectDirs) {
-    const count = countTestsInProject(path.resolve(WORKSPACE, p.dir));
-    testCounts[p.name] = count;
-    totalTests += count;
-  }
+  let totalProjectCount = 0;
+  try {
+    const entries = fs.readdirSync(projectsDir);
+    for (const name of entries) {
+      const fullPath = path.join(projectsDir, name);
+      if (!fs.statSync(fullPath).isDirectory()) continue;
+      const count = countTestsInProject(fullPath);
+      if (count > 0) {
+        testCounts[name] = count;
+        totalTests += count;
+      }
+      totalProjectCount++;
+    }
+  } catch { /* no projects dir */ }
 
   // Count all repos
   const totalRepos = projects.length;
@@ -824,6 +810,7 @@ function computeVitalStats(projects, blogPosts, recentDays, streak) {
     totalTests,
     testCounts,
     totalRepos,
+    totalProjectCount,
     totalBlogPosts,
     streak,
     totalTasksWeek,
@@ -862,151 +849,77 @@ function countTestsInProject(projectDir) {
 }
 
 function computeProjectDepth() {
-  const projects = [
-    {
-      name: 'monkey-lang',
-      dir: 'projects/monkey-lang',
-      icon: '🐒',
-      description: 'Language interpreter, compiler, tracing JIT, WASM backend',
-    },
-    {
-      name: 'ray-tracer',
-      dir: 'projects/ray-tracer',
-      icon: '🌈',
-      description: 'Pure JS ray tracer with BVH, volumes, textures',
-    },
-    {
-      name: 'neural-net',
-      dir: 'projects/neural-net',
-      icon: '🧠',
-      description: 'Neural network library with RNN/LSTM/GAN',
-    },
-    {
-      name: 'physics',
-      dir: 'projects/physics',
-      icon: '⚛️',
-      description: '2D physics engine with SAT collision, constraints',
-    },
-    {
-      name: 'genetic-art',
-      dir: 'projects/genetic-art',
-      icon: '🧬',
-      description: 'Genetic algorithms, neuroevolution, polygon art evolver',
-    },
-    {
-      name: 'prolog',
-      dir: 'projects/prolog',
-      icon: '🔮',
-      description: 'Prolog interpreter — unification, backtracking, 40+ builtins',
-    },
-    {
-      name: 'minikanren',
-      dir: 'projects/minikanren',
-      icon: '🧩',
-      description: 'miniKanren relational logic programming — interleaving search',
-    },
-    {
-      name: 'boids',
-      dir: 'projects/boids',
-      icon: '🐦',
-      description: 'Boids flocking simulation — emergent behavior from simple rules',
-    },
-    {
-      name: 'sat',
-      dir: 'projects/sat',
-      icon: '🧮',
-      description: 'CDCL SAT solver — clause learning, VSIDS, watched literals',
-    },
-    {
-      name: 'regex-engine',
-      dir: 'projects/regex-engine',
-      icon: '🔍',
-      description: 'Regex engine — Thompson NFA construction, character classes',
-    },
-    {
-      name: 'gc-simulator',
-      dir: 'projects/gc-simulator',
-      icon: '♻️',
-      description: 'Garbage collector simulator — Cheney semi-space copying GC',
-    },
-    {
-      name: 'smt-solver',
-      dir: 'projects/smt-solver',
-      icon: '🧩',
-      description: 'SMT solver — DPLL(T) with EUF theory, congruence closure',
-    },
-    {
-      name: 'type-inference',
-      dir: 'projects/type-inference',
-      icon: '🔤',
-      description: 'Hindley-Milner type inference — Algorithm W, ADTs, pattern matching',
-    },
-    {
-      name: 'csp-solver',
-      dir: 'projects/csp-solver',
-      icon: '🧩',
-      description: 'CSP solver — AC-3, backtracking, Sudoku, N-Queens, graph coloring',
-    },
-    {
-      name: 'bytecode-vm',
-      dir: 'projects/bytecode-vm',
-      icon: '⚙️',
-      description: 'Stack-based bytecode VM — compiler, closures, call frames',
-    },
-    {
-      name: 'actor-model',
-      dir: 'projects/actor-model',
-      icon: '📬',
-      description: 'Actor model — Erlang-inspired message passing, supervision, ask/tell',
-    },
-    {
-      name: 'parser-combinators',
-      dir: 'projects/parser-combinators',
-      icon: '📝',
-      description: 'Parser combinators — functional parsing library with JSON parser',
-    },
-    {
-      name: 'btree',
-      dir: 'projects/btree',
-      icon: '🌳',
-      description: 'B-Tree — self-balancing tree with range queries and ordered iteration',
-    },
-    {
-      name: 'lisp',
-      dir: 'projects/lisp',
-      icon: '🔮',
-      description: 'Lisp interpreter — Scheme-like with closures, TCO, standard library',
-    },
-    {
-      name: 'probabilistic-ds',
-      dir: 'projects/probabilistic-ds',
-      icon: '🎲',
-      description: 'Probabilistic data structures — Bloom filter, Count-Min Sketch, HyperLogLog',
-    },
-    {
-      name: 'graph-algorithms',
-      dir: 'projects/graph-algorithms',
-      icon: '🔗',
-      description: 'Graph algorithms — Dijkstra, Bellman-Ford, Kruskal, SCC, toposort',
-    },
-    {
-      name: 'sql-engine',
-      dir: 'projects/sql-engine',
-      icon: '🗃️',
-      description: 'SQL engine — in-memory database with CRUD, JOIN, GROUP BY, aggregates',
-    },
+  // Auto-discover all projects under projects/
+  const projectsDir = path.resolve(WORKSPACE, 'projects');
+  const allProjects = [];
+
+  // Category keywords for auto-classification
+  const categoryRules = [
+    { category: 'language', keywords: ['lisp', 'prolog', 'forth', 'brainfuck', 'lambda', 'minikanren', 'datalog', 'interpreter', 'monkey-lang', 'tiny-vm', 'pratt', 'peg'] },
+    { category: 'compiler', keywords: ['compiler', 'type-infer', 'type-inference', 'type-checker', 'typechecker', 'bytecode-vm', 'wasm-interpreter', 'elf-gen', 'elf-parser', 'proof-assistant'] },
+    { category: 'solver', keywords: ['sat', 'smt', 'csp', 'constraint'] },
+    { category: 'data-structure', keywords: ['btree', 'bst', 'rbtree', 'red-black', 'trie', 'heap', 'skip-list', 'skiplist', 'ring-buffer', 'deque', 'linked-list', 'rope', 'arena', 'interval-tree', 'kd-tree', 'kdtree', 'fenwick', 'union-find', 'bloom-filter', 'bloom-clock', 'bimap', 'multimap', 'ordered-map', 'lru', 'data-structures', 'merkle', 'crdt', 'immutable', 'bitset', 'bits', 'hash-map'] },
+    { category: 'algorithm', keywords: ['sorting', 'graph-algorithms', 'astar', 'pathfinding', 'binary-search', 'toposort', 'diff', 'minimax', 'fft', 'markov', 'dp', 'dep-resolver'] },
+    { category: 'parser', keywords: ['parser', 'json-parser', 'csv', 'toml', 'yaml', 'ini', 'xml', 'xpath', 'sexpr', 'markdown', 'css-parser', 'regex', 'nfa-regex', 'automata', 'automaton', 'peg', 'parsec', 'tokenizer', 'protobuf', 'cbor', 'msgpack', 'asn1'] },
+    { category: 'systems', keywords: ['tcp-ip', 'tiny-os', 'dns', 'http', 'websocket', 'bittorrent', 'raft', 'henrydb', 'kv-store', 'sql-engine', 'henry-redis', 'tiny-git', 'ecs', 'event-loop'] },
+    { category: 'visual', keywords: ['ray-tracer', 'sdf-renderer', 'ray-marcher', 'boids', 'particle-life', 'game-of-life', 'cellular', 'fractal', 'lsystem', 'sorting-viz', 'fractals', 'genetic-art'] },
+    { category: 'ml', keywords: ['neural-net', 'genetic', 'tensor'] },
+    { category: 'crypto', keywords: ['crypto', 'cipher', 'sha256', 'jwt', 'blockchain', 'crc32'] },
+    { category: 'physics', keywords: ['physics', 'gc-simulator', 'gc'] },
   ];
 
-  return projects.map(p => {
-    const dir = path.resolve(WORKSPACE, p.dir);
-    const info = getProjectInfo(dir);
-    return {
-      ...p,
-      ...info,
-      url: `https://github.com/henry-the-frog/${p.name}`,
-      demoUrl: `https://henry-the-frog.github.io/${p.name}/`,
-    };
-  });
+  // Icon map for known projects
+  const iconMap = {
+    'monkey-lang': '🐒', 'ray-tracer': '🌈', 'neural-net': '🧠', 'physics': '⚛️',
+    'genetic-art': '🧬', 'prolog': '🔮', 'minikanren': '🧩', 'boids': '🐦',
+    'sat': '🧮', 'chess-engine': '♟️', 'henrydb': '🗄️', 'lambda-calculus': 'λ',
+    'forth': '📚', 'type-inference': '🔤', 'smt-solver': '⚡', 'compiler-backend': '⚙️',
+    'lisp': '🔮', 'tiny-os': '💻', 'tcp-ip': '🌐', 'wasm-interpreter': '🔧',
+  };
+
+  try {
+    const entries = fs.readdirSync(projectsDir);
+    for (const name of entries) {
+      const fullPath = path.join(projectsDir, name);
+      if (!fs.statSync(fullPath).isDirectory()) continue;
+
+      const info = getProjectInfo(fullPath);
+      if (info.tests === 0 && info.srcFiles === 0) continue; // skip empty dirs
+
+      // Auto-categorize
+      let category = 'utility';
+      for (const rule of categoryRules) {
+        if (rule.keywords.some(kw => name.includes(kw))) {
+          category = rule.category;
+          break;
+        }
+      }
+
+      // Read first line of README for description
+      let description = '';
+      try {
+        const readme = fs.readFileSync(path.join(fullPath, 'README.md'), 'utf8');
+        const descMatch = readme.match(/^#[^\n]*\n+([^\n]+)/);
+        if (descMatch) description = descMatch[1].replace(/[*_]/g, '').trim().substring(0, 100);
+      } catch {}
+
+      allProjects.push({
+        name,
+        dir: `projects/${name}`,
+        icon: iconMap[name] || '📦',
+        description,
+        category,
+        ...info,
+        url: `https://github.com/henry-the-frog/${name}`,
+        demoUrl: `https://henry-the-frog.github.io/${name}/`,
+      });
+    }
+  } catch { /* no projects dir */ }
+
+  // Sort: by test count descending (deepest projects first)
+  allProjects.sort((a, b) => b.tests - a.tests);
+
+  return allProjects;
 }
 
 function getProjectInfo(dir) {
